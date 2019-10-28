@@ -2,7 +2,7 @@
 
 ## 系统命令
 
-```bash
+```sh
 shutdown -r now # 立即重启
 sudo pacman-mirrors -f 5 && sudo pacman -Syyuu # 系统更新
 systemctl disable <name> # 更改 systemd 相关内容
@@ -19,14 +19,15 @@ inxi -Fx # 查看系统信息
 
 ## Frpc 或内网穿透
 
-```bash
+```sh
 nohup frpc -c ./frpc.ini &
 ```
 
 ## SSH 相关
 
-```bash
+```sh
 scp <filename> liubianshi@192.168.199.167 # 通过 ssh 在不同的电脑之间传递文件
 ssh liubianshi@192.168.199.167 # 远程登录
 ssh -oPort=6000 liubianshi@45.77.191.222 # 登录内网电脑
 ```
+

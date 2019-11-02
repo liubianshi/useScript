@@ -2,17 +2,15 @@ library("tidyverse")
 require("data.table")
 fLabel <- function(df, variables, attri.list, attri = "label") {
     # Set attributes for variables in data.frame
-    # df: data.frame
+    # df: data.table 
     # variable: one bare variabel name or character vector of variable names
     # attri.list: numeric or character vector, length must equal variables
     nn <- deparse(substitute(variables)) 
-    if (!is.data.frame(df)) 
-       stop("df must be a data.frame") 
+    if (!is.data.table(df)) 
+       stop("df must be a data.table") 
     if (nn %in% names(df)) {
         variables <- nn
-    } else if (!grepl("[\"']", nn) & !exists(nn, mode = "character")) {
-        stop(nn, " is not a character object") 
-    }
+    } 
     if (length(variables) != length(attri.list))
         stop("'variables' number must equal 'attri.list' number")
     if (any(! variables %in% names(df)))

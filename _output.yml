@@ -1,0 +1,13 @@
+bookdown::pdf_book:
+    template: "~/useScript/default-rmd.latex"
+    template: null
+    latex_engine: xelatex
+    keep_tex: false
+    pandoc_args: 
+        - "--listings"
+    includes:
+        in_header:
+            - "/home/liubianshi/useScript/header.tex"
+            - "/home/liubianshi/useScript/code.tex"
+bookdown::html_book:
+  css: toc.css

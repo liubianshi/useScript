@@ -1,0 +1,15 @@
+bookdown::pdf_book:
+    includes:
+        in_header:
+            - "latex/header.tex"
+            - "latex/code.tex"
+    template: "latex/default-rmd.latex"
+    latex_engine: xelatex
+    keep_tex: TRUE 
+    toc: FALSE
+    quote_footer: ["\\begin{flushright}", "\\end{flushright}"]
+    pandoc_args: 
+        - "--listings"
+        - "--csl=WorldEconomy.csl"
+bookdown::html_book:
+    css: 'css/vue.css'

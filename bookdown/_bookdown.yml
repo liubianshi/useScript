@@ -1,0 +1,22 @@
+book_filename: draft
+clean: [packages.bib, draft.bbl]
+delete_merged_file: TRUE
+language:
+  label:
+    fig: "图 "
+    tab: "表 "
+    eq: '公式 '
+    thm: '定理 '
+    lem: '引理 '
+    cor: '推论 '
+    prp: '假设 '
+    cnj: '推论 '
+    def: '定义 '
+    exm: '案例 '
+    exr: '练习 '
+    proof: '证明 '
+    remark: '备注 '
+    solution: '答案 '
+  ui:
+    edit: "编辑"
+    chapter_name: ["第 ", " 章"]

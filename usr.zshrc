@@ -12,6 +12,7 @@ alias D="~/useScript/testCollection.sh"
 alias ss=proxychains
 alias mutt='proxychains -q neomutt'
 alias book='~/useScript/bookdown_init.sh'
+alias ssh1='ssh -oPort=6000 liubianshi@118.190.162.170'
 
 lfcd () {
     tmp="$(mktemp)"

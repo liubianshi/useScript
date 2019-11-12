@@ -13,6 +13,7 @@ alias ss=proxychains
 alias mutt='proxychains -q neomutt'
 alias book='~/useScript/bookdown_init.sh'
 alias ssh1='ssh -oPort=6000 liubianshi@118.190.162.170'
+alias ssh0='ssh liubianshi_ali@118.190.162.170'
 
 lfcd () {
     tmp="$(mktemp)"

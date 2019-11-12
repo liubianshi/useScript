@@ -27,12 +27,12 @@ fLabel <- function(df, variables, attri.list, attri = "label") {
 #> stata style describe 
 fPrint <- function(z, digits = getOption("digits"), nsmall = 3,
                    width = 7, big.mark = ",") {
-        t <- abs(quantile(z, 0.5, na.rm = TRUE))
-        if (t < 10 ^ (nsmall + 3 - width)) {
-            x <- format(z, digits = width - 3, nsmall = nsmall, 
-                        width = width, scientific = FALSE)
+        t <- abs(z)
+        if (t == 0) {
+            x <- format(z, digits = 0, 
+                        nsmall = nsmall, width = width, scientific = FALSE)
         } else if (t < 1) {
-            x <- format(z, digits = digits + as.integer(log10(1/t)), 
+            x <- format(z, digits = max(0, digits - as.integer(log10(1/t))), 
                         nsmall = nsmall, width = width, scientific = FALSE)
         } else if (t < 10) {
             x <- format(z, digits = digits, nsmall = nsmall,
@@ -62,8 +62,7 @@ fDes.default <- function(x, na.rm = TRUE, format = TRUE,
     y[8] <- max(x)
     z <- vector("character", 8)
     if (format == TRUE) {
-        z[1] <- fPrint(y[1], digits, nsmall, width, big.mark)
-        z[2:8] <- fPrint(y[2:8], digits, nsmall, width, big.mark)
+        z <- y %>% map_chr(fPrint, digits, nsmall, width, big.mark)
     }
     names(z) <- c("obs", "mean", "sd", "min", "p25", "p50", "p75", "max")
     z
@@ -105,6 +104,7 @@ fDes.data.frame <- function(df, variable, label = NULL, na.rm = TRUE,
     }
     df.new
 }
+
 fDes <- function(object, ...) {
     UseMethod("fDes")
 }

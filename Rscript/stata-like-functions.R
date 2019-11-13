@@ -108,3 +108,43 @@ fDes.data.frame <- function(df, variable, label = NULL, na.rm = TRUE,
 fDes <- function(object, ...) {
     UseMethod("fDes")
 }
+
+# 回归公式生成函数
+fFormula <- function(dep, indep_ex, fe = NULL, cluster = NULL,
+                     indep_in = NULL, iv = NULL, method = "felm") {
+    #> dep: dependent variable, require
+    #> indep_ex: exogeneous independent variables, require 
+    #> fe: fixed effect, optional
+    #> cluster: cluster varaible, optional
+    #> indep_in: endogenous independent variables, optional
+    #> iv: Instrumental variables, must longer than `indep_in`
+    #> method: Formula usage scenario, default is felm
+    if (!is.null(indep_in) && length(iv) < length(indep_in))
+        stop("IV number less then Endogenous")
+    if (method == "felm") {
+        k.dep_indep <- paste(dep, "~", paste0(indep_ex, collapse = " + "))
+        k.fe <- if (is.null(fe)) {
+            "0"
+        } else {
+            paste0(fe, collapse = " + ")
+        }
+        k.cluster <- if (is.null(cluster)) {
+            "0"
+        } else {
+            paste0(cluster, collapse = " + ")
+        }
+        k.indep_in <- if (is.null(indep_in)) {
+            "0"
+        } else {
+            if (length(indep_in) == 1) {
+                paste0("\\(", indep_in, " ~ ",
+                       paste0(iv, collapse = " + "), "\\)")
+            } else {
+                paste0("(", paste0(indep_in, collapse = "|"), " ~ ",
+                       paste0(iv, collapse = " + "), ")")
+            }
+        }
+        as.formula(paste0(c(k.dep_indep, k.fe, k.indep_in, k.cluster),
+                          collapse = " | ")) 
+    }
+}

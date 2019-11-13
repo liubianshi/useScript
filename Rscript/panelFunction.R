@@ -38,6 +38,8 @@ fLag <- function(x, time, n = 1L) {
     x[index]
 }
 
+
+
 fXTLag <- function(panel.dt, varlist, n = 1L, new.dt = FALSE) {
     #> panel.dt `data.table`     标记为面版数据的 `data.table`
     #> varlist  character vector 待处理变量, 可以单个变量名裸字符串, 可以是带引号
@@ -62,12 +64,20 @@ fXTLag <- function(panel.dt, varlist, n = 1L, new.dt = FALSE) {
         paste0("F", -n, "_", varlist)
     }
     if (new.dt == TRUE) {
-        panel.dt <- panel.dt[, lapply(.SD, fLag, c(time), n),
-                             by = c(id), .SDcols = varlist][, -1]
+        panel.dt <- panel.dt[, lapply(.SD[, -1], fLag, .SD[[time]], n),
+                             by = c(id), .SDcols = c(time, varlist)][, -1]
         names(panel.dt) <- k.lag.varlist
     } else {
-        panel.dt[, (k.lag.varlist) := lapply(.SD, fLag, c(time), n),
-                 by = c(id), .SDcols = varlist]
+        panel.dt[, (k.lag.varlist) := lapply(.SD[, -1], fLag, .SD[[time]], n),
+                 by = c(id), .SDcols = c(time, varlist)]
     }
     invisible(panel.dt)
 }
+
+#> d.temp <- data.table(ID = rep(letters[1:3], each = 5),
+#>                     year = rep(2001:2005, 3), vari = runif(15))
+#> d.temp2 <- d.temp[ID == "a"]
+#> d.temp3 <- d.temp[year != 2003, ]
+#> fXTSet(d.temp, ID, year)
+#> fXTLag(d.temp3, vari)
+#> fLag(d.temp2$vari, d.temp2$year)

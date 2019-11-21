@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 string="$(xsel -op | sed ':a; N; s/\n/ /g; ta' | sed -E 's/\s+/ /g')"
 [[ -z "$string" ]] && { echo "没有复制文本" 1>&2; exit 1; }

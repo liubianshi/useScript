@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 set -C -f -u 
 IFS=$'\n'
 # ANSI color codes are supported.

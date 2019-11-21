@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/usr/bin/env bash
 
 inputTest=$(xsel -op | sed ':a; N; s/\n/ /g; ta' |  sed -E 's/\s+/ /g')
 outputTest=$(trans -b "$inputTest")

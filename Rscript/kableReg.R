@@ -1,8 +1,7 @@
-require("tidyverse")
-require("knitr")
-require("kableExtra")
-require("lfe")
-require("broom")
+#' kablest Convert estimate results to kable
+
+
+
 
 fStringMatch <- function(x, sub_x, method = "exact") {
     if (!is.character(x))

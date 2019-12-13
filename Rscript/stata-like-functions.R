@@ -151,4 +151,10 @@ fFormula <- function(dep, indep_ex, fe = NULL, cluster = NULL,
     }
 }
 
+# 基于对象名清除对象
+fDrop <- function(pattern, regex = FALSE) {
+    d.env <- as.environment(-1)
+    if (!regex) pattern = glob2rx(pattern)
+    rm(list = ls(pattern = pattern, envir = d.env), envir = d.env)
+}
 

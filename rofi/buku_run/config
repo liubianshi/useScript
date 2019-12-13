@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+options='-columns 2 -width 100 -lines 20 -bw 2 -yoffset -2 -location 1'
+_rofi () {
+    rofi -dmenu -i -no-levenshtein-sort ${options} "$@"
+}
+
+# display settings
+display_type=3
+max_str_width=50
+
+# keybindings
+switch_view="Alt+Tab"
+new_bookmark="Alt+n"
+actions="Alt+a"
+edit="Alt+e"
+delete="Alt+d"
+
+# colors
+help_color="#2d7ed8"

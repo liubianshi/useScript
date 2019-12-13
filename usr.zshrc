@@ -2,19 +2,26 @@
 
 # 自定义启动脚本
 ## 别名
-alias xstata-mp='nohup /usr/local/bin/xstata-mp &'
-alias cat='bat'
-alias ll='exa -alh'
-alias help='tldr'
-alias T='cd /tmp'
-alias tb='taskbook'
-alias bm='buku --suggest'
 alias D="~/useScript/testCollection.sh"
-alias ss=proxychains
-alias mutt='proxychains -q neomutt'
+alias T='cd /tmp'
+alias bm='buku --suggest'
 alias book='~/useScript/bookdown_init.sh'
-alias ssh1='ssh -oPort=6000 liubianshi@118.190.162.170'
+alias cat='bat'
+alias ga='git add'
+alias gm='git commit -m'
+alias gpull='git pull'
+alias gpush='git push'
+alias gs='git status'
+alias help='tldr'
+alias ll='exa -alh'
+alias mutt='proxychains -q neomutt'
+alias ss=proxychains
 alias ssh0='ssh liubianshi_ali@118.190.162.170'
+alias ssh1='ssh -oPort=6000 liubianshi@118.190.162.170'
+alias stata='nohup /usr/local/bin/xstata-mp &'
+alias tb='taskbook'
+alias T='tmux a || tmux'
+alias fdn='fd --changed-within=1d'
 
 lfcd () {
     tmp="$(mktemp)"

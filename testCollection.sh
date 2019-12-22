@@ -25,6 +25,7 @@ else
                 --text="请检查剪切版中的图片！"
             exit 1
     fi
+    echo "$NUTSTORE/Sync/.assets/$filename" | xclip -sel clip
     string="![](.assets/$filename)\n    "
 fi
 
@@ -47,6 +48,19 @@ if [[ "$conti" == 0 ]]; then
                 --text="标题和作者信息必须完全！"
             exit 1
         fi
+        
+        # 处理标题
+        if [[ ! $(grep -E -c "^# $(date +%Y)" "$file") > 0 ]]; then
+            printf "# $(date +%Y)\n\n## $(date +%Y%m)\n\n### $(date +%Y%m%d)\n\n"
+        else
+            if [[ ! $(grep -E -c "^## $(date +%Y%m)" "$file") > 0 ]]; then
+                printf "## $(date +%Y%m)\n\n### $(date +%Y%m%d)\n\n"
+            else
+                if [[ ! $(grep -E -c "^### $(date +%Y%m%d)" "$file") > 0 ]]; then
+                    printf "### $(date +%Y%m%d)\n\n"
+                fi
+            fi
+        fi
         printf "1. $Title [$(date +%Y-%m-%d)]\n: 作者：$Author"
         if [[ "$Note" != "" ]]; then
             printf "^[资料来源：$Source. $(date +%Y-%m-%d).]\n\n"
@@ -68,7 +82,7 @@ if [[ "$conti" == 0 ]]; then
     fi
 else 
     {
-        print "    $string<!--$(date +%Y-%m-%d\ %H:%M:%S)-->\n\n"
+        printf "    $string<!--$(date +%Y-%m-%d\ %H:%M:%S)-->\n\n"
     } >> "$file"
     if [[ $? == 0 ]]; then
         notify-send -i "$NUTSTORE/Sync/icons/data-collecting.png" "Collect Successfully" "$string"

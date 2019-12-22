@@ -26,9 +26,9 @@ fLabel <- function(df, variables, attri.list, attri = "label") {
 
 #> stata style describe 
 fPrint <- function(z, digits = getOption("digits"), nsmall = 3,
-                   width = 7, big.mark = ",") {
+                   width = 7, big.mark = ",", na.replace = "n.a.") {
         if (is.na(z)) 
-            return("")
+            return(na.replace)
         t <- abs(z)
         if (t == 0) {
             x <- format(z, digits = 0, 

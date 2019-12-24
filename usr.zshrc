@@ -23,6 +23,7 @@ alias stata='nohup /usr/local/bin/xstata-mp &'
 alias tb='taskbook'
 alias T='tmux a || tmux'
 alias fdn='fd --changed-within=1d'
+alias rmarkdown='~/useScript/rmarkdown.sh'
 
 lfcd () {
     tmp="$(mktemp)"
@@ -83,6 +84,5 @@ N() {
         vim "$dir/$file"
     fi
 }
-
 
 

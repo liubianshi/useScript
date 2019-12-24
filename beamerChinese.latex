@@ -27,6 +27,12 @@ $endif$
 \usepackage{bm}
 \usepackage[american]{babel}
 \usepackage{multirow}
+\usepackage{tabu}
+\usepackage{longtable}
+\usepackage{float}
+\usepackage{threeparttable}
+\usepackage{lscape}
+\usepackage{booktabs}
 
 \ifxetex
   \usepackage{fontspec,xltxtra,xunicode}

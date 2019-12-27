@@ -16,6 +16,7 @@ alias gs='git status'
 alias help='tldr'
 alias ll='exa -alh'
 alias mutt='proxychains -q neomutt'
+alias open='xdg-open'
 alias ss=proxychains
 alias ssh0='ssh liubianshi_ali@118.190.162.170'
 alias ssh1='ssh -oPort=6000 liubianshi@118.190.162.170'
@@ -24,6 +25,7 @@ alias tb='taskbook'
 alias T='tmux a || tmux'
 alias fdn='fd --changed-within=1d'
 alias rmarkdown='~/useScript/rmarkdown.sh'
+alias lf2='dvtm -m '^a' lf -command "set noprview" lf -command "set noprview"'
 
 lfcd () {
     tmp="$(mktemp)"
@@ -39,6 +41,31 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+
+temp () {
+    cmd="nvim"
+    files=""
+	while getopts c: opt
+	do
+		case "$opt" in
+			c) cmd="$OPTARG";;
+			*) echo "Unknow option:: $opt";;
+		esac
+	done
+    shift $(( OPTIND - 1 )) 	# 移动参数
+    
+    for arg in $@; do
+        files="$files $(mktemp).$arg "
+    done
+
+    if [[ $files == "" ]]; then
+        $cmd $(mktemp) 
+    else
+        $cmd "$files"
+    fi
+}
+
+
 
 ## 在日记文件夹快速新建并打开文件
 N() {

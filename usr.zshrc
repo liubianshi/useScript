@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+[[ -f ~/useScript/lf_icons.sh ]] && source ~/useScript/lf_icons.sh
+
 # 自定义启动脚本
 ## 别名
 alias D="~/useScript/testCollection.sh"
@@ -22,10 +24,10 @@ alias ssh0='ssh liubianshi_ali@118.190.162.170'
 alias ssh1='ssh -oPort=6000 liubianshi@118.190.162.170'
 alias stata='nohup /usr/local/bin/xstata-mp &'
 alias tb='taskbook'
-alias T='tmux a || tmux'
+alias tmux='tmux a || tmux'
 alias fdn='fd --changed-within=1d'
 alias rmarkdown='~/useScript/rmarkdown.sh'
-alias lf2='dvtm -m '^a' lf -command "set noprview" lf -command "set noprview"'
+alias wt='curl wttr.in/Tianjin\?format=3'
 
 lfcd () {
     tmp="$(mktemp)"
@@ -45,23 +47,31 @@ bindkey -s '^o' 'lfcd\n'
 temp () {
     cmd="nvim"
     files=""
-	while getopts c: opt
+    out="n"
+	while getopts c:o opt
 	do
 		case "$opt" in
 			c) cmd="$OPTARG";;
+            o) out='y';;
 			*) echo "Unknow option:: $opt";;
 		esac
 	done
     shift $(( OPTIND - 1 )) 	# 移动参数
     
     for arg in $@; do
-        files="$files $(mktemp).$arg "
+        if [[ $files == "" ]]; then
+            files="$(mktemp --suffix=.$arg)"
+        else
+            files="$files $(mktemp --suffix=.$arg)"
+        fi
     done
 
     if [[ $files == "" ]]; then
-        $cmd $(mktemp) 
-    else
-        $cmd "$files"
+        files=$(mktemp) 
+    fi
+    echo "$files"
+    if [[ $out != "y" ]]; then
+        $cmd $files
     fi
 }
 
@@ -92,13 +102,7 @@ N() {
     file="$(date +%y%m%d)_$file"
 
 	if [[ $replace == "yes" ]] || [ ! -f "$dir/$file" ]; then
-    {
-        echo "---"                        
-        echo "author: 罗伟"               
-        echo "date: $(date +%Y-%m-%d)"    
-        echo "---\n"                      
-        echo "# ${title}\n"               
-    } > "$dir/$file"
+        echo "# ${title}\n" > "$dir/$file"
 	fi
     
     if [[ "$xopen" == "yes" ]]; then

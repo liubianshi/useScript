@@ -4,7 +4,7 @@ set -ev
 
 package='rmarkdown'
 func='render'
-output_format='pdf_document'
+output_format='bookdown::pdf_document2'
 while getopts p:f:o: opt; do
     case "$opt" in
         p) package="$OPTARG";;

@@ -3,10 +3,10 @@
 use v6;
 
 sub format-codepoint(Int $codepoint) {
-    sprintf "%-4s\tU+%05x    %s\n",
+    sprintf "%s\t%s\tU+%05x\n",
         $codepoint.chr,
-        $codepoint,
-        $codepoint.uniname.tclc;
+        $codepoint.uniname.tclc,
+        $codepoint;
 }
 
 multi sub MAIN(Str $x where .chars == 1) {

@@ -19,6 +19,7 @@ alias help='tldr'
 alias ll='exa -alh'
 alias mutt='proxychains -q neomutt'
 alias open='xdg-open'
+alias o='a -e xdg-open'
 alias ss=proxychains
 alias ssh0='ssh liubianshi_ali@118.190.162.170'
 alias ssh1='ssh -oPort=6000 liubianshi@118.190.162.170'
@@ -28,6 +29,7 @@ alias tmux='tmux a || tmux'
 alias fdn='fd --changed-within=1d'
 alias rmarkdown='~/useScript/rmarkdown.sh'
 alias wt='curl wttr.in/Tianjin\?format=3'
+alias v='f -e nvim'
 
 lfcd () {
     tmp="$(mktemp)"

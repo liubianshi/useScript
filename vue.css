@@ -96,14 +96,6 @@ p {
 }
 
 
-blockquote, ul, ol, dl, table {
-    margin: 0.8em 0 1.5em auto;
-}
-
-li > ol,
-li > ul {
-    margin: 0 0;
-}
 
 hr {
     height: 2px;
@@ -138,24 +130,57 @@ body > h6:first-child {
     padding-top: 0;
 }
 
-
-li p.first {
-    display: inline-block;
+blockquote, ul, ol, table {
+    margin: 0.8em 0 1.5em auto;
 }
+
+dl {
+  display: grid;
+  grid-template-columns: max-content auto;
+}
+dt, dd {
+  line-height: inherit;
+}
+dt {
+  grid-column-start: 1;
+}
+dt::before {
+    content: "»\00a0 ";
+    font-weight: normal;
+    color: #BD1C2B;
+}
+dt::after {
+    content: ":\00a0 ";
+}
+dd {
+  grid-column-start: 2;
+  margin-left: 1em;
+  margin-inline-start: 1em;
+}
+
+/*dd, dt {*/
+    /*display: inline;*/
+/*}*/
+/*dd, dt, .address {*/
+    /*vertical-align: middle;*/
+/*}*/
+/*dt {*/
+    /*font-weight: bolder;*/
+/*}*/
+
 
 ul, ol {
     padding-left: 1em;
 }
 
-ul:first-child,
-ol:first-child {
-    margin-top: 0;
+ul li, ol li { margin: 0 0; }
+
+li p { margin: 0.5em 0; }
+
+li p.first {
+    display: inline-block;
 }
 
-ul:last-child,
-ol:last-child {
-    margin-bottom: 0;
-}
 
 blockquote {
     border-left: 4px solid #42b983;
@@ -251,7 +276,7 @@ code {
     background-color: #f8f8f8;
 }
 
-p code, ul code, li code {
+p code, ul code, li code, dd code, dl code, dt code {
     color: #1732CB;
     font-size: 0.9em;
     font-family: 'Fira Code';
@@ -265,6 +290,7 @@ pre code {
     white-space: pre-wrap;
     background-color: transparent;
     border-radius: 0;
+    color: #34495e;
 }
 
 .md-footnote {

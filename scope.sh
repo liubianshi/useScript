@@ -23,7 +23,7 @@ FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr '[:upper:]' '[:lower:]')
 HIGHLIGHT_SIZE_MAX=262143  # 256KiB
 HIGHLIGHT_TABWIDTH=8
 HIGHLIGHT_STYLE='pablo'
-PYGMENTIZE_STYLE='autumn'
+PYGMENTIZE_STYLE='monokai'
 
 handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
@@ -88,15 +88,14 @@ handle_mime() {
                 exit 2
             fi
             if [ "$( tput colors )" -ge 256 ]; then
-                local pygmentize_format='terminal256'
-                local highlight_format='xterm256'
+                local pygmentize_format='256'
+                local highlight_format='ansi'
             else
                 local pygmentize_format='terminal'
                 local highlight_format='ansi'
             fi
-            highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" \
-                --style="${HIGHLIGHT_STYLE}" --force -- "${FILE_PATH}"
-            # pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}" -- "${FILE_PATH}" 
+            highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" --style="${HIGHLIGHT_STYLE}" --force -- "${FILE_PATH}"
+            #pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}" -- "${FILE_PATH}" 
             exit 2;;
 
         # Image

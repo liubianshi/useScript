@@ -1,11 +1,12 @@
 \usepackage{xcolor}
 \lstset{
-    xleftmargin=\parindent,
-    numbers=left, 
+    xleftmargin={2em},
+    xrightmargin={2em},
+    numbers=none, 
     numberstyle=\small,
     basicstyle=\footnotesize\ttfamily, % 字体选择 
     breaklines=true,      % 设定LaTeX对过长的代码行进行自动换行
-    extendedchars=false,  % 解决代码跨页时，章节标题、页眉页脚的汉字无法正常显示的问题
+    extendedchars=true,  % 解决代码跨页时，章节标题、页眉页脚的汉字无法正常显示的问题
     keywordstyle=\color{blue!70},
     commentstyle=\ttfamily\color{green!40!black}, % 设定注释部分字体为等宽字体
     frame=none,           % 背景边框

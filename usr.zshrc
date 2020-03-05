@@ -13,9 +13,9 @@ alias dual='~/useScript/dual_monitors_laptop.sh'
 alias ga='git add'
 alias gm='git commit -m'
 alias gpull='git pull'
-alias gpush='git push'
+alias gpush='git push -u origin master'
 alias gs='git status'
-alias help='tldr'
+alias help='ss -q tldr'
 alias ll='exa -alh'
 alias mutt='proxychains -q neomutt'
 alias open='xdg-open'
@@ -30,6 +30,11 @@ alias fdn='fd --changed-within=1d'
 alias rmarkdown='~/useScript/rmarkdown.sh'
 alias wt='curl wttr.in/Tianjin\?format=3'
 alias v='f -e nvim'
+alias y='youtube-dl'
+alias yx='youtube-dl -x'     # 以最佳质量仅下载音频
+alias ya='youtube-dl -a'     # 下载文件中链接
+alias yd='youtube-dl --write-info-json --write-annotations --write-sub --write-thumbnail --skip-download'
+alias yl='youtube-dl --playlist-items'
 
 lfcd () {
     tmp="$(mktemp)"
@@ -118,4 +123,6 @@ N() {
     fi
 }
 
+# raku
+export POD_TO_TEXT_ANSI=1 # using ANSI escape sequence on p6doc
 

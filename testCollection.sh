@@ -2,7 +2,7 @@
 
 conti=0
 image=0
-file="$NUTSTORE/Sync/textCollection.Rmd"
+file="$DIY_COLLECT"
 
 while getopts ci opt; do
     case "$opt" in
@@ -26,7 +26,11 @@ else
             exit 1
     fi
     echo "$NUTSTORE/Sync/.assets/$filename" | xclip -sel clip
-    string="![](.assets/$filename)\n    "
+    #string="![](.assets/$filename)\n    "
+    string1='```{r, out.width = "70%%", fig.pos = "h", fig.show = "hold"}'
+    string2="knitr::include_graphics('.assets/$filename')"
+    string3='```'
+    indent='    '
 fi
 
 if [[ "$conti" == 0 ]]; then
@@ -38,7 +42,7 @@ if [[ "$conti" == 0 ]]; then
             --add-entry="作者" \
             --add-entry="来源" \
             --add-entry="备注" \
-            --width=400)
+            --width=800)
         Title=$(echo $info | cut -f1 -d'|')
         Author=$(echo $info | cut -f2 -d'|')
         Source=$(echo $info | cut -f3 -d'|')
@@ -67,7 +71,10 @@ if [[ "$conti" == 0 ]]; then
         else
             printf "\n\n"
         fi
-        printf "    $string"
+        printf "$indent$string1\n"
+        printf "$indent$string2\n"
+        printf "$indent$string3\n"
+        printf "$indent"
         if [[ "$Note" != "" ]]; then
             printf "^[注释：$Note.]<!--$(date +%Y-%m-%d\ %H:%M:%S)-->\n"
         else
@@ -82,7 +89,11 @@ if [[ "$conti" == 0 ]]; then
     fi
 else 
     {
-        printf "    $string<!--$(date +%Y-%m-%d\ %H:%M:%S)-->\n\n"
+        printf "$indent$string1\n"
+        printf "$indent$string2\n"
+        printf "$indent$string3\n"
+        printf "$indent"
+        printf "<!--$(date +%Y-%m-%d\ %H:%M:%S)-->\n\n"
     } >> "$file"
     if [[ $? == 0 ]]; then
         notify-send -i "$NUTSTORE/Sync/icons/data-collecting.png" "Collect Successfully" "$string"

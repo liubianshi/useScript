@@ -35,6 +35,7 @@ alias yx='youtube-dl -x'     # 以最佳质量仅下载音频
 alias ya='youtube-dl -a'     # 下载文件中链接
 alias yd='youtube-dl --write-info-json --write-annotations --write-sub --write-thumbnail --skip-download'
 alias yl='youtube-dl --playlist-items'
+alias 2p='wkhtmltopdf --proxy "http://127.0.0.1:8118" -L 20mm -R 20mm -T 20mm -B 20mm --no-background --user-style-sheet "$NUTSTORE/Sync/css/gruvbox-all-sites.css"'
 
 lfcd () {
     tmp="$(mktemp)"
@@ -126,3 +127,6 @@ N() {
 # raku
 export POD_TO_TEXT_ANSI=1 # using ANSI escape sequence on p6doc
 
+# instapaper
+export INSTAPAPER_USER='wei-luo@hotmail.com'
+export INSTAPAPER_PASS=$(pass instapaper)

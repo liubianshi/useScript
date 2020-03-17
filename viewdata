@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+xsv slice -s 1 -l 1000 "$1" | xsv table -c 16 | less
+

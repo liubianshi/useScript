@@ -10,9 +10,9 @@ if [[ $1 -eq 'r' ]]; then
 fi
 
 # 显示器状态的识别和配置
-if [[ $dp == 0 && $hdmi == 0 ]]; then
+if (( $dp == 0 && $hdmi == 0 )); then
     monitor=0                       # 只有笔记本身的显示器 
-elif [[ $dp != 0 ]]; then
+elif (( $dp != 0 )); then
     if (( $right == 0 )); then
         monitor=10                  # DP 接口显示器, 左边
     else

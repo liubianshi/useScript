@@ -1,0 +1,4 @@
+#!/bin/bash
+# touchpads sometime fail to work when the computer reesumes from sleep
+
+/usr/lib/systemd/systemd-sleep suspend && modprobe -r i2c_hid && modprobe i2c_hid

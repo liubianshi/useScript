@@ -4,39 +4,59 @@
 
 # 自定义启动脚本
 ## 别名
-alias D="~/useScript/testCollection.sh"
-alias T='cd /tmp'
-alias bm='buku --suggest'
-alias book='~/useScript/bookdown_init.sh'
-alias cat='bat'
-alias dual='~/useScript/dual_monitors_laptop.sh'
+# git 相关{{{
 alias ga='git add'
 alias gm='git commit -m'
 alias gpull='git pull'
 alias gpush='git push -u origin master'
 alias gs='git status'
-alias help='ss -q tldr'
-alias ll='exa -alh'
-alias mutt='proxychains -q neomutt'
-alias open='xdg-open'
-alias o='a -e xdg-open'
-alias ss=proxychains
+#}}}
+# ssh 相关{{{
 alias ssh0='ssh liubianshi_ali@118.190.162.170'
 alias ssh1='ssh -oPort=6000 liubianshi@118.190.162.170'
-alias stata='nohup /usr/local/bin/xstata-mp &'
-alias tb='taskbook'
-alias tmuxa='tmux a || tmux'
-alias fdn='fd --changed-within=1d'
-alias rmarkdown='~/useScript/rmarkdown.sh'
-alias wt='curl wttr.in/Tianjin\?format=3'
-alias v='f -e nvim'
+#}}}
+# 下载相 关{{{
 alias y='youtube-dl'
 alias yx='youtube-dl -x'     # 以最佳质量仅下载音频
 alias ya='youtube-dl -a'     # 下载文件中链接
 alias yd='youtube-dl --write-info-json --write-annotations --write-sub --write-thumbnail --skip-download'
 alias yl='youtube-dl --playlist-items'
 alias 2p='wkhtmltopdf --proxy "http://127.0.0.1:8118" -L 20mm -R 20mm -T 20mm -B 20mm --no-background --user-style-sheet "$NUTSTORE/Sync/css/gruvbox-all-sites.css"'
+alias bdy='baidupcs'
+#}}}
 
+# 快捷命令
+alias tb='taskbook'
+alias ss=proxychains
+alias bm='buku --suggest'
+alias mutt='proxychains -q neomutt'
+alias stata='nohup /usr/local/bin/xstata-mp &'
+alias tmuxa='tmux a || tmux'
+alias cat='bat'
+alias ll='exa -alh'
+alias open='xdg-open'
+alias wt='curl wttr.in/Tianjin\?format=3'
+
+alias D="~/useScript/testCollection.sh"
+alias T='cd /tmp'
+alias book='~/useScript/bookdown_init.sh'
+alias dual='~/useScript/dual_monitors_laptop.sh'
+alias help='ss -q tldr'
+alias fdn='fd --changed-within=1d'
+alias rmarkdown='~/useScript/rmarkdown.sh'
+alias v='f -e nvim'
+
+# 文件开素导航{{{
+alias lfd='lf ~/Downloads'
+alias cdd='cd ~/Downloads'
+alias lfr='lf "$NUTSTORE/Diary"'
+alias cdr='cd "$NUTSTORE/Diary"'
+alias lfw='lf "$NUTSTORE/工作相关"'
+alias cdw='cd "$NUTSTORE/工作相关"'
+alias lfb='lf "$NUTSTORE/文档/电子资料"'
+alias cdb='cd "$NUTSTORE/文档/电子资料"'
+alias lfm='lf ~/Movies'
+alias cdm='cd ~/Movies'
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -51,6 +71,7 @@ lfcd () {
     fi
 }
 bindkey -s '^o' 'lfcd\n'
+#}}}
 
 temp () {
     cmd="nvim"
@@ -82,8 +103,6 @@ temp () {
         $cmd $files
     fi
 }
-
-
 
 ## 在日记文件夹快速新建并打开文件
 N() {

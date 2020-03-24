@@ -5,7 +5,7 @@ uni_history="${NUTSTORE}/Sync/uni_history"
 nerd_chars="${NUTSTORE}/Sync/nerd-font-chars"
 emoji_chars="${NUTSTORE}/Sync/emoji-chars"
 
-options='-columns 2 -width 90 -lines 20 -bw 2 -yoffset -2 -location 1'
+options='-columns 3 -width 100 -lines 15 -bw 2 -yoffset -2 -location 1'
 choosed=$(cat "$uni_history" | rofi -dmenu -i -p "Input or Select: " $options)
 
 # exit if nothing is selected

@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 
-xsv slice -s 1 -l 1000 "$1" | xsv table -c 16 | less
+tfile=$(mktemp --suffix '.tsv')
+wtitle="NVIM-R DataFrame Priview: $1"
+xsv table -c 30 -o $tfile "$1" 
+nvim -c ':set nowrap number relativenumber' $tfile
+
 

@@ -15,7 +15,7 @@ done
 shift $(( OPTIND - 1 )) 	# 移动参数
 
 if [[ $image == 0 ]]; then
-    string="$(xsel -op | sed ':a; N; s/\n/ /g; ta' | sed -E 's/\s+/ /g')"
+    string="$(xsel -ob | sed ':a; N; s/\n/ /g; ta' | sed -E 's/\s+/ /g')"
     [[ -z "$string" ]] && { echo "没有复制文本" 1>&2; exit 1; }
 else
     filename="image_$(date +%y%m%d_%H%M%S).png"

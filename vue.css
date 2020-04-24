@@ -146,7 +146,7 @@ dt {
 }
 dt::before {
     content: "⊚\00a0 ";
-    font-weight: normal;
+    font-weight: bold;
     color: #BD1C2B;
 }
 dt::after {

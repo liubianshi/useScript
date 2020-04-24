@@ -1,0 +1,46 @@
+#!/bin/sh
+
+run=`ps -ef | grep dwmblocks | grep -v "grep" | wc -l`
+[ $run -eq 0 ] || { 
+    echo "Is running" >&2
+    exit 1
+} 
+
+# 触摸板，小红点和触摸板手势设置  
+synaptics=$(xinput list | grep Synaptics | awk -F = '{print $2}' | awk -F " " '{print $1}')
+xinput set-prop $synaptics 'libinput Tapping Enabled' 1
+xinput set-prop $synaptics 'libinput Accel Speed' 0.3 
+
+trackPoint=$(xinput list | grep TrackPoint | awk -F = '{print $2}' | awk -F " " '{print $1}')
+xinput set-prop $trackPoint 'libinput Accel Speed' 0.8 
+xinput set-prop $trackPoint 'libinput Accel Profile Enabled' 1, 0 
+libinput-gestures-setup start
+
+dwmblocks &
+export STATUSBAR='dwmblocks'
+
+~/useScript/dual_monitors_laptop.sh >/dev/null 2>&1 &
+feh --bg-fill ~/.config/wallpaper/wallpaper; sleep 1; compton -b &
+#pamac-tray &
+#nm-applet &
+xfce4-power-manager & 
+xbindkeys &
+
+# 开启输入法
+fcitx &
+
+# start shadowsocks
+ss-qt5 &
+
+# start nutstore
+sh -c "nohup ~/.nutstore/dist/bin/nutstore-pydaemon.py >/dev/null 2>&1 &"
+
+# start sxhkd
+sxhkd &
+
+# start dropbox
+# dropbox &
+
+# start copyq
+# nohup copyq &
+

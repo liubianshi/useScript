@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+# fzfmenu - fzf as dmenu replacement
+c=127   # 默认列
+l=12    # 默认行
+while getopts :c:l: opt
+do
+    case "$opt" in
+        c) c="$OPTARG";;
+        l) l=$(( OPTARG + 2 ));;
+        *) echo "Unknow options:: $opt";;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+
+input=$(mktemp -u --suffix .fzfmenu.input)
+output=$(mktemp -u --suffix .fzfmenu.output)
+mkfifo $input
+mkfifo $output
+chmod 600 $input $output
+
+# it's better to use st here (starts a lot faster than pretty much everything else)
+st -c fzfmenu -n fzfmenu -g "${c}x${l}+300+0" -i -e sh -c "cat $input | \
+    fzf $* --bind "ctrl-c:print-query" --reverse --info=inline | \
+    tee $output" & disown
+
+# handle ctrl+c outside child terminal window
+trap "kill $! 2>/dev/null; rm -f $input $output" EXIT
+
+cat > $input
+cat $output

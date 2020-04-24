@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+[ $# -eq 0 ] && (bibtex-ls | fzf -e --multi --ansi) && exit 0
+
+case $1 in
+    cite) out='c'; shift ;;
+    key)  out='k'; shift ;;
+    markdown) out='m'; shift ;;
+    *) out='o';;
+esac
+
+tempf=$(mktemp)
+bibtex-ls > $tempf
+
+if [ $# -eq 0 ]; then
+    case $out in
+        c) cat $tempf | fzf -e --multi --ansi | bibtex-cite;;
+        k) cat $tempf | fzf -e --multi --ansi | bibtex-cite -prefix='' -postfix='' -separator=' ';;
+        m) cat $tempf | fzf -e --multi --ansi | bibtex-markdown;;
+        *) cat $tempf | fzf -e --multi --ansi ;;
+    esac
+else
+    case $out in
+        c) cat $tempf | grep -i "$@" | fzf -e --multi --ansi | bibtex-cite;;
+        k) cat $tempf | grep -i "$@" | fzf -e --multi --ansi | bibtex-cite -prefix='' -postfix='' -separator=' ';;
+        m) cat $tempf | grep -i "$@" | fzf -e --multi --ansi | bibtex-markdown;;
+        *) cat $tempf | grep -i "$@" | fzf -e --multi --ansi ;;
+    esac
+fi
+
+trap "kill $! 2>/dev/null" EXIT
+
+rm $tempf
+exit 0

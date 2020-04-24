@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+{
+    cd $HOME/Downloads
+    tempfile=$(fd --changed-within=3d | fzf --preview "scope {} 2>/dev/null")
+    sh -c "nohup rifle \"$tempfile\" >/dev/null 2>&1 &"
+}

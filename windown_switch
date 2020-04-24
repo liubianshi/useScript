@@ -1,0 +1,23 @@
+#!/usr/bin/env sh
+
+# 获取窗口数据
+line=$(wmctrl -l | wc -l)
+echo $line
+
+# 获取想跳转窗口的 PID
+wid=$(wmctrl -l -p -x | sed -E 's/\./ /; s/\s+/ /g' |\
+    awk '{\
+        out = ""; \
+        for(i = 7; i <= NF; i++){ out =out" "$i }; \
+        printf "[%d] %-8s    %-s\t%-s\n", NR, $1, $5, out; \
+    }' | fmenu -l $line | cut -d' ' -f2)
+[ -z $wid ] && { echo "Don't Select Window" >&2; exit 1; }
+
+# 跳转
+xdotool set_window --urgency 1 $wid
+dwmc focusurgent
+
+trap "kill $! 2>/dev/null" EXIT
+
+exit 0
+

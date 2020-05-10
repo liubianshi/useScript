@@ -68,6 +68,12 @@ handle_extension() {
             docx2txt "${FILE_PATH}" - 
             exit 1;;
 
+        md)
+            if which glow >/dev/null 2>&1; then
+                glow -sdark "${FILE_PATH}" | less -R
+                exit 1
+            fi ;;
+
         # HTML
         htm|html|xhtml)
             # Preview as text conversion

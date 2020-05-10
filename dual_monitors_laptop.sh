@@ -22,24 +22,24 @@ scale=1.5
 right=1
 #}}}
 # 参数处理{{{
-if [ -z $1 ]; then
-    if (( $dp == 0 && $hdmi == 0 )); then
+if [ -z "$1" ]; then
+    if (( dp == 0 && hdmi == 0 )); then
         monitor=0                       # 只有笔记本身的显示器 
-    elif (( $dp != 0 )); then
-        if (( $right == 0 )); then
+    elif (( dp != 0 )); then
+        if (( right == 0 )); then
             monitor=11                   # DP 接口显示器, 左边
         else
             monitor=13                  # DP 接口显示器, 右边
         fi
     else
-        if (( $right == 0 )); then
+        if (( right == 0 )); then
             monitor=21                  # HDMI 接口显示器, 左边
         else
             monitor=23                  # HDMI 接口显示器, 右边
         fi
     fi
 else
-    if (( $dp == 0 && $hdmi == 0 )); then
+    if (( dp == 0 && hdmi == 0 )); then
         echo "Only one monitor"
         exit 1
     fi

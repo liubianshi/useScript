@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
 
-fpath=($HOME/.config/fpath $fpath)
-[[ -f ~/useScript/lf_icons.sh ]] && source ~/useScript/lf_icons.sh
+#   Source 外部文件 {{{1
+fpath=("$HOME/.config/fpath" $fpath)
+[[ -f "$HOME/useScript/lf_icons.sh" ]] && source "$HOME/useScript/lf_icons.sh"
+source ~/useScript/alias
 
-
-# ftpane - switch pane (@george-b){{{
+# ftpane - switch pane (@george-b) {{{1
 ftpane() {
   local panes current_window current_pane target target_window target_pane
   panes=$(tmux list-panes -s -F '#I:#P - #{pane_current_path} #{pane_current_command}')
@@ -13,8 +14,8 @@ ftpane() {
 
   target=$(echo "$panes" | grep -v "$current_pane" | fzf +m --reverse) || return
 
-  target_window=$(echo $target | awk 'BEGIN{FS=":|-"} {print$1}')
-  target_pane=$(echo $target | awk 'BEGIN{FS=":|-"} {print$2}' | cut -c 1)
+  target_window=$(echo "$target" | awk 'BEGIN{FS=":|-"} {print$1}')
+  target_pane=$(echo "$target" | awk 'BEGIN{FS=":|-"} {print$2}' | cut -c 1)
 
   if [[ $current_window -eq $target_window ]]; then
     tmux select-pane -t ${target_window}.${target_pane}
@@ -23,8 +24,8 @@ ftpane() {
     tmux select-window -t $target_window
   fi
 }
-#}}}
 
+#   通过 lf 切换目录 {{{1
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
@@ -33,13 +34,14 @@ lfcd () {
         rm -f "$tmp"
         if [ -d "$dir" ]; then
             if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir"
+                cd "$dir" || exit 1
             fi
         fi
     fi
 }
 bindkey -s '^e' 'lfcd\n'
 
+#  快速跳转 {{{1
 j () {
     [ $# -gt 0 ] && fasd_cd -d "$*" && return
     local dir
@@ -51,8 +53,8 @@ v () {
     local file
     file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && nvim "${file}" || return 1
 }
-#}}}
-# 创建临时文件{{{
+
+# 创建临时文件 {{{1
 temp () {
     cmd="nvim"
     files=""
@@ -67,7 +69,7 @@ temp () {
 	done
     shift $(( OPTIND - 1 )) 	# 移动参数
     
-    for arg in $@; do
+    for arg in "$@"; do
         if [[ $files == "" ]]; then
             files="$(mktemp --suffix=.$arg)"
         else
@@ -80,11 +82,11 @@ temp () {
     fi
     echo "$files"
     if [[ $out != "y" ]]; then
-        $cmd $files
+        $cmd "$files"
     fi
 }
-#}}}
-# 在日记文件夹快速新建并打开文件{{{
+
+# 在日记文件夹快速新建并打开文件 {{{1
 N() {
 	dir="$NUTSTORE/Diary"
     replace="no"
@@ -122,11 +124,11 @@ N() {
         vim "$dir/$file"
     fi
 }#}}}
-# 查询 man 文档{{{
+# 查询 man 文档{{{1
 fman() {
     man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
 }#}}}
-# 快速查询 pdf 内容{{{
+# 快速查询 pdf 内容{{{1
 fp () {
     open=xdg-open
 
@@ -140,27 +142,33 @@ fp () {
     | cut -z -f 1 -d $'\t' | tr -d '\n' | xargs -r --null $open > /dev/null 2> /dev/null
 }
 
-#}}}
-
-# raku
+# raku {{{1
 export POD_TO_TEXT_ANSI=1 # using ANSI escape sequence on p6doc
 
-# instapaper
+# instapaper {{{1
 export INSTAPAPER_USER='wei-luo@hotmail.com'
 export INSTAPAPER_PASS=$(pass instapaper)
 
-#sdcv 配置和字典文件
+#sdcv 配置和字典文件 {{{1
 export STARDICT_DATA_DIR="$NUTSTORE/Sync/sdcv_dict"
 
-# fzf-bib
+# fzf-bib {{{1
 export FZF_BIBTEX_CACHEDIR="$HOME/.cache/fzf-bibtex/" # 出现意外错误，无法启动
 export FZF_BIBTEX_SOURCES="$HOME/Documents/paper_ref.bib"
 
-# 更改终端浏览器
+# 更改终端浏览器 {{{1
 #export http_proxy=127.0.0.1:8118
 #export https_proxy=$http_proxy
 export BROWSER='/usr/local/bin/surf'
 
-## 加载个人 alias
-source ~/useScript/alias
-
+#   nnn 环境变量配置 {{{1
+export NNN_OPTS="cE"
+export NNN_COLORS='6321'
+export NNN_FIFO="/tmp/nnn.fifo"
+export NNN_SEL="/tmp/.sel"
+export NNN_SSHFS='sshfs -o reconnect,idmap=user'
+export NNN_BMS="n:$NUTSTORE"
+export NNN_TRASH=1
+export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
+export NNN_PLUG='z:fasd;p:-preview_tabbed;f:-fzcd;o:-fzopen'
+export GUI=1

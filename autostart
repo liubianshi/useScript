@@ -38,6 +38,9 @@ sh -c "nohup ~/.nutstore/dist/bin/nutstore-pydaemon.py >/dev/null 2>&1 &"
 # start sxhkd
 sxhkd &
 
+# start syncthing
+syncthing &
+
 # start dropbox
 # dropbox &
 

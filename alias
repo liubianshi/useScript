@@ -24,8 +24,10 @@ alias gpush='git push -u origin master'
 alias gs='git status'
 #}}}
 # ssh 相关{{{
-alias ssh0='ssh liubianshi_ali@118.190.162.170'
-alias ssh1='ssh -oPort=6000 liubianshi@118.190.162.170'
+alias ssh-ali='ssh liubianshi_ali@118.190.162.170'
+alias ssh-work='ssh -oPort=6000 liubianshi@118.190.162.170'
+alias ssh-mac='ssh luowei@192.168.199.184'
+alias ssh-vultr='ssh root@45.77.79.150'
 #}}}
 # 下载相关{{{
 alias y='youtube-dl'

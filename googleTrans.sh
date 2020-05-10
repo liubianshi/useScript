@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 to="zh"
-inputTest=$(xsel -op | sed ':a; N; s/\n/ /g; ta' |  sed -E 's/\s+/ /g')
+inputTest=$(xclip -clip primary -o | sed ':a; N; s/\n/ /g; ta' |  sed -E 's/\s+/ /g')
 file="$NUTSTORE/Sync/translate_back.Rmd"
 
 while getopts t: opt; do
@@ -12,8 +12,8 @@ while getopts t: opt; do
 done
 shift $(( OPTIND - 1 )) 	# 移动参数
 
-outputTest=$(trans :$to -b "$inputTest")
-if [[ ! -z "$outputTest" ]]; then
+outputTest="$(trans :$to -b \"$inputTest\")"
+if [[ -n "$outputTest" ]]; then
     {
         echo "<!--$(date +%Y-%m-%d\ %H:%M:%S)-->"
         echo "$inputTest"

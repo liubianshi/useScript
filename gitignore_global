@@ -1,0 +1,111 @@
+# 压缩文件 {{{1
+*.tar.gz
+*.zip
+*.7z
+
+# 日志文件 {{{1
+*.log
+
+# pdf 相关文件 {{{1
+*.xdv
+*.dvi
+*.ps
+*.eps
+*.pdf
+*.aux
+*.out
+*.toc
+
+# 可执行文件 {{{1
+*.exe
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+*.o
+
+# Stata {{{1
+*.dta
+*.gph
+*.smcl
+*.stpr
+*.stsem
+
+# Raku {{{1
+.precomp
+lib/.precomp
+
+# R {{{1
+.Rhistory
+.Rapp.history
+.RData
+
+# User-specific files
+.Ruserdata
+
+# Example code in package build process
+*-Ex.R
+
+# Output files from R CMD check
+/*.Rcheck/
+
+# RStudio files
+.Rproj.user/
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# knitr and R markdown default cache directories
+*_cache/
+/cache/
+
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
+# R Environment Variables
+.Renviron
+
+# pkgdown site
+docs/
+
+
+# Prerequisites
+*.d
+
+# Object files
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.a
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb

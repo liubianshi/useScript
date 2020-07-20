@@ -1,0 +1,19 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/a3c87ab5/
+MAIN	bookmark-path.p6	/^multi MAIN ( Bool :$diff = False) {$/;"	s
+MAIN	bookmark-path.p6	/^multi MAIN (:$test) {$/;"	s
+MAIN	bookmark-path.p6	/^multi MAIN (Bool :$sync!, Bool :$confirm = False) {$/;"	s
+MAIN	bookmark-path.p6	/^multi MAIN (Str:D $path where * !~~\/ ^ <tag> \\: \/) {$/;"	s
+MAIN	bookmark-path.p6	/^multi MAIN (Str:D :$delete! where \/^ <tag> ** 1..* $\/, Bool:D :$confirm = True) {$/;"	s
+book-manage	bookmark-path.p6	/^multi book-manage ("add", @bm where { all(@_) ~~ \/ ^ <tag> \\: \/ }) {$/;"	s
+book-manage	bookmark-path.p6	/^multi book-manage ("get", Str:D $format = "") {$/;"	s
+book-manage	bookmark-path.p6	/^multi book-manage ("sync", Str:D :$base where * eq any(«all repo $command») = "all")$/;"	s
+book-manage	bookmark-path.p6	/^multi book-manage("diff", Bool :$detail = False) {$/;"	s
+book-manage	bookmark-path.p6	/^multi book-manage("diff-handle", :$confirm = False)$/;"	s
+path-trans	bookmark-path.p6	/^sub path-trans(Str:D $path is copy, Bool :$env = True) {$/;"	s

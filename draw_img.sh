@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 clear_screen() {
     printf '\e[%sH\e[9999C\e[1J%b\e[1;%sr' \
            "$((LINES-2))" "${TMUX:+\e[2J}" "$max_items"

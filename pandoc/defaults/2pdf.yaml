@@ -1,0 +1,23 @@
+metadata:
+    author: ["罗伟"]
+from: markdown+emoji+east_asian_line_breaks+autolink_bare_uris
+to: pdf
+filters: 
+    - pandoc-citeproc
+highlight-style: pygments
+template: eisvogel
+listings: true
+pdf-engine: xelatex
+variables:
+    CJKmainfont: Noto Serif CJK SC
+    CJKsansfont: Noto Sans CJK SC
+    CJKmonofont: Sarasa Mono SC
+    mainfont: P052 Roman
+    sansfont: Noto Sans
+    monofont: Fira Code
+include-in-header:
+    - "/home/liubianshi/useScript/header.tex"
+    - "/home/liubianshi/useScript/code.tex"
+
+
+

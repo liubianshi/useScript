@@ -26,7 +26,7 @@ alias gs='git status'
 # ssh 相关{{{
 alias ssh-ali='ssh liubianshi_ali@118.190.162.170'
 alias ssh-work='ssh -oPort=6000 liubianshi@118.190.162.170'
-alias ssh-mac='ssh luowei@192.168.199.184'
+alias ssh-mac='ssh luowei@192.168.18.111'
 alias ssh-vultr='ssh root@45.77.79.150'
 #}}}
 # 下载相关{{{
@@ -54,11 +54,12 @@ alias xstata='nohup /usr/local/bin/xstata-mp -q &'
 alias tmuxa='tmux a || tmux'
 alias cat='bat'
 alias ll='exa -alh'
+alias cp='cp -i'
+alias mv='mv -i'
 alias open='xdg-open'
 alias wt='curl wttr.in/Tianjin\?format=3'
 alias fehwp='feh --bg-fill ~/.config/wallpaper/wallpaper'
 alias D="~/useScript/testCollection.sh"
-alias T='cd /tmp'
 alias book='~/useScript/bookdown_init.sh'
 alias dual='~/useScript/dual_monitors_laptop.sh'
 alias help='ss -q tldr'
@@ -77,9 +78,30 @@ alias cdb='cd "$NUTSTORE/文档/电子资料"'
 alias lfm='lf ~/Movies'
 alias cdm='cd ~/Movies'
 # }}}
-
-# 系统设置相关
+# 系统设置相关{{{
 alias ,gfw='sudo nvim /etc/privoxy/proxy.action'
+# }}}
 
+# joplin
+alias jbook='joplin mkbook'
+alias jcat='joplin cat'
+alias jcp='joplin cp'
+alias jdo='joplin todo'
+alias jedit='joplin edit'
+alias jls/='joplin ls /'
+alias jls='joplin ls'
+alias jmb='joplin mv'
+alias jnote='joplin mknote'
+alias jrename='joplin ren'
+alias jrm/='joplin rmbook'
+alias jrm='joplin rmnote'
+alias jstatus='joplin status'
+alias jsync='joplin sync'
+alias jtag='joplin tag'
+alias jtodo='joplin mktodo'
+alias juse='joplin use'
+jnew() {
+    joplin mknote "$1" && joplin edit "$1"
+}
 
 # vim ft=sh

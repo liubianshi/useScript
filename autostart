@@ -22,7 +22,7 @@ export STATUSBAR='dwmblocks'
 ~/useScript/dual_monitors_laptop.sh >/dev/null 2>&1 &
 feh --bg-fill ~/.config/wallpaper/wallpaper; sleep 1; compton -b &
 #pamac-tray &
-#nm-applet &
+nm-applet &
 xfce4-power-manager & 
 xbindkeys &
 

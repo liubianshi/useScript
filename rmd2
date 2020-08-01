@@ -1,0 +1,53 @@
+#!/usr/bin/env bash
+
+open=0
+verbose=0
+
+while getopts 'ov' OPT; do
+    case $OPT in
+        o) open=1;;
+        v) verbose=1;;
+    esac
+done
+shift $(($OPTIND - 1))
+
+[[ $# -eq 2 ]] || { echo "rmd2 <output_format> <file>" >&2; exit 2; }
+
+case $1 in
+    pdf)  out="rmarkdown::pdf_document"
+          opt='latex_engine = "xelatex", pandoc_args = "-drmd2pdf"'
+          ;;
+    pdf2) out="bookdown::pdf_document2"
+          opt='latex_engine = "xelatex", pandoc_args = "-drmd2pdf"'
+          ;;
+    odt)  out="rmarkdown::odt_document"
+          opt='pandoc_args = "-drmd2odt"'
+          ;;
+    docx) out="rmarkdown::word_document"
+          opt='pandoc_args = "-drmd2docx"'
+          ;;
+    beamer)
+          out="rmarkdown::beamer_presentation"
+          opt='pandoc_args = "-drmd2beamer"'
+          ;;
+    html) out="rmarkdown::html_document"
+          opt='pandoc_args = "-drmd2html"'
+          ;;
+    html2)
+          out="bookdown::html_document2"
+          opt='pandoc_args = "-drmd2html"'
+          ;;
+esac
+
+command="rmarkdown::render('$2', $out(md_extensions = '+emoji+east_asian_line_breaks', $opt))"
+
+if [[ $verbose -eq 0 ]]; then
+    Rscript --vanilla -e "$command" >/dev/null
+else
+    Rscript --vanilla --verbose -e "$command"
+fi
+
+[[ $open -eq 1 ]] && xdg-open "${2%.*md}.${1%[0-9]}"
+
+exit 0
+

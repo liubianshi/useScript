@@ -23,8 +23,8 @@ case $1 in
     odt)  out="rmarkdown::odt_document"
           opt='pandoc_args = "-drmd2odt"'
           ;;
-    docx) out="rmarkdown::word_document"
-          opt='pandoc_args = "-drmd2docx"'
+    docx) out="officedown::rdocx_document"
+          opt="pandoc_args = '-drmd2docx', reference_docx = 'default'"
           ;;
     beamer)
           out="rmarkdown::beamer_presentation"

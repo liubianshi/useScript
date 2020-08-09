@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+[ -d "$HOME/temp/.config/$1" ] || exit 1
+
+cp -r $HOME/temp/.config/$1 $HOME/Repositories/dotfiles/config \
+    && ln -s $HOME/Repositories/dotfiles/config/$1 $HOME/.config/$1

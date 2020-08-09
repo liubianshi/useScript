@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 #   Source 外部文件 {{{1
+#[ -e $HOME/.config/fpath ] || ln -s $HOME/Repositories/dotfiles/config/fpath
 fpath=("$HOME/.config/fpath" $fpath)
 [[ -f "$HOME/useScript/lf_icons.sh" ]] && source "$HOME/useScript/lf_icons.sh"
 source ~/useScript/alias
@@ -159,7 +160,7 @@ export FZF_BIBTEX_SOURCES="$HOME/Documents/paper_ref.bib"
 # 更改终端浏览器 {{{1
 #export http_proxy=127.0.0.1:8118
 #export https_proxy=$http_proxy
-export BROWSER='/usr/local/bin/surf'
+export BROWSER='/usr/bin/qutebrowser'
 
 #   nnn 环境变量配置 {{{1
 export NNN_OPTS="cE"

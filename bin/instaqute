@@ -1,0 +1,7 @@
+#!/bin/bash
+
+export INSTAPAPER_USER='wei-luo@hotmail.com'
+export INSTAPAPER_PASS=$(pass instapaper)
+/home/liubianshi/.local/bin/instapaper add $1 
+
+exit 0

@@ -15,6 +15,7 @@ alias @tw='googler --proxy localhost:8118 -w twitter.com'
 alias @vim='googler --proxy localhost:8118 -w vim.org'
 alias @w='googler --proxy localhost:8118 -w en.wikipedia.org'
 alias @yt='googler --proxy localhost:8118 -w youtube.com'
+alias @db='googler --proxy localhost:8118 -w douban.com'
 # }}}
 # git 相关{{{
 alias ga='git add'
@@ -41,7 +42,7 @@ alias bdy='baidupcs'
 #}}}
 # 快捷命令{{{
 alias vi='nvim -u NONE'
-alias vim='nvim'
+alias e='nvim'
 alias O='rifle $(fzf-tmux --preview "scope {} 2>/dev/null")'
 alias P='fzf-tmux --preview "scope {} 2>/dev/null"'
 alias p='sudo pacman'
@@ -62,7 +63,7 @@ alias fehwp='feh --bg-fill ~/.config/wallpaper/wallpaper'
 alias D="~/useScript/testCollection.sh"
 alias book='~/useScript/bookdown_init.sh'
 alias dual='~/useScript/dual_monitors_laptop.sh'
-alias help='ss -q tldr'
+alias help='tldr --theme ocean'
 alias fdn='rifle $(fd --changed-within=1w | P)'
 alias rmarkdown='~/useScript/rmarkdown.sh'
 # }}}
@@ -80,9 +81,9 @@ alias cdm='cd ~/Movies'
 # }}}
 # 系统设置相关{{{
 alias ,gfw='sudo nvim /etc/privoxy/proxy.action'
+alias ,pac='nvim $HOME/Repositories/script/manjaro_install/packages'
 # }}}
-
-# joplin
+# joplin{{{
 alias jbook='joplin mkbook'
 alias jcat='joplin cat'
 alias jcp='joplin cp'
@@ -102,6 +103,6 @@ alias jtodo='joplin mktodo'
 alias juse='joplin use'
 jnew() {
     joplin mknote "$1" && joplin edit "$1"
-}
+}# }}}
 
 # vim ft=sh

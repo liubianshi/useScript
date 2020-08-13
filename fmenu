@@ -20,7 +20,7 @@ mkfifo $output
 chmod 600 $input $output
 
 # it's better to use st here (starts a lot faster than pretty much everything else)
-st -c fzfmenu -n fzfmenu -g "${c}x${l}+300+0" -i -e sh -c "cat $input | \
+st -c fzfmenu -n fzfmenu -g "${c}x${l}+1000+0000" -i -e sh -c "cat $input | \
     fzf $* --bind "ctrl-c:print-query" --reverse --info=inline | \
     tee $output" & disown
 

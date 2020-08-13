@@ -1,0 +1,861 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wine User's Guide - WineHQ Wiki</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+        body {
+            margin: 40px auto;
+            max-width: 650px;
+            padding: 0 10px;
+            background: #282828;
+            color: #ebdbb2;
+        }
+        h1, h2, h3 {
+            line-height: 1.5;
+        }
+        p {
+            font-family: 'Sarasa Gothic SC', 'Sarasa Gothic TC',
+                         'Fira Sans', 'Noto Sans',
+                         -apple-system, 'Source Han Sans CN',
+                         'Noto Sans CJK SC', sans-serif !important;
+            font-size: 14px !important;
+            letter-spacing: 0.05ex;
+            line-height: 2 !important;
+        }
+        a {
+            color: #458588;
+        }
+        img {
+            max-width: 526px;
+        }
+        p img {
+            margin: auto;
+            display: block;
+        }
+        .entry-content {
+            font-size: 14px;
+            line-height: 2;
+        }
+    </style>
+</head>
+<div id="readabilityBody"><div class="mw-parser-output"><p><b>Authors:</b> Huw Davies; Steven Elliott; Mike Hearn; André Hentschel; James Juran; Ove Kaaven; Alex Korobka; Bruce Milner; Andreas Mohr; Dustin Navea; Eric Pouech; Scott Ritchie; Adam Sacarny; John Sheets; Petr Tomasek; Brian Vincent
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<td><p class="floatleft"><a href="/File:Under_construction_icon-red.svg" class="image"><img alt="Under construction icon-red.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Under_construction_icon-red.svg/40px-Under_construction_icon-red.svg.png" decoding="async" width="40" height="33" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Under_construction_icon-red.svg/60px-Under_construction_icon-red.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/Under_construction_icon-red.svg/80px-Under_construction_icon-red.svg.png 2x"/></a></p> <b>Work in progress:</b> This page is currently undergoing extensive revision. External links to specific parts of this page may now be broken due to the section having been edited,  moved, merged with another section, or removed altogether. Consult the table of contents to find the section you are looking for. There may be related discussion on the talk page.
+</td></tr></tbody></table>
+
+
+<h2><span class="mw-headline-number">1</span> Introduction</h2>
+<h3><span id="Overview_/_About"/><span class="mw-headline-number">1.1</span> Overview / About</h3>
+<h4><span class="mw-headline-number">1.1.1</span> Purpose of this document and intended audience</h4>
+<p>This document, called the Wine User Guide, is both an easy installation guide and an extensive reference guide. This guide is for both the new Wine user and the experienced Wine user, offering full step-by-step installation and configuration instructions, as well as featuring extensive reference material by documenting all configuration features and support areas.
+</p>
+<h4><span class="mw-headline-number">1.1.2</span> Further questions and comments</h4>
+<p>If, after examining this guide, the <a href="/FAQ" title="FAQ">FAQ</a>, and other relevant documentation there is still something you cannot figure out, we would love to hear from you. The <a rel="nofollow" class="external text" href="http://www.winehq.org/forums">mailing lists</a> section contains several mailing lists and an IRC channel, all of which are great places to seek help and offer suggestions. If you are particularly savvy, and believe that something can be explained better, you can file a <a rel="nofollow" class="external text" href="http://bugs.winehq.org/">bug report</a> or <a href="/WineHQ_Wiki:General_disclaimer" title="WineHQ Wiki:General disclaimer">request access to edit the wiki</a> yourself.
+</p>
+<h4><span id="Content_overview_/_Steps_to_take"/><span class="mw-headline-number">1.1.3</span> Content overview / Steps to take</h4>
+<p>In order to be able to use Wine, you must first have a working installation. This guide will help you to move your system from an empty, Wineless void to one boasting a fresh, up to date Wine install. The first step, <a href="#Getting_Wine">getting Wine</a>, illustrates the various methods of getting Wine's files onto your computer. The second step, <a href="#Configuring_Wine">configuring Wine</a>, shows how to customize a Wine installation depending on your individual needs. The final step, <a href="#Running_Wine">running Wine</a>, covers the specific steps you can take to get a particular application to run better under Wine, and provides useful links in case you need further help.
+</p>
+<h4><span class="mw-headline-number">1.1.4</span> Quick start</h4>
+<p>The process of installing and running Wine can be summarized as follows:
+</p>
+<ul>
+<li><p>Get a distribution as indicated in <a href="#Getting_Wine">Getting Wine</a> and see the <a rel="nofollow" class="external text" href="https://www.winehq.org/download">Wine Downloads</a> page. For the casual or new user the simplest is to get a packaged version for your distribution.</p></li>
+<li><p>Optionally configure Wine using the <a href="#Configuring_Wine"><b>winecfg</b></a> command. Wine should work without any additional configuration options.</p></li>
+<li><p>To test your installation run the Wine notepad clone using the <code>wine notepad</code> command.</p></li>
+<li><p>Check the Wine <a rel="nofollow" class="external text" href="http://appdb.winehq.org">AppDB</a> for specific instructions or steps required to install or run your application.</p></li>
+<li>
+<p>The first command you will run will be to install an application. Typically something like <code>wine /media/cdrom/setup.exe</code> or the equivalent path might be used to install an application from CD.</p></li></ul>
+<h3><span id="What_is_Wine?"/><span class="mw-headline-number">1.2</span> What is Wine?</h3>
+<h4><span class="mw-headline-number">1.2.1</span> Windows and Linux</h4>
+<p>Different software programs are designed for different operating systems, and most won't work on systems that they weren't designed for. Windows programs, for example, won't run in Linux because they contain instructions that the system can't understand until they're translated by the Windows environment. Linux programs, likewise, won't run under the Windows operating system because Windows is unable to interpret all of their instructions.
+</p><p>This situation presents a fundamental problem for anyone who wants to run software for both Windows and Linux. A common solution to this problem is to install both operating systems on the same computer, known as “dual booting”. When a Windows program is needed, the user boots the machine into Windows to run it; when a Linux program is then needed, the user then reboots the machine into Linux. This option presents great difficulty: not only must the user endure the frustration of frequent rebooting, but programs for both platforms can't be run simultaneously. Having Windows on a system also creates an added burden: the software is expensive, requires a separate disk partition, and is unable to read most filesystem formats, making the sharing of data between operating systems difficult.
+</p>
+<h4><span id="What_is_Wine,_and_how_can_it_help_me?"/><span class="mw-headline-number">1.2.2</span> What is Wine, and how can it help me?</h4>
+<p>Wine makes it possible to run Windows programs alongside any Unix-like operating system, particularly Linux. At its heart, Wine is an implementation of the Windows Application Programing Interface (API) library, acting as a bridge between the Windows program and Linux. Think of Wine as a compatibility layer, when a Windows program tries to perform a function that Linux doesn't normally understand, Wine will translate that program's instruction into one supported by the system. For example, if a program asks the system to create a Windows pushbutton or text-edit field, Wine will convert that instruction into its Linux equivalent in the form of a command to the window manager using the standard X11 protocol.
+</p><p>If you have access to the Windows program source code, Wine can also be used to recompile a program into a format that Linux can understand more easily. Wine is still needed to launch the program in its recompiled form, however there are many advantages to compiling a Windows program natively within Linux. For more information, see the Winelib User Guide.
+</p>
+<h4><span class="mw-headline-number">1.2.3</span> Wine features</h4>
+<p>Throughout the course of its development, Wine has continually grown in the features it carries and the programs it can run. A partial list of these features follows:
+</p>
+<ul><li>Support for running Win64, Win32 (Win 95/98, NT/2000/XP/2003/Vista/2008/7/8/8.1/10), Win16 (Win 3.1) and DOS programs</li>
+<li>Optional use of external vendor DLL files (such as those included with Windows)</li>
+<li>X11-based graphics display, allowing remote display to any X terminal, as well as a text mode console</li>
+<li>macOS and Android graphics support</li>
+<li>Desktop-in-a-box or mixable windows</li>
+<li>DirectX support for games</li>
+<li>Good support for various sound drivers including ALSA, OSS, PulseAudio and CoreAudio</li>
+<li>Support for alternative input devices such as graphics tablets.</li>
+<li>Printing: PostScript interface driver to use standard Unix PostScript print services, such as CUPS</li>
+<li>Modem, serial device support</li>
+<li>Winsock TCP/IP networking support</li>
+<li>ASPI interface (SCSI) support for scanners, CD writers, and other devices</li>
+<li>Advanced Unicode and foreign language support</li>
+<li>Full-featured Wine debugger and configurable trace logging messages for easier troubleshooting</li></ul>
+<h3><span class="mw-headline-number">1.3</span> Versions of Wine</h3>
+<h4><span class="mw-headline-number">1.3.1</span> Wine from WineHQ</h4>
+<p>Wine is an open source project, and there are accordingly many different versions of Wine for you to choose from. WineHQ currently offers time-based releases in two branches: <b>stable</b> and <b>development</b>. 
+</p>
+<ul><li>The stable branch is on an annual release schedule, with minor updates as needed (usually every 10-12 weeks). This version is intended for users whose applications and games already work well in the existing code, and who are not interested in testing new versions.</li>
+<li>The development is on a biweekly release schedule. This branch is the main branch, where bug fixing occurs and new features are added. It is recommended for users who want or need the latest features and bugfixes. Users of applications/games for which the stable branch does not work should always test the development release before filing bugs.</li>
+<li>Since September, 2015 there has been a third official branch known as <b>staging</b>. This branch includes several hundred experimental patches that are not yet ready for inclusion in the main branch and is recommended for users of applications/games affected by bugs marked STAGED as well as those interested in helping to test experimental patches.</li></ul>
+<p><br/>
+These versions can be downloaded over the Internet in prepackaged binary form and/or ready to compile source code form. In addition, you can install the most up-to-date development version of Wine by using the latest available source code from the Git repository (generally updated 5 days per week). 
+</p><p>Each version of Wine has a release tag. Beginning with Wine 2.0, release tags use the following format:
+</p><p><b>All branches, new major versions:</b> 
+</p>
+<pre>wine-<i>x.0</i>
+</pre>
+<p><b>All branches, release candidates:</b> 
+</p>
+<pre>wine-<i>x</i>.<i>y</i>-rc<i>n</i>
+</pre>
+<p><b>Stable branch updates:</b>  
+</p>
+<pre>wine-<i>x.0.z</i>
+</pre>
+<p><b>Development branch updates:</b> 
+</p>
+<pre>wine-<i>x.y</i> 
+</pre>
+
+<ul><li><i>x</i> is the major version number. This number is generally incremented once a year, usually in January.</li>
+<li><i>y</i> is the release number for updates to the development branch and was also used for the staging branch. This is normally incremented every two weeks. Staging releases appended <i>-staging</i> to the release number</li>
+<li><i>z</i> is the release number for updates to the stable branch. This is incremented at the discretion of the stable maintainer.</li>
+<li>For a list of tags, see <a rel="nofollow" class="external text" href="http://source.winehq.org/git/wine.git/?a=tags">here</a>.</li></ul>
+<p><br/>
+If you are using <a href="/Git_Wine_Tutorial" title="Git Wine Tutorial">git</a>, the tag will be generated by the <tt>git-describe</tt> command, and looks like:
+</p>
+<pre>wine-<i>x</i>.<i>y</i>.<i>z</i>-<i>n</i>-g<i>ccccccc</i>
+</pre>
+<p>Where <i>n</i> is the number of patches/commits applied since <i>x</i>.<i>y</i>.<i>z</i> was released, and <i>ccccccc</i> is the first few hex digits of the most recent commit id. Examples: wine-1.1.19-228-g1e256e4, wine-1.1.25-311-g3d6bb38, wine-1.1.32-584-g10b0b86.
+</p>
+<table class="wikitable">
+
+<tbody><tr>
+<td><b>Release tag</b></td>
+<td><b>Date</b></td>
+<td><b>Note</b>
+</td></tr>
+<tr>
+<td>wine-2.0</td>
+<td>24 Jan 2017</td>
+<td>New major version
+</td></tr>
+<tr>
+<td>wine-2.1</td>
+<td>3 Feb 2017</td>
+<td>Development branch release
+</td></tr>
+<tr>
+<td>wine-2.1-staging</td>
+<td>9 Feb 2017</td>
+<td>Staging branch release
+</td></tr>
+<tr>
+<td>wine-2.0.1</td>
+<td>27 Mar 2017</td>
+<td>Stable branch update
+</td></tr>
+<tr>
+<td>wine-3.0-rc1</td>
+<td>8 Dec 2017</td>
+<td>First release candidate for 3.0
+</td></tr></tbody></table>
+
+<h4><span class="mw-headline-number">1.3.2</span> Other Versions of Wine</h4>
+<p>There are a number of programs that are derived from the standard Wine codebase in some way or another. Some of these are commercial products from companies that actively contribute to the Wine project.
+</p><p>These products try to stand out or distinguish themselves from the standard version of Wine by offering greater compatibility, easier configuration, and commercial support. If you require such things, it is a good idea to consider purchasing these products.
+</p>
+<table class="wikitable">
+<caption>Various Wine offerings
+</caption>
+<tbody><tr>
+<th>Product
+</th>
+<th>Description
+</th>
+<th>Distribution Form
+</th></tr>
+<tr>
+<td><a rel="nofollow" class="external text" href="http://www.codeweavers.com/products/office">CodeWeavers CrossOver </a>
+</td>
+<td>CrossOver allows you to install your favorite Windows productivity applications in Linux, without needing a Microsoft Operating System license. CrossOver includes an easy to use, single click interface, which makes installing a Windows application simple and fast.
+</td>
+<td>Commercial; 30-day fully-functional demo available.
+</td></tr></tbody></table>
+<h3><span class="mw-headline-number">1.4</span> Alternatives to Wine you might want to consider</h3>
+<p>There are many ways to run software other than through Wine. If you are considering using Wine to run an application you might want to think about the viability of these approaches if you encounter difficulty.
+</p>
+<h4><span class="mw-headline-number">1.4.1</span> Native Applications</h4>
+<p>Instead of running a particular Windows application with Wine, one frequently viable alternative is to simply run a different application. Many Windows applications, particularly more commonly used ones such as media players, instant messengers, and filesharing programs have very good open source equivalents. Furthermore, a sizeable number of Windows programs have been ported to Linux directly, eliminating the need for Wine (or Windows) entirely. These alternatives should be found through your system package management facilities.
+</p>
+<h4><span class="mw-headline-number">1.4.2</span> Another Operating System</h4>
+<p>Probably the most obvious method of getting a Windows application to run is to simply run it on Windows. However, security, license cost, backward-compatibility, and machine efficiency issues can make this a difficult proposition, which is why Wine is so useful in the first place.
+</p><p>Another alternative is to use <a rel="nofollow" class="external text" href="http://www.reactos.com">ReactOS</a>, which is a fully open source alternative to Windows. ReactOS shares code heavily with the Wine project, but rather than running Windows applications on top of Linux they are instead run on top of the ReactOS kernel. ReactOS also offers compatibility with Windows driver files, allowing the use of hardware without functional Linux drivers.
+</p>
+<h4><span class="mw-headline-number">1.4.3</span> Virtual Machines</h4>
+<p>Rather than installing an entirely new operating system on your machine, you can instead run a virtual machine at the software level and install a different operating system on it. Thus, you could run a Linux system and at the same time run Windows along with your application in a virtual machine simultaneously on the same hardware. Virtual machines allow you to install and run not only different versions of Windows on the same hardware, but also other operating systems, including ReactOS.
+</p><p>There are several different virtual machine offerings out there, and some are also able to emulate x86 hardware on different platforms. The open source <a rel="nofollow" class="external text" href="http://bochs.sourceforge.net/">Bochs</a>, <a rel="nofollow" class="external text" href="http://www.virtualbox.org/">VirtualBox</a> and <a rel="nofollow" class="external text" href="http://www.qemu.org/">QEMU</a> can run both Windows and ReactOS virtually. Other, commercial virtual machine offerings include <a rel="nofollow" class="external text" href="http://www.vmware.com/">VMware</a> and Microsoft's <a rel="nofollow" class="external text" href="http://www.microsoft.com/windows/virtualpc/">VirtualPC</a>.
+</p><p>There are significant drawbacks to using virtual machines, however. Unlike Wine, such programs <i>are</i> emulators, so there is an inevitable speed decrease which can be quite substantial. Furthermore, running an application inside a virtual machine prevents fully integrating the application within the current environment. You won't, for example, be able to have windows system tray icons or program shortcuts sitting alongside your desktop Linux ones, since instead the Windows applications must reside completely within the virtual machine.
+</p>
+<h2><span class="mw-headline-number">2</span> Getting Wine</h2>
+<h3><span class="mw-headline-number">2.1</span> Wine Installation Methods</h3>
+<p>Once you've decided that Wine is right for your needs, the next step is to decide how you want to install it. There are three methods for installing Wine from WineHQ, each with their own advantages and disadvantages.
+</p>
+<h4><span class="mw-headline-number">2.1.1</span> Installation from a package</h4>
+<p>By far the easiest method for installing Wine is to use a prepackaged version of Wine. These packages contain ready-to-run Wine binary files specifically compiled for your distribution, and they are tested regularly by the packagers for both functionality and completeness.
+</p><p>Packages are the recommended method for installing Wine. We make them easily available at the <a rel="nofollow" class="external text" href="https://www.winehq.org/download">WineHQ downloads page</a>, and these are always the latest packages available. Being popular, Wine packages can also be found elsewhere in official distribution repositories. These can, however, sometimes be out of date, depending on the distribution. Packages are easily upgradable as well, and many distributions can upgrade Wine seamlessly with a few clicks. Building your own installable binary package from a source package is also possible, although it is beyond the scope of this guide.
+</p>
+<h4><span class="mw-headline-number">2.1.2</span> Installation from a source archive</h4>
+<p>Sometimes the Wine packages don't fit your needs exactly. Perhaps they're not available for your architecture or distribution, or perhaps you want to build Wine using your own compiler optimizations or with some options disabled, or perhaps you need to modify a specific part of the source code before compilation. Being an open source project, you are free to do all of these things with Wine source code, which is provided with every Wine release. This method of installation can be done by downloading a Wine source archive and compiling from the command line. If you are comfortable with such things and have special needs, this option may be for you.
+</p><p>Getting Wine source archives is simple. Every release, we put a source package in compressed <tt>tar.xz</tt> format at the <a rel="nofollow" class="external text" href="https://www.winehq.org/download">WineHQ downloads page</a>. Compiling and installing Wine from source is slightly more difficult than using a package, however we will cover it in depth and attempt to hold your hand along the way.
+</p>
+<h4><span class="mw-headline-number">2.1.3</span> Installation from a Git tree</h4>
+<p>If you wish to try out the bleeding edge of Wine development, or would even like to help develop Wine yourself, you can download the very latest source code from our Git repository. Instructions for downloading from the Wine Git repository are available in the <a href="/Git_Wine_Tutorial" title="Git Wine Tutorial">Git Wine Tutorial</a>.
+</p><p>Please take note that the usual warnings for using a developmental version still apply. The source code on the Git repository is largely untested and may not even compile properly. It is, however, the best way to test out how Wine will work in the next release, and if you're modifying source code it's best to get the latest copy. The Git repository is also useful for application maintainers interested in testing if an application will still work right for the next release, or if a recent patch actually improves things. If you're interested in helping us to get an application working in Wine, see the <a href="/Wine_Installation_and_Configuration" title="Wine Installation and Configuration">Wine Installation and Configuration</a> guide.
+</p>
+<h3><span class="mw-headline-number">2.2</span> Installing Wine from a package</h3>
+<h4><span class="mw-headline-number">2.2.1</span> Installing a fresh package</h4>
+<p>Installing a package on a fresh system is remarkably straightforward. Simply download and install the package using whatever utility your distribution provides. There is usually no need to explicitly remove old packages before installing, as modern Linux distributions should upgrade and replace them automatically. If you installed Wine from source code, however, you should remove it before installing a Wine package. See the section on  for proper instructions.
+</p>
+<h4><span class="mw-headline-number">2.2.2</span> Different Distributions</h4>
+<p>Wine works on a huge amount of different Linux distributions, as well other Unix-like systems such as Solaris and FreeBSD, each with their own specific way of installing and managing packages. Fortunately, however, the same general ideas apply to all of them, and installing Wine should be no more difficult than installing any other software, no matter what distribution you use. Uninstalling Wine packages is simple as well, and in modern Linux distributions is usually done through the same easy interface as package installation.
+</p><p>We won't cover the specifics of installing or uninstalling Wine packages among the various systems' methods of packaging and package management in this guide, however, up to date installation notes for particular distributions can be found at the WineHQ website in  <a href="/Category:Distributions" title="Category:Distributions">Category:Distributions</a>. If you need further help figuring out how to simply install a Wine package, we suggest consulting your distribution's documentation, support forums, or IRC channels.
+</p>
+<h3><span class="mw-headline-number">2.3</span> Installing Wine from source</h3>
+<p>Before installing Wine from source, make sure you uninstall any Wine binary packages you may have on your system. Installing from source requires use of the terminal window as well as a full copy of the Wine source code. Once having downloaded the source from Git or extracted it from an archive, navigate to it using the terminal and then follow the remaining steps.
+</p>
+<h4><span class="mw-headline-number">2.3.1</span> Getting the Build Dependencies</h4>
+<p>Wine makes use of many open source libraries during its operation. While Wine is not strictly dependent on these libraries and will compile without most of them, much of Wine functionality is improved by having them available at compile time. In the past, many user problems were caused by people not having the necessary development libraries when they built Wine from source; because of this reason and others, we highly recommend installing via binary packages or by building source packages which can automatically satisfy their build dependencies.
+</p><p>If you wish to install build dependencies by hand, there are several ways to see if you're missing some useful development libraries. The most straightforward approach is to watch the output of <b>configure</b> before you compile Wine and see if anything important is missing; if it is, simply install what's missing and rerun <b>configure</b> before compiling. You can also check the file <b>configure</b> generates (<tt>include/config.h</tt>) and see what files <b>configure</b> is looking for but not finding.
+</p>
+<h4><span class="mw-headline-number">2.3.2</span> Compiling Wine</h4>
+<p>Once you've installed the build dependencies you need, you're ready to compile the package. In the terminal window, after having navigated to the Wine source tree, run the following commands:
+</p>
+<p class="mw-highlight mw-content-ltr" dir="ltr"><pre><span/>$ ./configure
+$ make depend
+$ make
+</pre></p>
+<p>Since Wine can be run from the build directory, it is not necessary to install it. If you do wish to install it, after the wine build is complete, run
+</p>
+
+<p>This command requires root privileges. Although you should never run Wine as root, you will need to install it this way.
+</p>
+<h4><span class="mw-headline-number">2.3.3</span> Uninstalling Wine from Source</h4>
+<p>To uninstall Wine from source, once again navigate to the same source folder that you used to install Wine using the terminal. Then, run the following command:
+</p>
+
+<p>This command will require root privileges, and should remove all of the Wine files from your system. It will not, however, remove your Wine configuration and applications located in your user home directory, so you are free to install another version of Wine or delete that configuration by hand.
+</p>
+<h2><span class="mw-headline-number">3</span> Using Wine</h2>
+<p>This chapter will describe all aspects of using Wine, such as basic Wine invocation, installing and running Windows executables, command line parameters of various Wine support programs, etc.
+</p><p>You can simply invoke the <b>wine</b> command to get a small help message:
+</p>
+<pre>Usage: wine PROGRAM [ARGUMENTS...]   Run the specified program
+       wine --help                   Display this help and exit
+       wine --version                Output version information and exit</pre>
+<p>The first argument should be the name of the file you want <b>wine</b> to execute. If the executable is in the <tt>Path</tt> environment variable, you can simply give the executable file name. However, if the executable is not in <tt>Path</tt>, you must give the full path to the executable. See  for more information.
+</p>
+<h3><span class="mw-headline-number">3.1</span> How to install and run Windows programs</h3>
+<p>Most binary Wine packages will associate Wine with <tt>.exe</tt> files for you. If that is the case, you should be able to simply double-click on the .exe file in your file manager, just like in Windows. You can also right-click on the file, choose "Run with", and choose "Wine". This may sometimes open the file in the wrong program - if this happens, check the filetype associations for the file using whatever tool your desktop environment provides and edit as needed. Note that if you have built Wine from source you will have to create the filetype association yourself. 
+</p><p>Launching <tt>.exe</tt> files through your file manager as described above is generally only needed for installers and simple executables that do not have installers. After you install an application with Wine, it will probably have an entry in the your computer's Applications → Wine → Programs menu, and/or an icon on the desktop, just as it would under Windows. You should be able to use them just as you would on Windows. 
+</p><p>If the above methods fail, open a terminal and run the <tt>.exe</tt> from the command line following the instructions below.
+</p>
+<h4><span class="mw-headline-number">3.1.1</span> How to run Windows programs from the command line</h4>
+<p>This will allow you to see messages from Wine that may help troubleshoot problems.
+</p><p>Because Windows programs will often look for files in the location they were started from, when using the command line you should start them in a very specific way: "change directory" to the folder where the program is located and run the <tt>.exe</tt> file using <b>only</b> its filename. For example:
+</p>
+<pre>cd '.wine/drive_c/Games/Tron'
+wine tron.exe 
+</pre>
+<p>For details on running text mode (CUI) executables, read the .
+</p>
+<h5><span class="mw-headline" id="Using_wine_start"><span class="mw-headline-number">3.1.1.1</span> Using <b>wine start</b></span></h5>
+<p>In some cases you may need to specify the full path to an executable file. For example, if you need to install a program from multiple CDs, entering the directory in the terminal will prevent you from removing the CD. 
+</p><p>You need to use <b>wine <a href="/Start" title="Start">start</a></b> if you specify a full path to the .exe, because that allows Wine to set the working directory for the program if it needs it. 
+</p>
+<ul><li>You can provide Wine with a DOS or Windows style path inside single quotes like so:</li></ul>
+<dl><dd><pre>wine start 'C:\Games\Tron\tron.exe'</pre></dd></dl>
+<ul><li>You can also use double quotes, but you need two backslashes instead of one:</li></ul>
+<dl><dd><pre>wine start "C:\\Games\\Tron\\tron.exe"</pre></dd></dl>
+<ul><li>If you prefer to use a Unix style pathname, use the /unix option to start, e.g.</li></ul>
+<dl><dd><pre>wine start /unix "$HOME/installers/TronSetup.exe"</pre></dd></dl>
+<h5><span class="mw-headline-number">3.1.1.2</span> Passing Windows command-line arguments</h5>
+<p>If you're using a program with switches on Windows, for instance:
+</p>
+<pre>quake.exe -map e1m1 
+</pre>
+<p>Then you can do the equivalent in Wine by running:
+</p>
+<pre>wine quake.exe -map e1m1 
+</pre>
+<p>That is, the command line is identical, except with <b>wine</b> in front. Note, however, that you may need to escape certain special characters with backslashes due to the way they're handled in the Linux shell. For instance:
+</p>
+<pre>quake.exe -map C:\Quake\e1m1.bsp 
+</pre>
+
+<pre>wine quake.exe -map C:\\Quake\\e1m1.bsp 
+</pre>
+<h5><span class="mw-headline" id="Running_.msi_files"><span class="mw-headline-number">3.1.1.3</span> <tt>Running .msi</tt> files</span></h5>
+<p>MSI files cannot be run directly; you need to use either Wine's <b>msiexec</b> program or <b>wine start</b> from a terminal: 
+</p>
+<pre>wine msiexec /i <i>whatever.msi</i> 
+</pre>
+
+<pre>wine start <i>whatever.msi</i>
+</pre>
+<h3><span class="mw-headline-number">3.2</span> Basic usage: applications and control panel applets</h3>
+<p>Applications are installed under Wine the same way you would in Windows: by . You can just accept the defaults for where to install, most installers will default to <tt>C:\Program Files</tt>, which is fine. If the application installer requests it, you may find that Wine creates icons on your desktop and in your app menu. If that happens, you can start the app by clicking on them.
+</p><p>The standard way to uninstall things is for the application to provide an uninstaller, usually registered with the “Add/Remove Programs” control panel applet. To access the Wine equivalent, run the <b>uninstaller</b> program (it is located in the <tt>programs/uninstaller/</tt> directory in a Wine source directory) in a terminal:
+</p>
+<pre>$ wine uninstaller</pre>
+<p>Some programs install associated control panel applets, examples of this would be Internet Explorer and QuickTime. You can access the Wine control panel by running in a terminal:
+</p>
+<pre>$ wine control</pre>
+<p>which will open a window with the installed control panel applets in it, as in Windows.
+</p><p>If the application doesn't install menu or desktop items, you'll need to run the app from the command line. Remembering where you installed to, something like:
+</p>
+<pre>$ wine "C:\Program Files\<i>appname</i>\<i>appname.exe</i>"
+</pre>
+<p>will probably do the trick. The path isn't case sensitive, but remember to include the double quotes. Some programs don't always use obvious naming for their directories and executable files, so you might have to look inside the <tt>Program Files</tt> directory to see what was put where.
+</p>
+<h3><span class="mw-headline-number">3.3</span> Explorer-like graphical Wine environments</h3>
+<p>If you prefer using a graphical interface to manage your files you might want to consider using <b>winefile</b>. This Winelib application comes with Wine and can be found with the other Wine programs. It is a useful way to view your drive configuration and locate files, plus you can execute programs directly from <b>winefile</b>. Please note that many functions are not yet implemented.
+</p>
+<h3><span class="mw-headline-number">3.4</span> Wine Command Line Options</h3>
+<h4><span class="mw-headline" id="--help"><span class="mw-headline-number">3.4.1</span> <code>--help</code></span></h4>
+<p>Shows a small command line help page.
+</p>
+<h4><span class="mw-headline" id="--version"><span class="mw-headline-number">3.4.2</span> <code>--version</code></span></h4>
+<p>Shows the Wine version string. Useful to verify your installation.
+</p>
+<h3><span class="mw-headline-number">3.5</span> Environment variables</h3>
+<h4><span id="WINEDEBUG=channels"/><span class="mw-headline" id="WINEDEBUG.3Dchannels"><span class="mw-headline-number">3.5.1</span> <code>WINEDEBUG</code>=<i>channels</i></span></h4>
+<p>Wine isn't perfect, and many Windows applications still don't run without bugs under Wine (but then, a lot of programs don't run without bugs under native Windows either!). To make it easier for people to track down the causes behind each bug, Wine provides a number of debug channels that you can tap into.
+</p><p>Each debug channel, when activated, will trigger logging messages to be displayed to the console where you invoked <tt>wine</tt>. From there you can redirect the messages to a file and examine it at your leisure. But be forewarned! Some debug channels can generate incredible volumes of log messages. Among the most prolific offenders are <tt>relay</tt> which spits out a log message every time a win32 function is called, <tt>win</tt> which tracks windows message passing, and of course <tt>all</tt> which is an alias for every single debug channel that exists. For a complex application, your debug logs can easily top 1 MB and higher. A <tt>relay</tt> trace can often generate more than 10 MB of log messages, depending on how long you run the application. (You'll want to check out <tt>RelayExclude</tt> registry key to modify what the <tt>relay</tt> trace reports). Logging does slow down Wine quite a bit, so don't use <code>WINEDEBUG</code> unless you really do want log files.
+</p><p>Within each debug channel, you can further specify a message class, to filter out the different severities of errors. The four message classes are: <tt>trace</tt>, <tt>fixme</tt>, <tt>warn</tt>, <tt>err</tt>.
+</p><p>To turn on a debug channel, use the form <tt>class+channel</tt>. To turn it off, use <tt>class-channel</tt>. To list more than one channel in the same <code>WINEDEBUG</code> option, separate them with commas. For example, to request <tt>warn</tt> class messages in the <tt>heap</tt> debug channel, you could invoke <b>wine</b> like this:
+</p>
+<pre>$ WINEDEBUG=warn+heap wine <i>program_name</i>
+</pre>
+<p>If you leave off the message class, Wine will display messages from all four classes for that channel:
+</p>
+<pre>$ WINEDEBUG=heap wine <i>program_name</i>
+</pre>
+<p>If you wanted to see log messages for everything except the <tt>relay</tt> channel, you might do something like this:
+</p>
+<pre>$ WINEDEBUG=+all,-relay wine <i>program_name</i>
+</pre>
+<p>You can find a list of the debug channels and classes at <a href="/Debug_Channels" title="Debug Channels">Debug Channels</a>. More channels will be added to (or subtracted from) later versions.
+</p>
+<h4><span id="WINEDLLOVERRIDES=DLL_Overrides"/><span class="mw-headline" id="WINEDLLOVERRIDES.3DDLL_Overrides"><span class="mw-headline-number">3.5.2</span> <code>WINEDLLOVERRIDES</code>=<i>DLL Overrides</i></span></h4>
+<p>It's not always possible to run an application on builtin DLLs. Sometimes native DLLs simply work better. Although these DLL overrides can be set using <b>winecfg</b> you might want to use the <code>WINEDLLOVERRIDES</code> environment variable to set them.
+</p>
+<pre>$ WINEDLLOVERRIDES="comdlg32,shell32=n,b" wine program_name</pre>
+<p>Try to load <tt>comdlg32</tt> and <tt>shell32</tt> as native Windows DLLs first and try the builtin version if the native load fails.
+</p>
+<pre>$ WINEDLLOVERRIDES="comdlg32,shell32=n;c:\\foo\\bar\\baz=b" wine program_name</pre>
+<p>Try to load the <tt>comdlg32</tt> and <tt>shell32</tt> libraries as native windows DLLs. Furthermore, if an application requests to load <tt>c:\foo\bar\baz.dll</tt> load the builtin library <tt>baz</tt>.
+</p>
+<pre>$ WINEDLLOVERRIDES="comdlg32=b,n;shell32=b;comctl32=n;oleaut32=" wine program_name</pre>
+<p>Try to load <tt>comdlg32</tt> as builtin first and try the native version if the builtin load fails; load <tt>shell32</tt> always as builtin and <tt>comctl32</tt> always as native. <tt>oleaut32</tt> will be disabled.
+</p><p>For more information about DLL overrides, please refer to the <a href="#DLL_Overrides">DLL overrides</a> section of this guide.
+</p>
+<h4><span class="mw-headline" id="WINEARCH"><span class="mw-headline-number">3.5.3</span> <code>WINEARCH</code></span></h4>
+<p>Specifies the Windows architecture to support. It can be set either to <tt>win32</tt> (support only 32-bit applications), or to <tt>win64</tt> (support both 64-bit applications and 32-bit ones in WoW64 mode). The architecture supported by a given Wine prefix is set at prefix creation time and cannot be changed afterwards. When running with an existing prefix, Wine will refuse to start if <code>WINEARCH</code> doesn't match the prefix architecture.
+</p>
+<h4><span class="mw-headline" id="WINEPREFIX"><span class="mw-headline-number">3.5.4</span> <code>WINEPREFIX</code></span></h4>
+<p>Specifies the location of the configuration directory to be used. Use the full unix-style path when specifying. The default wineprefix is $HOME/.wine. A user can have multiple wineprefixes on the same system. See <a href="/FAQ#Wineprefixes" title="FAQ">the Wineprefixes section of the FAQ</a> for more information. 
+</p>
+<h4><span class="mw-headline-number">3.5.5</span> OSS Audio Driver Settings</h4>
+<p>If you are using the OSS audio driver and you have multiple devices, (i.e. <tt>/dev/dsp*</tt>, <tt>/dev/mixer*</tt>) you can specify which one you want to use with the following environment variables:
+</p>
+<ul><li><code>AUDIODEV=<i>audio device</i></code></li>
+<li><code>MIXERDEV=<i>mixer device</i></code></li>
+<li><code>MIDIDEV=<i>MIDI device</i></code></li></ul>
+
+<pre>$ AUDIODEV=/dev/dsp4 MIXERDEV=/dev/mixer1 MIDIDEV=/dev/midi3 wine <i>program_name</i>
+</pre>
+<h3><span class="mw-headline" id="wineserver_Command_Line_Options"><span class="mw-headline-number">3.6</span> <code>wineserver</code> Command Line Options</span></h3>
+<p><b>wineserver</b> usually gets started automatically by Wine whenever the first Wine process gets started. However, <b>wineserver</b> has some useful command line options that you can add if you start it up manually, e.g. via a user login script or so.
+</p>
+<h5><span class="mw-headline" id="-d_n"><span class="mw-headline-number">3.6.1</span> -d <i>n</i></span></h5>
+<p>Sets the debug level for debug output in the terminal that <b>wineserver</b> got started in at level <i>n</i>. In other words: everything greater than 0 will enable <b>wineserver</b> specific debugging output.
+</p>
+<h5><span class="mw-headline-number">3.6.2</span> -h</h5>
+<p>Display <b>wineserver</b> command line options help message.
+</p>
+<h5><span id="-k_[n]"/><span class="mw-headline" id="-k_.5Bn.5D"><span class="mw-headline-number">3.6.3</span> -k [<i>n</i>]</span></h5>
+<p>Kill the current <b>wineserver</b>, optionally with signal n.
+</p>
+<h5><span id="-p_[n]"/><span class="mw-headline" id="-p_.5Bn.5D"><span class="mw-headline-number">3.6.4</span> -p [<i>n</i>]</span></h5>
+<p>This parameter makes <b>wineserver</b> persistent, optionally for n seconds. It will prevent <b>wineserver</b> from shutting down immediately.
+</p><p>Usually, <b>wineserver</b> quits almost immediately after the last Wine process using this <b>wineserver</b> terminated. However, since <b>wineserver</b> loads a lot of things on startup (such as the whole Windows registry data), its startup might be so slow that it's very useful to keep it from exiting after the end of all Wine sessions, by making it persistent.
+</p>
+<h5><span class="mw-headline-number">3.6.5</span> -w</h5>
+<p>This parameter makes a newly started <b>wineserver</b> wait until the currently active instance terminates.
+</p>
+<h4><span id="Setting_Windows/DOS_environment_variables"/><span class="mw-headline-number">3.6.6</span> Setting Windows/DOS environment variables</h4>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="/File:Ambox_outdated_content.svg" class="image"><img alt="Ambox outdated content.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Ambox_outdated_content.svg/24px-Ambox_outdated_content.svg.png" decoding="async" width="24" height="24" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Ambox_outdated_content.svg/36px-Ambox_outdated_content.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Ambox_outdated_content.svg/48px-Ambox_outdated_content.svg.png 2x"/></a> This page or section is <b>outdated</b> in one or more areas. Possible discussion may be found on the talk page. Please update to reflect current information.
+</td></tr></tbody></table>
+<p>Your program might require some environment variable to be set properly in order to run successfully. In this case you need to set this environment variable in the Linux shell, since Wine will pass on the entire shell environment variable settings to the Windows environment variable space. Example for the <tt>bash</tt> shell (other shells may have a different syntax!):
+</p>
+<pre>export MYENVIRONMENTVAR=<i>myenvironmentvarsetting</i>
+</pre>
+<p>This will make sure your Windows program can access the <code>MYENVIRONMENTVAR</code> environment variable once you start your program using Wine. If you want to have <code>MYENVIRONMENTVAR</code> set permanently, then you can place the setting into <tt>/etc/profile</tt>, or also <tt>~/.bashrc</tt> when using <tt>bash</tt>.
+</p><p>Note however that there are some exceptions to the rule: If you want to change the <code>PATH</code>, <code>SYSTEM</code> or <code>TEMP</code> variables, then of course you can't modify it that way, since this will alter the Unix environment settings. Instead, you should set them into the registry. To set them you should launch <tt>wine regedit</tt> and then go to the
+</p>
+<pre>HKEY_CURRENT_USER/Environment</pre>
+<p>key. Now you can create or modify the values of the variables you need
+</p>
+<pre>"System" = "c:\\windows\\system"</pre>
+<p>This sets up where the Windows system files are. The Windows system directory should reside below the directory used for the Windows setting. Thus when using <tt>/usr/local/wine_c_windows</tt> as Windows path, the system directory would be <tt>/usr/local/wine_c/windows/system</tt>. It must be set with no trailing slash, and you must be sure that you have write access to it.
+</p>
+<pre>"Temp" = "c:\\temp"</pre>
+<p>This should be the directory you want your temp files stored in, <tt>/usr/local/wine_c/temp</tt> in our previous example. Again, no trailing slash, and <i>write access</i>!
+</p>
+<pre>"Path" = "c:\\windows;c:\\windows\\system;c:\\blanco"</pre>
+<p>Behaves like the PATH setting on UNIX boxes. When Wine is run like <code>wine sol.exe</code>, if <tt>sol.exe</tt> resides in a directory specified in the <tt>Path</tt> setting, Wine will run it (of course, if <tt>sol.exe</tt> resides in the current directory, Wine will run that one). Make sure it always has your windows directory and system directory (for this setup, it must contain <tt>"c:\\windows;c:\\windows\\system"</tt>).
+</p>
+<h4><span id="Text_mode_programs_(CUI:_Console_User_Interface)"/><span class="mw-headline-number">3.6.7</span> Text mode programs (CUI: Console User Interface)</h4>
+<p>Text mode programs are program which output is only made out of text (surprise!). In Windows terminology, they are called CUI (Console User Interface) executables, by opposition to GUI (Graphical User Interface) executables. Win32 API provide a complete set of APIs to handle this situation, which goes from basic features like text printing, up to high level functionalities (like full screen editing, color support, cursor motion, mouse support), going through features like line editing or raw/cooked input stream support
+</p><p>Given the wide scope of features above, and the current usage in Un*x world, Wine comes out with three different ways for running a console program (aka a CUI executable):
+</p>
+<ul><li>bare streams</li>
+<li><b>wineconsole</b> with <tt>user</tt> backend</li>
+<li><b>wineconsole</b> with <tt>curses</tt> backend</li></ul>
+<p>The names here are a bit obscure. “bare streams” means that no extra support of Wine is provided to map between the Unix console access and Windows console access. The two other ways require the use of a specific Wine program (<code>wineconsole</code>) which provide extended facilities. The following table describes what you can do (and cannot do) with those three ways.
+</p>
+<table class="wikitable">
+<caption>Table 3-1. Basic differences in consoles
+</caption>
+<tbody><tr>
+<th>Function
+</th>
+<th>Bare streams
+</th>
+<th>Wineconsole with <tt>user</tt> backend
+</th>
+<th>Wineconsole with <tt>curses</tt> backend
+</th></tr>
+<tr>
+<td>How to run (assuming executable is called <tt>foo.exe</tt>)
+</td>
+<td>
+
+</td>
+<td>
+<p><code>$ wineconsole -- --backend=user foo.exe</code>
+</p>
+</td>
+<td>
+<p><code>$ wineconsole foo.exe</code>
+You can also use <tt>--backend=curses</tt> as an option
+</p>
+</td></tr>
+<tr>
+<td>Good support for line oriented CUI applications (which print information line after line)
+</td>
+<td>Yes
+</td>
+<td>Yes
+</td>
+<td>Yes
+</td></tr>
+<tr>
+<td>Good support for full screen CUI applications (including but not limited to color support, mouse support...)
+</td>
+<td>No
+</td>
+<td>Yes
+</td>
+<td>Yes
+</td></tr>
+<tr>
+<td>Can be run even if X11 is not running
+</td>
+<td>Yes
+</td>
+<td>No
+</td>
+<td>Yes
+</td></tr>
+<tr>
+<td>Implementation
+</td>
+<td>Maps the standard Windows streams to the standard Unix streams (<tt>stdin/stdout/stderr)</tt>
+</td>
+<td><b>wineconsole</b> will create a new window (hence requiring the <tt>user32</tt> DLL is available) where all information will be displayed
+</td>
+<td><b>wineconsole</b> will use existing Unix console (from which the program is run) and with the help of the <tt>curses</tt>/<tt>ncurses</tt> library take control of all the terminal surface for interacting with the user
+</td></tr>
+<tr>
+<td>Known limitations
+</td>
+<td>
+</td>
+<td>
+</td>
+<td>Will produce strange behavior if two (or more) Windows consoles are used on the same Un*x terminal.
+</td></tr></tbody></table>
+<h5><span class="mw-headline-number">3.6.7.1</span> Configuration of CUI executables</h5>
+<p>When <b>wineconsole</b> is used, several configuration options are available. Wine stores (as does Windows) , on a per application basis, several options in the registry. This lets a user, for example, define the default screen-buffer size he would like to have for a given application.
+</p><p>As of today, only the <tt>user</tt> backend allows you to edit those options (we don't recommend editing by hand the registry contents). This edition is fired when a user right clicks in the console (this popups a menu), where you can either choose from:
+</p>
+<ul>
+<li><p>Default: this will edit the settings shared by all applications which haven't been configured yet. So, when an application is first run (on your machine, under your account) in <b>wineconsole</b>, it will inherit these default settings. Afterwards, the application will have its own settings, that you'll be able to modify at your will.</p>
+<p>Properties: this will edit the application's settings. When you're done, with the edition, you'll be prompted whether you want to:</p>
+<ol>
+<li><p>Keep these modified settings only for this session (next time you run the application, you will not see the modification you've just made).</p></li>
+<li><p>Use the settings for this session and save them as well, so that next you run your application, you'll use these new settings again.</p></li></ol>
+</li></ul>
+<p>Here's the list of the items you can configure, and their meanings:
+</p>
+<table class="wikitable">
+<caption>Table 3-2. Wineconsole configuration options
+</caption>
+<tbody><tr>
+<th>Configuration option
+</th>
+<th>Meaning
+</th></tr>
+<tr>
+<td>Cursor size
+</td>
+<td>Defines the size of the cursor. Three options are available: small (33% of character height), medium (66%) and large (100%)
+</td></tr>
+<tr>
+<td>Popup menu
+</td>
+<td>It's been said earlier that <b>wineconsole</b> configuration popup was triggered using a right click in the console's window. However, this can be an issue when the application you run inside <b>wineconsole</b> expects the right click events to be sent to it. By ticking Control or Shift you select additional modifiers on the right click for opening the popup. For example, ticking Shift will send events to the application when you right click the window without Shift being hold down, and open the window when you right-click while Shift being hold down.
+</td></tr>
+<tr>
+<td>Quick edit
+</td>
+<td>This tick box lets you decide whether left-click mouse events shall be interpreted as events to be sent to the underlying application (tick off) or as a selection of rectangular part of the screen to be later on copied onto the clipboard (tick on).
+</td></tr>
+<tr>
+<td>History
+</td>
+<td>This lets you pick up how many commands you want the console to recall. You can also drive whether you want, when entering several times the same command - potentially intertwined with others - whether you want to store all of them (tick off) or only the last one (tick on).
+</td></tr>
+<tr>
+<td>Police
+</td>
+<td>The Police property sheet allows you to pick the default font for the console (font file, size, background and foreground color).
+</td></tr>
+<tr>
+<td>Screenbuffer &amp; window size
+</td>
+<td>The console as you see it is made of two different parts. On one hand there's the screenbuffer which contains all the information your application puts on the screen, and the window which displays a given area of this screen buffer. Note that the window is always smaller or of the same size than the screen buffer. Having a strictly smaller window size will put on scrollbars on the window so that you can see the whole screenbuffer content.
+</td></tr>
+<tr>
+<td>Close on exit
+</td>
+<td>If it's ticked, then <b>wineconsole</b> will exit when the application within terminates. Otherwise, it'll remain opened until the user manually closes it: this allows seeing the latest information of a program after it has terminated.
+</td></tr>
+<tr>
+<td>Edition mode
+</td>
+<td>
+<p>When the user enter commands, he or she can choose between several edition modes:
+</p>
+<ul><li><tt>Emacs</tt>: the same keybindings as under <tt>emacs</tt> are available. For example, <b>Ctrl+A</b> will bring the cursor to the beginning of the edition line. See your <tt>emacs</tt> manual for the details of the commands.</li>
+<li><tt>Win32</tt>: these are the standard Windows console key-bindings (mainly using arrows).</li></ul>
+</td></tr></tbody></table>
+<h2><span class="mw-headline-number">4</span> Configuring Wine</h2>
+<p>Most of the most common configuration changes can be done with the <b>winecfg</b> tool. We'll go through an easy, step-by-step introduction to <b>winecfg</b> and outline the options available. In the next section we'll go over more advanced changes you can make using <b>regedit</b> as well as provide a complete reference to all Wine configuration settings. Finally, some things you might want to configure fall out of the scope of <b>winecfg</b> and <b>regedit</b>, and we'll go over those.
+</p>
+<h3><span class="mw-headline-number">4.1</span> Using Winecfg</h3>
+<p>In the past, Wine used a special configuration file that could be found in <tt>~/.wine/config</tt>. If you are still using a version of Wine that references this file (older than June, 2005) you should upgrade before doing anything else. All settings are now stored directly in the registry and accessed by Wine when it starts.
+</p><p>Winecfg should have been installed on your computer along with the rest of the Wine programs. If you can't figure out how to start it, try running <b>winecfg</b>.
+</p><p>When the program starts you'll notice there are tabs along the top of the window for:
+</p>
+<ul><li>Applications</li>
+<li>Libraries</li>
+<li>Graphics</li>
+<li>Desktop Integration</li>
+<li>Drives</li>
+<li>Audio</li>
+<li>About</li></ul>
+<p>Changing settings in the Applications and Libraries tabs will have the most impact on getting an application to run. The other settings focus on getting Wine itself to behave the way you want it to.
+</p><p>Note: The Applications, Libraries, and Graphics tabs are linked together! If you have “Default Settings” selected under Applications, all of the changes made within the Libraries and Graphics tabs will be changed for all applications. If you've configured a specific application under the Applications tab and have it selected, then any changes made in Libraries or Graphics will affect only that application. This allows for custom settings for specific applications.
+</p>
+<h4><span class="mw-headline-number">4.1.1</span> Application Settings</h4>
+<p>Wine has the ability to mimic the behavior of different versions of Windows. In general, the biggest difference is whether Wine behaves as a Win9x version or an NT version. Some applications require a specific behavior in order to function and changing this setting may cause a buggy app to work. Wine default Windows version is Windows XP. Some newer applications may refuse to start unless you set the Windows version to Vista or higher, while some older applications may perform better if you choose Windows 98. (<b>Note:</b> versions of Windows prior to XP are only available for selection in winecfg in 32 bit wineprefixes. If you are on a 64 bit system, see ).
+</p><p>Within the tab you'll notice there is a <i>Default Settings</i> entry. If you select that you'll see the current default <i>Windows Version</i> for all applications. A troublesome application is best configured separately from the Default Settings. To do that:
+</p>
+<ol><li>Click on the Add application button.</li>
+<li>Browse until you locate the executable.</li>
+<li>After it's been added you can choose the specific Windows version Wine will emulate for that application.</li></ol>
+<h4><span class="mw-headline-number">4.1.2</span> Libraries Settings</h4>
+<p>Likewise, some applications require specific libraries in order to run. Wine reproduces the Windows system libraries (so-called native DLLs) with completely custom versions designed to function exactly the same way but without requiring licenses from Microsoft. Wine has many known deficiencies in its built-in versions, but in many instances the functionality is sufficient. Using only builtin DLLs ensures that your system is Microsoft-free. However, Wine has the ability to load native Windows DLLs.
+</p>
+<h5><span class="mw-headline-number">4.1.2.1</span> DLL Overrides</h5>
+<p>It's not always possible to run an application on builtin DLLs, so sometimes native versions will be recommended as a workaround for a specific problem. Some may be directly copied to the directory configured as <tt>c:\windows\system32</tt> (more on that in the drives section) while others may require an installer, see the next section on <b>winetricks</b>. 
+</p><p><img alt="Dialog-warning.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Dialog-warning.svg/18px-Dialog-warning.svg.png" decoding="async" width="18" height="18" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Dialog-warning.svg/27px-Dialog-warning.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Dialog-warning.svg/36px-Dialog-warning.svg.png 2x"/> Native versions of these DLLs do <b>not</b> work: <tt>kernel32.dll</tt>, <tt>gdi32.dll</tt>, <tt>user32.dll</tt>, and <tt>ntdll.dll</tt>. These libraries require low-level Windows kernel access that simply doesn't exist within Wine.
+</p><p>With that in mind, once you've copied the DLL you just need to tell Wine to try to use it. You can configure Wine to choose between native and builtin DLLs at two different levels. If you have <i>Default Settings</i> selected in the Applications tab, the changes you make will affect all applications. Or, you can override the global settings on a per-application level by adding and selecting an application in the Applications tab.
+</p><p>To add an override for <tt>FOO.DLL</tt>, enter <tt>FOO</tt> into the box labeled New override for library: and click on the Add button. To change how the DLL behaves, select it within the Existing overrides: box and choose Edit. By default the new load order will be native Windows libraries before Wine builtin ones (<i>Native then Builtin</i>). You can also choose native only, builtin only, or disable it altogether.
+</p><p>DLLs usually get loaded in the following order:
+</p>
+<ol><li>The directory the program was started from.</li>
+<li>The current directory.</li>
+<li>The Windows system directory.</li>
+<li>The Windows directory.</li>
+<li>The PATH variable directories.</li></ol>
+<h5><span class="mw-headline-number">4.1.2.2</span> Notes About System or Missing DLLs</h5>
+<p>There are of course DLLs that Wine does not currently implement very well (or at all).
+</p><p>In case Wine complains about a missing DLL, you should check whether this file is a publicly available DLL or a custom DLL belonging to your program. In the latter case, check that you have installed your program correctly.
+</p><p>Most often applications will assume that a required redistributable package has already been installed and subsequently fail to run when the required dependencies are not met. For example:
+</p>
+<pre>err:module:import_dll Library MFC42.DLL (which is needed by L"C:\\Program Files\\Foo\\Bar.dll") not found</pre>
+<p>Redistributable packages which install the necessary runtimes can be obtained through the use of <a href="/Winetricks" title="Winetricks">winetricks</a>. Note these components are subject to their own license and are not part of the Wine project. You should refer to the application's <a rel="nofollow" class="external text" href="http://appdb.winehq.org">AppDB</a> entry for advice on what is required.
+</p>
+<h4><span class="mw-headline-number">4.1.3</span> Graphics Settings</h4>
+<p>There are basically five different graphics settings you can configure. For most people the defaults are fine.
+</p><p>The first setting primarily affect games and is somewhat self-explanatory. You can prevent the mouse from leaving the window of a full-screen program (e.g. a game) and the default is to not have that box checked. That is mostly needed when using a virtual desktop.
+</p><p>You may find it helpful to tick Emulate a virtual desktop. In this case, all programs will run in a separate window. You may find this useful as a way to test buggy games that change (possibly unsuccessfully) the screen resolution. Confining them to a window can allow for more control over them at the possible expense of decreased usability. Sizes you might want to try are 800x600 (the default) or 1024x768.
+</p>
+<h4><span class="mw-headline-number">4.1.4</span> Drive Settings</h4>
+<p>Windows requires a fairly rigid drive configuration that Wine imitates. Most people are familiar with the standard notation of the <code>A:</code> drive representing the floppy disk, the <tt>C:</tt> drive representing the primary system disk, etc. Wine uses the same concept and maps those drives to the underlying native filesystem.
+</p><p>Wine drive configuration is relatively simple. In <b>winecfg</b> under the Drives tab you'll see buttons to add and remove available drives. When you choose to add a drive, a new entry will be made and a default drive mapping will appear. You can change where this drive points to by changing what's in the Path: box. If you're unsure of the exact path you can choose Browse to search for it. Removing a drive is as easy as selecting the drive and clicking Remove.
+</p><p><b>Winecfg</b> has the ability to automatically detect the drives available on your system. It's recommended you try this before attempting to configure drives manually. Simply click on the Autodetect button to have Wine search for drives on your system.
+</p><p>You may be interested in configuring your drive settings outside of <b>winecfg</b>, in which case you're in luck because it's quite easy. All of the drive settings reside in a special directory: <tt>~/.wine/dosdevices</tt>. Each “drive” is simply a link to where it actually resides. Wine automatically sets up two drives the first time you run Wine:
+</p>
+<pre>$ ls -la ~/.wine/dosdevices/
+lrwxrwxrwx  1 wineuser wineuser   10 Jul 23 15:12 c: -&gt; ../drive_c
+lrwxrwxrwx  1 wineuser wineuser    1 Jul 23 15:12 z: -&gt; /</pre>
+<p>To add another drive, for example your CD-ROM, just create a new link pointing to it:
+</p>
+<pre>$ ln -s /mnt/cdrom ~/.wine/dosdevices/d:</pre>
+<p>Take note of the DOS-style naming convention used for links - the format is a letter followed by a colon, such as <tt>a:</tt>. So, if the link to your <tt>c:</tt> drive points to <tt>~/.wine/drive_c</tt>, you can interpret references to <tt>c:\windows\system32</tt> to mean <tt>~/.wine/drive_c/windows/system32</tt>.
+</p>
+<h4><span class="mw-headline-number">4.1.5</span> Audio Settings</h4>
+<p>Wine can work with quite a few different <a href="/Sound" title="Sound">audio subsystems</a>. You can see the selected driver that Wine figures out for you under the Audio tab.
+</p><p>You can manually select which device will be used for Output, Input, Voice output and Voice input. For example you can choose the digital output of your sound device instead of the analog one.
+</p>
+<h4><span class="mw-headline-number">4.1.6</span> Desktop Integration</h4>
+<p>Wine can load Windows themes if you have them available. While this certainly isn't necessary in order to use Wine or applications, it does allow you to customize the look and feel of a program. Wine supports the newer MSStyles type of themes. Unlike the older Microsoft Plus! style themes, the <tt>uxtheme</tt> engine supports special <tt>.msstyles</tt> files that can retheme all of the Windows controls. This is more or less the same kind of theming that modern Linux desktops have supported for years. If you'd like to try this out:
+</p>
+<ol><li>Download a Windows XP theme. Be sure it contains a <tt>.msstyles</tt> file.</li>
+<li>Use the Desktop Integration tab of <b>winecfg</b> to install and select the new theme.</li></ol>
+<h3><span class="mw-headline-number">4.2</span> Using the Registry and Regedit</h3>
+<p>All of the settings you change in <b>winecfg</b>, with exception of the drive settings, are ultimately stored in the registry. In Windows, this is a central repository for the configuration of applications and the operating system. Likewise, Wine implements a registry and some settings not found in Winecfg can be changed within it (there's actually more of a chance you'll need to dip into the registry to change the settings of an application than Wine itself).
+</p><p>Now, the fact that Wine itself uses the registry to store settings has been controversial. Some people argue that it's too much like Windows. To counter this there are several things to consider. First, it's impossible to avoid implementing a registry simply because applications expect to be able to store their settings there. In order for Wine to store and access settings in a separate configuration file would require a separate set of code to basically do the same thing as the Win32 APIs Wine already implements.
+</p>
+<h4><span class="mw-headline-number">4.2.1</span> Registry Structure</h4>
+<p>Okay... with that out of the way, let's dig into the registry a bit to see how it's laid out. The Windows registry is an elaborate tree structure, and not even most Windows programmers are fully aware of how the registry is laid out, with its different “hives” and numerous links between them; a full coverage is out of the scope of this document. But here are the basic registry keys you might need to know about for now:
+</p>
+<dl><dt>HKEY_LOCAL_MACHINE</dt>
+<dd>This fundamental root key (in win9x it's stored in the hidden file <tt>system.dat</tt>) contains everything pertaining to the current Windows installation. This is often abbreviated <tt>HKLM</tt>.</dd>
+<dt>HKEY_USERS</dt>
+<dd>This fundamental root key (in win9x it's stored in the hidden file <tt>user.dat</tt>) contains configuration data for every user of the installation.</dd>
+<dt>HKEY_CLASSES_ROOT</dt>
+<dd>This is a link to <tt>HKEY_LOCAL_MACHINE\Software\Classes</tt>. It contains data describing things like file associations, OLE document handlers, and COM classes.</dd>
+<dt>HKEY_CURRENT_USER</dt>
+<dd>This is a link to <tt>HKEY_USERS\your_username</tt>, i.e., your personal configuration.</dd></dl>
+<h4><span class="mw-headline-number">4.2.2</span> Registry Files</h4>
+<p>Now, what you're probably wondering is how that translates into Wine structure. The registry layout described above actually lives in three different files within each user's <tt>~/.wine</tt> directory:
+</p>
+<dl><dt>system.reg</dt>
+<dd>This file contains <tt>HKEY_LOCAL_MACHINE</tt>.</dd>
+<dt>user.reg</dt>
+<dd>This file contains <tt>HKEY_CURRENT_USER</tt>.</dd>
+<dt>userdef.reg</dt>
+<dd>This file contains <tt>HKEY_USERS\.Default</tt> (i.e. the default user settings).</dd></dl>
+<p>These files are automatically created the first time you use Wine. A set of global settings is stored in the <tt>wine.inf</tt> file and is processed by the <b>rundll32.exe</b> program. The first time you run Wine the <tt>wine.inf</tt> file gets processed to populate the initial registry. The registry is also updated automatically if <tt>wine.inf</tt> changes, for instance when upgrading to a newer Wine version.
+</p><p>Note: Older Wine versions (before 1.0) required you to run the <b>wineprefixcreate</b> command manually to upgrade your settings. This is no longer necessary.
+</p><p>It is not advisable to edit these files to modify the registry as they are managed by Wine internally. Use <b>regedit.exe</b>, <b>reg.exe</b> or any program which uses the standard registry functions.
+</p>
+<h4><span class="mw-headline-number">4.2.3</span> Using Regedit</h4>
+<p>An easy way to access and change the registry is with the <b>regedit</b> tool. Similar to the Windows program it replaces, <b>regedit</b> serves to provide a system level view of the registry containing all of the keys. When you start it, you'll immediately notice that the cryptic keys displayed in the text file are organized in a hierarchical fashion.
+</p><p>To navigate through the registry, click on the keys on the left to drill down deeper. To delete a key, click on it and choose Delete from the Edit menu. To add a key or value, locate where you want to put it and choose New from the Edit menu. Likewise, you modify an existing key by highlighting it in the right-hand window pane and choosing Modify from the Edit menu. Another way to perform these same actions is to right-click on the key or value.
+</p><p>Of particular interest to Wine users are the settings stored in <tt>HKEY_CURRENT_USER\Software\Wine</tt>. Most of the settings you change within <b>winecfg</b> are written to this area of the registry.
+</p>
+<h4><span class="mw-headline-number">4.2.4</span> System Administration Tips</h4>
+<p>With the above file structure, it is possible for a system administrator to configure the system so that a system Wine installation (and applications) can be shared by all the users, and still let the users all have their own personalized configuration. An administrator can, after having installed Wine and any Windows application software he wants the users to have access to, copy the resulting <tt>system.reg</tt> and over to the global registry files (which we assume will reside in <tt>/usr/local/etc</tt> here), with:
+</p>
+<pre>cd ~root/.wine
+cp system.reg /usr/local/etc/wine.systemreg</pre>
+<p>and perhaps even symlink these back to the administrator's account, to make it easier to install apps system-wide later:
+</p>
+<pre>ln -sf /usr/local/etc/wine.systemreg system.reg</pre>
+<p>You might be tempted to do the same for <tt>user.reg</tt> as well, however that file contains user specific settings. Every user should have their own copy of that file along with the permissions to modify it.
+</p><p>You'll want to pay attention to drive mappings. If you're sharing the <tt>system.reg</tt> file you'll want to make sure the registry settings are compatible with the drive mappings in <tt>~/.wine/dosdevices</tt> of each individual user. As a general rule of thumb, the closer you keep your drive mappings to the default configuration, the easier this will be to manage. You may or may not be able to share some or all of the actual <tt>c:</tt> drive you originally installed the application to. Some applications require the ability to write specific settings to the drive, especially those designed for Windows 95/98/ME.
+</p><p>Note that the <b>tools/wineinstall</b> script used to do some of this if you installed Wine source as root, however it no longer does.
+</p><p>A final word of caution: be careful with what you do with the administrator account - if you do copy or link the administrator's registry to the global registry, any user might be able to read the administrator's preferences, which might not be good if sensitive information (passwords, personal information, etc) is stored there. Only use the administrator account to install software, not for daily work; use an ordinary user account for that.
+</p>
+<h4><span class="mw-headline-number">4.2.5</span> Complete List of Registry Keys</h4>
+
+<h3><span class="mw-headline-number">4.3</span> Other Things to Configure</h3>
+<p>This section is meant to cover the rest of the things you can configure. It also serves as a collection of tips and tricks to get the most out of using Wine.
+</p>
+<h4><span class="mw-headline-number">4.3.1</span> Serial and Parallel Ports</h4>
+<p>Since Wine 2.8, serial and parallel ports are detected automatically when Wine starts. Windows serial ports follow a naming convention of the word <tt>COM</tt> followed by a number, such as <tt>COM1</tt>, <tt>COM2</tt>, etc. Similarly, parallel ports use <tt>LPT</tt> followed by a number, such as <tt>LPT1</tt>. Linux, Mac, and BSD each have their own device naming conventions, but in every case the serial or parallel device is located somewhere in <tt>/dev</tt>. You can see the mapping of Windows devices to Unix devices by looking in <tt>~/.wine/dosdevices</tt>. For example:
+</p>
+<p class="mw-highlight mw-content-ltr" dir="ltr"><pre><span/>$ ls -l ~/.wine/dosdevices/
+total <span class="m">0</span>
+lrwxrwxrwx <span class="m">1</span> alex alex <span class="m">10</span> May <span class="m">13</span> <span class="m">21</span>:21 c: -&gt; ../drive_c
+lrwxrwxrwx <span class="m">1</span> alex alex <span class="m">10</span> May <span class="m">14</span> <span class="m">14</span>:43 com1 -&gt; /dev/ttyS0
+lrwxrwxrwx <span class="m">1</span> alex alex <span class="m">10</span> May <span class="m">14</span> <span class="m">14</span>:43 com2 -&gt; /dev/ttyS1
+lrwxrwxrwx <span class="m">1</span> alex alex <span class="m">10</span> May <span class="m">14</span> <span class="m">14</span>:43 com3 -&gt; /dev/ttyS2
+lrwxrwxrwx <span class="m">1</span> alex alex <span class="m">10</span> May <span class="m">14</span> <span class="m">14</span>:43 com4 -&gt; /dev/ttyS3
+lrwxrwxrwx <span class="m">1</span> alex alex <span class="m">12</span> May <span class="m">14</span> <span class="m">14</span>:43 com5 -&gt; /dev/ttyUSB0
+lrwxrwxrwx <span class="m">1</span> alex alex  <span class="m">8</span> May <span class="m">13</span> <span class="m">21</span>:22 d:: -&gt; /dev/sr0
+lrwxrwxrwx <span class="m">1</span> alex alex  <span class="m">8</span> May <span class="m">14</span> <span class="m">14</span>:43 lpt1 -&gt; /dev/lp0
+lrwxrwxrwx <span class="m">1</span> alex alex  <span class="m">1</span> May <span class="m">13</span> <span class="m">21</span>:21 z: -&gt; /
+</pre></p>
+<p>Make sure you have the needed rights to access your computer's serial and parallel ports. On Linux, a user must typically be a member of the <tt>sys</tt> or <tt>dialout</tt> group to access serial ports, or the <tt>lp</tt> group to access parallel ports.
+</p><p>To override Wine's default device mapping, run <code>wine regedit</code> and create string entries in <code>HKEY_LOCAL_MACHINE\Software\Wine\Ports</code> where the entry name is the Windows device name and the entry value is the path to the Unix device. Continuing with the above example, to make COM1 the first USB-attached serial port, create an entry with the name <code>COM1</code> and the value <code>/dev/ttyUSB0</code>. You might also want to create an entry named <code>COM5</code> with no value to remove the COM5 device which is now a duplicate of COM1. After editing the registry, shut down Wine with <code>wineserver -k</code> and the next time Wine runs a program, your changes will take effect.
+</p><p>If you use a version of Wine prior to 2.8, you'll likely have to create symbolic links in <tt>~/.wine/dosdevices</tt> yourself. For example, to make COM1 the first USB-attached serial port, run <code>ln -s /dev/ttyUSB0 ~/.wine/dosdevices/com1</code>.
+</p>
+<h4><span class="mw-headline-number">4.3.2</span> Network Shares</h4>
+<table class="wikitable">
+<tbody><tr>
+<td><a href="/File:Ambox_outdated_content.svg" class="image"><img alt="Ambox outdated content.svg" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Ambox_outdated_content.svg/24px-Ambox_outdated_content.svg.png" decoding="async" width="24" height="24" srcset="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Ambox_outdated_content.svg/36px-Ambox_outdated_content.svg.png 1.5x, https://upload.wikimedia.org/wikipedia/commons/thumb/b/b1/Ambox_outdated_content.svg/48px-Ambox_outdated_content.svg.png 2x"/></a> This page or section is <b>outdated</b> in one or more areas. Possible discussion may be found on the talk page. Please update to reflect current information.
+</td></tr></tbody></table>
+<p>Windows shares can be mapped into the <tt>unc/</tt> directory so anything trying to access <tt>\\myserver\some\file</tt> will look in <tt>~/.wine/dosdevices/unc/myserver/some/file</tt>. For example, if you used Samba to mount <tt>\\myserver\some</tt> on <tt>/mnt/smb/myserver/some</tt> then you can do
+</p>
+<pre>ln -s /mnt/smb/myserver/some unc/myserver/some</pre>
+<p>to make it available in Wine (don't forget to create the <tt>unc</tt> directory if it doesn't already exist).
+</p>
+<h4><span class="mw-headline-number">4.3.3</span> Fonts</h4>
+<p>Font configuration, once a nasty problem, is now much simpler. If you have a collection of TrueType fonts in Windows it's simply a matter of copying the <tt>.ttf</tt> files into <tt>c:\windows\fonts</tt>.
+</p>
+<h4><span class="mw-headline-number">4.3.4</span> Printers</h4>
+<p>Wine can interact directly with the local CUPS printing system to find the printers available on your system. Configuring printers with Wine is as simple as making sure your CUPS configuration works.
+</p><p>If you do not use CUPS, the old BSD-Printing system is used:
+</p>
+<ul><li>All Printers from <tt>/etc/printcap</tt> are installed automatically in Wine.</li>
+<li>Wine needs a PPD file for every Printer (<tt>generic.ppd</tt> comes with Wine).</li>
+<li>The <tt>lpr</tt> command is called when printing a document</li></ul>
+<h4><span class="mw-headline-number">4.3.5</span> Scanners</h4>
+<p>In Windows, scanners use the TWAIN API to access the underlying hardware. Wine builtin TWAIN DLL simply forwards those requests to the Linux SANE libraries. So, to utilize your scanner under Wine you'll first need to make sure you can access it using SANE. After that you'll need to make sure you have <b>xscanimage</b> available for use. Currently it is shipped with the <tt>sane-frontends</tt> package but it may not be installed with your distribution. Scanner access is currently known to have problems. If you find it works for you, please consider updating this section of the user guide to provide details on using SANE with Wine.
+</p>
+<h4><span class="mw-headline-number">4.3.6</span> ODBC Databases</h4>
+<p>The ODBC system within Wine, as with the printing system, is designed to hook across to the Unix system at a high level. Rather than ensuring that all the Windows code works under Wine it uses a suitable Unix ODBC provider, such as <tt>unixODBC</tt>. Thus if you configure Wine to use the built-in <tt>odbc32.dll</tt>, that Wine DLL will interface to your Unix ODBC package and let that do the work, whereas if you configure Wine to use the native <tt>odbc32.dll</tt> it will try to use the native ODBC32 drivers etc.
+</p>
+<h5><span class="mw-headline-number">4.3.6.1</span> Configuring ODBC on Unix</h5>
+<p>The first step in using a Unix ODBC system with Wine is, of course, to get the Unix ODBC system working itself. This may involve downloading code or binary packages etc. There are several Unix ODBC systems available such as <tt>unixODBC</tt> or an ODBC-ODBC bridge that can be used to access a Microsoft Access database. Typically such systems will include a tool, such as <tt>isql</tt>, which will allow you to access the data from the command line so that you can check that the system is working.
+</p><p>The next step is to hook the Unix ODBC library to the Wine built-in <tt>odbc32</tt> DLL. The built-in <tt>odbc32</tt> (currently) looks to the environment variable <code>LIB_ODBC_DRIVER_MANAGER</code> for the name of the ODBC library. For example:
+</p>
+<p class="mw-highlight mw-content-ltr" dir="ltr"><pre><span/><span class="nv">LIB_ODBC_DRIVER_MANAGER</span><span class="o">=</span>/usr/lib/libodbc.so.1.0.0
+</pre></p>
+<p>If that environment variable is not set then it looks for a library called <tt>libodbc.so</tt> and so you can add a symbolic link to equate that to your own library. For example as root you could run the commands:
+</p>
+<p class="mw-highlight mw-content-ltr" dir="ltr"><pre><span/><span class="c1"># ln -s libodbc.so.1.0.0 /usr/lib/libodbc.so</span>
+<span class="c1"># /sbin/ldconfig</span>
+</pre></p>
+<p>The last step in configuring this is to ensure that Wine is set up to run the built-in version of <tt>odbc32.dll</tt>, by modifying the DLL configuration. This built-in DLL merely acts as a stub between the calling code and the Unix ODBC library.
+</p><p>If you have any problems then you can use <code>WINEDEBUG=+odbc32</code> command before running Wine to trace what is happening. One word of warning: some programs actually cheat a little and bypass the ODBC library. For example the Crystal Reports engine goes to the registry to check on the DSN. The fix for this is documented at unixODBC site where there is a section on using unixODBC with Wine.
+</p>
+<h5><span class="mw-headline-number">4.3.6.2</span> Using Windows ODBC drivers</h5>
+<p>Native ODBC drivers have been reported to work for many types of databases including MSSQL and Oracle. In fact, some like MSSQL can only be accessed on Linux through a Winelib app. Rather than just copying DLL files, most ODBC drivers require a Windows-based installer to run to properly configure things such as registry keys.
+</p><p>In order to set up MSSQL support you will first need to download and run the <b>mdac_typ.exe</b> installer from Microsoft. In order to configure your ODBC connections you must then run <b>CLICONFG.EXE</b> and <b>ODBCAD32.EXE</b> under Wine. You can find them in the <tt>windows\system</tt> directory after mdac_typ runs. Compare the output of these programs with the output on a native Windows machine. Some things, such as protocols, may be missing because they rely on being installed along with the operating system. If so, you may be able to copy missing functionality from an existing Windows installation as well as any registry values required. A native Windows installation configured to be used by Wine should work the same way it did when run natively.
+</p><p>Types successfully tested under Wine:
+</p>
+<table class="wikitable">
+<tbody><tr>
+<th>DB Type
+</th>
+<th>Usefulness
+</th></tr>
+<tr>
+<td>MS SQL
+</td>
+<td>100%
+</td></tr></tbody></table>
+<p>Please report any other successes to the <a rel="nofollow" class="external text" href="mailto:wine-devel@winehq.org">wine-devel</a> mailing list.
+</p>
+<h2><span id="Troubleshooting_/_Reporting_bugs"/><span class="mw-headline-number">5</span> Troubleshooting / Reporting bugs</h2>
+<h3><span id="What_to_do_if_some_program_still_doesn't_work?"/><span class="mw-headline-number">5.1</span> What to do if some program still doesn't work?</h3>
+<p>There are times when you've been trying everything, you even killed a cat at full moon and ate it with rotten garlic and foul fish while doing the Devil's Dance, yet nothing helped to make some damn program work on some Wine version. Don't despair, we're here to help you... (in other words: how much do you want to pay?)
+</p>
+<h4><span class="mw-headline-number">5.1.1</span> Verify your Wine configuration</h4>
+<p>Look at the output from <code>wine --version</code> to make sure you're running a recent version of Wine. Launch <tt>winecfg</tt> and look over the settings to make sure you have settings that look normal. Look in <tt>~/.wine/dosdevices</tt> to make sure your <tt>c:</tt> points to where you think it should.
+</p>
+<h4><span class="mw-headline-number">5.1.2</span> Use different Windows version settings</h4>
+
+<h4><span class="mw-headline-number">5.1.3</span> Use different startup paths</h4>
+<p>The following sometimes helps, too:
+</p>
+<ul><li><pre>wine x:\\full\\path\\to\\prg.exe</pre></li>
+<li><pre>wine ~/.wine/drive_c/full/path/to/prg.exe</pre></li>
+<li><pre>cd ~/.wine/drive_c/full/path/to/ &amp;&amp; wine prg.exe</pre></li></ul>
+<h4><span class="mw-headline-number">5.1.4</span> Fiddle with DLL configuration</h4>
+<p>Run with <code>WINEDEBUG=+loaddll</code> to figure out which DLLs are being used, and whether they're being loaded as native or built-in. Then make sure you have proper native DLL files in your configured <tt>C:\windows\system32</tt> directory and fiddle with DLL load order settings at command line or with <b>winecfg</b>.
+</p>
+<h4><span id="Check_your_system_environment!"/><span class="mw-headline-number">5.1.5</span> Check your system environment!</h4>
+<p>Just an idea: could it be that your Wine build/execution environment is broken? Make sure that there are no problems whatsoever with the packages that Wine depends on (gcc, glibc, X libraries, OpenGL (!), ...)
+</p>
+<h4><span id="Use_different_GUI_(Window_Manager)_modes"/><span class="mw-headline-number">5.1.6</span> Use different GUI (Window Manager) modes</h4>
+<p>Instruct Wine via <b>winecfg</b> to use either desktop mode, or normal managed mode. That can make a lot of difference, too.
+</p>
+<h4><span id="Check_your_app!"/><span class="mw-headline-number">5.1.7</span> Check your app!</h4>
+<p>Maybe your app is using some kind of copy protection? Many copy protections currently don't work on Wine. Some might work in the future, though. (the CD-ROM layer isn't really full-featured yet).
+</p>
+<h4><span class="mw-headline-number">5.1.8</span> Reconfigure Wine</h4>
+<p>Sometimes Wine installation process changes and new versions of Wine account on these changes. This is especially true if your setup was created long time ago. Rename your existing <tt>~/.wine</tt> directory for backup purposes. Use the setup process that's recommended for your Wine distribution to create new configuration. Use information in old <tt>~/.wine</tt> directory as a reference. Later you can remove the new <tt>~/.wine</tt> directory and rename your old one back.
+</p>
+<h4><span class="mw-headline-number">5.1.9</span> Check out further information</h4>
+<p>There is a really good chance that someone has already tried to do the same thing as you. You may find the following resources helpful:
+</p>
+<ul><li>Search <a rel="nofollow" class="external text" href="http://appdb.winehq.org">WineHQ Application Database</a> to check for any tips relating to the program. If your specific version of the program isn't listed you may find a different one contains enough information to help you out.</li>
+<li><a rel="nofollow" class="external text" href="http://www.google.com">Google</a> can be useful depending on how you use it.</li>
+<li><a rel="nofollow" class="external text" href="http://www.freenode.net">Freenode.net</a> hosts an IRC channel for Wine. You can access it by using any IRC client such as HexChat. The settings you'll need are: server, irc.freenode.net, port, 6667, channel, #winehq</li>
+<li>If you have a program that requires a redistributable runtime to be installed, e.g. for <tt>mfc42.dll</tt>, Visual Basic and so on, <a href="/Winetricks" title="Winetricks">winetricks</a> can be used to supply this. Note, these components are subject to their own license and are not part of the Wine project.</li>
+<li>The WineHQ <a rel="nofollow" class="external text" href="https://forum.winehq.org/">forums</a> or <a rel="nofollow" class="external text" href="http://www.winehq.org/site/forums">wine-users mailing list</a> may also help. The <tt>wine-devel</tt> mailing list may be appropriate depending on the type of problem you are experiencing. If you post to <tt>wine-devel</tt> you should be prepared to do a little work to help diagnose the problem. Read the section below to find out how to debug the source of your problem.</li>
+<li>If all else fails, you may wish to investigate commercial versions of Wine to see if your application is supported.</li></ul>
+<h4><span id="Debug_it!"/><span class="mw-headline-number">5.1.10</span> Debug it!</h4>
+<p>Finding the source of your problem is the next step to take. There is a wide spectrum of possible problems ranging from simple configurations issues to completely unimplemented functionality in Wine. The next section will describe how to file a bug report and how to begin debugging a crash. For more information on using Wine debugging facilities be sure to read the <a href="/Wine_Developer%27s_Guide" title="Wine Developer's Guide">Wine Developer's Guide</a>.
+</p>
+<h3><span class="mw-headline-number">5.2</span> How To Report A Bug</h3>
+
+<h2><span class="mw-headline-number">6</span> Glossary</h2>
+<dl>
+<dt>Binary</dt>
+<dd><p>A file which is in machine executable, compiled form: hex data (as opposed to a source code file).</p></dd>
+<dt>Distribution</dt>
+<dd><p>A distribution is usually the way in which some “vendor” ships operating system CDs (usually mentioned in the context of Linux). A Linux environment can be shipped in lots of different configurations: e.g. distributions could be built to be suitable for games, scientific applications, server operation, desktop systems, etc.</p></dd>
+<dt>DLL</dt>
+<dd><p>A DLL (Dynamic Link Library) is a file that can be loaded and executed by programs dynamically. Basically it's an external code repository for programs. Since usually several different programs reuse the same DLL instead of having that code in their own file, this dramatically reduces required storage space. A synonym for a DLL would be “library”.</p></dd>
+<dt>Editor</dt>
+<dd><p>An editor is usually a program to create or modify text files. There are various graphical and text mode editors available on Linux.</p>
+<p>Examples of graphical editors are: <tt>nedit</tt>, <tt>gedit</tt>, <tt>kedit</tt>, <tt>xemacs</tt>, <tt>gxedit</tt>.</p>
+<p>Examples of text mode editors are: <tt>joe</tt>, <tt>ae</tt>, <tt>emacs</tt>, <tt>vim</tt>, <tt>vi</tt>. In a terminal, simply run them via:</p>
+<pre>$ editorname filename</pre></dd>
+<dt>Environment variable</dt>
+<dd><p>Environment variables are text definitions used in a Shell to store important system settings. In a <tt>bash</tt> shell (the most commonly used one in Linux), you can view all environment variables by executing:</p>
+<pre>set</pre>
+<p>If you want to change an environment variable, you could run:</p>
+<pre>export MYVARIABLE=mycontent</pre>
+<p>For deleting an environment variable, use:</p>
+<pre>unset MYVARIABLE</pre></dd>
+<dt>Git</dt>
+<dd><p>Git is a fast version control system, originally written for use with large repositories, such as the Linux Kernel source. See the Git chapter in the Wine Developers Guide for detailed usage information.</p></dd>
+<dt>Package</dt>
+<dd><p>A package is a compressed file in a distribution specific format. It contains the files for a particular program you want to install. Packages are usually installed via the <tt>dpkg</tt> or <tt>rpm</tt> package managers.</p></dd>
+<dt>root</dt>
+<dd><p><tt>root</tt> is the account name of the system administrator. In order to run programs as root, simply open a Terminal window, then run:</p>
+
+<p>This will prompt you for the password of the <tt>root</tt> user of your system, and after that you will be able to system administration tasks that require special root privileges. The <tt>root</tt> account is indicated by the</p>
+
+<p>prompt, whereas '$' indicates a normal user account.</p></dd>
+<dt>Shell</dt>
+<dd><p>A shell is a tool to enable users to interact with the system. Usually shells are text based and command line oriented. Examples of popular shells include <tt>bash</tt>, <tt>tcsh</tt> and <tt>ksh</tt>. Wine assumes that for Wine installation tasks, you use <tt>bash</tt>, since this is the most popular shell on Linux. Shells are usually run in a Terminal window.</p></dd>
+<dt>Source code</dt>
+<dd><p>Source code is the code that a program consists of before the program is being compiled, i.e. it's the original building instructions of a program that tell a compiler what the program should look like once it's been compiled to a Binary.</p></dd>
+<dt>Terminal</dt>
+<dd><p>A terminal window is usually a graphical window that one uses to execute a Shell. If Wine asks you to open a terminal, then you usually need to click on an icon on your desktop that usually shows a big black window. Wine assumes you're using the <tt>bash</tt> shell, so if your terminal happens to use a different shell program, simply type <code>bash</code> in the terminal window.</p></dd></dl>
+
+
+
+
+</div></div></html>

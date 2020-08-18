@@ -64,13 +64,22 @@ handle_extension() {
             exit 1;;
 
         # Microoffice
-        docx|doc)
-            docx2txt "${FILE_PATH}" - 
+        docx)
+            docx2txt "${FILE_PATH}" -
+            exit 1;;
+
+        doc)
+            antiword -f "${FILE_PATH}"
             exit 1;;
 
         md)
             if which glow >/dev/null 2>&1; then
                 glow -sdark "${FILE_PATH}" | less -R
+                exit 1
+            fi ;;
+        dta)
+            if Rscript -e 'library(RStata)' >/dev/null 2>&1; then
+                Rscript -e "RStata::stata('des using \"${FILE_PATH}\"')" | sed '1,3d'
                 exit 1
             fi ;;
 
@@ -82,7 +91,13 @@ handle_extension() {
             elinks -dump "${FILE_PATH}" 
             ;; # Continue with next handler on failure
         tsv|csv)
-            xsv table -c 10 "${FILE_PATH}"
+            xsv table -c 20 "${FILE_PATH}"
+            ;;
+        xlsx)
+            ## Preview as csv conversion
+            ## Uses: https://github.com/dilshod/xlsx2csv
+            xlsx2csv -- "${FILE_PATH}" | head | xsv table -c 10 
+            exit 1;;
     esac
 }
 
@@ -117,6 +132,9 @@ handle_mime() {
         video/* | audio/*|application/octet-stream)
             mediainfo "${FILE_PATH}"
             exiftool "${FILE_PATH}"
+            exit 1;;
+        inode/directory)
+            exa -ahl "${FILE_PATH}"
             exit 1;;
     esac
 }

@@ -1,7 +1,12 @@
 #!/usr/bin/env bash
 
-{
-    cd $HOME/Downloads
-    tempfile=$(fd --changed-within=3d | fzf --preview "scope {} 2>/dev/null")
-    sh -c "nohup rifle \"$tempfile\" >/dev/null 2>&1 &"
-}
+set -x
+set -e
+
+#st -c fzf -n new -e sh -c "cd $HOME/Downloads; \
+    #tempfile=$(fd --changed-within=3d | fzf --preview 'scope {} 2>/dev/null\'); \
+    #echo $tempfile; \
+    #nohup xdg-open \"$tempfile\" >/dev/null 2>&1 & disown; \
+    #echo $tempfile | xclip -sel clip"
+
+cd ~/Downloads; fd --changed-within=3d | fzfmenu --multi | xargs xdg-open

@@ -1,23 +1,18 @@
 #!/bin/sh
 
+set -e
+
 NUM="${2:-5}"
+sink="$(LC_ALL=C pactl list sinks | \
+    sed -n '/RUNNING/,/Volume/p' | \
+    grep -E '^\s*Name:' | \
+    sed -E 's/^\s*Name:\s*//;1q')"
 
-# Uncomment the following line to use Pulseaudio.
-# PULSE=true
-
-if [ "$PULSE" ]; then
-	toggle() { pulsemixer --toggle-mute ;}
-	mute() { pulsemixer --mute ;}
-	up() { pulsemixer --change-volume +"$NUM" ;}
-	down() { pulsemixer --change-volume -"$NUM" ;}
-	control() { pulsemixer ;}
-else
-	toggle() { amixer sset Master toggle ;}
-	mute() { amixer sset Master mute ;}
-	up() { amixer sset Master "$NUM"%+ ;}
-	down() { amixer sset Master "$NUM"%- ;}
-	control() { alsamixer ;}
-fi
+toggle() { pactl set-sink-mute $sink toggle ;}
+mute() { pactl set-sink-mute   $sink 1 ;}
+up() { pactl set-sink-volume   $sink +"$NUM"% ;}
+down() { pactl set-sink-volume $sink -"$NUM"% ;}
+control() { pavucontrol ;}
 
 case "$1" in
 	toggle) toggle ;;

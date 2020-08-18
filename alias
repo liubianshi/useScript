@@ -58,7 +58,7 @@ alias ll='exa -alh'
 alias cp='cp -i'
 alias mv='mv -i'
 alias open='xdg-open'
-alias wt='curl wttr.in/Tianjin\?format=3'
+alias wt='curl -sf wttr.in/Tianjin'
 alias fehwp='feh --bg-fill ~/.config/wallpaper/wallpaper'
 alias D="~/useScript/testCollection.sh"
 alias book='~/useScript/bookdown_init.sh'

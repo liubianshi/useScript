@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+color=$(colorpicker)
+echo $color | xclip -sel clip

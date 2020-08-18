@@ -11,7 +11,7 @@ uni_chars="$HOME/.config/diySync/uniname"
 choosed=$(cat "$uni_history" | dmenu -i -l 20 -p "Input/Select")
 
 # exit if nothing is selected
-[ -z $choosed ] && exit
+[[ -z $choosed ]] && exit
 
 # 判断是否选中合适的 Unicode
 select=$(echo $choosed | grep -Eic "u\+\w{4,5}")

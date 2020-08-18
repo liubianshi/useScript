@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+set -e
+H=$HOME
+
+command="$(cat $HOME/.config/dmenu-files/scripts |\
+    awk -F ':' '{ printf "%-20s \t %-40s \t %-s\n", $1, $3, $2 }' |\
+    fmenu -l 20 | awk -F "\t" '{print $2}' | sed 's!~!'$H'!')"
+
+$command
+
+
+
+
+

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+buku -p -f 4 | sort -nrk1 | fmenu | cut -f 2 | xclip -sel clip
+

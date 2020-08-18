@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -e
+
+fileRepo="$HOME/.config/dmenu-files/notes"
+index=0
+
+mapfile -t t_file <<< $(cat $fileRepo | sort | fmenu -m)
+
+for f in "${t_file[@]}"; do
+    eval arg[$index]=$f
+    index=$(( index + 1 ))
+done
+
+[[ -n $arg ]] || exit 2
+
+st -e nvim "${arg[@]}"

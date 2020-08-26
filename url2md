@@ -15,6 +15,7 @@ trap 'rm "$tmphtml" "$tmpmd"' 0 1 15
 
 # 根据 url 下载网页代码，如果代码非 utf-8 则进行转码
 curl -sL -x "http://127.0.0.1:8118" -o "$tmphtml" "$url"
+
 code="$(enca -L chinese $tmphtml | awk -F'; ' 'NR == 1 {print $2}')"
 if [[ "$code" =~ ^(GB|BIG|HZ) ]]; then
     cp "$tmphtml" "${tmphtml}.origin"

@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -eu
+
+nm=$(date +"%Y%m%d")
+nm="${nm}-$*"
+
+echo "$nm" | sed -E 's/\s/_/g'
+

@@ -23,6 +23,8 @@ export STATUSBAR='dwmblocks'
 feh --bg-fill ~/.config/wallpaper/wallpaper; sleep 1; compton -b &
 #pamac-tray &
 pasystray &
+blueman-tray &
+kdeconnect-indicator &
 nm-applet &
 xfce4-power-manager & 
 xbindkeys &
@@ -42,9 +44,13 @@ sxhkd &
 # start syncthing
 syncthing &
 
+# start copyq
+nohup copyq &
+
+# start mpd
+mpd &
+
 # start dropbox
 # dropbox &
 
-# start copyq
-# nohup copyq &
 

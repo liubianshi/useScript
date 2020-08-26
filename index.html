@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-86041274-3"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-86041274-3');
+</script>
+<meta name="applicable-device" content="pc,mobile">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<title>关于python：如何从stdin中读取？ | 码农家园</title>
+<meta name="description" content="How do you read from stdin?我正在尝试进行一些代码高尔夫挑战，但它们都需要从stdin获取输入。我怎样才能在python中得到它？您可以使用fileinput模块：[cc ..." />
+<meta name="keywords" content="关于python：如何从stdin中读取？" />
+<link rel="shortcut icon" href="https://www.codenong.com/wp-content/themes/Nana/images/favicon.ico">
+<link rel="apple-touch-icon" sizes="114x114" href="https://www.codenong.com/wp-content/themes/Nana/images/favicon.png">
+<link rel="profile" href="//gmpg.org/xfn/11">
+<link rel="pingback" href="https://www.codenong.com/xmlrpc.php">
+<!--[if lt IE 9]><script src="https://www.codenong.com/wp-content/themes/Nana/js/html5-css3.js"></script><![endif]-->
+<link rel="stylesheet" id="nfgc-main-style-css" href="//www.codenong.com/wp-content/themes/Nana/style.css" type="text/css" media="all">
+<script type="text/javascript" src="https://www.codenong.com/wp-content/themes/Nana/js/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.codenong.com/wp-content/themes/Nana/js/scrollmonitor.js"></script>
+	<script>jQuery(document).ready(
+	function(jQuery){
+	jQuery('.collapseButton').click(function(){
+		jQuery(this).parent().parent().find('.xContent').slideToggle('slow');
+	});
+});</script>
+<!--[if IE]>
+<div class="tixing"><strong>温馨提示：感谢您访问本站，经检测您使用的浏览器为IE浏览器，为了获得更好的浏览体验，请使用极速模式或Chrome、Firefox等其他浏览器。</strong>
+</div>
+<![endif]-->
+<link rel="stylesheet" id="font-awesome-four-css" href="https://www.codenong.com/wp-content/themes/Nana/fonts/font-awesome.min.css" type='text/css' media='all'/>
+<link rel='dns-prefetch' href='//s.w.org' />
+<link rel='stylesheet' id='highlight-css'  href='https://www.codenong.com/wp-content/themes/Nana/images/highlight.css?ver=1.0' type='text/css' media='all' />
+<link rel='stylesheet' id='codecolorer-css'  href='https://www.codenong.com/wp-content/plugins/codecolorer/codecolorer.css?ver=0.9.16' type='text/css' media='screen' />
+<script type='text/javascript'>
+/* <![CDATA[ */
+var wpl_ajax_url = "https:\/\/www.codenong.com\/wp-admin\/admin-ajax.php";
+/* ]]> */
+</script>
+<script type='text/javascript' src='https://www.codenong.com/wp-content/themes/Nana/js/script.js?ver=1.0'></script>
+<script type='text/javascript' src='https://www.codenong.com/wp-content/themes/Nana/js/fancybox.js?ver=2.0'></script>
+<script type='text/javascript' src='https://www.codenong.com/wp-content/themes/Nana/js/comments-ajax.js?ver=1.5'></script>
+<link rel="canonical" href="https://www.codenong.com/1450393/" />
+<style type="text/css" id="syntaxhighlighteranchor"></style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-9972300587593929",
+          enable_page_level_ads: true
+     });
+</script>
+</head>
+<body class="post-template-default single single-post postid-1365 single-format-standard">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header">
+	<nav id="top-header">
+		<div class="top-nav">
+			
+				</div>
+	</nav><!-- #top-header -->
+<div id="middle-header">
+
+</div>
+	<div id="menu-box">
+		<div id="top-menu">
+			
+				<hgroup class="logo-site">
+				<h1 class="site-title">
+					<a href="https://www.codenong.com/">
+						码农家园
+					</a>
+				</h1>
+			</hgroup><!-- .logo-site -->			<div id="site-nav-wrap">
+				<div id="sidr-close"><a href="https://www.codenong.com/#sidr-close" class="toggle-sidr-close">关闭</a>
+			</div>
+			
+			<nav id="site-nav" class="main-nav">
+				<a href="#sidr-main" id="navigation-toggle" class="bars">导航</a>	
+								
+					
+								
+			</nav>	
+			</div><!-- #site-nav-wrap -->
+		</div><!-- #top-menu -->
+	</div><!-- #menu-box -->
+</header><!-- #masthead -->
+
+</nav><div id="content" class="site-content">	
+	<div class="clear"></div>
+	<div id="primary" class="content-area">
+		<main id="main" class="site-main" role="main">
+							<article id="post-1365" class="post-1365 post type-post status-publish format-standard hentry category-uncategorized tag-python tag-stdin">
+					<header class="entry-header">
+						<h1 class="entry-title">关于python：如何从stdin中读取？</h1>
+						<div class="single_info">
+							
+							<span class="date"><i class="fa fa-calendar"></i>&nbsp;2019-04-22&nbsp;</span><br>
+<span class="archive-tag"><i class="fa fa-tag"></i><span class="new-label"><a href="https://www.codenong.com/tag/python/" rel="tag">python</a></span><span class="new-label"><a href="https://www.codenong.com/tag/stdin/" rel="tag">stdin</a></span></span>
+							<span class="views"></span>
+							
+								
+					
+					
+					
+							<span class="edit"></span>
+						</div>		
+					</header><!-- .entry-header -->
+
+					<div id="ad_sg" class="ad-pc">
+</div>										<div class="entry-content">
+						<div class="single-content">			
+							<h2>How do you read from stdin?</h2>
+<div id="fc"><P>我正在尝试进行一些代码高尔夫挑战，但它们都需要从<wyn>stdin</wyn>获取输入。我怎样才能在python中得到它？</P></p>
+<hr><P>您可以使用<wyn>fileinput</wyn>模块：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">fileinput</span><br />
+<br />
+<span class="kw1">for</span> line <span class="kw1">in</span> <span class="kw3">fileinput</span>.<span class="kw2">input</span><span class="br0">&#40;</span><span class="br0">&#41;</span>:<br />
+&nbsp; &nbsp; <span class="kw1">pass</span></div></td></tr></tbody></table></div>
+<p><P><wyn>fileinput</wyn>将遍历命令行参数中指定为文件名的输入中的所有行，如果没有提供参数，则遍历标准输入。</P><P>注：<wyn>line</wyn>将包含一个尾随新行；要删除它，请使用<wyn>line.rstrip()</wyn>。</P></p>
+<div class="suo-content"><div style="text-align: right;">
+		<div class="xControl"><i class="fa fa-caret-right"></i>
+			<span class="xTitle"></span> 
+			<a href="javascript:void(0)" class="collapseButton xButton">相关讨论</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="xContent" style="display: none;"></p>
+<ul>
+<li>问题是关于读取流中的进程std。C中的CIN</li>
+</ul>
+<p></div>
+	</div></p></div>
+<hr><P>有几种方法可以做到。</P></p>
+<ul>
+<li><P><wyn>sys.stdin</wyn>是一个类似文件的对象，如果您想读取所有内容或想读取所有内容并自动用换行符拆分，可以在其上调用函数<wyn>read</wyn>或<wyn>readlines</wyn>。(您需要使用<wyn>import sys</wyn>才能工作。)</P></li>
+<li><P>如果要提示用户输入，可以在python 2.x中使用<wyn>raw_input</wyn>，在python 3中只使用<wyn>input</wyn>。</P></li>
+<li><P>如果实际上只想读取命令行选项，可以通过sys.argv列表访问它们。</P></li>
+</ul>
+<p><P>您可能会发现这篇关于Python中I/O的wikibook文章也是一个有用的参考资料。</P></p>
+<hr>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">sys</span><br />
+<br />
+<span class="kw1">for</span> line <span class="kw1">in</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>:<br />
+&nbsp; &nbsp; <span class="kw1">print</span> line</div></td></tr></tbody></table></div>
+<div class="suo-content"><div style="text-align: right;">
+		<div class="xControl"><i class="fa fa-caret-right"></i>
+			<span class="xTitle"></span> 
+			<a href="javascript:void(0)" class="collapseButton xButton">相关讨论</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="xContent" style="display: none;"></p>
+<ul>
+<li>请注意，这将在末尾包含换行符</li>
+<li>要在末尾删除换行符，请使用<wyn>line.rstrip()</wyn>。</li>
+<li>我建议对此添加一个解释，仅评论的答案不是很有用，但感谢您的示例。</li>
+<li>line.rstrip("")，否则将删除所有空格</li>
+<li>使用这种方法，我们如何知道输入流何时结束？我想在最后一行以外的每一行后面加逗号。</li>
+<li>我收到：typeerror:"filewrapper"对象不可重复。</li>
+</ul>
+<p></div>
+	</div></p></div>
+<hr><P>python还有内置的函数<wyn>input()</wyn>和<wyn>raw_input()</wyn>。请参见内置函数下的python文档。</P><P>例如，</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">name <span class="sy0">=</span> <span class="kw2">raw_input</span><span class="br0">&#40;</span><span class="st0">&quot;Enter your name:&quot;</span><span class="br0">&#41;</span> &nbsp; <span class="co1"># Python 2.x</span></div></td></tr></tbody></table></div>
+<p><P>或</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">name <span class="sy0">=</span> <span class="kw2">input</span><span class="br0">&#40;</span><span class="st0">&quot;Enter your name:&quot;</span><span class="br0">&#41;</span> &nbsp; <span class="co1"># Python 3</span></div></td></tr></tbody></table></div>
+<div class="suo-content"><div style="text-align: right;">
+		<div class="xControl"><i class="fa fa-caret-right"></i>
+			<span class="xTitle"></span> 
+			<a href="javascript:void(0)" class="collapseButton xButton">相关讨论</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="xContent" style="display: none;"></p>
+<ul>
+<li>这是一条单行线，而这并不是运营商所要求的。我将这个问题解释为"如何从一个打开的文件句柄中读取一堆行直到EOF？"</li>
+<li>OP不要求从键盘读取输入，而是要求从stdin读取，在比赛情况下，stdin通常提供给参赛者。</li>
+</ul>
+<p></div>
+	</div></p></div>
+<p><center> <script src="/c1.js"></script></center></p>
+<hr><P>下面是学习python的内容：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">sys</span><br />
+data <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>.<span class="me1">readlines</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+<span class="kw1">print</span><span class="st0">&quot;Counted&quot;</span><span class="sy0">,</span> <span class="kw2">len</span><span class="br0">&#40;</span>data<span class="br0">&#41;</span><span class="sy0">,</span><span class="st0">&quot;lines.&quot;</span></div></td></tr></tbody></table></div>
+<p><P>在UNIX上，您可以通过执行以下操作来测试它：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br /></div></td><td><div class="python codecolorer">% cat countlines.<span class="me1">py</span> | python countlines.<span class="me1">py</span> <br />
+Counted <span class="nu0">3</span> lines.</div></td></tr></tbody></table></div>
+<p><P>在Windows或DOS上，您可以：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br /></div></td><td><div class="python codecolorer">C:\<span class="sy0">&gt;</span> <span class="kw2">type</span> countlines.<span class="me1">py</span> | python countlines.<span class="me1">py</span> <br />
+Counted <span class="nu0">3</span> lines.</div></td></tr></tbody></table></div>
+<div class="suo-content"><div style="text-align: right;">
+		<div class="xControl"><i class="fa fa-caret-right"></i>
+			<span class="xTitle"></span> 
+			<a href="javascript:void(0)" class="collapseButton xButton">相关讨论</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="xContent" style="display: none;"></p>
+<ul>
+<li>在python中，有一种更节省内存(可能更快)的方法来计算行数：<wyn>print(sum(chunk.count('<br />
+') for chunk in iter(partial(sys.stdin.read, 1 << 15), '')))</wyn>。见<wyn>wc-l.py</wyn>。</li>
+<li>这里使用<wyn>cat</wyn>是多余的。对UNIX系统的正确调用是<wyn>python countlines.py < countlines.py</wyn>。</li>
+<li>"学习python"在指导用户使用<wyn>readlines()</wyn>时是错误的。文件对象旨在在不具体化内存中所有数据的情况下进行迭代。</li>
+</ul>
+<p></div>
+	</div></p></div>
+<hr><P>其他人提出的答案：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br /></div></td><td><div class="python codecolorer"><span class="kw1">for</span> line <span class="kw1">in</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>:<br />
+&nbsp; <span class="kw1">print</span> line</div></td></tr></tbody></table></div>
+<p><P>它非常简单，而且是Python式的，但是必须注意的是，在开始迭代输入行之前，脚本将一直等到EOF。</P><P>这意味着<wyn>tail -f error_log | myscript.py</wyn>不会按预期处理生产线。</P><P>这种用例的正确脚本是：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br /></div></td><td><div class="python codecolorer"><span class="kw1">while</span> <span class="nu0">1</span>:<br />
+&nbsp; &nbsp; <span class="kw1">try</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; line <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>.<span class="kw3">readline</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="kw1">except</span> <span class="kw2">KeyboardInterrupt</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">break</span><br />
+<br />
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="kw1">not</span> line:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">break</span><br />
+<br />
+&nbsp; &nbsp; <span class="kw1">print</span> line</div></td></tr></tbody></table></div>
+<p><P>更新从注释中可以清楚地看到，在python 2上，可能只涉及缓冲，因此在发出打印调用之前，您最终会等待缓冲区填充或EOF。</P></p>
+<div class="suo-content"><div style="text-align: right;">
+		<div class="xControl"><i class="fa fa-caret-right"></i>
+			<span class="xTitle"></span> 
+			<a href="javascript:void(0)" class="collapseButton xButton">相关讨论</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="xContent" style="display: none;"></p>
+<ul>
+<li><wyn>for line in sys.stdin:</wyn>模式不等待EOF。但是，如果对非常小的文件进行测试，响应可能会得到缓冲。用更多的数据进行测试，以查看它是否读取中间结果。</li>
+<li>当使用python 2.6.6从流中获取输入时，我会等待文件结束或缓冲，但使用3.1.3时不会。注意，<wyn>print line</wyn>在3.1.3中不会唤醒，但<wyn>print(line)</wyn>会唤醒。</li>
+<li>my python 2.7.5"for line in sys.stdin"，在eof或一些合理数量的数据缓冲之前都会阻塞。对于流处理很好。不适合逐行处理或用户输入。</li>
+<li>我怀疑这与在libc中检测tty有关，所以当你在交互shell上检测到tty时，它检测不到tty，unbuffer from expect dev是一个很方便的工具，我相信它通过ld预载注入一个垫片，所以a tty返回true(我怀疑它是这样处理的)</li>
+<li>肖恩：错了。<wyn>for line in sys.stdin:</wyn>在EOF前不"阻塞"。python 2中有一个预读错误，它会将行延迟到相应的缓冲区满为止。这是一个与EOF无关的缓冲问题。要解决此问题，请使用<wyn>for line in iter(sys.stdin.readline, ''):</wyn>(普通文件使用<wyn>io.open()</wyn>)。在Python3中不需要它。</li>
+<li>@Mattfreeman：在这种情况下，它与"行与块缓冲"无关，这取决于stdout是否为tty。python 2中的预读错误会延迟输入，即使<wyn>tail</wyn>要及时刷新其输出。<wyn>for line in sys.stdin</wyn>在python 3上工作得很好。</li>
+<li>不管怎样，<wyn>for line in sys.stdin:</wyn>并不适用于真正的交互式输入(例如，在提示后从终端获取输入)。在大多数情况下，您不应该关心输入是否被缓冲。</li>
+</ul>
+<p></div>
+	</div></p></div>
+<hr>
+<blockquote><p>
+  How do you read from stdin in Python?</p>
+<p>
+I'm trying to do some of the code golf challenges, but they all require the input to be taken from stdin. How do I get that in Python?
+</p>
+<p>Ok.</p>
+</blockquote>
+<p><P>你可以使用：好的。</p>
+<ul>
+<li><wyn>sys.stdin</wyn>—一个类似对象的文件—调用<wyn>sys.stdin.read()</wyn>来读取所有内容。</li>
+<li><wyn>input(prompt)</wyn>—将它作为一个可选的提示传递给输出，它从stdin读取到第一个换行符，并将其剥离。你必须重复这样做才能得到更多的线，在输入结束时，它会提高eoferror。(可能不适合打高尔夫球)在python 2中，这是<wyn>rawinput(prompt)</wyn>。</li>
+<li><wyn>open(0).read()</wyn>—在python 3中，<wyn>open</wyn>接受文件描述符(表示操作系统IO资源的整数)，0是<wyn>stdin</wyn>的描述符。它返回一个类似文件的对象，比如<wyn>sys.stdin</wyn>，这可能是你打高尔夫球的最佳选择。</li>
+<li><wyn>open('/dev/stdin').read()</wyn>-类似于<wyn>open(0)</wyn>，在python 2和3上工作，但在windows(甚至cygwin)上不工作。</li>
+<li><wyn>fileinput.input()</wyn>—返回对<wyn>sys.argv[1:]</wyn>中列出的所有文件中的行的迭代器，如果没有给出，则返回stdin。像<wyn>''.join(fileinput.input())</wyn>一样使用。</li>
+</ul>
+<p><P>当然，<wyn>sys</wyn>和<wyn>fileinput</wyn>都必须分别进口。好的。与python 2和3、windows、unix兼容的Quick <wyn>sys.stdin</wyn>示例<P>例如，如果将数据传输到stdin，您只需要从<wyn>sys.stdin</wyn>发送<wyn>read</wyn>：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br /></div></td><td><div class="python codecolorer">$ echo foo | python -c<span class="st0">&quot;import sys; print(sys.stdin.read())&quot;</span><br />
+foo</div></td></tr></tbody></table></div>
+<p>文件示例<P>假设您有一个文件，<wyn>inputs.txt</wyn>，我们可以接受该文件并将其写回：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">python -c<span class="st0">&quot;import sys; sys.stdout.write(sys.stdin.read())&quot;</span> <span class="sy0">&lt;</span> inputs.<span class="me1">txt</span></div></td></tr></tbody></table></div>
+<p>更长的答案<P>这里有一个完整的、易于复制的演示，使用了两种方法：内置函数<wyn>input</wyn>(在python 2中使用<wyn>raw_input</wyn>)和<wyn>sys.stdin</wyn>。数据是未修改的，因此处理是非操作。好的。<P>首先，让我们创建一个输入文件：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br /></div></td><td><div class="python codecolorer">$ python -c<span class="st0">&quot;print('foo<br />
+bar<br />
+baz')&quot;</span><span class="sy0">&gt;</span> inputs.<span class="me1">txt</span></div></td></tr></tbody></table></div>
+<p><P>使用我们已经看到的代码，我们可以检查是否创建了文件：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer">$ python -c<span class="st0">&quot;import sys; sys.stdout.write(sys.stdin.read())&quot;</span> <span class="sy0">&lt;</span> inputs.<span class="me1">txt</span> <br />
+foo<br />
+bar<br />
+baz</div></td></tr></tbody></table></div>
+<p><P>下面是python 3对<wyn>sys.stdin.read</wyn>的帮助：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br /></div></td><td><div class="python codecolorer">read<span class="br0">&#40;</span>size<span class="sy0">=</span>-<span class="nu0">1</span><span class="sy0">,</span> /<span class="br0">&#41;</span> method of _io.<span class="me1">TextIOWrapper</span> instance<br />
+&nbsp; &nbsp; Read at most n characters <span class="kw1">from</span> stream.<br />
+<br />
+&nbsp; &nbsp; <span class="me1">Read</span> <span class="kw1">from</span> underlying buffer until we have n characters <span class="kw1">or</span> we hit EOF.<br />
+&nbsp; &nbsp; <span class="me1">If</span> n <span class="kw1">is</span> negative <span class="kw1">or</span> omitted<span class="sy0">,</span> read until EOF.</div></td></tr></tbody></table></div>
+<p>内置函数，<wyn>input</wyn>(python 2中的<wyn>raw_input</wyn>)<P>内置函数<wyn>input</wyn>从标准输入读取到新行，新行被剥离(补充<wyn>print</wyn>，默认情况下添加新行)，直到它得到eof(文件结束)，此时它将提升<wyn>EOFError</wyn>。好的。<P>因此，下面介绍如何在python 3中使用<wyn>input</wyn>(或者在python 2中使用<wyn>raw_input</wyn>)来读取stdin，因此我们创建了一个称为stdinemo.py的python模块：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br /></div></td><td><div class="python codecolorer">$ python -c<span class="st0">&quot;print('try:<br />
+&nbsp; &nbsp; while True:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; print(input())<br />
+except EOFError:<br />
+&nbsp; &nbsp; pass')&quot;</span><span class="sy0">&gt;</span> stdindemo.<span class="me1">py</span></div></td></tr></tbody></table></div>
+<p><P>让我们把它打印出来，以确保它符合我们的预期：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br />6<br /></div></td><td><div class="python codecolorer">$ python -c<span class="st0">&quot;import sys; sys.stdout.write(sys.stdin.read())&quot;</span> <span class="sy0">&lt;</span> stdindemo.<span class="me1">py</span> <br />
+<span class="kw1">try</span>:<br />
+&nbsp; &nbsp; <span class="kw1">while</span> <span class="kw2">True</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">print</span><span class="br0">&#40;</span><span class="kw2">input</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+<span class="kw1">except</span> <span class="kw2">EOFError</span>:<br />
+&nbsp; &nbsp; <span class="kw1">pass</span></div></td></tr></tbody></table></div>
+<p><P>同样，<wyn>input</wyn>会一直读到换行符，并从换行符中删除换行符。<wyn>print</wyn>增加了一个新行。因此，当它们都修改输入时，它们的修改会取消。(所以它们基本上是彼此的补充。)好的。<P>当<wyn>input</wyn>得到文件尾字符时，它会产生eoferror，我们忽略它，然后退出程序。好的。<P>在Linux/Unix上，我们可以从cat:好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer">$ cat inputs.<span class="me1">txt</span> | python -m stdindemo<br />
+foo<br />
+bar<br />
+baz</div></td></tr></tbody></table></div>
+<p><P>或者我们可以直接从stdin重定向文件：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer">$ python -m stdindemo <span class="sy0">&lt;</span> inputs.<span class="me1">txt</span> <br />
+foo<br />
+bar<br />
+baz</div></td></tr></tbody></table></div>
+<p><P>我们还可以将模块作为脚本执行：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer">$ python stdindemo.<span class="me1">py</span> <span class="sy0">&lt;</span> inputs.<span class="me1">txt</span> <br />
+foo<br />
+bar<br />
+baz</div></td></tr></tbody></table></div>
+<p><P>下面是关于python 3内置的<wyn>input</wyn>的帮助：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br /></div></td><td><div class="python codecolorer"><span class="kw2">input</span><span class="br0">&#40;</span>prompt<span class="sy0">=</span><span class="kw2">None</span><span class="sy0">,</span> /<span class="br0">&#41;</span><br />
+&nbsp; &nbsp; Read a <span class="kw3">string</span> <span class="kw1">from</span> standard <span class="kw2">input</span>. &nbsp;<span class="me1">The</span> trailing newline <span class="kw1">is</span> stripped.<br />
+<br />
+&nbsp; &nbsp; <span class="me1">The</span> prompt <span class="kw3">string</span><span class="sy0">,</span> <span class="kw1">if</span> given<span class="sy0">,</span> <span class="kw1">is</span> printed to standard output without a<br />
+&nbsp; &nbsp; trailing newline before reading <span class="kw2">input</span>.<br />
+<br />
+&nbsp; &nbsp; <span class="me1">If</span> the <span class="kw3">user</span> hits EOF <span class="br0">&#40;</span>*nix: Ctrl-D<span class="sy0">,</span> Windows: Ctrl-Z+Return<span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw1">raise</span> <span class="kw2">EOFError</span>.<br />
+&nbsp; &nbsp; <span class="me1">On</span> *nix systems<span class="sy0">,</span> <span class="kw3">readline</span> <span class="kw1">is</span> used <span class="kw1">if</span> available.</div></td></tr></tbody></table></div>
+<p><wyn>sys.stdin</wyn><P>这里我们使用<wyn>sys.stdin</wyn>制作一个演示脚本。迭代类文件对象的有效方法是将类文件对象用作迭代器。从这个输入写入stdout的补充方法是简单地使用<wyn>sys.stdout.write</wyn>：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br /></div></td><td><div class="python codecolorer">$ python -c<span class="st0">&quot;print('import sys<br />
+for line in sys.stdin:<br />
+&nbsp; &nbsp; sys.stdout.write(line)')&quot;</span><span class="sy0">&gt;</span> stdindemo2.<span class="me1">py</span></div></td></tr></tbody></table></div>
+<p><P>把它打印出来以确保它看起来正确：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer">$ python -c<span class="st0">&quot;import sys; sys.stdout.write(sys.stdin.read())&quot;</span> <span class="sy0">&lt;</span> stdindemo2.<span class="me1">py</span> <br />
+<span class="kw1">import</span> <span class="kw3">sys</span><br />
+<span class="kw1">for</span> line <span class="kw1">in</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>:<br />
+&nbsp; &nbsp; <span class="kw3">sys</span>.<span class="me1">stdout</span>.<span class="me1">write</span><span class="br0">&#40;</span>line<span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<p><P>并将输入重定向到文件中：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer">$ python -m stdindemo2 <span class="sy0">&lt;</span> inputs.<span class="me1">txt</span><br />
+foo<br />
+bar<br />
+baz</div></td></tr></tbody></table></div>
+<p><P>高尔菲德指挥：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer">$ python -c<span class="st0">&quot;import sys; sys.stdout.write(sys.stdin.read())&quot;</span> <span class="sy0">&lt;</span> inputs.<span class="me1">txt</span><br />
+foo<br />
+bar<br />
+baz</div></td></tr></tbody></table></div>
+<p>高尔夫文件描述符<P>由于<wyn>stdin</wyn>和<wyn>stdout</wyn>的文件描述符分别为0和1，因此我们也可以在python 3中将它们传递给<wyn>open</wyn>(而不是2，注意我们仍然需要"w"来写入stdout)。好的。<P>如果这在你的系统上有效，它将删除更多的字符。好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer">$ python -c<span class="st0">&quot;open(1,'w').write(open(0).read())&quot;</span> <span class="sy0">&lt;</span> inputs.<span class="me1">txt</span><br />
+baz<br />
+bar<br />
+foo</div></td></tr></tbody></table></div>
+<p><P>python 2的<wyn>io.open</wyn>也可以做到这一点，但是导入需要更多的空间：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer">$ python -c<span class="st0">&quot;from io import open; open(1,'w').write(open(0).read())&quot;</span> <span class="sy0">&lt;</span> inputs.<span class="me1">txt</span> <br />
+foo<br />
+bar<br />
+baz</div></td></tr></tbody></table></div>
+<p>处理其他意见和答案<P>一条注释建议使用<wyn>''.join(sys.stdin)</wyn>，但实际上它比sys.stdin.read()长——加上python必须在内存中创建一个额外的列表(这就是没有给定列表时<wyn>str.join</wyn>)的工作方式)，以形成对比：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br /></div></td><td><div class="python codecolorer"><span class="st0">''</span>.<span class="me1">join</span><span class="br0">&#40;</span><span class="kw3">sys</span>.<span class="me1">stdin</span><span class="br0">&#41;</span><br />
+<span class="kw3">sys</span>.<span class="me1">stdin</span>.<span class="me1">read</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<p><P>最重要的答案是：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">fileinput</span><br />
+<br />
+<span class="kw1">for</span> line <span class="kw1">in</span> <span class="kw3">fileinput</span>.<span class="kw2">input</span><span class="br0">&#40;</span><span class="br0">&#41;</span>:<br />
+&nbsp; &nbsp; <span class="kw1">pass</span></div></td></tr></tbody></table></div>
+<p><P>但是，由于<wyn>sys.stdin</wyn>实现了包括迭代器协议在内的文件API，这与以下内容相同：好的。</p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">sys</span><br />
+<br />
+<span class="kw1">for</span> line <span class="kw1">in</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>:<br />
+&nbsp; &nbsp; <span class="kw1">pass</span></div></td></tr></tbody></table></div>
+<p><P>另一个答案确实表明了这一点。请记住，如果在解释器中执行此操作，那么如果在Linux或Mac上，则需要执行<kbd>ctrl</kbd> <kbd>d</kbd>；如果在Windows上，则需要执行<kbd>ctrl</kbd> <kbd>zabbkbd(在<kbd>enter</kbd>之后)，以便将文件结尾字符发送到进程。另外，这个答案也暗示了<wyn>print(line)</wyn>，它在最终使用中添加了<wyn>'<br />
+'</wyn>，而不是<wyn>print(line, end='')</wyn>(如果在python 2中，您将需要<wyn>from __future__ import print_function</wyn>)。好的。<P><wyn>fileinput</wyn>的实际用例是用于读取一系列文件。好的。好啊。</p>
+<hr><P>这将使标准输入与标准输出相呼应：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">sys</span><br />
+line <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>.<span class="kw3">readline</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+<span class="kw1">while</span> line:<br />
+&nbsp; &nbsp; <span class="kw1">print</span> line<span class="sy0">,</span><br />
+&nbsp; &nbsp; line <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>.<span class="kw3">readline</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<hr><P>在使用<wyn>sys.stdin</wyn>的所有anwer的基础上，如果至少存在一个参数，您还可以执行如下操作从参数文件中读取，否则返回到stdin：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">sys</span><br />
+f <span class="sy0">=</span> <span class="kw2">open</span><span class="br0">&#40;</span><span class="kw3">sys</span>.<span class="me1">argv</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="br0">&#41;</span> <span class="kw1">if</span> <span class="kw2">len</span><span class="br0">&#40;</span><span class="kw3">sys</span>.<span class="me1">argv</span><span class="br0">&#41;</span> <span class="sy0">&gt;</span> <span class="nu0">1</span> <span class="kw1">else</span> <span class="kw3">sys</span>.<span class="me1">stdin</span> &nbsp; &nbsp;<br />
+<span class="kw1">for</span> line <span class="kw1">in</span> f:<br />
+<span class="co1"># &nbsp; &nbsp; Do your stuff</span></div></td></tr></tbody></table></div>
+<p><P>并将其用作</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">$ python do-my-stuff.<span class="me1">py</span> infile.<span class="me1">txt</span></div></td></tr></tbody></table></div>
+<p><P>或</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">$ cat infile.<span class="me1">txt</span> | python do-my-stuff.<span class="me1">py</span></div></td></tr></tbody></table></div>
+<p><P>甚至</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">$ python do-my-stuff.<span class="me1">py</span> <span class="sy0">&lt;</span> infile.<span class="me1">txt</span></div></td></tr></tbody></table></div>
+<p><P>这将使您的python脚本的行为类似于许多GNU/Unix程序，如<wyn>cat</wyn>、<wyn>grep</wyn>和<wyn>sed</wyn>。</P></p>
+<p><center> <script src="/c2.js"></script></center></p>
+<hr><P>下面的代码芯片将帮助您(它将把所有stdin阻塞读取到<wyn>EOF</wyn>中的一个字符串中)：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">sys</span><br />
+input_str <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>.<span class="me1">read</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+<span class="kw1">print</span> input_str.<span class="me1">split</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<hr><wyn>argparse</wyn>是一个简单的解决方案<P>示例与Python版本2和3兼容：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br /></div></td><td><div class="python codecolorer"><span class="co1">#!/usr/bin/python</span><br />
+<br />
+<span class="kw1">import</span> argparse<br />
+<span class="kw1">import</span> <span class="kw3">sys</span><br />
+<br />
+<span class="kw3">parser</span> <span class="sy0">=</span> argparse.<span class="me1">ArgumentParser</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+<br />
+<span class="kw3">parser</span>.<span class="me1">add_argument</span><span class="br0">&#40;</span><span class="st0">'infile'</span><span class="sy0">,</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; default<span class="sy0">=</span><span class="kw3">sys</span>.<span class="me1">stdin</span><span class="sy0">,</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <span class="kw2">type</span><span class="sy0">=</span>argparse.<span class="me1">FileType</span><span class="br0">&#40;</span><span class="st0">'r'</span><span class="br0">&#41;</span><span class="sy0">,</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; nargs<span class="sy0">=</span><span class="st0">'?'</span><span class="br0">&#41;</span><br />
+<br />
+args <span class="sy0">=</span> <span class="kw3">parser</span>.<span class="me1">parse_args</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+<br />
+data <span class="sy0">=</span> args.<span class="me1">infile</span>.<span class="me1">read</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<p><P>您可以通过多种方式运行此脚本：</P><P>1。使用<wyn>stdin</wyn>。</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">echo <span class="st0">'foo bar'</span> | ./above-script.<span class="me1">py</span></div></td></tr></tbody></table></div>
+<p><P>&emsp；或更短，用这里的字符串替换<wyn>echo</wyn>：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">./above-script.<span class="me1">py</span> <span class="sy0">&lt;&lt;&lt;</span> <span class="st0">'foo bar'</span></div></td></tr></tbody></table></div>
+<p><P>2。使用文件名参数</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br /></div></td><td><div class="python codecolorer">echo <span class="st0">'foo bar'</span> <span class="sy0">&gt;</span> my-<span class="kw2">file</span>.<span class="me1">data</span><br />
+./above-script.<span class="me1">py</span> my-<span class="kw2">file</span>.<span class="me1">data</span></div></td></tr></tbody></table></div>
+<p><P>三。通过特殊文件名<wyn>-</wyn>使用<wyn>stdin</wyn>。</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">echo <span class="st0">'foo bar'</span> | ./above-script.<span class="me1">py</span> -</div></td></tr></tbody></table></div>
+<div class="suo-content"><div style="text-align: right;">
+		<div class="xControl"><i class="fa fa-caret-right"></i>
+			<span class="xTitle"></span> 
+			<a href="javascript:void(0)" class="collapseButton xButton">相关讨论</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="xContent" style="display: none;"></p>
+<ul>
+<li>如果输入文件被压缩，下面是一个关于该怎么做的答案：stackoverflow.com/a/33621549/778533您也可以做<wyn>add_argument('--in'</wyn>，然后通过管道连接到脚本，并将<wyn>--in -</wyn>添加到命令行。p.s.<wyn>in</wyn>对于变量/属性不是一个很好的名称。</li>
+<li><wyn>in</wyn>不仅是变量的坏名称，而且是非法的。由于<wyn>in</wyn>保留关键字，<wyn>args.in.read()</wyn>将导致无效语法错误。可以像python argparse docs一样简单地重命名为<wyn>infile</wyn>：docs.python.org/3/library/&hellip；</li>
+<li>谢谢@tommy.carstensen的反馈，我刚刚改进了答案。圣诞快乐，新年快乐；—)</li>
+<li>这太好了。</li>
+</ul>
+<p></div>
+	</div></p></div>
+<hr><P>您可以从stdin读取，然后将输入存储到"data"中，如下所示：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br /></div></td><td><div class="python codecolorer">data <span class="sy0">=</span><span class="st0">&quot;&quot;</span><br />
+<span class="kw1">for</span> line <span class="kw1">in</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>:<br />
+&nbsp; &nbsp; data +<span class="sy0">=</span> line</div></td></tr></tbody></table></div>
+<div class="suo-content"><div style="text-align: right;">
+		<div class="xControl"><i class="fa fa-caret-right"></i>
+			<span class="xTitle"></span> 
+			<a href="javascript:void(0)" class="collapseButton xButton">相关讨论</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="xContent" style="display: none;"></p>
+<ul>
+<li>"不要依赖于cpython对形式为a+=b或a=a+b的语句的就地字符串连接的有效实现。即使在cpython中，这种优化也很脆弱。"</li>
+<li>同样的事情也可以用<wyn>data = sys.stdin.read()</wyn>来完成，而不需要重复的字符串连接问题。</li>
+</ul>
+<p></div>
+	</div></p></div>
+<hr><P>试试这个：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">sys</span><br />
+<br />
+<span class="kw1">print</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>.<span class="me1">read</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">upper</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<p><P>并检查：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">$ echo<span class="st0">&quot;Hello World&quot;</span> | python myFile.<span class="me1">py</span></div></td></tr></tbody></table></div>
+<hr><P>我很惊讶到目前为止还没有人提到这个黑客：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">python -c<span class="st0">&quot;import sys;print (''.join([l for l in sys.stdin.readlines()]))&quot;</span></div></td></tr></tbody></table></div>
+<p><P>与python2和python3兼容</P></p>
+<div class="suo-content"><div style="text-align: right;">
+		<div class="xControl"><i class="fa fa-caret-right"></i>
+			<span class="xTitle"></span> 
+			<a href="javascript:void(0)" class="collapseButton xButton">相关讨论</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="xContent" style="display: none;"></p>
+<ul>
+<li>为什么要使用分成几行的<wyn>readlines</wyn>，然后再使用<wyn>join</wyn>？你只需写一封信</li>
+</ul>
+<p></div>
+	</div></p></div>
+<p><center> <script src="/c3.js"></script></center></p>
+<hr><P>从<wyn>sys.stdin</wyn>读取，但要在Windows上读取二进制数据，需要格外小心，因为<wyn>sys.stdin</wyn>在文本模式下打开，它会损坏<wyn></p>
+<p></wyn>，用<wyn><br />
+</wyn>替换它们。</P><P>解决方案是，如果检测到Windows+python 2，则将模式设置为二进制，在python 3上使用<wyn>sys.stdin.buffer</wyn>。</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br />11<br />12<br />13<br />14<br />15<br />16<br />17<br />18<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">sys</span><br />
+<br />
+PY3K <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">version_info</span> <span class="sy0">&gt;=</span> <span class="br0">&#40;</span><span class="nu0">3</span><span class="sy0">,</span> <span class="nu0">0</span><span class="br0">&#41;</span><br />
+<br />
+<span class="kw1">if</span> PY3K:<br />
+&nbsp; &nbsp; source <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>.<span class="me1">buffer</span><br />
+<span class="kw1">else</span>:<br />
+&nbsp; &nbsp; <span class="co1"># Python 2 on Windows opens sys.stdin in text mode, and</span><br />
+&nbsp; &nbsp; <span class="co1"># binary data that read from it becomes corrupted on </span><br />
+<br />
+<br />
+&nbsp; &nbsp; <span class="kw1">if</span> <span class="kw3">sys</span>.<span class="kw3">platform</span> <span class="sy0">==</span><span class="st0">&quot;win32&quot;</span>:<br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="co1"># set sys.stdin to binary mode</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw1">import</span> <span class="kw3">os</span><span class="sy0">,</span> <span class="kw3">msvcrt</span><br />
+&nbsp; &nbsp; &nbsp; &nbsp; <span class="kw3">msvcrt</span>.<span class="me1">setmode</span><span class="br0">&#40;</span><span class="kw3">sys</span>.<span class="me1">stdin</span>.<span class="me1">fileno</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="sy0">,</span> <span class="kw3">os</span>.<span class="me1">O_BINARY</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; source <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdin</span><br />
+<br />
+b <span class="sy0">=</span> source.<span class="me1">read</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<hr><P>我有解决问题的办法</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">sys</span><br />
+<br />
+<span class="kw1">for</span> line <span class="kw1">in</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>:<br />
+&nbsp; &nbsp; <span class="kw1">print</span><span class="br0">&#40;</span>line<span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<p><P>如果不向stdin传递任何数据，它将永远阻塞。这就是我喜欢这个答案的原因：首先检查stdin上是否有数据，然后阅读它。这就是我最后所做的：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br />8<br />9<br />10<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">sys</span><br />
+<span class="kw1">import</span> <span class="kw3">select</span><br />
+<br />
+<span class="co1"># select(files to read from, files to write to, magic, timeout)</span><br />
+<span class="co1"># timeout=0.0 is essential b/c we want to know the asnwer right away</span><br />
+<span class="kw1">if</span> <span class="kw3">select</span>.<span class="kw3">select</span><span class="br0">&#40;</span><span class="br0">&#91;</span><span class="kw3">sys</span>.<span class="me1">stdin</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="br0">&#91;</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="nu0">0.0</span><span class="br0">&#41;</span><span class="br0">&#91;</span><span class="nu0">0</span><span class="br0">&#93;</span>:<br />
+&nbsp; &nbsp; help_file_fragment <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>.<span class="me1">read</span><span class="br0">&#40;</span><span class="br0">&#41;</span><br />
+<span class="kw1">else</span>:<br />
+&nbsp; &nbsp; <span class="kw1">print</span><span class="br0">&#40;</span><span class="st0">&quot;No data passed to stdin&quot;</span><span class="sy0">,</span> <span class="kw2">file</span><span class="sy0">=</span><span class="kw3">sys</span>.<span class="me1">stderr</span><span class="br0">&#41;</span><br />
+&nbsp; &nbsp; <span class="kw3">sys</span>.<span class="me1">exit</span><span class="br0">&#40;</span><span class="nu0">2</span><span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<div class="suo-content"><div style="text-align: right;">
+		<div class="xControl"><i class="fa fa-caret-right"></i>
+			<span class="xTitle"></span> 
+			<a href="javascript:void(0)" class="collapseButton xButton">相关讨论</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="xContent" style="display: none;"></p>
+<ul>
+<li>不过，我真的建议将这种可怕的if条件隐藏到一种方法中。</li>
+<li>这种方法严重限制了程序的适用性：例如，您不能将它用于终端的交互式输入，因为当调用<wyn>select</wyn>时，输入几乎永远不会"就绪"；或者，如果stdin连接到慢媒体(网络、CD、磁带等)上的文件，您也可能面临问题。你说"如果你不将任何数据传递给stdin，它将永远阻塞。"这是一个问题，但我会说这是一个特性。大多数cli程序(例如<wyn>cat</wyn>程序)都是这样工作的，而且它们是预期的。EOF是唯一可以用来检测输入结束的东西。</li>
+</ul>
+<p></div>
+	</div></p></div>
+<hr><P>我在让它工作时遇到了一些问题，因为我无法读取连接到它的套接字。当套接字关闭时，它开始在活动循环中返回空字符串。所以这是我的解决方案(我只在Linux中测试过，但希望它能在所有其他系统中工作)</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br />4<br />5<br />6<br />7<br /></div></td><td><div class="python codecolorer"><span class="kw1">import</span> <span class="kw3">sys</span><span class="sy0">,</span> <span class="kw3">os</span><br />
+sep<span class="sy0">=</span><span class="kw3">os</span>.<span class="me1">linesep</span><br />
+<br />
+<span class="kw1">while</span> sep <span class="sy0">==</span> <span class="kw3">os</span>.<span class="me1">linesep</span>:<br />
+&nbsp; &nbsp; data <span class="sy0">=</span> <span class="kw3">sys</span>.<span class="me1">stdin</span>.<span class="kw3">readline</span><span class="br0">&#40;</span><span class="br0">&#41;</span> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <br />
+&nbsp; &nbsp; sep <span class="sy0">=</span> data<span class="br0">&#91;</span>-<span class="kw2">len</span><span class="br0">&#40;</span><span class="kw3">os</span>.<span class="me1">linesep</span><span class="br0">&#41;</span>:<span class="br0">&#93;</span><br />
+&nbsp; &nbsp; <span class="kw1">print</span> <span class="st0">'&gt;&quot;%s&quot;'</span> % data.<span class="me1">strip</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<p><P>因此，如果您开始监听套接字，它将正常工作(例如在bash中)：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer"><span class="kw1">while</span> :<span class="sy0">;</span> do nc -l <span class="nu0">12345</span> | python <span class="kw3">test</span>.<span class="me1">py</span> <span class="sy0">;</span> done</div></td></tr></tbody></table></div>
+<p><P>您可以使用telnet或将浏览器指向localhost:12345来调用它。</P></p>
+<hr><P>关于这一点：</P><P><wyn>for line in sys.stdin:</wyn></P><P>我刚刚在python 2.7上(根据别人的建议)尝试了一个非常大的文件，我不推荐它，正是因为上面提到的原因(很长时间内没有发生任何事情)。</P><P>最后我得到了一个稍微多一点的Python式解决方案(它适用于更大的文件)：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br /></div></td><td><div class="python codecolorer"><span class="kw1">with</span> <span class="kw2">open</span><span class="br0">&#40;</span><span class="kw3">sys</span>.<span class="me1">argv</span><span class="br0">&#91;</span><span class="nu0">1</span><span class="br0">&#93;</span><span class="sy0">,</span> <span class="st0">'r'</span><span class="br0">&#41;</span> <span class="kw1">as</span> f:<br />
+&nbsp; &nbsp; <span class="kw1">for</span> line <span class="kw1">in</span> f:</div></td></tr></tbody></table></div>
+<p><P>然后我可以在本地运行脚本，如下所示：</P></p>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br /></div></td><td><div class="python codecolorer">python myscript.<span class="me1">py</span><span class="st0">&quot;0 1 2 3 4...&quot;</span> <span class="co1"># can be a multi-line string or filename - any std.in input will work</span></div></td></tr></tbody></table></div>
+<div class="suo-content"><div style="text-align: right;">
+		<div class="xControl"><i class="fa fa-caret-right"></i>
+			<span class="xTitle"></span> 
+			<a href="javascript:void(0)" class="collapseButton xButton">相关讨论</a>
+			<div style="clear: both;"></div>
+		</div>
+		<div class="xContent" style="display: none;"></p>
+<ul>
+<li>打开一个文件不是从stdin读取的，就像问题问的那样。- 1</li>
+<li>在本例中，我将把<wyn>sys.stdin</wyn>作为命令行参数传递给脚本。</li>
+<li>如何将<wyn>sys.stdin</wyn>作为命令行参数传递给脚本？参数是字符串，流是类似文件的对象，它们不相同。</li>
+<li>@通过编辑defazer来演示如何使用它。参数是字符串，是的，但是正如前面的注释中提到的python文档，<wyn>sys.stdin</wyn>是一个类似文件的对象。</li>
+</ul>
+<p></div>
+	</div></p></div>
+<hr>
+<div class="codecolorer-container python dawn" style="overflow:auto;white-space:nowrap;width:100%;"><table cellspacing="0" cellpadding="0"><tbody><tr><td class="line-numbers"><div>1<br />2<br />3<br /></div></td><td><div class="python codecolorer">n <span class="sy0">=</span> <span class="kw2">int</span><span class="br0">&#40;</span><span class="kw2">raw_input</span><span class="br0">&#40;</span><span class="br0">&#41;</span><span class="br0">&#41;</span><br />
+<span class="kw1">for</span> i <span class="kw1">in</span> <span class="kw2">xrange</span><span class="br0">&#40;</span>n<span class="br0">&#41;</span>:<br />
+&nbsp; &nbsp; name<span class="sy0">,</span> number <span class="sy0">=</span> <span class="kw2">raw_input</span><span class="br0">&#40;</span><span class="br0">&#41;</span>.<span class="me1">split</span><span class="br0">&#40;</span><span class="br0">&#41;</span></div></td></tr></tbody></table></div>
+<p><center> <script src="/c4.js"></script></center></p>
+<hr><P>有<wyn>os.read(0, x)</wyn>它从表示stdin的0读取xbytes。这是一个未缓冲的读取，比sys.stdin.read()的级别低。</P></p>
+<p><center> <script src="/c5.js"></script></center></p>
+<hr></div>
+<div class="recommend-post mb30">
+<ul class="widget-links">
+<li><a href="/6045109/" target="_blank">python命令行输入？</a></li>
+<li><a href="/5437292/" target="_blank">Python的标准输入</a></li>
+<li><a href="/20455032/" target="_blank">命令python中的原始输入</a></li>
+<li><a href="/46633033/" target="_blank">关于python：使用来自Raspberry PI键盘的用户输入</a></li>
+<li><a href="/30344182/" target="_blank">关于Linux：如何从piped grep输出读取python中的stdin</a></li>
+<li><a href="/8739488/" target="_blank">如何同时使用unix命令和python</a></li>
+<li><a href="/37173381/" target="_blank">关于Python：STDIN文件读取查询</a></li>
+<li><a href="/38987/" target="_blank">python:如何将两个字典合并到一个表达式中?</a></li>
+<li><a href="/82831/" target="_blank">python:我如何检查一个文件是否存在没有异常?</a></li>
+<li><a href="/231767/" target="_blank">python:关键字yield有什么用?</a></li>
+<li><a href="/606191/" target="_blank">将字节转换为字符串？</a></li>
+<li><a href="/613183/" target="_blank">python:如何按值对字典进行排序？</a></li>
+<li><a href="/739654/" target="_blank">python:如何创建功能装饰器链?</a></li>
+<li><a href="/952914/" target="_blank">python:如何从列表列表中生成一个平面列表?</a></li>
+<li><a href="/3294889/" target="_blank">使用for循环迭代字典</a></li>
+<li><a href="/8369219/" target="_blank">关于python：如何将文本文件读入字符串变量并去掉换行符？</a></li>
+<li><a href="/9371238/" target="_blank">为什么C++中的STDIN读行比Python慢得多？</a></li>
+</ul>
+</div>
+																								
+						</div>
+						<div class="clear"></div>
+						
+						<div class="social-main">
+					<div class="clear"></div>
+</div>												<div class="clear"></div>
+					</div><!-- .entry-content -->
+				</article><!-- #post -->
+														
+					<div class="ad-pc ad-site">
+			</div>					
+				
+												
+					</main><!-- .site-main -->
+	</div><!-- .content-area -->
+	<div id="sidebar" class="widget-area">			
+	<div class="sidebar-roll"></div>
+						<aside id="text-3" class="widget widget_text">			<div class="textwidget"><p><script src="/ce.js"></script></p>
+</div>
+		<div class="clear"></div></aside>				<div class="sidebar-roll">
+				<aside id="text-2" class="widget widget_text">			<div class="textwidget"><p><script src="/auto.js"></script></p>
+</div>
+		<div class="clear"></div></aside>				</div>
+			</div>
+</div>	<div class="clear"></div>
+</div><!-- .site-content -->
+<div id="footer" alog-group="log-footer">
+<div class="foot">
+	
+<div class="ps">
+<div class="p p2">
+
+<div class="clear"></div>
+<div class="site-info">			
+			Copyright ©&nbsp; 码农家园		</div>
+</div>
+
+
+</div>
+</div>
+</div>
+
+<div class="tools">
+    <a class="tools_top" title="返回顶部"></a>
+            
+    </div>
+<script type="text/javascript" src="https://www.codenong.com/wp-content/themes/Nana/js/superfish.js"></script>
+<script type='text/javascript' src='https://www.codenong.com/wp-includes/js/wp-embed.min.js?ver=4.9.13'></script>
+</body></html>
+<!-- Dynamic page generated in 0.282 seconds. -->
+<!-- Cached page generated by WP-Super-Cache on 2020-04-24 13:12:15 -->
+
+<!-- super cache -->

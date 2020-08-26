@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -eu
+
+Usage() {
+    echo "$(basename $0) <filename> [<start page number>] [<end page number>]"
+    exit -1
+}
+
+
+([ $# -lt 1 ] || [ $# -gt 3 ]) && Usage
+
+tmpfile=$(mktemp /tmp/pdf-edit-pages.XXXXXX)
+trap 'rm "$tmpfile"' 0 1 15
+
+case $# in
+    1) pdftotext "$1" $tmpfile ;;
+    2) pdftotext -f $2 -l $2 "$1" $tmpfile ;;
+    3) pdftotext -f $2 -l $3 "$1" $tmpfile ;;
+esac
+
+nvim $tmpfile
+

@@ -41,7 +41,7 @@ HEADER = """
             line-height: 1.5;
         }
         p {
-            font-family: 'Sarasa Gothic SC', 'Sarasa Gothic TC',
+            font-family: 'TsangerJinKai01\-9128 W03',
                          'Fira Sans', 'Noto Sans',
                          -apple-system, 'Source Han Sans CN',
                          'Noto Sans CJK SC', sans-serif !important;

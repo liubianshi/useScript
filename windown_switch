@@ -2,7 +2,6 @@
 
 # 获取窗口数据
 line=$(wmctrl -l | wc -l)
-echo $line
 
 # 获取想跳转窗口的 PID
 wid=$(wmctrl -l -p -x | sed -E 's/\./ /; s/\s+/ /g' |\

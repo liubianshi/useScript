@@ -66,6 +66,7 @@ alias dual='~/useScript/dual_monitors_laptop.sh'
 alias help='tldr --theme ocean'
 alias fdn='rifle $(fd --changed-within=1w | P)'
 alias rmarkdown='~/useScript/rmarkdown.sh'
+alias pdfm='/home/liubianshi/.cxoffice/XP-32/desktopdata/cxmenu/StartMenu.C^5E3A_ProgramData_Microsoft_Windows_Start^2BMenu/Programs/PDF-XChange+PDF+Viewer/PDF-Viewer.lnk'
 # }}}
 # 文件夹导航 {{{
 alias lfd='lf ~/Downloads'
@@ -74,8 +75,8 @@ alias lfr='lf "$NUTSTORE/Diary"'
 alias cdr='cd "$NUTSTORE/Diary"'
 alias lfw='lf "$NUTSTORE/工作相关"'
 alias cdw='cd "$NUTSTORE/工作相关"'
-alias lfb='lf "$NUTSTORE/文档/电子资料"'
-alias cdb='cd "$NUTSTORE/文档/电子资料"'
+alias lfb='lf "$HOME/Documents/ebooks"'
+alias cdb='cd "$HOME/Documents/ebooks"'
 alias lfm='lf ~/Movies'
 alias cdm='cd ~/Movies'
 # }}}

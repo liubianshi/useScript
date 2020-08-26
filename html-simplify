@@ -1,0 +1,70 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+
+# Depends on the breadability
+#   - https://github.com/bookieio/breadability
+#
+# Usage:
+#   url2md <url>
+
+from __future__ import print_function
+import sys, codecs
+from breadability.readable import Article as reader
+HEADER = """
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>%s</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <style type="text/css">
+        body {
+            margin: 40px auto;
+            max-width: 650px;
+            padding: 0 10px;
+            background: #282828;
+            color: #ebdbb2;
+        }
+        h1, h2, h3 {
+            line-height: 1.5;
+        }
+        p {
+            font-family: 'TsangerJinKai01\-9128 W03',
+                         'Fira Sans', 'Noto Sans',
+                         -apple-system, 'Source Han Sans CN',
+                         'Noto Sans CJK SC', sans-serif !important;
+            font-size: 14px !important;
+            letter-spacing: 0.05ex;
+            line-height: 2 !important;
+        }
+        a {
+            color: #458588;
+        }
+        img {
+            max-width: 526px;
+        }
+        p img {
+            margin: auto;
+            display: block;
+        }
+        .entry-content {
+            font-size: 14px;
+            line-height: 2;
+        }
+    </style>
+</head>
+"""
+
+if len(sys.argv) == 1:
+    data = sys.stdin.read()
+elif len(sys.argv) == 2:
+    with codecs.open(sys.argv[1], 'r', 'utf-8') as source:
+        data = source.read()
+else:
+    sys.exit("Wrong arguments number!")
+
+doc = reader(data)
+title = doc._original_document.title
+content = HEADER % title + doc.readable + "</html>"
+print(content)
+

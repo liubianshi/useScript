@@ -47,7 +47,7 @@ handle_extension() {
         # PDF
         pdf)
             # Preview as text conversion
-            pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - 
+            pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" -
             mutool draw -F txt -i -- "${FILE_PATH}" 1-10 
             exiftool "${FILE_PATH}" 
             exit 1;;
@@ -92,12 +92,18 @@ handle_extension() {
             ;; # Continue with next handler on failure
         tsv|csv)
             xsv table -c 20 "${FILE_PATH}"
+            exit 1
             ;;
         xlsx)
             ## Preview as csv conversion
             ## Uses: https://github.com/dilshod/xlsx2csv
-            xlsx2csv -- "${FILE_PATH}" | head | xsv table -c 10 
-            exit 1;;
+            xlsx2csv -- "${FILE_PATH}" | head -n 25 | xsv table -c 10 
+            exit 1
+            ;;
+        epub)
+            epub2txt "${FILE_PATH}" | head -n 100 
+            exit 1
+            ;;
     esac
 }
 

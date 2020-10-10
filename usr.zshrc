@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 #   Source 外部文件 {{{1
-#[ -e $HOME/.config/fpath ] || ln -s $HOME/Repositories/dotfiles/config/fpath
+[ -e $HOME/.config/fpath ] || ln -s $HOME/Repositories/dotfiles/config/fpath $HOME/.config/fpath
 fpath=("$HOME/.config/fpath" $fpath)
 [[ -f "$HOME/useScript/lf_icons.sh" ]] && source "$HOME/useScript/lf_icons.sh"
 source ~/useScript/alias
@@ -30,31 +30,38 @@ ftpane() {
 lfcd () {
     tmp="$(mktemp)"
     lf -last-dir-path="$tmp" "$@"
-    if [ -f "$tmp" ]; then
-        dir="$(cat "$tmp")"
-        rm -f "$tmp"
-        if [ -d "$dir" ]; then
-            if [ "$dir" != "$(pwd)" ]; then
-                cd "$dir" || exit 1
-            fi
-        fi
-    fi
+    [ -f "$tmp" ] || return 1
+    dir="$(cat "$tmp")"
+    rm -f "$tmp"
+    [ -d "$dir" ] || return 2
+    [ "$dir" != "$(pwd)" ] && cd "$dir" || return 1
+    return 0
 }
-bindkey -s '^e' 'lfcd\n'
+bindkey -s '^o' 'lfcd\n'
 
 #  快速跳转 {{{1
-j () {
+j() {
     [ $# -gt 0 ] && fasd_cd -d "$*" && return
     local dir
     dir="$(fasd -Rdl "$1" | fzf -1 -0 --no-sort +m)" && cd "${dir}" || return 1
 }
 
-v () {
+v() {
     [ $# -gt 0 ] && fasd -f -e nvim "$*" && return
     local file
     file="$(fasd -Rfl "$1" | fzf -1 -0 --no-sort +m)" && nvim "${file}" || return 1
 }
-
+fasd_cd() {
+  if [ $# -le 1 ]; then
+    fasd "$@"
+  else
+    local _fasd_ret="$(fasd -e 'printf %s' "$@")"
+    [ -z "$_fasd_ret" ] && return
+    [ -d "$_fasd_ret" ] && cd "$_fasd_ret" || printf "%s\n" "$_fasd_ret"
+  fi
+}
+alias z='fasd_cd -d'
+alias zz='fasd_cd -d -i'
 # 创建临时文件 {{{1
 temp () {
     cmd="nvim"
@@ -122,9 +129,10 @@ N() {
             open "$dir/$file"	
         fi
     else
-        vim "$dir/$file"
+        $EDITOR "$dir/$file"
     fi
-}#}}}
+}
+#}}}
 # 查询 man 文档{{{1
 fman() {
     man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
@@ -174,10 +182,11 @@ export NNN_PLUG='z:fasd;p:-nuke;P:-preview_tabbed;f:-fzcd;o:-fzopen'
 export GUI=1
 
 # to show video files, run: list video {{{2
-list ()                                                                                                    
+list()
 {
     fd -d 1 | file -if- | ag "$1" | awk -F: '{printf "./%s\0", $1}' | nnn -d
 }
+
 n () # cd on quit {{{2
 {
     # Block nesting of nnn in subshells
@@ -227,4 +236,33 @@ fnote() {
     nvim +'set tw=0 nowrap' +'normal zR' +'Leaderf! bufTag --all' $search
 }
 
+# cheat 配置 {{{1
+export CHEAT_USE_FZF=true
+[ -e $HOME/.config/cheat/cheat.zsh ] && source $HOME/.config/cheat/cheat.zsh
+# 记录生词
+stw() {
+    ed=0
+    while getopts ':e' opts; do
+        case "$opts" in
+            e) ed=1;;
+            *) { echo "Usage: stw [-e] [<word>]"; return 1; };;
+        esac
+    done
+    shift $((OPTIND-1))
 
+    [ $# -ge 2 ] && { echo "Usage: stw [-e] [<word>]"; return 1; }
+    [ $# -eq 1 ] && {
+        trans_result=$(trans -b --no-auto "$1")
+        stup add -c word -n "$1: $trans_result"
+        echo "\033[32;4m$1: $trans_result\033[0m\n"
+        unset trans_result
+    }
+
+    if [ $ed -eq 1 ]; then
+        stup edit -c word
+    else
+        echo "\033[33;4;1mToday's Vocabulary:\033[0m"
+        stup -c word | sed -ne '5,$p'
+    fi
+    unset ed
+}

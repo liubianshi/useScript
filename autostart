@@ -50,6 +50,9 @@ nohup copyq &
 # start mpd
 mpd &
 
+# redshift
+redshift &
+
 # start dropbox
 # dropbox &
 

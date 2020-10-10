@@ -9,7 +9,6 @@
 
 from __future__ import print_function
 import sys, codecs
-from breadability.readable import Article as reader
 HEADER = """
 <!DOCTYPE html>
 <html>
@@ -63,8 +62,16 @@ elif len(sys.argv) == 2:
 else:
     sys.exit("Wrong arguments number!")
 
-doc = reader(data)
-title = doc._original_document.title
-content = HEADER % title + doc.readable + "</html>"
+try:
+    from readability import Document
+    doc = Document(data)
+    title = doc.title()
+    content = doc.summary().replace('<html>', HEADER % title)
+except ImportError:
+    from breadability.readable import Article as reader
+    doc = reader(data)
+    title = doc._original_document.title
+    content = HEADER % title + doc.readable + "</html>"
+
 print(content)
 

@@ -4,7 +4,7 @@ email=$(abook --convert --infile ~/.abook/addressbook --outformat custom \
     --outformatstr "{name}\t{email}" |\
     ag '\t[^@]+@[^@]+$' |\
     awk -F "\t" '{ printf "%-30s\t%-s\n", $1, $2 }' |\
-    fmenu | awk -F "\t" '{print $2}' )
+    fmenu -m | awk -F "\t" '{print $2}' )
 echo $email | xclip -sel clip
 
 

@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
 # fzfmenu - fzf as dmenu replacement
-c=127   # 默认列
+c=100   # 默认列
 l=12    # 默认行
+i=$(xrandr | grep "[0-9]\*" | cut -dx -f1 | tr -d ' ')
+i=$((i/5))
+
 while getopts :c:l:m opt
 do
     case "$opt" in
@@ -21,7 +24,7 @@ mkfifo $output
 chmod 600 $input $output
 
 # it's better to use st here (starts a lot faster than pretty much everything else)
-st -c fzfmenu -n fzfmenu -g "${c}x${l}+1000+0000" -i -e sh -c "cat $input | \
+st -c fzfmenu -n fzfmenu -g "${c}x${l}+${i}+0000" -i -e sh -c "cat $input | \
     fzf $multi --bind "ctrl-c:print-query" --reverse --info=inline | \
     tee $output" & disown
 

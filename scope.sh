@@ -29,10 +29,14 @@ handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
         # Archive
         a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|\
-        rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)
+        rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z)
             atool --list -- "${FILE_PATH}"
             bsdtar --list --file "${FILE_PATH}"
             exit 1;;
+
+        zip)
+            unzip  -l -O gbk -- "${FILE_PATH}"
+            exit 0;;
 
         rar)
             # Avoid password prompt by providing empty password
@@ -72,7 +76,7 @@ handle_extension() {
             antiword -f "${FILE_PATH}"
             exit 1;;
 
-        md)
+        md|Rmd|rmd)
             if which glow >/dev/null 2>&1; then
                 glow -sdark "${FILE_PATH}" | less -R
                 exit 1
@@ -86,7 +90,7 @@ handle_extension() {
         # HTML
         htm|html|xhtml)
             # Preview as text conversion
-            w3m -dump "${FILE_PATH}"
+            w3m -dump -T text/html -cols 80 "${FILE_PATH}"
             lynx -dump -- "${FILE_PATH}"
             elinks -dump "${FILE_PATH}" 
             ;; # Continue with next handler on failure
@@ -110,6 +114,12 @@ handle_extension() {
 handle_mime() {
     local mimetype="${1}"
     case "${mimetype}" in
+        text/html)
+            # Preview as text conversion
+            w3m -dump -T text/html -cols 80 "${FILE_PATH}"
+            lynx -dump -- "${FILE_PATH}"
+            elinks -dump "${FILE_PATH}" 
+            ;; # Continue with next handler on failure
         # Text
         text/* | */xml | */json)
             # Syntax highlight

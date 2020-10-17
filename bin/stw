@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+set -e
+
+word_today="$WORD_REPO/$(date +%Y)/$(date +%m)/$(date +%Y-%m-%d).md"
+ed=0
+detail=0
+fzf=0
+
+while getopts ':eds' opts; do
+    case "$opts" in
+        e) ed=1;;
+        d) detail=1;;
+        s) fzf=1;;
+        *) { echo "Usage: stw [-e] [<word>]"; return 1; };;
+    esac
+done
+shift $((OPTIND-1))
+
+if [ $fzf -eq 0 ] && [ $ed -eq 0 ] && [ $# -ge 1 ]; then
+    trans_result=$(trans -b --no-auto "$*")
+    printf "\n" >> "$word_today"
+    stup add -c word -n "$*" >/dev/null
+    printf "  > %s\n" "$trans_result" >> "$word_today"
+    unset trans_result
+fi
+
+if [ $# -eq 1 ]; then
+    temp=$(mktemp /tmp/sdcv_XXXXXX)
+    trap 'rm "$temp"' 0 15
+    sdcv --utf8-output --color "$1" | tee "$temp"
+    if grep -c '^\*' "$temp" &>/dev/null; then
+        sed -Ei '/^$/d' "$temp"
+        sed -En '/^\*/,${s/^\*?(.+)/  > \1/;p}' "$temp" >> "$word_today"
+    fi
+
+     [ $detail -eq 1 ] && trans -d "$1"
+fi
+
+if [ $ed -eq 1 ]; then
+    stup edit -c word "$@"
+elif [ $fzf -eq 1 ]; then
+    cd "$WORD_REPO"
+    fzf-tmux --preview "scope {} 2>/dev/null" "$@"
+else
+    sed -e "1i\# Today's Vocabulary" "$word_today" | glow -sdark -
+fi
+
+exit 0

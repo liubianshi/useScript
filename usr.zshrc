@@ -239,30 +239,3 @@ fnote() {
 # cheat 配置 {{{1
 export CHEAT_USE_FZF=true
 [ -e $HOME/.config/cheat/cheat.zsh ] && source $HOME/.config/cheat/cheat.zsh
-# 记录生词
-stw() {
-    ed=0
-    while getopts ':e' opts; do
-        case "$opts" in
-            e) ed=1;;
-            *) { echo "Usage: stw [-e] [<word>]"; return 1; };;
-        esac
-    done
-    shift $((OPTIND-1))
-
-    [ $# -ge 2 ] && { echo "Usage: stw [-e] [<word>]"; return 1; }
-    [ $# -eq 1 ] && {
-        trans_result=$(trans -b --no-auto "$1")
-        stup add -c word -n "$1: $trans_result"
-        echo "\033[32;4m$1: $trans_result\033[0m\n"
-        unset trans_result
-    }
-
-    if [ $ed -eq 1 ]; then
-        stup edit -c word
-    else
-        echo "\033[33;4;1mToday's Vocabulary:\033[0m"
-        stup -c word | sed -ne '5,$p'
-    fi
-    unset ed
-}

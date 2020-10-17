@@ -1,7 +1,10 @@
 #!/usr/bin/env bash
-set -e
+set -euo pipefail
 
+WORD_REPO=${WORD_REPO:-"$HOME/Documents/word_repo"}
 word_today="$WORD_REPO/$(date +%Y)/$(date +%m)/$(date +%Y-%m-%d).md"
+mkdir -p "$WORD_REPO/$(date +%Y)/$(date +%m)"
+
 ed=0
 detail=0
 fzf=0
@@ -11,17 +14,16 @@ while getopts ':eds' opts; do
         e) ed=1;;
         d) detail=1;;
         s) fzf=1;;
-        *) { echo "Usage: stw [-e] [<word>]"; return 1; };;
+        *) { echo "Usage: stw [-eds] [<words>]"; return 1; };;
     esac
 done
 shift $((OPTIND-1))
 
 if [ $fzf -eq 0 ] && [ $ed -eq 0 ] && [ $# -ge 1 ]; then
+    [ -f "$word_today" ] || echo "# Today's Vocabulary"
     trans_result=$(trans -b --no-auto "$*")
-    printf "\n" >> "$word_today"
-    stup add -c word -n "$*" >/dev/null
-    printf "  > %s\n" "$trans_result" >> "$word_today"
-    unset trans_result
+    [ -z $trans_result ] && exit 1
+    printf "\n## %s\n\n> %s\n" "$*" "$trans_result" >> "$word_today"
 fi
 
 if [ $# -eq 1 ]; then
@@ -29,20 +31,23 @@ if [ $# -eq 1 ]; then
     trap 'rm "$temp"' 0 15
     sdcv --utf8-output --color "$1" | tee "$temp"
     if grep -c '^\*' "$temp" &>/dev/null; then
-        sed -Ei '/^$/d' "$temp"
-        sed -En '/^\*/,${s/^\*?(.+)/  > \1/;p}' "$temp" >> "$word_today"
+        sed -Eni  '/^\*/,${s/^\*//;s/^/> /;p}' "$temp"
+        sed -E '/^> $/d' "$temp" >> "$word_today"
     fi
-
-     [ $detail -eq 1 ] && trans -d "$1"
+    [ $detail -eq 1 ] && trans -d "$1"
 fi
 
+cd "$WORD_REPO"
 if [ $ed -eq 1 ]; then
-    stup edit -c word "$@"
+    if [ $# -ne 0 ]; then
+        $EDITOR "$(fzf-tmux --preview \"scope {} 2>/dev/null\" \"$@\")"
+    else
+        $EDITOR "$word_today"
+    fi
 elif [ $fzf -eq 1 ]; then
-    cd "$WORD_REPO"
-    fzf-tmux --preview "scope {} 2>/dev/null" "$@"
+    $EDITOR "$(fzf-tmux --preview "scope {} 2>/dev/null" "$@")"
 else
-    sed -e "1i\# Today's Vocabulary" "$word_today" | glow -sdark -
+    glow -sdark "$word_today" 
 fi
 
 exit 0

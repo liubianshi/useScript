@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -C -f -u 
+set -C -f -u
 IFS=$'\n'
 # ANSI color codes are supported.
 # STDIN is disabled, so interactive scripts won't work properly
@@ -133,8 +133,8 @@ handle_mime() {
                 local pygmentize_format='terminal'
                 local highlight_format='ansi'
             fi
-            pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}" -- "${FILE_PATH}" 
             highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" --style="${HIGHLIGHT_STYLE}" --force -- "${FILE_PATH}"
+            pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}" -- "${FILE_PATH}" 
             exit 2;;
 
         # Image

@@ -233,9 +233,16 @@ fnote() {
     sed -Ei 's!'$dir'/!!' $search
     sed -Ei '/^#/a
     ' $search
-    nvim +'set tw=0 nowrap' +'normal zR' +'Leaderf! bufTag --all' $search
+    nvim +'set tw=0 nowrap' +'normal zR' +'TOC' $search
 }
+
 
 # cheat 配置 {{{1
 export CHEAT_USE_FZF=true
 [ -e $HOME/.config/cheat/cheat.zsh ] && source $HOME/.config/cheat/cheat.zsh
+# fuzzy search cheat {{{2 #
+fcheat() {
+    local cheat_name
+    cheat_name=$(cheat -l "$@" | sed -e '1d' | fzf-tmux | cut -d' ' -f1)
+    cheat "$cheat_name"
+}

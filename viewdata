@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 tfile=$(mktemp --suffix '.tsv')
+trap 'rm $tfile' 1 15
 wtitle="NVIM-R DataFrame Priview: $1"
-xsv table -c 30 -o $tfile "$1" 
-nvim -c ':set nowrap number relativenumber' $tfile
+xsv table -c 30 -o "$tfile" "$1" 
+nvim -c ":set nowrap number relativenumber ft=tsv" $tfile
 
 

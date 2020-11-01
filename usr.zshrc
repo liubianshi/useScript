@@ -67,6 +67,7 @@ temp () {
     cmd="nvim"
     files=""
     out="n"
+
 	while getopts c:o opt
 	do
 		case "$opt" in
@@ -89,6 +90,8 @@ temp () {
         files=$(mktemp) 
     fi
     echo "$files"
+    xclip -i -sel clip <<<"$files"
+
     if [[ $out != "y" ]]; then
         $cmd "$files"
     fi

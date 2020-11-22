@@ -74,10 +74,3 @@ fXTLag <- function(panel.dt, varlist, n = 1L, new.dt = FALSE) {
     invisible(panel.dt)
 }
 
-#> d.temp <- data.table(ID = rep(letters[1:3], each = 5),
-#>                     year = rep(2001:2005, 3), vari = runif(15))
-#> d.temp2 <- d.temp[ID == "a"]
-#> d.temp3 <- d.temp[year != 2003, ]
-#> fXTSet(d.temp, ID, year)
-#> fXTLag(d.temp3, vari)
-#> fLag(d.temp2$vari, d.temp2$year)

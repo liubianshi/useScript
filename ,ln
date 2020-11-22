@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+set -evx
+
+soft=""
+force=""
+
+while getopts ':sf' op; do
+    case $op in
+        s) soft="-s";;
+        f) force="-f";;
+        *) exit 256;;
+    esac
+done
+
+shift $((OPTIND -1))
+
+[[ $# != 2 ]] && exit 256
+
+[ -f "$1" ] && ln $soft $force "$(readlink -f "$1")" "$HOME/Documents/WikiHome/$2"
+
+exit 0
+

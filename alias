@@ -79,6 +79,7 @@ alias lfb='lf "$HOME/Documents/ebooks"'
 alias cdb='cd "$HOME/Documents/ebooks"'
 alias lfm='lf ~/Movies'
 alias cdm='cd ~/Movies'
+alias n2='dvtm nnn nnn'
 # }}}
 # 系统设置相关{{{
 alias ,gfw='sudo nvim /etc/privoxy/proxy.action'

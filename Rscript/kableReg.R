@@ -1,8 +1,4 @@
 #' kablest Convert estimate results to kable
-
-
-
-
 fStringMatch <- function(x, sub_x, method = "exact") {
     if (!is.character(x))
         stop("The first augment must be character")

@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+cmd="$@"
+Rscript -e "help('$cmd')"
+exit 0

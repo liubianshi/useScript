@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+cmd="help $@"
+Rscript -e "RStata::stata(\"$cmd\", stata.out = TRUE)" | less
+
+exit 0

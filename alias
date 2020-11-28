@@ -84,6 +84,10 @@ alias n2='dvtm nnn nnn'
 # 系统设置相关{{{
 alias ,gfw='sudo nvim /etc/privoxy/proxy.action'
 alias ,pac='nvim $HOME/Repositories/script/manjaro_install/packages'
+,which () {
+    [ $# -ne 1 ] && return 258;
+    nvim "$(which $1)"
+}
 # }}}
 # joplin{{{
 alias jbook='joplin mkbook'

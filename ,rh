@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
-cmd="$@"
-Rscript -e "help('$cmd')"
+[ $# -gt 2 ] && { echo "只能接受两个参数" >&2; exit 255; }
+[ $# -eq 0 ] && exit 0
+
+if [ $# -eq 2 ]; then
+    topic=$1
+    package=$2
+    Rscript -e "help('$topic', '$package')"
+else
+    Rscript -e "help('$1', try.all.packages = TRUE)"
+fi
+
 exit 0

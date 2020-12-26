@@ -40,11 +40,11 @@ title="$(grep -E '^\s*<title>' $tmpmd | sed -En 's/\s*<title>(.*)<\/title>\s*$/\
 mkdir -p "$HOME/Documents/Digest/"
 cd "$HOME/Documents/Digest/"
 if [[ -n $title ]]; then
-    filename="${title// /_}.md"
-    echo -e "# $title\n\n资料来源:<$url>\n\n" > "$tmphtml"
+    filename="$title.md"
+    echo -e "# $title\n\n\n\n" > "$tmphtml"
     pandoc -f html -t "${markdown:-markdown_strict}" "$tmpmd" >> "$tmphtml"
+    echo -e "\n\n\n### Source\n\n$url.\n\n" >> "$tmphtml"
     prettier --parser 'markdown' --print-width 79 --prose-wrap 'always' --write "$tmphtml"
-
     if [ ! -f "$filename" ]; then
         cat "$tmphtml" > "$filename"
         nvim "$filename"

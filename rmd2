@@ -24,7 +24,16 @@ case $1 in
           opt='pandoc_args = "-drmd2odt"'
           ;;
     docx) out="officedown::rdocx_document"
-          opt="pandoc_args = '-drmd2docx', reference_docx = 'default'"
+          opt="base_format = 'bookdown::word_document2', \
+               pandoc_args = '-drmd2docx', \
+               mapstyles   = list('Body Text' = c('First Paragraph')), \
+               tables      = list(caption = list(pre = '表', sep = '  ')), \
+               plots       = list(caption = list(pre = '图', sep = '  ')), \
+               lists       = list(ol.style = 'List Number 2', ul.style = 'List Bullet 2'), \
+               reference_docx = \"$HOME/.pandoc/templates/custom-reference.docx\""
+          ;;
+    docx2) out="bookdown::word_document2"
+          opt="pandoc_args = '-drmd2docx', reference_docx = \"$HOME/.pandoc/templates/custom-reference.docx\""
           ;;
     beamer)
           out="rmarkdown::beamer_presentation"

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -eu
+
+[ $# -ne 2 ] && exit 2
+filename="${1}.md"
+url="$2"
+tmphtml=$(mktemp /tmp/html2md.XXXXXX.html)
+tmpmd=$(mktemp /tmp/html2md.XXXXXX.md)
+trap 'rm "$tmphtml" "$tmpmd" "$filename"' 0 1 15
+
+# 根据 url 下载网页代码，如果代码非 utf-8 则进行转码
+curl -sL -x "http://127.0.0.1:8118" -o "$tmphtml" "$url"
+
+# 简化网页代码，获取网页标题
+$HOME/useScript/html-simplify "$tmphtml" > "$tmpmd"
+title="$(grep -E '^\s*<title>' $tmpmd | sed -En 's/\s*<title>(.*)<\/title>\s*$/\1/p')"
+
+# 根据标题是否存在分别处理
+mkdir -p "/tmp/APEC/"
+cd "/tmp/APEC"
+
+if [[ -n $title ]]; then
+    echo -e "# $title\n\n" > "$tmphtml"
+fi
+pandoc -f html -t markdown_strict "$tmpmd" >> "$tmphtml"
+echo -e "\n\n\nSource: $url.\n" >> "$tmphtml"
+
+
+prettier --parser 'markdown' --print-width 79 --prose-wrap 'always' --write "$tmphtml"
+cat "$tmphtml" > "$filename"
+name="${filename%.*}"
+sed -Ei '/资料来源/d' "$filename"
+sed -Ei '/^:<http/d' "$filename"
+"$HOME/.local/bin/md2" docx "$filename" 
+mv "$name.docx" "$NUTSTORE/工作相关/20201212 中心网站英文资料"
+exit 0
+
+
+

@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-set -evx
+set -e
 
 soft=""
 force=""
@@ -15,9 +14,12 @@ done
 
 shift $((OPTIND -1))
 
-[[ $# != 2 ]] && exit 256
+[ -f "$1" ] || exit 1
 
-[ -f "$1" ] && ln $soft $force "$(readlink -f "$1")" "$HOME/Documents/WikiHome/$2"
+if [[ $# == 1 ]]; then
+    ln $soft $force "$(readlink -f "$1")" "$HOME/.local/bin"
+else
+    ln $soft $force "$(readlink -f "$1")" "$HOME/.local/bin/$2"
+fi
 
 exit 0
-

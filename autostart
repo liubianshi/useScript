@@ -14,7 +14,7 @@ xinput set-prop $synaptics 'libinput Accel Speed' 0.3
 trackPoint=$(xinput list | grep TrackPoint | awk -F = '{print $2}' | awk -F " " '{print $1}')
 xinput set-prop $trackPoint 'libinput Accel Speed' 0.8 
 xinput set-prop $trackPoint 'libinput Accel Profile Enabled' 1, 0 
-libinput-gestures-setup start
+# libinput-gestures-setup start
 
 dwmblocks &
 export STATUSBAR='dwmblocks'

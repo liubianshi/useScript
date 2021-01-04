@@ -137,9 +137,15 @@ fmpc() {
 # todoist{{{
 alias todo='todoist --color --indent'
 # }}}
-
-
-
+# 全局别名 {{{
+# 来自 https://github.com/lilydjwg/dotzsh/blob/master/zshrc
+alias -g NN="*(oc[1])"
+alias -g NNF="*(oc[1].)"
+alias -g NND="*(oc[1]/)"
+alias -g NUL="/dev/null"
+alias -g XS='"$(xsel)"'
+alias -g ANYF='**/*[^~](.)'
+# }}}
 
 
 

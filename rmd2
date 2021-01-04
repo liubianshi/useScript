@@ -44,16 +44,15 @@ case $1 in
           ;;
     html2)
           out="bookdown::html_document2"
-          opt='pandoc_args = "-drmd2html"'
+          opt='pandoc_args = "-drmd2html", keep_md = TRUE'
           ;;
 esac
 
 command="rmarkdown::render('$2', $out(md_extensions = '+emoji+east_asian_line_breaks', $opt))"
-
 if [[ $verbose -eq 0 ]]; then
-    Rscript --vanilla -e "$command" >/dev/null
+    Rscript -e "$command" >/dev/null
 else
-    Rscript --vanilla --verbose -e "$command"
+    Rscript --verbose -e "$command"
 fi
 
 [[ $open -eq 1 ]] && xdg-open "${2%.*md}.${1%[0-9]}"

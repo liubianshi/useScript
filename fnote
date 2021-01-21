@@ -1,0 +1,38 @@
+#!/usr/bin/env sh
+
+#set -evx
+
+search=$(mktemp /tmp/fnote.XXXXXXX.md)
+printf "%s\n\n" "# \`$*\` 的查询结果" > "$search"
+
+oldpwd="$(pwd)"
+trap 'unlink "$search"; cd "$oldpwd"' EXIT TERM
+
+cd "$NUTSTORE" || exit 1
+if which rg >/dev/null 2>&1; then
+    rg --color never -C 3 -g '*.{md,Rmd,rmd,raku,pl,pl6,do,ado,R,r,markdown}' "$@" >> "$search"
+elif which rg >/dev/null 2>&1; then
+    ag -H -G '\.(md|Rmd|rmd|raku|pl.|do|ado|R|r|markdown)$' "$@" >> "$search"
+else
+    exit 2
+fi
+
+perl -i -lpe 'if (/^(\d+)([:\-])(.*)$/) {
+    my $str = $1;
+    $str = "🌟🌟" if $2 eq ":";
+    $_ = "| " . $str . "\t\t" . $3;
+} elsif (/^([^-|# \t].+)$/) {
+    $_ = "## " . $1 . "\n";
+} elsif (/^--$/) {
+    $_ = "<!" . "-" x 76 . ">";
+}' "$search"
+
+nvim +'set tw=0 nowrap nolist' +'normal zR' +'call ToggleZenMode()' \
+     +'noremap <buffer> <c-x> :<c-u>exec "sp  " . fnameescape(getline(".")[3:])<cr>' \
+     +'noremap <buffer> <c-v> :<c-u>exec "vsp " . fnameescape(getline(".")[3:])<cr>' \
+     +'noremap <buffer> <c-t> :<c-u>exec "tabedit " . fnameescape(getline(".")[3:])<cr>' \
+     +'noremap <buffer> <leader>fv :<c-u>exec "PreviewFile +:setlocal\\\ fdl=99 " . fnameescape(getline(".")[3:])<cr>' \
+     "$search"
+
+exit 0
+

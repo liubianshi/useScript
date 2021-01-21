@@ -223,21 +223,16 @@ export SRDM_DATA_MANAGER_ENGINE='SQLite'
 export SRDM_DATA_MANAGER_PATH="$HOME/Documents/personal_database"
 
 # 查询个人笔记 {{{1
-#
-,info() {
-    ag $@ ~/.config/diySync
-}
-
-fnote() {
-    search=$(mktemp /tmp/fnote.XXXXXXX.md)
-    dir="$NUTSTORE"
-    ag -H -G '\.(md|Rmd|rmd|raku|pl.|do|ado|R|r|markdown)$' $@ "$dir" > $search
-    sed -Ei 's/:/\t\t/; s!/!# /!' $search
-    sed -Ei 's!'$dir'/!!' $search
-    sed -Ei '/^#/a
-    ' $search
-    nvim +'set tw=0 nowrap' +'normal zR' +'TOC' $search
-}
+# fnote() {
+#     search=$(mktemp /tmp/fnote.XXXXXXX.md)
+#     dir="$NUTSTORE"
+#     ag -H -G '\.(md|Rmd|rmd|raku|pl.|do|ado|R|r|markdown)$' $@ "$dir" > $search
+#     sed -Ei 's/:/\t\t/; s!/!# /!' $search
+#     sed -Ei 's!^'$dir'/!#!' $search
+#     sed -Ei '/^#/a
+#     ' $search
+#     nvim +'set tw=0 nowrap' +'cd $NUTSTORE' +'normal zR' +'TOC' $search
+# }
 
 
 # cheat 配置 {{{1

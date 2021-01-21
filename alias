@@ -28,6 +28,7 @@ alias ssh-ali='ssh liubianshi_ali@118.190.162.170'
 alias ssh-work='ssh -oPort=6000 liubianshi@118.190.162.170'
 alias ssh-mac='ssh luowei@192.168.18.111'
 alias ssh-vultr='ssh root@45.77.79.150'
+alias ssh-bandwagon='ssh root@144.34.164.223 -p 29235'
 #}}}
 # 下载相关{{{
 alias y='youtube-dl'

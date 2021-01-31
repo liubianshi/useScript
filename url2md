@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
-set -eu
+set -eux
 
 Usage() {
-    echo "$(basename $0) <url>"
-    exit -1
+    echo "$(basename "$0")" "<url>"
+    exit 1
 }
 
 while getopts 't:h' OPT; do
@@ -13,7 +13,7 @@ while getopts 't:h' OPT; do
         *) Usage;;
     esac
 done
-shift $(( $OPTIND - 1 ))
+shift $(( OPTIND - 1 ))
 
 [ $# -ne 1 ] && Usage
 url="$1"
@@ -25,16 +25,17 @@ trap 'rm "$tmphtml" "$tmpmd"' 0 1 15
 # 根据 url 下载网页代码，如果代码非 utf-8 则进行转码
 curl -sL -x "http://127.0.0.1:8118" -o "$tmphtml" "$url"
 
-code="$(enca -L chinese $tmphtml | awk -F'; ' 'NR == 1 {print $2}')"
+code="$(enca -L chinese "$tmphtml" | awk -F'; ' 'NR == 1 {print "$2"}')"
 if [[ "$code" =~ ^(GB|BIG|HZ) ]]; then
     cp "$tmphtml" "${tmphtml}.origin"
-    iconv -f gb18030 -t "UTF-8" ${tmphtml}.origin > $tmphtml
-    rm ${tmphtml}.origin
+    iconv -f gb18030 -t "UTF-8" "${tmphtml}".origin > "$tmphtml"
+    rm "${tmphtml}".origin
 fi
 
 # 简化网页代码，获取网页标题
-$HOME/useScript/html-simplify "$tmphtml" > "$tmpmd"
-title="$(grep -E '^\s*<title>' $tmpmd | sed -En 's/\s*<title>(.*)<\/title>\s*$/\1/p')"
+"$HOME/useScript/html-simplify" "$tmphtml" > "$tmpmd"
+title="$(grep -E '^\s*<title>' "$tmpmd" | sed -En 's/\s*<title>(.*)<\/title>\s*$/\1/p' | sed -E 's![ :?'\''/|]!_!g')"
+title="${title% --*}"
 
 # 根据标题是否存在分别处理
 mkdir -p "$HOME/Documents/Digest/"
@@ -52,8 +53,8 @@ if [[ -n $title ]]; then
         nvim -d "$filename" "$tmphtml"
     fi
 else
-    echo "[notitle]($url)\n==========\n\n" > "$tmphtml"
+    echo -e "[notitle]($url)\n==========\n\n" > "$tmphtml"
     pandoc -f html -t "${markdown:-markdown_strict}" -o "$tmpmd" >> "$tmphtml"
     prettier --parser 'markdown' --print-width 79 --prose-wrap 'always' "$tmphtml" | \
-        nvim +'set ft=pandoc; cd $HOME/Documents/Digest'
+        nvim +"set ft=pandoc; cd $HOME/Documents/Digest"
 fi

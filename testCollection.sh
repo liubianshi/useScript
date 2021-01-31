@@ -1,104 +1,105 @@
 #!/usr/bin/env bash
 
-conti=0
-image=0
-file="$DIY_COLLECT"
+# newfile: 将内容写入文件 {{{1
+newfile () {
+    local info
+    local title
+    local author
+    local infosource
+    local note
+    local metadata
+    local content
 
-while getopts ci opt; do
+    content="$1"
+    info=$(zenity --forms --title="补全摘录信息" \
+        --text="补全摘录信息" \
+        --separator="|" \
+        --add-entry="标题" \
+        --add-entry="作者" \
+        --add-entry="来源" \
+        --add-entry="备注" \
+        --width=800)
+    title=$(echo "$info" | cut -f1 -d'|')
+    author=$(echo "$info" | cut -f2 -d'|')
+    infosource=$(echo "$info" | cut -f3 -d'|')
+    note=$(echo "$info" | cut -f4 -d'|')
+    if [[ $title == "" || $author == "" ]]; then
+        zenity --error --title="信息补全" --text="标题和作者信息必须完全！"
+        exit 1
+    fi
+    
+    metadata=$(cat <<-META
+		# $title
+		
+		| author: $author
+		| date: $(date +%F)
+		META
+    )
+    [[ -n $note ]] && metadata="$metadata\n| 注释：$note."
+    [[ -n $infosource ]] && metadata="$metadata\n| 资料来源：$infosource. $(date +%F)."
+
+    echo -e "\n$metadata\n\n$content\n"
+
+    return 0
+}
+#}}}
+
+digestDir=${digestDir:-"$HOME/Documents/Digest/Fragment"}
+filename="Digest_$(date +%y%m%d).Rmd"
+imagename="${imagename:-image_$(date +%y%m%d_%H%M%S).png}"
+icon="$NUTSTORE/Sync/icons/data-collecting.png"
+mkdir -p "$digestDir/.assets"
+cd "$digestDir" || exit 1
+
+while getopts :cid:t: opt; do
     case "$opt" in
         c) conti=1;;
         i) image=1;;
+        t) texttype="$OPTARG";;
+        d) digestDir="$OPTARG";;
         ?) echo "Unknow options:: $opt"
            exit 1;;
     esac
 done
 shift $(( OPTIND - 1 )) 	# 移动参数
 
-if [[ $image == 0 ]]; then
-    string="$(xsel -ob | sed ':a; N; s/\n/ /g; ta' | sed -E 's/\s+/ /g')"
-    [[ -z "$string" ]] && { echo "没有复制文本" 1>&2; exit 1; }
-else
-    filename="image_$(date +%y%m%d_%H%M%S).png"
-    xclip -sel c -t image/png -o > "$NUTSTORE/Sync/.assets/$filename"
-    if [[ $? != 0 ]]; then
-        zenity --error --title="图片保存失败" \
-                --text="请检查剪切版中的图片！"
-            exit 1
+texttype=${texttype:-"html"}
+if [ -z $image ] || [ $image -ne 1 ]; then
+    if [ "$texttype" = "html" ]; then
+        content=$(xclip -o -t text/html -sel clip | pandoc -f html -t markdown_strict)
+    else
+        content=$(xclip -o -sel clip | pandoc -t markdown_strict)
     fi
-    echo "$NUTSTORE/Sync/.assets/$filename" | xclip -sel clip
-    #string="![](.assets/$filename)\n    "
-    string1='```{r, out.width = "70%%", fig.pos = "h", fig.show = "hold"}'
-    string2="knitr::include_graphics('.assets/$filename')"
-    string3='```'
-    indent='    '
+else
+    xclip -sel clip -t image/png -o > ".assets/$imagename" || {
+        zenity --error --title="图片保存失败" --text="请检查剪切版中的图片！"
+        exit 1
+    }
+    content=$(cat <<-EOF
+		\`\`\`{r, out.width = "70%%", fig.pos = "h", echo = F, dpi = 600}
+		knitr::include_graphics(".assets/$imagename")
+		\`\`\`
+		EOF
+    )
 fi
 
-if [[ "$conti" == 0 ]]; then
-    {
-        info=$(zenity --forms --title="补全摘录信息" \
-            --text="补全摘录信息" \
-            --separator="|" \
-            --add-entry="标题" \
-            --add-entry="作者" \
-            --add-entry="来源" \
-            --add-entry="备注" \
-            --width=800)
-        Title=$(echo $info | cut -f1 -d'|')
-        Author=$(echo $info | cut -f2 -d'|')
-        Source=$(echo $info | cut -f3 -d'|')
-        Note=$(echo $info | cut -f4 -d'|')
-        if [[ $Title == "" || $Author == "" ]]; then
-            zenity --error --title="信息补全" \
-                --text="标题和作者信息必须完全！"
-            exit 1
-        fi
-        
-        # 处理标题
-        if [[ ! $(grep -E -c "^# $(date +%Y)" "$file") > 0 ]]; then
-            printf "# $(date +%Y)\n\n## $(date +%Y%m)\n\n### $(date +%Y%m%d)\n\n"
-        else
-            if [[ ! $(grep -E -c "^## $(date +%Y%m)" "$file") > 0 ]]; then
-                printf "## $(date +%Y%m)\n\n### $(date +%Y%m%d)\n\n"
-            else
-                if [[ ! $(grep -E -c "^### $(date +%Y%m%d)" "$file") > 0 ]]; then
-                    printf "### $(date +%Y%m%d)\n\n"
-                fi
-            fi
-        fi
-        printf "1. $Title [$(date +%Y-%m-%d)]\n: 作者：$Author"
-        if [[ "$Note" != "" ]]; then
-            printf "^[资料来源：$Source. $(date +%Y-%m-%d).]\n\n"
-        else
-            printf "\n\n"
-        fi
-        printf "$indent$string1\n"
-        printf "$indent$string2\n"
-        printf "$indent$string3\n"
-        printf "$indent"
-        if [[ "$Note" != "" ]]; then
-            printf "^[注释：$Note.]<!--$(date +%Y-%m-%d\ %H:%M:%S)-->\n"
-        else
-            printf "<!--$(date +%Y-%m-%d\ %H:%M:%S)-->\n"
-        fi
-        echo ""
-    } >> "$file"
-    if [[ $? == 0 ]]; then
-        notify-send -i "$NUTSTORE/Sync/icons/data-collecting.png" "Collect Successfully" "$string"
-    else
-        notify-send -i "$NUTSTORE/Sync/icons/data-collecting.png" "ERROR" "Collect Fail!"
-    fi
-else 
-    {
-        printf "$indent$string1\n"
-        printf "$indent$string2\n"
-        printf "$indent$string3\n"
-        printf "$indent"
-        printf "<!--$(date +%Y-%m-%d\ %H:%M:%S)-->\n\n"
-    } >> "$file"
-    if [[ $? == 0 ]]; then
-        notify-send -i "$NUTSTORE/Sync/icons/data-collecting.png" "Collect Successfully" "$string"
-    else
-        notify-send -i "$NUTSTORE/Sync/icons/data-collecting.png" "ERROR" "Collect Fail!"
-    fi
+[[ -z "$content" ]] && { notify-send -i "$icon" "ERROR" "Collect Fail!"; exit 1; }
+content="## 摘录时间: $(date +%T)\n\n$content"
+
+[ -f "$filename" ] || cat <<-META > "$filename"
+	---
+	title: 资料摘录
+	author: liubianshi
+	date: $(date +%F)
+	---
+	META
+if [ -z $conti ] || [ $conti -ne 1 ]; then
+    newfile "$content" >> "$filename"
+else
+    echo -e "\n$content\n" >> "$filename"
 fi
+
+notify-send -i "$icon" "Collect Successfully" "$content"
+printf "%s" "$digestDir/$filename" | xclip -i -sel primary
+exit 0
 

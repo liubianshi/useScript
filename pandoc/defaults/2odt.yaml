@@ -1,7 +1,5 @@
 from: markdown+emoji+east_asian_line_breaks+autolink_bare_uris
 to: odt
-filters: 
-    - pandoc-citeproc
 highlight-style: pygments
 
 

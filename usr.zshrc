@@ -141,7 +141,7 @@ fman() {
     man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
 }#}}}
 # 快速查询 pdf 内容{{{1
-fp () {
+fpdf () {
     open=xdg-open
 
     ag -U -g ".pdf$" \
@@ -243,4 +243,15 @@ fcheat() {
     local cheat_name
     cheat_name=$(cheat -l "$@" | sed -e '1d' | fzf-tmux | cut -d' ' -f1)
     cheat "$cheat_name"
+}
+
+# 打开常用文件夹 {{{1
+fp () {
+    local dirs
+    local dir
+    bookmarkfile="$HOME/.config/diySync/pathmark"
+    dirs=$(cat "$bookmarkfile")
+    dir=$(printf "%s\n" "$dirs" | fzf-tmux --preview 'scope {} 2>/dev/null')
+    lf "$dir"
+    return 0
 }

@@ -17,6 +17,10 @@ alias @w='googler --proxy localhost:8118 -w en.wikipedia.org'
 alias @yt='googler --proxy localhost:8118 -w youtube.com'
 alias @db='googler --proxy localhost:8118 -w douban.com'
 # }}}
+# 搜索相关{{{
+alias ,db='sr douban'
+alias ,zh='sr zhihu'
+# }}}
 # git 相关{{{
 alias gm='git commit -m'
 alias gpull='git pull'
@@ -39,6 +43,7 @@ alias yl='youtube-dl --playlist-items'
 alias 2p='wkhtmltopdf -L 20mm -R 20mm -T 20mm -B 20mm --no-background --user-style-sheet "$NUTSTORE/Sync/css/gruvbox-all-sites.css"'
 alias 2P='wkhtmltopdf --proxy "http://127.0.0.1:8118" -L 20mm -R 20mm -T 20mm -B 20mm --no-background --user-style-sheet "$NUTSTORE/Sync/css/gruvbox-all-sites.css"'
 alias bdy='baidupcs'
+alias ,dl='aria2c'
 #}}}
 # 快捷命令{{{
 alias vi='nvim -u NONE'
@@ -144,7 +149,7 @@ alias -g NN="*(oc[1])"
 alias -g NNF="*(oc[1].)"
 alias -g NND="*(oc[1]/)"
 alias -g NUL="/dev/null"
-alias -g XS='"$(xsel)"'
+alias -g XS='"$(xclip -o -sel primary)"'
 alias -g ANYF='**/*[^~](.)'
 # }}}
 

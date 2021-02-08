@@ -47,7 +47,6 @@ alias ,dl='aria2c'
 #}}}
 # 快捷命令{{{
 alias vi='nvim -u NONE'
-alias e='nvim'
 alias O='rifle $(fzf-tmux --preview "scope {} 2>/dev/null")'
 alias P='fzf-tmux --preview "scope {} 2>/dev/null"'
 alias p='sudo pacman'

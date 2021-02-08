@@ -1,10 +1,31 @@
 #!/usr/bin/env bash
+set -e
+
+while getopts ':ov' opt; do
+    case "$opt" in
+        o)  openfile=1
+            ;;
+        v) set -v
+            ;;
+        *)  echo "md2 [-o] <output-file> <input-file>"
+            exit 1
+            ;;
+    esac
+done
+shift $((OPTIND - 1))
 
 [[ $# -eq 2 ]] || exit 1
+outtype="$1"
+infile="$2"
+outfile=$(basename "$infile")
+outfile="${outfile%.md}.$outtype"
+outdir="$HOME/Documents/genfile/$(date +%F)"
+mkdir -p "$outdir" && cd "$outdir" || exit 2
 
-pandoc "$2" -d2$1 -o "${2%.md}.$1"
+pandoc "$infile" -d2"$outtype" -o "$outfile" || \
+    { echo "file transform failure"; exit 3; }
+[ -z $openfile ] || nohup xdg-open "$outfile" >/dev/null 2>&1 &
 
-echo "$2.$1"
 exit 0
 
 

@@ -31,12 +31,12 @@ newfile () {
     metadata=$(cat <<-META
 		# $title
 		
-		| author: $author
-		| date: $(date +%F)
+		作者\n: $author
+		摘录日期\n: $(date +%F)
 		META
     )
-    [[ -n $note ]] && metadata="$metadata\n| 注释：$note."
-    [[ -n $infosource ]] && metadata="$metadata\n| 资料来源：$infosource. $(date +%F)."
+    [[ -n $note ]] && metadata="$metadata\n注释\n: $note."
+    [[ -n $infosource ]] && metadata="$metadata\n资料来源\n: $infosource."
 
     echo -e "\n$metadata\n\n$content\n"
 
@@ -84,7 +84,7 @@ else
 fi
 
 [[ -z "$content" ]] && { notify-send -i "$icon" "ERROR" "Collect Fail!"; exit 1; }
-content="## 摘录时间: $(date +%T)\n\n$content"
+content="$content\n<!-- ------------------------------$(date +%T)-------------------------------->\n"
 
 [ -f "$filename" ] || cat <<-META > "$filename"
 	---

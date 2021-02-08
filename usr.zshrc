@@ -1,10 +1,8 @@
-#!/usr/bin/env bash
-
 #   Source 外部文件 {{{1
-[ -e $HOME/.config/fpath ] || ln -s $HOME/Repositories/dotfiles/config/fpath $HOME/.config/fpath
+[ -e "$HOME/.config/fpath" ] || ln -s "$HOME/Repositories/dotfiles/config/fpath" "$HOME/.config/fpath"
 fpath=("$HOME/.config/fpath" $fpath)
-[[ -f "$HOME/useScript/lf_icons.sh" ]] && source "$HOME/useScript/lf_icons.sh"
-source ~/useScript/alias
+[ -f "$HOME/useScript/lf_icons.sh" ] && source "$HOME/useScript/lf_icons.sh"
+source "$HOME/useScript/alias"
 
 # ftpane - switch pane (@george-b) {{{1
 ftpane() {
@@ -97,6 +95,16 @@ temp () {
     fi
 }
 
+e () {
+    if [ $# -eq 0 ]; then
+        nvim "temp.md"
+    else
+        nvim "$@"
+    fi
+    return 0
+}
+
+
 # 在日记文件夹快速新建并打开文件 {{{1
 N() {
 	dir="$NUTSTORE/Diary"
@@ -139,7 +147,8 @@ N() {
 # 查询 man 文档{{{1
 fman() {
     man -k . | fzf --prompt='Man> ' | awk '{print $1}' | xargs -r man
-}#}}}
+}
+
 # 快速查询 pdf 内容{{{1
 fpdf () {
     open=xdg-open
@@ -154,37 +163,27 @@ fpdf () {
     | cut -z -f 1 -d $'\t' | tr -d '\n' | xargs -r --null $open > /dev/null 2> /dev/null
 }
 
-# raku {{{1
-export POD_TO_TEXT_ANSI=1 # using ANSI escape sequence on p6doc
+# 查询个人笔记 {{{1
+# fnote() {
+#     search=$(mktemp /tmp/fnote.XXXXXXX.md)
+#     dir="$NUTSTORE"
+#     ag -H -G '\.(md|Rmd|rmd|raku|pl.|do|ado|R|r|markdown)$' $@ "$dir" > $search
+#     sed -Ei 's/:/\t\t/; s!/!# /!' $search
+#     sed -Ei 's!^'$dir'/!#!' $search
+#     sed -Ei '/^#/a
+#     ' $search
+#     nvim +'set tw=0 nowrap' +'cd $NUTSTORE' +'normal zR' +'TOC' $search
+# }
 
-# instapaper {{{1
-export INSTAPAPER_USER='wei-luo@hotmail.com'
-export INSTAPAPER_PASS=$(pass instapaper)
 
-#sdcv 配置和字典文件 {{{1
-export STARDICT_DATA_DIR="$NUTSTORE/Sync/sdcv_dict"
+# fuzzy search cheat {{{1 
+fcheat() {
+    local cheat_name
+    cheat_name=$(cheat -l "$@" | sed -e '1d' | fzf-tmux | cut -d' ' -f1)
+    cheat "$cheat_name"
+}
 
-# fzf-bib {{{1
-export FZF_BIBTEX_CACHEDIR="$HOME/.cache/fzf-bibtex/" # 出现意外错误，无法启动
-export FZF_BIBTEX_SOURCES="$HOME/Documents/paper_ref.bib"
-
-# 更改终端浏览器 {{{1
-#export http_proxy=127.0.0.1:8118
-#export https_proxy=$http_proxy
-export BROWSER='/usr/bin/qutebrowser'
-
-#   nnn 环境变量配置 {{{1
-export NNN_OPTS="cE"
-export NNN_COLORS='6321'
-export NNN_FIFO="/tmp/nnn.fifo"
-export NNN_SSHFS='sshfs -o reconnect,idmap=user'
-NNN_BMS="$(tr "\n" ";" < ~/.local/share/lf/marks)"; export NNN_BMS;
-export NNN_TRASH=1
-export NNN_ARCHIVE="\\.(7z|a|ace|alz|arc|arj|bz|bz2|cab|cpio|deb|gz|jar|lha|lz|lzh|lzma|lzo|rar|rpm|rz|t7z|tar|tbz|tbz2|tgz|tlz|txz|tZ|tzo|war|xpi|xz|Z|zip)$"
-export NNN_PLUG='z:fasd;p:-nuke;P:-preview_tabbed;f:-fzcd;o:-fzopen'
-export GUI=1
-
-# to show video files, run: list video {{{2
+# to show video files, run: list video {{{1
 list()
 {
     fd -d 1 | file -if- | ag "$1" | awk -F: '{printf "./%s\0", $1}' | nnn -d
@@ -216,33 +215,6 @@ n () # cd on quit {{{2
             . "$NNN_TMPFILE"
             rm -f "$NNN_TMPFILE" > /dev/null
     fi
-}
-
-# SRDM {{{1 
-export SRDM_DATA_MANAGER_ENGINE='SQLite'
-export SRDM_DATA_MANAGER_PATH="$HOME/Documents/personal_database"
-
-# 查询个人笔记 {{{1
-# fnote() {
-#     search=$(mktemp /tmp/fnote.XXXXXXX.md)
-#     dir="$NUTSTORE"
-#     ag -H -G '\.(md|Rmd|rmd|raku|pl.|do|ado|R|r|markdown)$' $@ "$dir" > $search
-#     sed -Ei 's/:/\t\t/; s!/!# /!' $search
-#     sed -Ei 's!^'$dir'/!#!' $search
-#     sed -Ei '/^#/a
-#     ' $search
-#     nvim +'set tw=0 nowrap' +'cd $NUTSTORE' +'normal zR' +'TOC' $search
-# }
-
-
-# cheat 配置 {{{1
-export CHEAT_USE_FZF=true
-[ -e $HOME/.config/cheat/cheat.zsh ] && source $HOME/.config/cheat/cheat.zsh
-# fuzzy search cheat {{{2 #
-fcheat() {
-    local cheat_name
-    cheat_name=$(cheat -l "$@" | sed -e '1d' | fzf-tmux | cut -d' ' -f1)
-    cheat "$cheat_name"
 }
 
 # 打开常用文件夹 {{{1

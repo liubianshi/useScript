@@ -1,7 +1,8 @@
 metadata:
     author: ["罗伟"]
 highlight-style: pygments
-template: vue
+template: normal
+citeproc: true
 
 
 

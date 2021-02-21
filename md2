@@ -16,7 +16,7 @@ shift $((OPTIND - 1))
 
 [[ $# -eq 2 ]] || exit 1
 outtype="$1"
-infile="$2"
+infile=$(readlink -f "$2")
 outfile=$(basename "$infile")
 outfile="${outfile%.md}.$outtype"
 outdir="$HOME/Documents/genfile/$(date +%F)"

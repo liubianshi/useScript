@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -evx
 
 # newfile: 将内容写入文件 {{{1
 newfile () {

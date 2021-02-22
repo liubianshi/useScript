@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # fzfmenu - fzf as dmenu replacement
-set -evx
+set -e
 
 c=100   # 默认列
 l=12    # 默认行

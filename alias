@@ -22,7 +22,7 @@ alias ,db='sr douban'
 alias ,zh='sr zhihu'
 # }}}
 # git 相关{{{
-alias gm='git commit -m'
+alias gmm='git commit -m'
 alias gpull='git pull'
 alias gpush='git push -u origin master'
 alias gs='git status'

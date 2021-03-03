@@ -1,6 +1,39 @@
 #!/usr/bin/env bash
 set -e
 
+replace_etal () {
+    perl -CSD -Mutf8 -i -pe \
+        's/([a-zA-Z])(,\s|\s)(等)/\1\2et al./g; s/\s(等(\s\(|,\s))/\1/g' "$1"
+}
+
+adjust_html () {
+    replace_etal "$1"
+    perl -CSD -Mutf8 -i -pe \
+        's/\s(<span class="citation"[^>]*>[^\(])/\1/g' "$1"
+
+}
+
+adjust_docx () {
+    local orifile=$(readlink -f "$1")
+    echo "$orifile"
+    unzipped=$(mktemp -d /tmp/unzip-XXXXXX)
+    tempfile=$(mktemp --suffix ".docx" /tmp/docx-XXXXXX)
+    rm "$tempfile"
+    trap 'rm -r "$unzipped"' 0 1 15
+
+    unzip -q "$orifile" -d "$unzipped"
+    cd "$unzipped"
+    tree .
+    replace_etal "word/document.xml"
+    replace_etal "word/footnotes.xml"
+    perl -CSD -Mutf8 -i -pe \
+        's/<w:r><w:t xml:space="preserve">\s<\/w:t><\/w:r>(<w:r><w:t xml:space="preserve">[^\(]+\(\d{4},)/\1/g' \
+        word/document.xml
+    zip -r -q "$tempfile" *
+    mv "$tempfile" "$orifile"
+    cd -
+}
+
 while getopts ':ov' opt; do
     case "$opt" in
         o)  openfile=1
@@ -22,8 +55,13 @@ outfile="${outfile%.md}.$outtype"
 outdir="$HOME/Documents/genfile/$(date +%F)"
 mkdir -p "$outdir" && cd "$outdir" || exit 2
 
-pandoc "$infile" -d2"$outtype" -o "$outfile" || \
+pandoc +RTS -M512M -RTS "$infile" -d2"$outtype" --lua-filter rsbc.lua -o "$outfile" || \
     { echo "file transform failure"; exit 3; }
+case "$outtype" in
+    html) adjust_html "$outfile" ;;
+    docx) adjust_docx "$outfile" ;;
+esac
+
 [ -z $openfile ] || nohup xdg-open "$outfile" >/dev/null 2>&1 &
 
 exit 0

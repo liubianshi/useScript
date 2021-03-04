@@ -3,14 +3,14 @@ set -e
 
 replace_etal () {
     perl -CSD -Mutf8 -i -pe \
-        's/([a-zA-Z])(,\s|\s)(等)/\1\2et al./g; s/\s(等(\s\(|,\s))/\1/g' "$1"
+        's/([a-zA-Z])(,\s|\s)(等)/\1\2et al./g; s/\s(等(\s\(|,\s|<\/a>|<\/w:t>))/\1/g' "$1"
 }
 
 adjust_html () {
     replace_etal "$1"
     perl -CSD -Mutf8 -i -pe \
-        's/\s(<span class="citation"[^>]*>[^\(])/\1/g' "$1"
-
+        's/([^A-Za-z,."'';])\s(<span class="citation" data\-cites="[^\w])/\1\2/g; \
+        s/([^A-Za-z,."'';。 ； ， ： “ ”（ ） 、 ？ 《 》])(<span class="citation"\sdata\-cites\="\w)/\1 \2/g' "$1"
 }
 
 adjust_docx () {
@@ -25,7 +25,7 @@ adjust_docx () {
     cd "$unzipped"
     tree .
     replace_etal "word/document.xml"
-    replace_etal "word/footnotes.xml"
+    replace_etal "word/footno'tes.xml"
     perl -CSD -Mutf8 -i -pe \
         's/<w:r><w:t xml:space="preserve">\s<\/w:t><\/w:r>(<w:r><w:t xml:space="preserve">[^\(]+\(\d{4},)/\1/g' \
         word/document.xml

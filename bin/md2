@@ -23,9 +23,8 @@ adjust_docx () {
 
     unzip -q "$orifile" -d "$unzipped"
     cd "$unzipped"
-    tree .
     replace_etal "word/document.xml"
-    replace_etal "word/footno'tes.xml"
+    replace_etal "word/footnotes.xml"
     perl -CSD -Mutf8 -i -pe \
         's/<w:r><w:t xml:space="preserve">\s<\/w:t><\/w:r>(<w:r><w:t xml:space="preserve">[^\(]+\(\d{4},)/\1/g' \
         word/document.xml

@@ -51,8 +51,10 @@ outtype="$1"
 infile=$(readlink -f "$2")
 outfile=$(basename "$infile")
 outfile="${outfile%.md}.$outtype"
-outdir="$HOME/Documents/genfile/$(date +%F)"
-mkdir -p "$outdir" && cd "$outdir" || exit 2
+[ "$outtype" = "html" ] || {
+    outdir="$HOME/Documents/genfile/$(date +%F)"
+    mkdir -p "$outdir" && cd "$outdir" || exit 2
+}
 
 pandoc +RTS -M512M -RTS "$infile" -d2"$outtype" --lua-filter rsbc.lua -o "$outfile" || \
     { echo "file transform failure"; exit 3; }

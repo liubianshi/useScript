@@ -20,12 +20,12 @@ shift $((OPTIND - 1))
 case "$1" in
     pdf)
         out="rmarkdown::pdf_document"
-        opt='latex_engine = "xelatex", pandoc_args = "-drmd2pdf"'
+        opt='latex_engine = "xelatex", pandoc_args = "-d2pdf"'
         ext="pdf"
         ;;
     pdf2)
         out="bookdown::pdf_document2"
-        opt='latex_engine = "xelatex", pandoc_args = "-drmd2pdf"'
+        opt='latex_engine = "xelatex", pandoc_args = "-d2pdf"'
         ext="pdf"
         ;;
     odt)
@@ -36,7 +36,8 @@ case "$1" in
     docx)
         out="officedown::rdocx_document"
         opt="base_format = 'bookdown::word_document2', \
-            pandoc_args = '-drmd2docx', \
+            pandoc_args = '-d2docx', \
+            keep_md = TRUE, \
             mapstyles   = list('Body Text' = c('First Paragraph')), \
             tables      = list(caption = list(pre = '表', sep = '  ')), \
             plots       = list(caption = list(pre = '图', sep = '  ')), \
@@ -45,7 +46,9 @@ case "$1" in
         ;;
     docx2)
         out="bookdown::word_document2"
-        opt="pandoc_args = '-drmd2docx', reference_docx = \"$HOME/.pandoc/templates/custom-reference.docx\""
+        opt="pandoc_args = '-d2docx', \
+             keep_md = TRUE, \
+             reference_docx = \"$HOME/.pandoc/templates/custom-reference.docx\""
         ext="docx"
         ;;
     beamer)
@@ -55,12 +58,12 @@ case "$1" in
         ;;
     html)
         out="rmarkdown::html_document"
-        opt='pandoc_args = "-drmd2html"'
+        opt='pandoc_args = "-d2html", keep_md = TRUE'
         ext="html"
         ;;
     html2)
         out="bookdown::html_document2"
-        opt='pandoc_args = "-drmd2html", keep_md = TRUE'
+        opt='pandoc_args = "-d2html", keep_md = TRUE'
         ext="html"
         ;;
     *)  echo "format not supported!"

@@ -86,12 +86,16 @@ alias lfm='lf ~/Movies'
 alias cdm='cd ~/Movies'
 alias n2='dvtm nnn nnn'
 fcd () {
-    local p=$(fd -t d "$1" | fzf-tmux --preview "exa -ahl --color=always {} 2>/dev/null" --preview-window=down)
+    local pos="down"
+    [ $(tput cols) -ge 150 ] && pos="right"
+    local p=$(fd -t d "$1" | fzf-tmux --preview "exa -ahl --color=always {} 2>/dev/null" --preview-window="$pos")
     cd "$p" && lf
     return 0
 }
 fnew () {
-    local p=$(fd -t f --changed-within=1week "$1" | fzf-tmux --preview "scope {} 2>/dev/null" --preview-window=down)
+    local pos="down"
+    [ $(tput cols) -ge 150 ] && pos="right"
+    local p=$(fd -t f --changed-within=1week "$1" | fzf-tmux --preview "scope {} 2>/dev/null" --preview-window="$pos")
     cd "$p"
     return 0
 }

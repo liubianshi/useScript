@@ -1,7 +1,5 @@
 metadata:
     author: ["罗伟"]
-filters: 
-    - pandoc-citeproc
 highlight-style: pygments
 listings: true
 

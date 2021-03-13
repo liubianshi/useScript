@@ -2,6 +2,7 @@ from: markdown+emoji+east_asian_line_breaks+autolink_bare_uris
 to: docx
 citeproc: true
 highlight-style: pygments
+reference-doc: /home/liubianshi/.pandoc/templates/custom-reference.docx
 bibliography: /home/liubianshi/Documents/paper_ref.bib
 csl: /home/liubianshi/.pandoc/china-national-standard-gb-t-7714-2015-author-date.csl
 metadata:

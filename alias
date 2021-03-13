@@ -88,15 +88,21 @@ alias n2='dvtm nnn nnn'
 fcd () {
     local pos="down"
     [ $(tput cols) -ge 150 ] && pos="right"
-    local p=$(fd -t d "$1" | fzf-tmux --preview "exa -ahl --color=always {} 2>/dev/null" --preview-window="$pos")
+    local p=$(fd -t d "$@" | fzf-tmux --preview "exa -ahl --color=always {} 2>/dev/null" --preview-window="$pos")
+    [ -z $p ] && return 1
     cd "$p" && lf
     return 0
 }
 fnew () {
     local pos="down"
     [ $(tput cols) -ge 150 ] && pos="right"
-    local p=$(fd -t f --changed-within=1week "$1" | fzf-tmux --preview "scope {} 2>/dev/null" --preview-window="$pos")
-    cd "$p"
+    local f=$(fd -t f --changed-within=1week "$1" | fzf-tmux --preview "scope {} 2>/dev/null" --preview-window="$pos")
+    [ -z $f ] && return 1
+    local p=$(dirname "$f")
+    rifle -l "$f"
+    read runner\?"Select runner: "
+    [ -z $runner ] && return 2
+    rifle -p "$runner" "$f"
     return 0
 }
 # }}}

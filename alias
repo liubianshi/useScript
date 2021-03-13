@@ -85,6 +85,26 @@ alias cdb='cd "$HOME/Documents/ebooks"'
 alias lfm='lf ~/Movies'
 alias cdm='cd ~/Movies'
 alias n2='dvtm nnn nnn'
+fcd () {
+    local pos="down"
+    [ $(tput cols) -ge 150 ] && pos="right"
+    local p=$(fd -t d "$@" | fzf-tmux --preview "exa -ahl --color=always {} 2>/dev/null" --preview-window="$pos")
+    [ -z $p ] && return 1
+    cd "$p" && lf
+    return 0
+}
+fnew () {
+    local pos="down"
+    [ $(tput cols) -ge 150 ] && pos="right"
+    local f=$(fd -t f --changed-within=1week "$1" | fzf-tmux --preview "scope {} 2>/dev/null" --preview-window="$pos")
+    [ -z $f ] && return 1
+    local p=$(dirname "$f")
+    rifle -l "$f"
+    read runner\?"Select runner: "
+    [ -z $runner ] && return 2
+    rifle -p "$runner" "$f"
+    return 0
+}
 # }}}
 # 系统设置相关{{{
 alias ,gfw='sudo nvim /etc/privoxy/proxy.action'

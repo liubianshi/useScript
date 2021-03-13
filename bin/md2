@@ -23,9 +23,8 @@ adjust_docx () {
 
     unzip -q "$orifile" -d "$unzipped"
     cd "$unzipped"
-    tree .
     replace_etal "word/document.xml"
-    replace_etal "word/footno'tes.xml"
+    replace_etal "word/footnotes.xml"
     perl -CSD -Mutf8 -i -pe \
         's/<w:r><w:t xml:space="preserve">\s<\/w:t><\/w:r>(<w:r><w:t xml:space="preserve">[^\(]+\(\d{4},)/\1/g' \
         word/document.xml
@@ -52,8 +51,10 @@ outtype="$1"
 infile=$(readlink -f "$2")
 outfile=$(basename "$infile")
 outfile="${outfile%.md}.$outtype"
-outdir="$HOME/Documents/genfile/$(date +%F)"
-mkdir -p "$outdir" && cd "$outdir" || exit 2
+[ "$outtype" = "html" ] || {
+    outdir="$HOME/Documents/genfile/$(date +%F)"
+    mkdir -p "$outdir" && cd "$outdir" || exit 2
+}
 
 pandoc +RTS -M512M -RTS "$infile" -d2"$outtype" --lua-filter rsbc.lua -o "$outfile" || \
     { echo "file transform failure"; exit 3; }

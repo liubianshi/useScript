@@ -1,0 +1,1294 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	e-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/liubianshi/useScript/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	/f82c53556/
+#md-notification:before	pandoc/templates/default.css	/^#md-notification:before {$/;"	kind:i	line:718
+#md-notification:before	pandoc/templates/vue.css	/^#md-notification:before {$/;"	kind:i	line:423
+#md-notification:before	pandoc/vue.css	/^#md-notification:before {$/;"	kind:i	line:423
+#md-notification:before	vue.css	/^#md-notification:before {$/;"	kind:i	line:423
+#typora-quick-open	pandoc/templates/default.css	/^#typora-quick-open {$/;"	kind:i	line:706
+#typora-quick-open	pandoc/templates/vue.css	/^#typora-quick-open {$/;"	kind:i	line:411
+#typora-quick-open	pandoc/vue.css	/^#typora-quick-open {$/;"	kind:i	line:411
+#typora-quick-open	vue.css	/^#typora-quick-open {$/;"	kind:i	line:411
+#typora-quick-open-item	pandoc/templates/default.css	/^#typora-quick-open-item {$/;"	kind:i	line:711
+#typora-quick-open-item	pandoc/templates/vue.css	/^#typora-quick-open-item {$/;"	kind:i	line:416
+#typora-quick-open-item	pandoc/vue.css	/^#typora-quick-open-item {$/;"	kind:i	line:416
+#typora-quick-open-item	vue.css	/^#typora-quick-open-item {$/;"	kind:i	line:416
+#write	pandoc/templates/default.css	/^#write {$/;"	kind:i	line:272
+#write .CodeMirror-gutters	pandoc/templates/default.css	/^#write .CodeMirror-gutters {$/;"	kind:c	line:560
+#write .CodeMirror-wrap .CodeMirror-code pre	pandoc/templates/default.css	/^#write .CodeMirror-wrap .CodeMirror-code pre {$/;"	kind:s	line:577
+#write .md-fences	pandoc/templates/default.css	/^#write .md-fences {$/;"	kind:c	line:564
+#write .md-footnote	pandoc/templates/default.css	/^#write .md-footnote {$/;"	kind:c	line:591
+#write > h3.md-focus:before	pandoc/templates/default.css	/^#write > h3.md-focus:before {$/;"	kind:c	line:664
+#write > h3.md-focus:before	pandoc/templates/vue.css	/^#write > h3.md-focus:before {$/;"	kind:c	line:369
+#write > h3.md-focus:before	pandoc/vue.css	/^#write > h3.md-focus:before {$/;"	kind:c	line:369
+#write > h3.md-focus:before	vue.css	/^#write > h3.md-focus:before {$/;"	kind:c	line:369
+#write > h4.md-focus:before	pandoc/templates/default.css	/^#write > h4.md-focus:before {$/;"	kind:c	line:669
+#write > h4.md-focus:before	pandoc/templates/vue.css	/^#write > h4.md-focus:before {$/;"	kind:c	line:374
+#write > h4.md-focus:before	pandoc/vue.css	/^#write > h4.md-focus:before {$/;"	kind:c	line:374
+#write > h4.md-focus:before	vue.css	/^#write > h4.md-focus:before {$/;"	kind:c	line:374
+#write > h5.md-focus:before	pandoc/templates/default.css	/^#write > h5.md-focus:before {$/;"	kind:c	line:674
+#write > h5.md-focus:before	pandoc/templates/vue.css	/^#write > h5.md-focus:before {$/;"	kind:c	line:379
+#write > h5.md-focus:before	pandoc/vue.css	/^#write > h5.md-focus:before {$/;"	kind:c	line:379
+#write > h5.md-focus:before	vue.css	/^#write > h5.md-focus:before {$/;"	kind:c	line:379
+#write > h6.md-focus:before	pandoc/templates/default.css	/^#write > h6.md-focus:before {$/;"	kind:c	line:679
+#write > h6.md-focus:before	pandoc/templates/vue.css	/^#write > h6.md-focus:before {$/;"	kind:c	line:384
+#write > h6.md-focus:before	pandoc/vue.css	/^#write > h6.md-focus:before {$/;"	kind:c	line:384
+#write > h6.md-focus:before	vue.css	/^#write > h6.md-focus:before {$/;"	kind:c	line:384
+#write > ol:first-child	pandoc/templates/default.css	/^#write > ol:first-child {$/;"	kind:s	line:291
+#write > ul:first-child	pandoc/templates/default.css	/^#write > ul:first-child,$/;"	kind:s	line:290
+#write code	pandoc/templates/default.css	/^#write code, tt {$/;"	kind:s	line:581
+#write del	pandoc/templates/default.css	/^#write del {$/;"	kind:s	line:606
+#write em	pandoc/templates/default.css	/^#write em {$/;"	kind:s	line:552
+#write mark	pandoc/templates/default.css	/^#write mark {$/;"	kind:s	line:597
+#write ol li	pandoc/templates/default.css	/^#write ol li {$/;"	kind:s	line:286
+#write p	pandoc/templates/default.css	/^#write p {$/;"	kind:s	line:280
+#write pre.md-meta-block	pandoc/templates/default.css	/^#write pre.md-meta-block {$/;"	kind:c	line:649
+#write pre.md-meta-block	pandoc/templates/vue.css	/^#write pre.md-meta-block {$/;"	kind:c	line:354
+#write pre.md-meta-block	pandoc/vue.css	/^#write pre.md-meta-block {$/;"	kind:c	line:354
+#write pre.md-meta-block	vue.css	/^#write pre.md-meta-block {$/;"	kind:c	line:354
+#write strong	pandoc/templates/default.css	/^#write strong {$/;"	kind:s	line:548
+#write table thead th	pandoc/templates/default.css	/^#write table thead th {$/;"	kind:s	line:556
+$biblio-title$	Rmarkdown_beamer_temp.tex	/^\\begin{frame}[allowframebreaks]{$biblio-title$}$/;"	kind:f	line:176
+$idprefix$TOC	pandoc/templates/normal.html	/^<nav id="$idprefix$TOC" role="doc-toc">$/;"	kind:I	line:53
+$idprefix$TOC	pandoc/templates/template.html	/^<nav id="$idprefix$TOC" role="doc-toc">$/;"	kind:I	line:52
+$idprefix$TOC	pandoc/templates/vue.html	/^<nav id="$idprefix$TOC" role="doc-toc">$/;"	kind:I	line:53
+$idprefix$toc-title	pandoc/templates/normal.html	/^<h2 id="$idprefix$toc-title">$toc-title$<\/h2>$/;"	kind:I	line:55
+$idprefix$toc-title	pandoc/templates/template.html	/^<h2 id="$idprefix$toc-title">$toc-title$<\/h2>$/;"	kind:I	line:54
+$idprefix$toc-title	pandoc/templates/vue.html	/^<h2 id="$idprefix$toc-title">$toc-title$<\/h2>$/;"	kind:I	line:55
+$title$	pandoc/templates/normal.html	/^<h1 class="title">$title$<\/h1>$/;"	kind:h	line:40
+$title$	pandoc/templates/template.html	/^<h1 class="title">$title$<\/h1>$/;"	kind:h	line:39
+$title$	pandoc/templates/vue.html	/^<h1 class="title">$title$<\/h1>$/;"	kind:h	line:40
+$toc-title$	pandoc/templates/normal.html	/^<h2 id="$idprefix$toc-title">$toc-title$<\/h2>$/;"	kind:i	line:55
+$toc-title$	pandoc/templates/template.html	/^<h2 id="$idprefix$toc-title">$toc-title$<\/h2>$/;"	kind:i	line:54
+$toc-title$	pandoc/templates/vue.html	/^<h2 id="$idprefix$toc-title">$toc-title$<\/h2>$/;"	kind:i	line:55
+)	pandoc/templates/github-pandoc.css	/^*:not("#mkdbuttons") {$/;"	kind:s	line:429
+*:not(	pandoc/templates/github-pandoc.css	/^*:not("#mkdbuttons") {$/;"	kind:s	line:429
+.cm-s-inner .cm-link	pandoc/templates/default.css	/^.cm-s-inner .cm-link,$/;"	kind:c	line:610
+.cm-s-inner .cm-link	pandoc/templates/vue.css	/^.cm-s-inner .cm-link,$/;"	kind:c	line:315
+.cm-s-inner .cm-link	pandoc/vue.css	/^.cm-s-inner .cm-link,$/;"	kind:c	line:315
+.cm-s-inner .cm-link	vue.css	/^.cm-s-inner .cm-link,$/;"	kind:c	line:315
+.cm-s-inner .cm-string	pandoc/templates/default.css	/^.cm-s-inner .cm-string {$/;"	kind:c	line:615
+.cm-s-inner .cm-string	pandoc/templates/vue.css	/^.cm-s-inner .cm-string {$/;"	kind:c	line:320
+.cm-s-inner .cm-string	pandoc/vue.css	/^.cm-s-inner .cm-string {$/;"	kind:c	line:320
+.cm-s-inner .cm-string	vue.css	/^.cm-s-inner .cm-string {$/;"	kind:c	line:320
+.cm-s-inner.cm-link	pandoc/templates/default.css	/^.cm-s-inner.cm-link {$/;"	kind:c	line:611
+.cm-s-inner.cm-link	pandoc/templates/vue.css	/^.cm-s-inner.cm-link {$/;"	kind:c	line:316
+.cm-s-inner.cm-link	pandoc/vue.css	/^.cm-s-inner.cm-link {$/;"	kind:c	line:316
+.cm-s-inner.cm-link	vue.css	/^.cm-s-inner.cm-link {$/;"	kind:c	line:316
+.context-menu	pandoc/templates/default.css	/^.context-menu,$/;"	kind:c	line:729
+.context-menu	pandoc/templates/vue.css	/^.context-menu,$/;"	kind:c	line:434
+.context-menu	pandoc/vue.css	/^.context-menu,$/;"	kind:c	line:434
+.context-menu	vue.css	/^.context-menu,$/;"	kind:c	line:434
+.file-node-content:hover .file-node-icon	pandoc/templates/default.css	/^.file-node-content:hover .file-node-icon,$/;"	kind:c	line:735
+.file-node-content:hover .file-node-icon	pandoc/templates/vue.css	/^.file-node-content:hover .file-node-icon,$/;"	kind:c	line:440
+.file-node-content:hover .file-node-icon	pandoc/vue.css	/^.file-node-content:hover .file-node-icon,$/;"	kind:c	line:440
+.file-node-content:hover .file-node-icon	vue.css	/^.file-node-content:hover .file-node-icon,$/;"	kind:c	line:440
+.file-node-content:hover .file-node-open-state	pandoc/templates/default.css	/^.file-node-content:hover .file-node-open-state {$/;"	kind:c	line:736
+.file-node-content:hover .file-node-open-state	pandoc/templates/vue.css	/^.file-node-content:hover .file-node-open-state {$/;"	kind:c	line:441
+.file-node-content:hover .file-node-open-state	pandoc/vue.css	/^.file-node-content:hover .file-node-open-state {$/;"	kind:c	line:441
+.file-node-content:hover .file-node-open-state	vue.css	/^.file-node-content:hover .file-node-open-state {$/;"	kind:c	line:441
+.go-top	pandoc/templates/github-pandoc.css	/^.go-top {$/;"	kind:c	line:408
+.highlight .bp	pandoc/templates/github-pandoc.css	/^.highlight .bp {$/;"	kind:c	line:965
+.highlight .c	pandoc/templates/github-pandoc.css	/^.highlight .c {$/;"	kind:c	line:817
+.highlight .c1	pandoc/templates/github-pandoc.css	/^.highlight .c1 {$/;"	kind:c	line:837
+.highlight .cm	pandoc/templates/github-pandoc.css	/^.highlight .cm {$/;"	kind:c	line:829
+.highlight .cp	pandoc/templates/github-pandoc.css	/^.highlight .cp {$/;"	kind:c	line:833
+.highlight .cs	pandoc/templates/github-pandoc.css	/^.highlight .cs {$/;"	kind:c	line:841
+.highlight .err	pandoc/templates/github-pandoc.css	/^.highlight .err {$/;"	kind:c	line:821
+.highlight .gc	pandoc/templates/github-pandoc.css	/^.highlight .gc {$/;"	kind:c	line:976
+.highlight .gd	pandoc/templates/github-pandoc.css	/^.highlight .gd {$/;"	kind:c	line:846
+.highlight .gd .x	pandoc/templates/github-pandoc.css	/^.highlight .gd .x {$/;"	kind:c	line:850
+.highlight .ge	pandoc/templates/github-pandoc.css	/^.highlight .ge {$/;"	kind:c	line:854
+.highlight .gh	pandoc/templates/github-pandoc.css	/^.highlight .gh {$/;"	kind:c	line:860
+.highlight .gi	pandoc/templates/github-pandoc.css	/^.highlight .gi {$/;"	kind:c	line:863
+.highlight .gi .x	pandoc/templates/github-pandoc.css	/^.highlight .gi .x {$/;"	kind:c	line:867
+.highlight .go	pandoc/templates/github-pandoc.css	/^.highlight .go {$/;"	kind:c	line:871
+.highlight .gp	pandoc/templates/github-pandoc.css	/^.highlight .gp {$/;"	kind:c	line:874
+.highlight .gr	pandoc/templates/github-pandoc.css	/^.highlight .gr {$/;"	kind:c	line:857
+.highlight .gs	pandoc/templates/github-pandoc.css	/^.highlight .gs {$/;"	kind:c	line:877
+.highlight .gt	pandoc/templates/github-pandoc.css	/^.highlight .gt {$/;"	kind:c	line:884
+.highlight .gu	pandoc/templates/github-pandoc.css	/^.highlight .gu {$/;"	kind:c	line:880
+.highlight .il	pandoc/templates/github-pandoc.css	/^.highlight .il {$/;"	kind:c	line:973
+.highlight .k	pandoc/templates/github-pandoc.css	/^.highlight .k,$/;"	kind:c	line:825
+.highlight .kc	pandoc/templates/github-pandoc.css	/^.highlight .kc,$/;"	kind:c	line:887
+.highlight .kd	pandoc/templates/github-pandoc.css	/^.highlight .kd,$/;"	kind:c	line:888
+.highlight .kn	pandoc/templates/github-pandoc.css	/^.highlight .kn,$/;"	kind:c	line:889
+.highlight .kp	pandoc/templates/github-pandoc.css	/^.highlight .kp,$/;"	kind:c	line:890
+.highlight .kr	pandoc/templates/github-pandoc.css	/^.highlight .kr {$/;"	kind:c	line:891
+.highlight .kt	pandoc/templates/github-pandoc.css	/^.highlight .kt {$/;"	kind:c	line:894
+.highlight .m	pandoc/templates/github-pandoc.css	/^.highlight .m {$/;"	kind:c	line:898
+.highlight .mf	pandoc/templates/github-pandoc.css	/^.highlight .mf,$/;"	kind:c	line:940
+.highlight .mh	pandoc/templates/github-pandoc.css	/^.highlight .mh,$/;"	kind:c	line:941
+.highlight .mi	pandoc/templates/github-pandoc.css	/^.highlight .mi,$/;"	kind:c	line:942
+.highlight .mo	pandoc/templates/github-pandoc.css	/^.highlight .mo {$/;"	kind:c	line:943
+.highlight .na	pandoc/templates/github-pandoc.css	/^.highlight .na {$/;"	kind:c	line:904
+.highlight .nb	pandoc/templates/github-pandoc.css	/^.highlight .nb {$/;"	kind:c	line:907
+.highlight .nc	pandoc/templates/github-pandoc.css	/^.highlight .nc {$/;"	kind:c	line:910
+.highlight .ne	pandoc/templates/github-pandoc.css	/^.highlight .ne,$/;"	kind:c	line:920
+.highlight .nf	pandoc/templates/github-pandoc.css	/^.highlight .nf {$/;"	kind:c	line:921
+.highlight .ni	pandoc/templates/github-pandoc.css	/^.highlight .ni {$/;"	kind:c	line:917
+.highlight .nn	pandoc/templates/github-pandoc.css	/^.highlight .nn {$/;"	kind:c	line:925
+.highlight .no	pandoc/templates/github-pandoc.css	/^.highlight .no {$/;"	kind:c	line:914
+.highlight .nt	pandoc/templates/github-pandoc.css	/^.highlight .nt {$/;"	kind:c	line:928
+.highlight .nv	pandoc/templates/github-pandoc.css	/^.highlight .nv {$/;"	kind:c	line:931
+.highlight .o	pandoc/templates/github-pandoc.css	/^.highlight .o {$/;"	kind:c	line:826
+.highlight .ow	pandoc/templates/github-pandoc.css	/^.highlight .ow {$/;"	kind:c	line:934
+.highlight .s	pandoc/templates/github-pandoc.css	/^.highlight .s {$/;"	kind:c	line:901
+.highlight .s1	pandoc/templates/github-pandoc.css	/^.highlight .s1 {$/;"	kind:c	line:959
+.highlight .s2	pandoc/templates/github-pandoc.css	/^.highlight .s2,$/;"	kind:c	line:949
+.highlight .sb	pandoc/templates/github-pandoc.css	/^.highlight .sb,$/;"	kind:c	line:946
+.highlight .sc	pandoc/templates/github-pandoc.css	/^.highlight .sc,$/;"	kind:c	line:947
+.highlight .sd	pandoc/templates/github-pandoc.css	/^.highlight .sd,$/;"	kind:c	line:948
+.highlight .se	pandoc/templates/github-pandoc.css	/^.highlight .se,$/;"	kind:c	line:950
+.highlight .sh	pandoc/templates/github-pandoc.css	/^.highlight .sh,$/;"	kind:c	line:951
+.highlight .si	pandoc/templates/github-pandoc.css	/^.highlight .si,$/;"	kind:c	line:952
+.highlight .sr	pandoc/templates/github-pandoc.css	/^.highlight .sr {$/;"	kind:c	line:956
+.highlight .ss	pandoc/templates/github-pandoc.css	/^.highlight .ss {$/;"	kind:c	line:962
+.highlight .sx	pandoc/templates/github-pandoc.css	/^.highlight .sx {$/;"	kind:c	line:953
+.highlight .vc	pandoc/templates/github-pandoc.css	/^.highlight .vc,$/;"	kind:c	line:968
+.highlight .vg	pandoc/templates/github-pandoc.css	/^.highlight .vg,$/;"	kind:c	line:969
+.highlight .vi	pandoc/templates/github-pandoc.css	/^.highlight .vi {$/;"	kind:c	line:970
+.highlight .w	pandoc/templates/github-pandoc.css	/^.highlight .w {$/;"	kind:c	line:937
+.highlight pre	pandoc/templates/github-pandoc.css	/^.highlight pre {$/;"	kind:s	line:651
+.html-for-mac .context-menu	pandoc/templates/default.css	/^.html-for-mac .context-menu {$/;"	kind:c	line:749
+.html-for-mac .context-menu	pandoc/templates/vue.css	/^.html-for-mac .context-menu {$/;"	kind:c	line:454
+.html-for-mac .context-menu	pandoc/vue.css	/^.html-for-mac .context-menu {$/;"	kind:c	line:454
+.html-for-mac .context-menu	vue.css	/^.html-for-mac .context-menu {$/;"	kind:c	line:454
+.inverted	pandoc/templates/github-pandoc.css	/^    .inverted {$/;"	kind:c	line:806
+.inverted .math	pandoc/templates/github-pandoc.css	/^    .inverted .math,$/;"	kind:c	line:750
+.inverted a	pandoc/templates/github-pandoc.css	/^    .inverted a {$/;"	kind:s	line:813
+.inverted a::selection	pandoc/templates/github-pandoc.css	/^    .inverted a::selection {$/;"	kind:s	line:798
+.inverted blockquote	pandoc/templates/github-pandoc.css	/^    .inverted blockquote {$/;"	kind:s	line:754
+.inverted body	pandoc/templates/github-pandoc.css	/^    .inverted body {$/;"	kind:s	line:810
+.inverted body	pandoc/templates/github-pandoc.css	/^    .inverted body,$/;"	kind:s	line:739
+.inverted caption	pandoc/templates/github-pandoc.css	/^    .inverted caption,$/;"	kind:s	line:751
+.inverted dd	pandoc/templates/github-pandoc.css	/^    .inverted dd,$/;"	kind:s	line:752
+.inverted dt	pandoc/templates/github-pandoc.css	/^    .inverted dt,$/;"	kind:s	line:753
+.inverted h1	pandoc/templates/github-pandoc.css	/^    .inverted h1,$/;"	kind:s	line:743
+.inverted h2	pandoc/templates/github-pandoc.css	/^    .inverted h2 {$/;"	kind:s	line:763
+.inverted h2	pandoc/templates/github-pandoc.css	/^    .inverted h2,$/;"	kind:s	line:744
+.inverted h3	pandoc/templates/github-pandoc.css	/^    .inverted h3,$/;"	kind:s	line:745
+.inverted h4	pandoc/templates/github-pandoc.css	/^    .inverted h4,$/;"	kind:s	line:746
+.inverted h5	pandoc/templates/github-pandoc.css	/^    .inverted h5,$/;"	kind:s	line:747
+.inverted h6	pandoc/templates/github-pandoc.css	/^    .inverted h6,$/;"	kind:s	line:748
+.inverted hr	pandoc/templates/github-pandoc.css	/^    .inverted hr {$/;"	kind:s	line:766
+.inverted hr .inverted p	pandoc/templates/github-pandoc.css	/^    .inverted hr .inverted p,$/;"	kind:s	line:740
+.inverted li	pandoc/templates/github-pandoc.css	/^    .inverted li,$/;"	kind:s	line:742
+.inverted td	pandoc/templates/github-pandoc.css	/^    .inverted td,$/;"	kind:s	line:741
+.inverted td	pandoc/templates/github-pandoc.css	/^    .inverted td,$/;"	kind:s	line:759
+.inverted th	pandoc/templates/github-pandoc.css	/^    .inverted th {$/;"	kind:s	line:760
+.inverted th	pandoc/templates/github-pandoc.css	/^    .inverted th,$/;"	kind:s	line:749
+.mac-seamless-mode #typora-sidebar	pandoc/templates/default.css	/^.mac-seamless-mode #typora-sidebar {$/;"	kind:i	line:740
+.mac-seamless-mode #typora-sidebar	pandoc/templates/vue.css	/^.mac-seamless-mode #typora-sidebar {$/;"	kind:i	line:445
+.mac-seamless-mode #typora-sidebar	pandoc/vue.css	/^.mac-seamless-mode #typora-sidebar {$/;"	kind:i	line:445
+.mac-seamless-mode #typora-sidebar	vue.css	/^.mac-seamless-mode #typora-sidebar {$/;"	kind:i	line:445
+.mathjax-block > .code-tooltip	pandoc/templates/default.css	/^.mathjax-block > .code-tooltip {$/;"	kind:c	line:660
+.mathjax-block > .code-tooltip	pandoc/templates/vue.css	/^.mathjax-block > .code-tooltip {$/;"	kind:c	line:365
+.mathjax-block > .code-tooltip	pandoc/vue.css	/^.mathjax-block > .code-tooltip {$/;"	kind:c	line:365
+.mathjax-block > .code-tooltip	vue.css	/^.mathjax-block > .code-tooltip {$/;"	kind:c	line:365
+.md-fences	pandoc/templates/default.css	/^.md-fences {$/;"	kind:c	line:645
+.md-fences	pandoc/templates/vue.css	/^.md-fences {$/;"	kind:c	line:243
+.md-fences	pandoc/templates/vue.css	/^.md-fences {$/;"	kind:c	line:350
+.md-fences	pandoc/vue.css	/^.md-fences {$/;"	kind:c	line:243
+.md-fences	pandoc/vue.css	/^.md-fences {$/;"	kind:c	line:350
+.md-fences	vue.css	/^.md-fences {$/;"	kind:c	line:243
+.md-fences	vue.css	/^.md-fences {$/;"	kind:c	line:350
+.md-footnote	pandoc/templates/vue.css	/^.md-footnote {$/;"	kind:c	line:297
+.md-footnote	pandoc/vue.css	/^.md-footnote {$/;"	kind:c	line:297
+.md-footnote	vue.css	/^.md-footnote {$/;"	kind:c	line:297
+.md-image > .md-meta	pandoc/templates/default.css	/^.md-image > .md-meta {$/;"	kind:c	line:684
+.md-image > .md-meta	pandoc/templates/vue.css	/^.md-image > .md-meta {$/;"	kind:c	line:389
+.md-image > .md-meta	pandoc/vue.css	/^.md-image > .md-meta {$/;"	kind:c	line:389
+.md-image > .md-meta	vue.css	/^.md-image > .md-meta {$/;"	kind:c	line:389
+.md-lang	pandoc/templates/default.css	/^.md-lang {$/;"	kind:c	line:745
+.md-lang	pandoc/templates/vue.css	/^.md-lang {$/;"	kind:c	line:450
+.md-lang	pandoc/vue.css	/^.md-lang {$/;"	kind:c	line:450
+.md-lang	vue.css	/^.md-lang {$/;"	kind:c	line:450
+.md-tag	pandoc/templates/default.css	/^.md-tag {$/;"	kind:c	line:693
+.md-tag	pandoc/templates/vue.css	/^.md-tag {$/;"	kind:c	line:398
+.md-tag	pandoc/vue.css	/^.md-tag {$/;"	kind:c	line:398
+.md-tag	vue.css	/^.md-tag {$/;"	kind:c	line:398
+.md-task-list-item > input	pandoc/templates/default.css	/^.md-task-list-item > input {$/;"	kind:s	line:619
+.md-task-list-item > input	pandoc/templates/vue.css	/^.md-task-list-item > input {$/;"	kind:s	line:324
+.md-task-list-item > input	pandoc/vue.css	/^.md-task-list-item > input {$/;"	kind:s	line:324
+.md-task-list-item > input	vue.css	/^.md-task-list-item > input {$/;"	kind:s	line:324
+.md-toc	pandoc/templates/default.css	/^.md-toc {$/;"	kind:c	line:697
+.md-toc	pandoc/templates/vue.css	/^.md-toc {$/;"	kind:c	line:402
+.md-toc	pandoc/vue.css	/^.md-toc {$/;"	kind:c	line:402
+.md-toc	vue.css	/^.md-toc {$/;"	kind:c	line:402
+.megamenu-content	pandoc/templates/default.css	/^.megamenu-content,$/;"	kind:c	line:730
+.megamenu-content	pandoc/templates/vue.css	/^.megamenu-content,$/;"	kind:c	line:435
+.megamenu-content	pandoc/vue.css	/^.megamenu-content,$/;"	kind:c	line:435
+.megamenu-content	vue.css	/^.megamenu-content,$/;"	kind:c	line:435
+.on-focus-mode blockquote	pandoc/templates/default.css	/^.on-focus-mode blockquote {$/;"	kind:s	line:724
+.on-focus-mode blockquote	pandoc/templates/vue.css	/^.on-focus-mode blockquote {$/;"	kind:s	line:429
+.on-focus-mode blockquote	pandoc/vue.css	/^.on-focus-mode blockquote {$/;"	kind:s	line:429
+.on-focus-mode blockquote	vue.css	/^.on-focus-mode blockquote {$/;"	kind:s	line:429
+.poetry pre	pandoc/templates/github-pandoc.css	/^.poetry pre {$/;"	kind:s	line:674
+.poetry pre code	pandoc/templates/github-pandoc.css	/^.poetry pre code {$/;"	kind:s	line:682
+.sidebar-tabs	pandoc/templates/default.css	/^.sidebar-tabs {$/;"	kind:c	line:702
+.sidebar-tabs	pandoc/templates/vue.css	/^.sidebar-tabs {$/;"	kind:c	line:407
+.sidebar-tabs	pandoc/vue.css	/^.sidebar-tabs {$/;"	kind:c	line:407
+.sidebar-tabs	vue.css	/^.sidebar-tabs {$/;"	kind:c	line:407
+.type-csharp .highlight .k	pandoc/templates/github-pandoc.css	/^.type-csharp .highlight .k,$/;"	kind:c	line:980
+.type-csharp .highlight .kt	pandoc/templates/github-pandoc.css	/^.type-csharp .highlight .kt {$/;"	kind:c	line:981
+.type-csharp .highlight .nc	pandoc/templates/github-pandoc.css	/^.type-csharp .highlight .nc {$/;"	kind:c	line:988
+.type-csharp .highlight .nf	pandoc/templates/github-pandoc.css	/^.type-csharp .highlight .nf {$/;"	kind:c	line:984
+.type-csharp .highlight .nn	pandoc/templates/github-pandoc.css	/^.type-csharp .highlight .nn {$/;"	kind:c	line:991
+.type-csharp .highlight .s	pandoc/templates/github-pandoc.css	/^.type-csharp .highlight .s,$/;"	kind:c	line:994
+.type-csharp .highlight .sc	pandoc/templates/github-pandoc.css	/^.type-csharp .highlight .sc {$/;"	kind:c	line:995
+::selection	pandoc/templates/github-pandoc.css	/^    ::selection {$/;"	kind:s	line:770
+:root	pandoc/defaults/mvp.css	/^:root {$/;"	kind:s	line:3
+:root	pandoc/mvp.css	/^:root {$/;"	kind:s	line:3
+:root	pandoc/templates/default.css	/^:root {$/;"	kind:s	line:1
+:root	pandoc/templates/mvp.css	/^:root {$/;"	kind:s	line:3
+:root	pandoc/templates/vue.css	/^:root {$/;"	kind:s	line:1
+:root	pandoc/vue.css	/^:root {$/;"	kind:s	line:1
+:root	vue.css	/^:root {$/;"	kind:s	line:1
+EOF	bin/plan	/^        *) cat <<-EOF$/;"	kind:h	line:43
+EOF	gfwlist2privoxy	/^cat << EOF$/;"	kind:h	line:41
+EOF	testCollection.sh	/^    content=$(cat <<-EOF$/;"	kind:h	line:79
+ExecutionResult	Study/silent-cron.pl6	/^my class ExecutionResult {$/;"	kind:c	line:6
+ExecutionResultRepository	Study/silent-cron.pl6	/^class ExecutionResultRepository {$/;"	kind:c	line:17
+Frpc 或内网穿透	LinuxCommand.md	/^## Frpc 或内网穿透$/;"	kind:s	line:20	chapter:Linux Commad
+HEADER	html-simplify	/^HEADER = """$/;"	kind:v	line:12	access:public
+HEADER	qutebrowser/readability	/^HEADER = """$/;"	kind:v	line:25	access:public
+How do you read from stdin?	index.html	/^							<h2>How do you read from stdin?<\/h2>$/;"	kind:i	line:121
+Inlines	pandoc/filters/rsbc.lua	/^function Inlines (inlines)$/;"	kind:f	line:12
+Linux Commad	LinuxCommand.md	/^# Linux Commad$/;"	kind:c	line:1
+MAIN	Study/silent-cron.pl6	/^multi sub MAIN('test') {$/;"	kind:s	line:142
+MAIN	Study/silent-cron.pl6	/^multi sub MAIN(*@cmd, :$timeout,$/;"	kind:s	line:119
+MAIN	bin/uni.raku	/^multi sub MAIN($search is copy) {$/;"	kind:s	line:16
+MAIN	bin/uni.raku	/^multi sub MAIN($x, Bool :$identify!) {$/;"	kind:s	line:30
+MAIN	bin/uni.raku	/^multi sub MAIN(Str $x where .chars == 1) {$/;"	kind:s	line:12
+MAX_WAIT	qutebrowser/qute-zotero	/^MAX_WAIT = 20$/;"	kind:v	line:24	access:public
+META	testCollection.sh	/^    metadata=$(cat <<-META$/;"	kind:h	line:32
+META	testCollection.sh	/^[ -f "$filename" ] || cat <<-META > "$filename"$/;"	kind:h	line:90
+Mock::Proc::Async	Study/silent-cron.pl6	/^    my class Mock::Proc::Async {$/;"	kind:c	line:146
+NoTranslatorError	qutebrowser/qute-zotero	/^class NoTranslatorError(Exception):$/;"	kind:c	line:30	inherits:Exception	access:public
+Nordvpn Connectable Services	nordvpn_connectable_server_list.md	/^# Nordvpn Connectable Services$/;"	kind:c	line:1
+Obfuscated Servers	nordvpn_connectable_server_list.md	/^## Obfuscated Servers$/;"	kind:s	line:3	chapter:Nordvpn Connectable Services
+SSH 相关	LinuxCommand.md	/^## SSH 相关$/;"	kind:s	line:26	chapter:Linux Commad
+Standard Servers	nordvpn_connectable_server_list.md	/^## Standard Servers$/;"	kind:s	line:7	chapter:Nordvpn Connectable Services
+StataSourceLines	vim_script/stata_cmdline.vim	/^function! StataSourceLines(lines)$/;"	kind:f	line:11	signature:(lines)
+Usage	bin/edit-pdf	/^Usage() {$/;"	kind:f	line:5
+Usage	bin/url2md	/^Usage() {$/;"	kind:f	line:4
+WrongResponseError	qutebrowser/qute-zotero	/^class WrongResponseError(Exception):$/;"	kind:c	line:34	inherits:Exception	access:public
+\euro	Rmarkdown_beamer_temp.tex	/^    \\newcommand{\\euro}{€}$/;"	kind:C	line:33
+\euro	Rmarkdown_beamer_temp.tex	/^  \\newcommand{\\euro}{€}$/;"	kind:C	line:28
+_zlua	zlua	/^_zlua () {$/;"	kind:f	line:3
+a	pandoc/defaults/mvp.css	/^a {$/;"	kind:s	line:260
+a	pandoc/mvp.css	/^a {$/;"	kind:s	line:260
+a	pandoc/templates/default.css	/^a {$/;"	kind:s	line:303
+a	pandoc/templates/github-pandoc.css	/^a {$/;"	kind:s	line:446
+a	pandoc/templates/github-pandoc.css	/^a {$/;"	kind:s	line:88
+a	pandoc/templates/mvp.css	/^a {$/;"	kind:s	line:260
+a	pandoc/templates/vue.css	/^a {$/;"	kind:s	line:28
+a	pandoc/vue.css	/^a {$/;"	kind:s	line:28
+a	vue.css	/^a {$/;"	kind:s	line:28
+a b	pandoc/defaults/mvp.css	/^a b,$/;"	kind:s	line:272
+a b	pandoc/defaults/mvp.css	/^a b,$/;"	kind:s	line:295
+a b	pandoc/mvp.css	/^a b,$/;"	kind:s	line:272
+a b	pandoc/mvp.css	/^a b,$/;"	kind:s	line:295
+a b	pandoc/templates/mvp.css	/^a b,$/;"	kind:s	line:272
+a b	pandoc/templates/mvp.css	/^a b,$/;"	kind:s	line:295
+a em	pandoc/defaults/mvp.css	/^a em,$/;"	kind:s	line:273
+a em	pandoc/defaults/mvp.css	/^a em,$/;"	kind:s	line:303
+a em	pandoc/mvp.css	/^a em,$/;"	kind:s	line:273
+a em	pandoc/mvp.css	/^a em,$/;"	kind:s	line:303
+a em	pandoc/templates/mvp.css	/^a em,$/;"	kind:s	line:273
+a em	pandoc/templates/mvp.css	/^a em,$/;"	kind:s	line:303
+a i	pandoc/defaults/mvp.css	/^a i {$/;"	kind:s	line:304
+a i	pandoc/defaults/mvp.css	/^a i,$/;"	kind:s	line:274
+a i	pandoc/mvp.css	/^a i {$/;"	kind:s	line:304
+a i	pandoc/mvp.css	/^a i,$/;"	kind:s	line:274
+a i	pandoc/templates/mvp.css	/^a i {$/;"	kind:s	line:304
+a i	pandoc/templates/mvp.css	/^a i,$/;"	kind:s	line:274
+a strong	pandoc/defaults/mvp.css	/^a strong,$/;"	kind:s	line:275
+a strong	pandoc/defaults/mvp.css	/^a strong,$/;"	kind:s	line:296
+a strong	pandoc/mvp.css	/^a strong,$/;"	kind:s	line:275
+a strong	pandoc/mvp.css	/^a strong,$/;"	kind:s	line:296
+a strong	pandoc/templates/mvp.css	/^a strong,$/;"	kind:s	line:275
+a strong	pandoc/templates/mvp.css	/^a strong,$/;"	kind:s	line:296
+a.footnote	pandoc/templates/github-pandoc.css	/^a.footnote {$/;"	kind:c	line:693
+a::selection	pandoc/templates/github-pandoc.css	/^    a::selection {$/;"	kind:s	line:795
+a:active	pandoc/templates/github-pandoc.css	/^a:active,$/;"	kind:s	line:104
+a:first-child h1	pandoc/templates/default.css	/^a:first-child h1,$/;"	kind:s	line:461
+a:first-child h1	pandoc/templates/github-pandoc.css	/^a:first-child h1,$/;"	kind:s	line:548
+a:first-child h2	pandoc/templates/default.css	/^a:first-child h2,$/;"	kind:s	line:462
+a:first-child h2	pandoc/templates/github-pandoc.css	/^a:first-child h2,$/;"	kind:s	line:549
+a:first-child h3	pandoc/templates/default.css	/^a:first-child h3,$/;"	kind:s	line:463
+a:first-child h3	pandoc/templates/github-pandoc.css	/^a:first-child h3,$/;"	kind:s	line:550
+a:first-child h4	pandoc/templates/default.css	/^a:first-child h4,$/;"	kind:s	line:464
+a:first-child h4	pandoc/templates/github-pandoc.css	/^a:first-child h4,$/;"	kind:s	line:551
+a:first-child h5	pandoc/templates/default.css	/^a:first-child h5,$/;"	kind:s	line:465
+a:first-child h5	pandoc/templates/github-pandoc.css	/^a:first-child h5,$/;"	kind:s	line:552
+a:first-child h6	pandoc/templates/default.css	/^a:first-child h6 {$/;"	kind:s	line:466
+a:first-child h6	pandoc/templates/github-pandoc.css	/^a:first-child h6 {$/;"	kind:s	line:553
+a:focus	pandoc/templates/github-pandoc.css	/^a:focus {$/;"	kind:s	line:96
+a:hover	pandoc/defaults/mvp.css	/^a:hover {$/;"	kind:s	line:267
+a:hover	pandoc/mvp.css	/^a:hover {$/;"	kind:s	line:267
+a:hover	pandoc/templates/github-pandoc.css	/^a:hover {$/;"	kind:s	line:105
+a:hover	pandoc/templates/mvp.css	/^a:hover {$/;"	kind:s	line:267
+abbr[title]	pandoc/templates/github-pandoc.css	/^abbr[title] {$/;"	kind:s	line:127
+ad_sg	index.html	/^					<div id="ad_sg" class="ad-pc">$/;"	kind:I	line:118
+adjust_docx	bin/md2	/^adjust_docx () {$/;"	kind:f	line:16
+adjust_html	bin/md2	/^adjust_html () {$/;"	kind:f	line:9
+anonFunc69274ad80600	Rscript/kableReg.R	/^                    map_dfc(function(x) {$/;"	kind:f	line:205	function:fStringMatch.kableReg	signature:(x)
+article	pandoc/templates/github-pandoc.css	/^article,$/;"	kind:s	line:11
+article aside	pandoc/defaults/mvp.css	/^article aside {$/;"	kind:s	line:43
+article aside	pandoc/mvp.css	/^article aside {$/;"	kind:s	line:43
+article aside	pandoc/templates/mvp.css	/^article aside {$/;"	kind:s	line:43
+article header	pandoc/defaults/mvp.css	/^article header,$/;"	kind:s	line:102
+article header	pandoc/mvp.css	/^article header,$/;"	kind:s	line:102
+article header	pandoc/templates/mvp.css	/^article header,$/;"	kind:s	line:102
+aside	pandoc/templates/github-pandoc.css	/^aside,$/;"	kind:s	line:12
+aswift_3_anchor	qutebrowser/readability.html	/^									<ins id="aswift_3_anchor"\/>$/;"	kind:I	line:64
+aswift_4_anchor	qutebrowser/readability.html	/^									<ins id="aswift_4_anchor"\/>$/;"	kind:I	line:71
+aswift_6_anchor	qutebrowser/readability.html	/^<ins id="aswift_6_anchor"\/>$/;"	kind:I	line:503
+aswift_7_anchor	qutebrowser/readability.html	/^				<ins id="aswift_7_anchor"\/>$/;"	kind:I	line:515
+aswift_8_anchor	qutebrowser/readability.html	/^								<ins id="aswift_8_anchor"\/>$/;"	kind:I	line:523
+aswift_9_anchor	qutebrowser/readability.html	/^								<ins id="aswift_9_anchor"\/>$/;"	kind:I	line:529
+audio	pandoc/templates/github-pandoc.css	/^audio,$/;"	kind:s	line:30
+audio:not([controls] )	pandoc/templates/github-pandoc.css	/^audio:not([controls]) {$/;"	kind:s	line:41
+b	pandoc/templates/github-pandoc.css	/^b,$/;"	kind:s	line:135
+b	pandoc/templates/vue.css	/^b, strong {$/;"	kind:s	line:235
+b	pandoc/vue.css	/^b, strong {$/;"	kind:s	line:235
+b	vue.css	/^b, strong {$/;"	kind:s	line:235
+b:cmdline_app	vim_script/stata_cmdline.vim	/^let b:cmdline_app = "stata-mp"$/;"	kind:v	line:17
+b:cmdline_filetype	vim_script/stata_cmdline.vim	/^let b:cmdline_filetype = "stata"$/;"	kind:v	line:21
+b:cmdline_nl	vim_script/stata_cmdline.vim	/^let b:cmdline_nl = "\\n"$/;"	kind:v	line:16
+b:cmdline_quit_cmd	vim_script/stata_cmdline.vim	/^let b:cmdline_quit_cmd = "exit"$/;"	kind:v	line:18
+b:cmdline_send_empty	vim_script/stata_cmdline.vim	/^let b:cmdline_send_empty = 0$/;"	kind:v	line:20
+b:cmdline_source_fun	vim_script/stata_cmdline.vim	/^let b:cmdline_source_fun = function("StataSourceLines")$/;"	kind:v	line:19
+bibimport	qutebrowser/qute-zotero	/^def bibimport(resource):$/;"	kind:f	line:73	access:public	signature:(resource)
+blockquote	pandoc/defaults/mvp.css	/^blockquote {$/;"	kind:s	line:443
+blockquote	pandoc/mvp.css	/^blockquote {$/;"	kind:s	line:443
+blockquote	pandoc/templates/default.css	/^blockquote {$/;"	kind:s	line:499
+blockquote	pandoc/templates/default.css	/^blockquote,$/;"	kind:s	line:415
+blockquote	pandoc/templates/github-pandoc.css	/^    blockquote,$/;"	kind:s	line:710
+blockquote	pandoc/templates/github-pandoc.css	/^blockquote {$/;"	kind:s	line:596
+blockquote	pandoc/templates/github-pandoc.css	/^blockquote,$/;"	kind:s	line:506
+blockquote	pandoc/templates/mvp.css	/^blockquote {$/;"	kind:s	line:443
+blockquote	pandoc/templates/vue.css	/^blockquote {$/;"	kind:s	line:185
+blockquote	pandoc/templates/vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+blockquote	pandoc/vue.css	/^blockquote {$/;"	kind:s	line:185
+blockquote	pandoc/vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+blockquote	vue.css	/^blockquote {$/;"	kind:s	line:185
+blockquote	vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+blockquote > :first-child	pandoc/templates/github-pandoc.css	/^blockquote > :first-child {$/;"	kind:s	line:601
+blockquote > :last-child	pandoc/templates/github-pandoc.css	/^blockquote > :last-child {$/;"	kind:s	line:604
+blockquote footer	pandoc/defaults/mvp.css	/^blockquote footer {$/;"	kind:s	line:453
+blockquote footer	pandoc/mvp.css	/^blockquote footer {$/;"	kind:s	line:453
+blockquote footer	pandoc/templates/mvp.css	/^blockquote footer {$/;"	kind:s	line:453
+body	pandoc/defaults/mvp.css	/^body {$/;"	kind:s	line:49
+body	pandoc/mvp.css	/^body {$/;"	kind:s	line:49
+body	pandoc/templates/default.css	/^body {$/;"	kind:s	line:262
+body	pandoc/templates/github-pandoc.css	/^    body {$/;"	kind:s	line:464
+body	pandoc/templates/github-pandoc.css	/^    body {$/;"	kind:s	line:705
+body	pandoc/templates/github-pandoc.css	/^    body {$/;"	kind:s	line:715
+body	pandoc/templates/github-pandoc.css	/^body {$/;"	kind:s	line:422
+body	pandoc/templates/github-pandoc.css	/^body {$/;"	kind:s	line:433
+body	pandoc/templates/github-pandoc.css	/^body {$/;"	kind:s	line:450
+body	pandoc/templates/github-pandoc.css	/^body {$/;"	kind:s	line:76
+body	pandoc/templates/mvp.css	/^body {$/;"	kind:s	line:49
+body	pandoc/templates/vue.css	/^body {$/;"	kind:s	line:10
+body	pandoc/vue.css	/^body {$/;"	kind:s	line:10
+body	vue.css	/^body {$/;"	kind:s	line:10
+body > *:first-child	pandoc/templates/default.css	/^body > *:first-child {$/;"	kind:s	line:295
+body > *:first-child	pandoc/templates/github-pandoc.css	/^body > *:first-child {$/;"	kind:s	line:457
+body > *:first-child	pandoc/templates/vue.css	/^body > *:first-child {$/;"	kind:s	line:20
+body > *:first-child	pandoc/vue.css	/^body > *:first-child {$/;"	kind:s	line:20
+body > *:first-child	vue.css	/^body > *:first-child {$/;"	kind:s	line:20
+body > *:last-child	pandoc/templates/default.css	/^body > *:last-child {$/;"	kind:s	line:299
+body > *:last-child	pandoc/templates/github-pandoc.css	/^body > *:last-child {$/;"	kind:s	line:460
+body > *:last-child	pandoc/templates/vue.css	/^body > *:last-child {$/;"	kind:s	line:24
+body > *:last-child	pandoc/vue.css	/^body > *:last-child {$/;"	kind:s	line:24
+body > *:last-child	vue.css	/^body > *:last-child {$/;"	kind:s	line:24
+body > h1:first-child	pandoc/templates/default.css	/^body > h1:first-child {$/;"	kind:s	line:443
+body > h1:first-child	pandoc/templates/github-pandoc.css	/^body > h1:first-child {$/;"	kind:s	line:533
+body > h1:first-child	pandoc/templates/vue.css	/^body > h1:first-child {$/;"	kind:s	line:115
+body > h1:first-child	pandoc/vue.css	/^body > h1:first-child {$/;"	kind:s	line:115
+body > h1:first-child	vue.css	/^body > h1:first-child {$/;"	kind:s	line:115
+body > h1:first-child + h2	pandoc/templates/default.css	/^body > h1:first-child + h2 {$/;"	kind:s	line:448
+body > h1:first-child + h2	pandoc/templates/github-pandoc.css	/^body > h1:first-child + h2 {$/;"	kind:s	line:537
+body > h1:first-child + h2	pandoc/templates/vue.css	/^body > h1:first-child + h2 {$/;"	kind:s	line:120
+body > h1:first-child + h2	pandoc/vue.css	/^body > h1:first-child + h2 {$/;"	kind:s	line:120
+body > h1:first-child + h2	vue.css	/^body > h1:first-child + h2 {$/;"	kind:s	line:120
+body > h2:first-child	pandoc/templates/default.css	/^body > h2:first-child {$/;"	kind:s	line:438
+body > h2:first-child	pandoc/templates/github-pandoc.css	/^body > h2:first-child {$/;"	kind:s	line:529
+body > h2:first-child	pandoc/templates/vue.css	/^body > h2:first-child {$/;"	kind:s	line:110
+body > h2:first-child	pandoc/vue.css	/^body > h2:first-child {$/;"	kind:s	line:110
+body > h2:first-child	vue.css	/^body > h2:first-child {$/;"	kind:s	line:110
+body > h3:first-child	pandoc/templates/default.css	/^body > h3:first-child,$/;"	kind:s	line:453
+body > h3:first-child	pandoc/templates/github-pandoc.css	/^body > h3:first-child,$/;"	kind:s	line:541
+body > h3:first-child	pandoc/templates/vue.css	/^body > h3:first-child,$/;"	kind:s	line:125
+body > h3:first-child	pandoc/vue.css	/^body > h3:first-child,$/;"	kind:s	line:125
+body > h3:first-child	vue.css	/^body > h3:first-child,$/;"	kind:s	line:125
+body > h4:first-child	pandoc/templates/default.css	/^body > h4:first-child,$/;"	kind:s	line:454
+body > h4:first-child	pandoc/templates/github-pandoc.css	/^body > h4:first-child,$/;"	kind:s	line:542
+body > h4:first-child	pandoc/templates/vue.css	/^body > h4:first-child,$/;"	kind:s	line:126
+body > h4:first-child	pandoc/vue.css	/^body > h4:first-child,$/;"	kind:s	line:126
+body > h4:first-child	vue.css	/^body > h4:first-child,$/;"	kind:s	line:126
+body > h5:first-child	pandoc/templates/default.css	/^body > h5:first-child,$/;"	kind:s	line:455
+body > h5:first-child	pandoc/templates/github-pandoc.css	/^body > h5:first-child,$/;"	kind:s	line:543
+body > h5:first-child	pandoc/templates/vue.css	/^body > h5:first-child,$/;"	kind:s	line:127
+body > h5:first-child	pandoc/vue.css	/^body > h5:first-child,$/;"	kind:s	line:127
+body > h5:first-child	vue.css	/^body > h5:first-child,$/;"	kind:s	line:127
+body > h6:first-child	pandoc/templates/default.css	/^body > h6:first-child {$/;"	kind:s	line:456
+body > h6:first-child	pandoc/templates/github-pandoc.css	/^body > h6:first-child {$/;"	kind:s	line:544
+body > h6:first-child	pandoc/templates/vue.css	/^body > h6:first-child {$/;"	kind:s	line:128
+body > h6:first-child	pandoc/vue.css	/^body > h6:first-child {$/;"	kind:s	line:128
+body > h6:first-child	vue.css	/^body > h6:first-child {$/;"	kind:s	line:128
+body.inverted	pandoc/templates/github-pandoc.css	/^    body.inverted {$/;"	kind:c	line:734
+button	pandoc/defaults/mvp.css	/^button {$/;"	kind:s	line:276
+button	pandoc/defaults/mvp.css	/^button {$/;"	kind:s	line:286
+button	pandoc/defaults/mvp.css	/^button {$/;"	kind:s	line:297
+button	pandoc/mvp.css	/^button {$/;"	kind:s	line:276
+button	pandoc/mvp.css	/^button {$/;"	kind:s	line:286
+button	pandoc/mvp.css	/^button {$/;"	kind:s	line:297
+button	pandoc/templates/github-pandoc.css	/^button,$/;"	kind:s	line:285
+button	pandoc/templates/github-pandoc.css	/^button,$/;"	kind:s	line:299
+button	pandoc/templates/github-pandoc.css	/^button,$/;"	kind:s	line:311
+button	pandoc/templates/github-pandoc.css	/^button,$/;"	kind:s	line:324
+button	pandoc/templates/mvp.css	/^button {$/;"	kind:s	line:276
+button	pandoc/templates/mvp.css	/^button {$/;"	kind:s	line:286
+button	pandoc/templates/mvp.css	/^button {$/;"	kind:s	line:297
+button::-moz-focus-inner	pandoc/templates/github-pandoc.css	/^button::-moz-focus-inner,$/;"	kind:s	line:379
+button:disabled	pandoc/defaults/mvp.css	/^button:disabled,$/;"	kind:s	line:328
+button:disabled	pandoc/mvp.css	/^button:disabled,$/;"	kind:s	line:328
+button:disabled	pandoc/templates/mvp.css	/^button:disabled,$/;"	kind:s	line:328
+button:hover	pandoc/defaults/mvp.css	/^button:hover {$/;"	kind:s	line:290
+button:hover	pandoc/mvp.css	/^button:hover {$/;"	kind:s	line:290
+button:hover	pandoc/templates/mvp.css	/^button:hover {$/;"	kind:s	line:290
+button[disabled]	pandoc/templates/github-pandoc.css	/^button[disabled],$/;"	kind:s	line:336
+button[disabled] :hover	pandoc/defaults/mvp.css	/^button[disabled]:hover {$/;"	kind:s	line:336
+button[disabled] :hover	pandoc/mvp.css	/^button[disabled]:hover {$/;"	kind:s	line:336
+button[disabled] :hover	pandoc/templates/mvp.css	/^button[disabled]:hover {$/;"	kind:s	line:336
+calcext	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0
+calcext	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0
+calculate_position	bin/fzfimg	/^function calculate_position {$/;"	kind:f	line:77
+canvas	pandoc/templates/github-pandoc.css	/^canvas,$/;"	kind:s	line:31
+caption::selection	pandoc/templates/github-pandoc.css	/^    caption::selection {$/;"	kind:s	line:803
+chart	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:chart:1.0
+chart	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:chart:1.0
+check-deps	bin/instapaper	/^local check-deps() {$/;"	kind:f	line:66
+clear_screen	draw_img.sh	/^clear_screen() {$/;"	kind:f	line:2
+code	pandoc/defaults/mvp.css	/^code,$/;"	kind:s	line:187
+code	pandoc/mvp.css	/^code,$/;"	kind:s	line:187
+code	pandoc/templates/github-pandoc.css	/^    code {$/;"	kind:s	line:719
+code	pandoc/templates/github-pandoc.css	/^code,$/;"	kind:s	line:171
+code	pandoc/templates/github-pandoc.css	/^code,$/;"	kind:s	line:632
+code	pandoc/templates/mvp.css	/^code,$/;"	kind:s	line:187
+code	pandoc/templates/vue.css	/^code {$/;"	kind:s	line:270
+code	pandoc/vue.css	/^code {$/;"	kind:s	line:270
+code	vue.css	/^code {$/;"	kind:s	line:270
+code span::selection	pandoc/templates/github-pandoc.css	/^    code span::selection {$/;"	kind:s	line:791
+code::selection	pandoc/templates/github-pandoc.css	/^    code::selection {$/;"	kind:s	line:787
+codecolorer-css	index.html	/^<link rel='stylesheet' id='codecolorer-css'  href='https:\/\/www.codenong.com\/wp-content\/plugi/;"	kind:I	line:43
+config	pandoc/odt/settings.xml	/^<office:document-settings xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:config:1.0
+content	html-simplify	/^    content = HEADER % title + doc.readable + "<\/html>"$/;"	kind:v	line:74	access:public
+content	html-simplify	/^    content = doc.summary().replace('<html>', HEADER % title)$/;"	kind:v	line:69	access:public
+content	index.html	/^<\/nav><div id="content" class="site-content">	$/;"	kind:I	line:97
+content	qutebrowser/readability	/^        content = HEADER % title + doc.readable + "<\/html>"$/;"	kind:v	line:77	access:public
+content	qutebrowser/readability	/^        content = doc.summary().replace('<html>', HEADER % title)$/;"	kind:v	line:82	access:public
+control	bin/lmc	/^control() { pavucontrol ;}$/;"	kind:f	line:15
+copyq_script_getAll	bin/rofi-copyq	/^copyq_script_getAll = r"""$/;"	kind:v	line:8	access:public
+create-schema	Study/silent-cron.pl6	/^    method !create-schema() {$/;"	kind:m	line:31
+css3t	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://www.w3.org/TR/css3-text/
+css3t	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://www.w3.org/TR/css3-text/
+data	html-simplify	/^        data = source.read()$/;"	kind:v	line:61	access:public
+data	html-simplify	/^    data = sys.stdin.read()$/;"	kind:v	line:58	access:public
+data	qutebrowser/readability	/^    data = source.read()$/;"	kind:v	line:71	access:public
+db	Study/silent-cron.pl6	/^    method !db() {$/;"	kind:m	line:23
+dc	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://purl.org/dc/elements/1.1/
+dc	pandoc/odt/meta.xml	/^<office:document-meta xmlns:grddl="http:\/\/www.w3.org\/2003\/g\/data-view#" xmlns:meta="urn:oas/;"	kind:n	line:2	uri:http://purl.org/dc/elements/1.1/
+dc	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://purl.org/dc/elements/1.1/
+dd	pandoc/templates/vue.css	/^dd {$/;"	kind:s	line:155
+dd	pandoc/templates/vue.css	/^dt, dd {$/;"	kind:s	line:141
+dd	pandoc/vue.css	/^dd {$/;"	kind:s	line:155
+dd	pandoc/vue.css	/^dt, dd {$/;"	kind:s	line:141
+dd	vue.css	/^dd {$/;"	kind:s	line:155
+dd	vue.css	/^dt, dd {$/;"	kind:s	line:141
+dd code	pandoc/templates/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+dd code	pandoc/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+dd code	vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+del	pandoc/templates/vue.css	/^del {$/;"	kind:s	line:311
+del	pandoc/vue.css	/^del {$/;"	kind:s	line:311
+del	vue.css	/^del {$/;"	kind:s	line:311
+details	pandoc/defaults/mvp.css	/^details {$/;"	kind:s	line:197
+details	pandoc/mvp.css	/^details {$/;"	kind:s	line:197
+details	pandoc/templates/github-pandoc.css	/^details,$/;"	kind:s	line:13
+details	pandoc/templates/mvp.css	/^details {$/;"	kind:s	line:197
+details summary	pandoc/defaults/mvp.css	/^details summary {$/;"	kind:s	line:201
+details summary	pandoc/mvp.css	/^details summary {$/;"	kind:s	line:201
+details summary	pandoc/templates/mvp.css	/^details summary {$/;"	kind:s	line:201
+detect	qutebrowser/qute-zotero	/^def detect(uri, html):$/;"	kind:f	line:52	access:public	signature:(uri, html)
+dfn	pandoc/templates/github-pandoc.css	/^dfn {$/;"	kind:s	line:144
+div header	pandoc/defaults/mvp.css	/^div header,$/;"	kind:s	line:103
+div header	pandoc/mvp.css	/^div header,$/;"	kind:s	line:103
+div header	pandoc/templates/mvp.css	/^div header,$/;"	kind:s	line:103
+dl	pandoc/templates/default.css	/^dl,$/;"	kind:s	line:418
+dl	pandoc/templates/github-pandoc.css	/^dl {$/;"	kind:s	line:567
+dl	pandoc/templates/vue.css	/^dl {$/;"	kind:s	line:137
+dl	pandoc/vue.css	/^dl {$/;"	kind:s	line:137
+dl	vue.css	/^dl {$/;"	kind:s	line:137
+dl code	pandoc/templates/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+dl code	pandoc/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+dl code	vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+dl dd	pandoc/templates/github-pandoc.css	/^dl dd {$/;"	kind:s	line:586
+dl dd > :first-child	pandoc/templates/github-pandoc.css	/^dl dd > :first-child {$/;"	kind:s	line:590
+dl dd > :last-child	pandoc/templates/github-pandoc.css	/^dl dd > :last-child {$/;"	kind:s	line:593
+dl dt	pandoc/templates/github-pandoc.css	/^dl dt {$/;"	kind:s	line:570
+dl dt > :first-child	pandoc/templates/github-pandoc.css	/^dl dt > :first-child {$/;"	kind:s	line:580
+dl dt > :last-child	pandoc/templates/github-pandoc.css	/^dl dt > :last-child {$/;"	kind:s	line:583
+dl dt:first-child	pandoc/templates/github-pandoc.css	/^dl dt:first-child {$/;"	kind:s	line:577
+dmenu_copy	bin/externalpipe_buffer.sh	/^dmenu_copy() {$/;"	kind:f	line:34
+dmenu_type	bin/externalpipe_buffer.sh	/^dmenu_type() {$/;"	kind:f	line:38
+doc	html-simplify	/^    doc = Document(data)$/;"	kind:v	line:67	access:public
+doc	html-simplify	/^    doc = reader(data)$/;"	kind:v	line:72	access:public
+doc	qutebrowser/readability	/^        doc = Document(data)$/;"	kind:v	line:80	access:public
+doc	qutebrowser/readability	/^        doc = reader(data)$/;"	kind:v	line:75	access:public
+dom	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://www.w3.org/2001/xml-events
+dom	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://www.w3.org/2001/xml-events
+down	bin/lmc	/^down() { pactl set-sink-volume $sink -"$NUM"% ;}$/;"	kind:f	line:14
+dr3d	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0
+dr3d	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0
+draw	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:drawing:1.0
+draw	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:drawing:1.0
+draw_preview	bin/fzfimg	/^function draw_preview {$/;"	kind:f	line:103
+drawooo	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://openoffice.org/2010/draw
+drawooo	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://openoffice.org/2010/draw
+dt	pandoc/templates/vue.css	/^dt {$/;"	kind:s	line:144
+dt	pandoc/templates/vue.css	/^dt, dd {$/;"	kind:s	line:141
+dt	pandoc/vue.css	/^dt {$/;"	kind:s	line:144
+dt	pandoc/vue.css	/^dt, dd {$/;"	kind:s	line:141
+dt	vue.css	/^dt {$/;"	kind:s	line:144
+dt	vue.css	/^dt, dd {$/;"	kind:s	line:141
+dt code	pandoc/templates/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+dt code	pandoc/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+dt code	vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+dt::after	pandoc/templates/vue.css	/^dt::after {$/;"	kind:s	line:152
+dt::after	pandoc/vue.css	/^dt::after {$/;"	kind:s	line:152
+dt::after	vue.css	/^dt::after {$/;"	kind:s	line:152
+dt::before	pandoc/templates/vue.css	/^dt::before {$/;"	kind:s	line:147
+dt::before	pandoc/vue.css	/^dt::before {$/;"	kind:s	line:147
+dt::before	vue.css	/^dt::before {$/;"	kind:s	line:147
+e	qutebrowser/qute-zotero	/^from os import environ as e$/;"	kind:x	line:21	access:public	nameref:unknown:environ
+em	pandoc/templates/vue.css	/^em {$/;"	kind:s	line:239
+em	pandoc/vue.css	/^em {$/;"	kind:s	line:239
+em	vue.css	/^em {$/;"	kind:s	line:239
+f.temp	Rscript/stata-like-functions.R	/^    f.temp <- function(x) {$/;"	kind:f	line:96	function:fDes.data.frame	signature:(x)
+fDes	Rscript/stata-like-functions.R	/^fDes <- function(object, ...) {$/;"	kind:f	line:110	function:fDes.data.frame	signature:(object, ...)
+fDes.data.frame	Rscript/stata-like-functions.R	/^fDes.data.frame <- function(df, variable, label = NULL, na.rm = TRUE, $/;"	kind:f	line:73	signature:(df, variable, label = NULL, na.rm = TRUE, format = TRUE, digits = getOption ("digits"), nsmall = 3, width = 7, big.mark = ",")
+fDes.default	Rscript/stata-like-functions.R	/^fDes.default <- function(x, na.rm = TRUE, format = TRUE,$/;"	kind:f	line:52	signature:(x, na.rm = TRUE, format = TRUE, digits = getOption ("digits"), nsmall = 3L, width = 7L, big.mark = ",")
+fDrop	Rscript/stata-like-functions.R	/^fDrop <- function(pattern, regex = FALSE) {$/;"	kind:f	line:155	function:fDes.data.frame	signature:(pattern, regex = FALSE)
+fFormula	Rscript/stata-like-functions.R	/^fFormula <- function(dep, indep_ex, fe = NULL, cluster = NULL,$/;"	kind:f	line:115	function:fDes.data.frame	signature:(dep, indep_ex, fe = NULL, cluster = NULL, indep_in = NULL, iv = NULL, method = "felm")
+fGetDep	Rscript/kableReg.R	/^fGetDep <- function(objects) {$/;"	kind:f	line:40	function:fStringMatch	signature:(objects)
+fLabel	Rscript/stata-like-functions.R	/^fLabel <- function(df, variables, attri.list, attri = "label") {$/;"	kind:f	line:3	signature:(df, variables, attri.list, attri = "label")
+fLag	Rscript/panelFunction.R	/^fLag <- function(x, time, n = 1L) {$/;"	kind:f	line:30	signature:(x, time, n = 1L)
+fPrint	Rscript/kableReg.R	/^fPrint <- function(z, digits = getOption("digits"), nsmall = 3,$/;"	kind:f	line:45	function:fStringMatch	signature:(z, digits = getOption ("digits"), nsmall = 3, width = 7, big.mark = ",")
+fPrint	Rscript/stata-like-functions.R	/^fPrint <- function(z, digits = getOption("digits"), nsmall = 3,$/;"	kind:f	line:28	signature:(z, digits = getOption ("digits"), nsmall = 3, width = 7, big.mark = ",", na.replace = "n.a.")
+fStringMatch	Rscript/kableReg.R	/^fStringMatch <- function(x, sub_x, method = "exact") {$/;"	kind:f	line:2	signature:(x, sub_x, method = "exact")
+fTrans.dtaRds	Rscript/dta-rds.R	/^fTrans.dtaRds <- function(path, name = NULL) {$/;"	kind:f	line:2	signature:(path, name = NULL)
+fXTLag	Rscript/panelFunction.R	/^fXTLag <- function(panel.dt, varlist, n = 1L, new.dt = FALSE) {$/;"	kind:f	line:43	signature:(panel.dt, varlist, n = 1L, new.dt = FALSE)
+fXTSet	Rscript/panelFunction.R	/^fXTSet <- function(data, id, time) {$/;"	kind:f	line:5	signature:(data, id, time)
+fZipChar	Rscript/kableReg.R	/^fZipChar <- function(x) {$/;"	kind:f	line:18	function:fStringMatch	signature:(x)
+fc	index.html	/^<div id="fc"><P>我正在尝试进行一些代码高尔夫挑战，但它们都需要从<wyn>std/;"	kind:I	line:122
+field	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0
+field	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0
+fieldset	pandoc/templates/github-pandoc.css	/^fieldset {$/;"	kind:s	line:263
+fifo	qutebrowser/qute-zotero	/^fifo = open(e["QUTE_FIFO"], "w")$/;"	kind:v	line:27	access:public
+figcaption	pandoc/templates/github-pandoc.css	/^figcaption,$/;"	kind:s	line:14
+figure	pandoc/defaults/mvp.css	/^figure {$/;"	kind:s	line:313
+figure	pandoc/mvp.css	/^figure {$/;"	kind:s	line:313
+figure	pandoc/templates/github-pandoc.css	/^    figure {$/;"	kind:s	line:712
+figure	pandoc/templates/github-pandoc.css	/^figure {$/;"	kind:s	line:251
+figure	pandoc/templates/github-pandoc.css	/^figure,$/;"	kind:s	line:15
+figure	pandoc/templates/mvp.css	/^figure {$/;"	kind:s	line:313
+figure figcaption	pandoc/defaults/mvp.css	/^figure figcaption {$/;"	kind:s	line:322
+figure figcaption	pandoc/mvp.css	/^figure figcaption {$/;"	kind:s	line:322
+figure figcaption	pandoc/templates/mvp.css	/^figure figcaption {$/;"	kind:s	line:322
+figure img	pandoc/defaults/mvp.css	/^figure img {$/;"	kind:s	line:318
+figure img	pandoc/mvp.css	/^figure img {$/;"	kind:s	line:318
+figure img	pandoc/templates/mvp.css	/^figure img {$/;"	kind:s	line:318
+filter	bin/music	/^filter() {$/;"	kind:f	line:3
+finalise	bin/fzfimg	/^function finalise {$/;"	kind:f	line:67
+fo	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0
+fo	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0
+font-awesome-four-css	index.html	/^<link rel="stylesheet" id="font-awesome-four-css" href="https:\/\/www.codenong.com\/wp-content\//;"	kind:I	line:40
+footer	index.html	/^<div id="footer" alog-group="log-footer">$/;"	kind:I	line:602
+footer	pandoc/defaults/mvp.css	/^footer,$/;"	kind:s	line:59
+footer	pandoc/mvp.css	/^footer,$/;"	kind:s	line:59
+footer	pandoc/templates/default.css	/^footer {$/;"	kind:s	line:731
+footer	pandoc/templates/github-pandoc.css	/^footer,$/;"	kind:s	line:16
+footer	pandoc/templates/mvp.css	/^footer,$/;"	kind:s	line:59
+footer	pandoc/templates/vue.css	/^footer {$/;"	kind:s	line:436
+footer	pandoc/vue.css	/^footer {$/;"	kind:s	line:436
+footer	vue.css	/^footer {$/;"	kind:s	line:436
+form	pandoc/defaults/mvp.css	/^form {$/;"	kind:s	line:340
+form	pandoc/mvp.css	/^form {$/;"	kind:s	line:340
+form	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:form:1.0
+form	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:form:1.0
+form	pandoc/templates/mvp.css	/^form {$/;"	kind:s	line:340
+form header	pandoc/defaults/mvp.css	/^form header {$/;"	kind:s	line:351
+form header	pandoc/mvp.css	/^form header {$/;"	kind:s	line:351
+form header	pandoc/templates/mvp.css	/^form header {$/;"	kind:s	line:351
+format-codepoint	bin/uni.raku	/^sub format-codepoint(Int $codepoint) {$/;"	kind:s	line:5
+formx	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0
+grddl	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://www.w3.org/2003/g/data-view#
+grddl	pandoc/odt/meta.xml	/^<office:document-meta xmlns:grddl="http:\/\/www.w3.org\/2003\/g\/data-view#" xmlns:meta="urn:oas/;"	kind:n	line:2	uri:http://www.w3.org/2003/g/data-view#
+grddl	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://www.w3.org/2003/g/data-view#
+h1	pandoc/defaults/mvp.css	/^h1,$/;"	kind:s	line:206
+h1	pandoc/mvp.css	/^h1,$/;"	kind:s	line:206
+h1	pandoc/templates/default.css	/^h1 {$/;"	kind:s	line:381
+h1	pandoc/templates/default.css	/^h1,$/;"	kind:s	line:310
+h1	pandoc/templates/github-pandoc.css	/^h1 {$/;"	kind:s	line:118
+h1	pandoc/templates/github-pandoc.css	/^h1 {$/;"	kind:s	line:480
+h1	pandoc/templates/github-pandoc.css	/^h1,$/;"	kind:s	line:468
+h1	pandoc/templates/mvp.css	/^h1,$/;"	kind:s	line:206
+h1	pandoc/templates/vue.css	/^h1 {$/;"	kind:s	line:56
+h1	pandoc/vue.css	/^h1 {$/;"	kind:s	line:56
+h1	vue.css	/^h1 {$/;"	kind:s	line:56
+h1 + p	pandoc/templates/github-pandoc.css	/^h1 + p,$/;"	kind:s	line:557
+h1 code	pandoc/templates/default.css	/^h1 code {$/;"	kind:s	line:335
+h1 p	pandoc/templates/default.css	/^h1 p,$/;"	kind:s	line:471
+h1 tt	pandoc/templates/default.css	/^h1 tt,$/;"	kind:s	line:334
+h1.title	pandoc/templates/vue.css	/^h1.title {$/;"	kind:c	line:35
+h1.title	pandoc/vue.css	/^h1.title {$/;"	kind:c	line:35
+h1.title	vue.css	/^h1.title {$/;"	kind:c	line:35
+h1::selection	pandoc/templates/github-pandoc.css	/^    h1::selection {$/;"	kind:s	line:773
+h1:hover a.anchor	pandoc/templates/default.css	/^h1:hover a.anchor,$/;"	kind:c	line:325
+h2	pandoc/defaults/mvp.css	/^h2,$/;"	kind:s	line:207
+h2	pandoc/mvp.css	/^h2,$/;"	kind:s	line:207
+h2	pandoc/templates/default.css	/^h2 {$/;"	kind:s	line:387
+h2	pandoc/templates/default.css	/^h2,$/;"	kind:s	line:311
+h2	pandoc/templates/github-pandoc.css	/^h2 {$/;"	kind:s	line:484
+h2	pandoc/templates/github-pandoc.css	/^h2,$/;"	kind:s	line:469
+h2	pandoc/templates/mvp.css	/^h2,$/;"	kind:s	line:207
+h2	pandoc/templates/vue.css	/^h2 {$/;"	kind:s	line:65
+h2	pandoc/vue.css	/^h2 {$/;"	kind:s	line:65
+h2	vue.css	/^h2 {$/;"	kind:s	line:65
+h2 + p	pandoc/templates/github-pandoc.css	/^h2 + p,$/;"	kind:s	line:558
+h2 a	pandoc/templates/default.css	/^h2 a,$/;"	kind:s	line:364
+h2 code	pandoc/templates/default.css	/^h2 code {$/;"	kind:s	line:340
+h2 p	pandoc/templates/default.css	/^h2 p,$/;"	kind:s	line:472
+h2 tt	pandoc/templates/default.css	/^h2 tt,$/;"	kind:s	line:339
+h2::selection	pandoc/templates/github-pandoc.css	/^    h2::selection {$/;"	kind:s	line:776
+h2:hover a.anchor	pandoc/templates/default.css	/^h2:hover a.anchor,$/;"	kind:c	line:326
+h3	pandoc/defaults/mvp.css	/^h3,$/;"	kind:s	line:208
+h3	pandoc/mvp.css	/^h3,$/;"	kind:s	line:208
+h3	pandoc/templates/default.css	/^h3 {$/;"	kind:s	line:395
+h3	pandoc/templates/default.css	/^h3,$/;"	kind:s	line:312
+h3	pandoc/templates/github-pandoc.css	/^h3 {$/;"	kind:s	line:489
+h3	pandoc/templates/github-pandoc.css	/^h3,$/;"	kind:s	line:470
+h3	pandoc/templates/mvp.css	/^h3,$/;"	kind:s	line:208
+h3	pandoc/templates/vue.css	/^h3 {$/;"	kind:s	line:71
+h3	pandoc/vue.css	/^h3 {$/;"	kind:s	line:71
+h3	vue.css	/^h3 {$/;"	kind:s	line:71
+h3 + p	pandoc/templates/github-pandoc.css	/^h3 + p,$/;"	kind:s	line:559
+h3 a	pandoc/templates/default.css	/^h3 a {$/;"	kind:s	line:365
+h3 a:before	pandoc/templates/default.css	/^h3 a:before {$/;"	kind:s	line:369
+h3 a:before	pandoc/templates/vue.css	/^h3 a:before {$/;"	kind:s	line:77
+h3 a:before	pandoc/vue.css	/^h3 a:before {$/;"	kind:s	line:77
+h3 a:before	vue.css	/^h3 a:before {$/;"	kind:s	line:77
+h3 code	pandoc/templates/default.css	/^h3 code {$/;"	kind:s	line:345
+h3 p	pandoc/templates/default.css	/^h3 p,$/;"	kind:s	line:473
+h3 tt	pandoc/templates/default.css	/^h3 tt,$/;"	kind:s	line:344
+h3::selection	pandoc/templates/github-pandoc.css	/^    h3::selection,$/;"	kind:s	line:779
+h3:hover a.anchor	pandoc/templates/default.css	/^h3:hover a.anchor,$/;"	kind:c	line:327
+h4	pandoc/defaults/mvp.css	/^h4,$/;"	kind:s	line:209
+h4	pandoc/mvp.css	/^h4,$/;"	kind:s	line:209
+h4	pandoc/templates/default.css	/^h4 {$/;"	kind:s	line:401
+h4	pandoc/templates/default.css	/^h4,$/;"	kind:s	line:313
+h4	pandoc/templates/github-pandoc.css	/^h4 {$/;"	kind:s	line:493
+h4	pandoc/templates/github-pandoc.css	/^h4,$/;"	kind:s	line:471
+h4	pandoc/templates/mvp.css	/^h4,$/;"	kind:s	line:209
+h4	pandoc/templates/vue.css	/^h4, h5, h6 {$/;"	kind:s	line:89
+h4	pandoc/vue.css	/^h4, h5, h6 {$/;"	kind:s	line:89
+h4	vue.css	/^h4, h5, h6 {$/;"	kind:s	line:89
+h4 + p	pandoc/templates/github-pandoc.css	/^h4 + p,$/;"	kind:s	line:560
+h4 code	pandoc/templates/default.css	/^h4 code {$/;"	kind:s	line:350
+h4 p	pandoc/templates/default.css	/^h4 p,$/;"	kind:s	line:474
+h4 tt	pandoc/templates/default.css	/^h4 tt,$/;"	kind:s	line:349
+h4.author	pandoc/templates/vue.css	/^h4.author {$/;"	kind:c	line:43
+h4.author	pandoc/vue.css	/^h4.author {$/;"	kind:c	line:43
+h4.author	vue.css	/^h4.author {$/;"	kind:c	line:43
+h4.date	pandoc/templates/vue.css	/^h4.date {$/;"	kind:c	line:49
+h4.date	pandoc/vue.css	/^h4.date {$/;"	kind:c	line:49
+h4.date	vue.css	/^h4.date {$/;"	kind:c	line:49
+h4::selection	pandoc/templates/github-pandoc.css	/^    h4::selection,$/;"	kind:s	line:780
+h4:hover a.anchor	pandoc/templates/default.css	/^h4:hover a.anchor,$/;"	kind:c	line:328
+h5	pandoc/defaults/mvp.css	/^h5,$/;"	kind:s	line:210
+h5	pandoc/mvp.css	/^h5,$/;"	kind:s	line:210
+h5	pandoc/templates/default.css	/^h5 {$/;"	kind:s	line:405
+h5	pandoc/templates/default.css	/^h5,$/;"	kind:s	line:314
+h5	pandoc/templates/github-pandoc.css	/^h5 {$/;"	kind:s	line:497
+h5	pandoc/templates/github-pandoc.css	/^h5,$/;"	kind:s	line:472
+h5	pandoc/templates/mvp.css	/^h5,$/;"	kind:s	line:210
+h5	pandoc/templates/vue.css	/^h4, h5, h6 {$/;"	kind:s	line:89
+h5	pandoc/vue.css	/^h4, h5, h6 {$/;"	kind:s	line:89
+h5	vue.css	/^h4, h5, h6 {$/;"	kind:s	line:89
+h5 + p	pandoc/templates/github-pandoc.css	/^h5 + p,$/;"	kind:s	line:561
+h5 code	pandoc/templates/default.css	/^h5 code {$/;"	kind:s	line:355
+h5 p	pandoc/templates/default.css	/^h5 p,$/;"	kind:s	line:475
+h5 tt	pandoc/templates/default.css	/^h5 tt,$/;"	kind:s	line:354
+h5::selection	pandoc/templates/github-pandoc.css	/^    h5::selection,$/;"	kind:s	line:781
+h5:hover a.anchor	pandoc/templates/default.css	/^h5:hover a.anchor,$/;"	kind:c	line:329
+h6	pandoc/defaults/mvp.css	/^h6 {$/;"	kind:s	line:211
+h6	pandoc/mvp.css	/^h6 {$/;"	kind:s	line:211
+h6	pandoc/templates/default.css	/^h6 {$/;"	kind:s	line:315
+h6	pandoc/templates/default.css	/^h6 {$/;"	kind:s	line:409
+h6	pandoc/templates/github-pandoc.css	/^h6 {$/;"	kind:s	line:473
+h6	pandoc/templates/github-pandoc.css	/^h6 {$/;"	kind:s	line:501
+h6	pandoc/templates/mvp.css	/^h6 {$/;"	kind:s	line:211
+h6	pandoc/templates/vue.css	/^h4, h5, h6 {$/;"	kind:s	line:89
+h6	pandoc/vue.css	/^h4, h5, h6 {$/;"	kind:s	line:89
+h6	vue.css	/^h4, h5, h6 {$/;"	kind:s	line:89
+h6 + p	pandoc/templates/github-pandoc.css	/^h6 + p,$/;"	kind:s	line:562
+h6 code	pandoc/templates/default.css	/^h6 code {$/;"	kind:s	line:360
+h6 p	pandoc/templates/default.css	/^h6 p {$/;"	kind:s	line:476
+h6 tt	pandoc/templates/default.css	/^h6 tt,$/;"	kind:s	line:359
+h6::selection	pandoc/templates/github-pandoc.css	/^    h6::selection,$/;"	kind:s	line:782
+h6:hover a.anchor	pandoc/templates/default.css	/^h6:hover a.anchor {$/;"	kind:c	line:330
+handle_extension	bin/scope	/^handle_extension() {$/;"	kind:f	line:28
+handle_fallback	bin/scope	/^handle_fallback() {$/;"	kind:f	line:158
+handle_mime	bin/scope	/^handle_mime() {$/;"	kind:f	line:114
+header	pandoc/defaults/mvp.css	/^header {$/;"	kind:s	line:108
+header	pandoc/defaults/mvp.css	/^header,$/;"	kind:s	line:60
+header	pandoc/mvp.css	/^header {$/;"	kind:s	line:108
+header	pandoc/mvp.css	/^header,$/;"	kind:s	line:60
+header	pandoc/templates/default.css	/^header,$/;"	kind:s	line:728
+header	pandoc/templates/github-pandoc.css	/^header,$/;"	kind:s	line:17
+header	pandoc/templates/mvp.css	/^header {$/;"	kind:s	line:108
+header	pandoc/templates/mvp.css	/^header,$/;"	kind:s	line:60
+header	pandoc/templates/vue.css	/^header,$/;"	kind:s	line:433
+header	pandoc/vue.css	/^header,$/;"	kind:s	line:433
+header	vue.css	/^header,$/;"	kind:s	line:433
+header a b	pandoc/defaults/mvp.css	/^header a b,$/;"	kind:s	line:112
+header a b	pandoc/mvp.css	/^header a b,$/;"	kind:s	line:112
+header a b	pandoc/templates/mvp.css	/^header a b,$/;"	kind:s	line:112
+header a em	pandoc/defaults/mvp.css	/^header a em,$/;"	kind:s	line:113
+header a em	pandoc/mvp.css	/^header a em,$/;"	kind:s	line:113
+header a em	pandoc/templates/mvp.css	/^header a em,$/;"	kind:s	line:113
+header a i	pandoc/defaults/mvp.css	/^header a i,$/;"	kind:s	line:114
+header a i	pandoc/mvp.css	/^header a i,$/;"	kind:s	line:114
+header a i	pandoc/templates/mvp.css	/^header a i,$/;"	kind:s	line:114
+header a strong	pandoc/defaults/mvp.css	/^header a strong {$/;"	kind:s	line:115
+header a strong	pandoc/mvp.css	/^header a strong {$/;"	kind:s	line:115
+header a strong	pandoc/templates/mvp.css	/^header a strong {$/;"	kind:s	line:115
+header nav img	pandoc/defaults/mvp.css	/^header nav img {$/;"	kind:s	line:120
+header nav img	pandoc/mvp.css	/^header nav img {$/;"	kind:s	line:120
+header nav img	pandoc/templates/mvp.css	/^header nav img {$/;"	kind:s	line:120
+hgroup	pandoc/templates/github-pandoc.css	/^hgroup,$/;"	kind:s	line:18
+hidden	pandoc/defaults/mvp.css	/^[hidden] {$/;"	kind:s	line:97
+hidden	pandoc/mvp.css	/^[hidden] {$/;"	kind:s	line:97
+hidden	pandoc/templates/github-pandoc.css	/^[hidden],$/;"	kind:s	line:51
+hidden	pandoc/templates/mvp.css	/^[hidden] {$/;"	kind:s	line:97
+highlight-css	index.html	/^<link rel='stylesheet' id='highlight-css'  href='https:\/\/www.codenong.com\/wp-content\/themes\//;"	kind:I	line:42
+hr	pandoc/defaults/mvp.css	/^hr {$/;"	kind:s	line:67
+hr	pandoc/mvp.css	/^hr {$/;"	kind:s	line:67
+hr	pandoc/templates/default.css	/^hr {$/;"	kind:s	line:428
+hr	pandoc/templates/github-pandoc.css	/^hr {$/;"	kind:s	line:152
+hr	pandoc/templates/github-pandoc.css	/^hr {$/;"	kind:s	line:520
+hr	pandoc/templates/mvp.css	/^hr {$/;"	kind:s	line:67
+hr	pandoc/templates/vue.css	/^hr {$/;"	kind:s	line:100
+hr	pandoc/vue.css	/^hr {$/;"	kind:s	line:100
+hr	vue.css	/^hr {$/;"	kind:s	line:100
+html	pandoc/templates/default.css	/^    html {$/;"	kind:s	line:631
+html	pandoc/templates/default.css	/^html {$/;"	kind:s	line:258
+html	pandoc/templates/github-pandoc.css	/^html {$/;"	kind:s	line:66
+html	pandoc/templates/github-pandoc.css	/^html,$/;"	kind:s	line:421
+html	pandoc/templates/vue.css	/^    html {$/;"	kind:s	line:336
+html	pandoc/templates/vue.css	/^html {$/;"	kind:s	line:6
+html	pandoc/vue.css	/^    html {$/;"	kind:s	line:336
+html	pandoc/vue.css	/^html {$/;"	kind:s	line:6
+html	vue.css	/^    html {$/;"	kind:s	line:336
+html	vue.css	/^html {$/;"	kind:s	line:6
+html input[disabled]	pandoc/templates/github-pandoc.css	/^html input[disabled] {$/;"	kind:s	line:337
+html input[type="button"]	pandoc/templates/github-pandoc.css	/^html input[type="button"], \/* 1 *\/$/;"	kind:s	line:325
+img	pandoc/templates/github-pandoc.css	/^    img,$/;"	kind:s	line:708
+img	pandoc/templates/github-pandoc.css	/^img {$/;"	kind:s	line:231
+img	pandoc/templates/github-pandoc.css	/^img {$/;"	kind:s	line:629
+input	pandoc/defaults/mvp.css	/^input,$/;"	kind:s	line:356
+input	pandoc/defaults/mvp.css	/^input,$/;"	kind:s	line:378
+input	pandoc/mvp.css	/^input,$/;"	kind:s	line:356
+input	pandoc/mvp.css	/^input,$/;"	kind:s	line:378
+input	pandoc/templates/github-pandoc.css	/^input {$/;"	kind:s	line:300
+input	pandoc/templates/github-pandoc.css	/^input,$/;"	kind:s	line:286
+input	pandoc/templates/mvp.css	/^input,$/;"	kind:s	line:356
+input	pandoc/templates/mvp.css	/^input,$/;"	kind:s	line:378
+input::-moz-focus-inner	pandoc/templates/github-pandoc.css	/^input::-moz-focus-inner {$/;"	kind:s	line:380
+input:disabled	pandoc/defaults/mvp.css	/^input:disabled {$/;"	kind:s	line:329
+input:disabled	pandoc/mvp.css	/^input:disabled {$/;"	kind:s	line:329
+input:disabled	pandoc/templates/mvp.css	/^input:disabled {$/;"	kind:s	line:329
+input[readonly]	pandoc/defaults/mvp.css	/^input[readonly],$/;"	kind:s	line:387
+input[readonly]	pandoc/mvp.css	/^input[readonly],$/;"	kind:s	line:387
+input[readonly]	pandoc/templates/mvp.css	/^input[readonly],$/;"	kind:s	line:387
+input[type="checkbox"]	pandoc/defaults/mvp.css	/^input[type="checkbox"],$/;"	kind:s	line:365
+input[type="checkbox"]	pandoc/mvp.css	/^input[type="checkbox"],$/;"	kind:s	line:365
+input[type="checkbox"]	pandoc/templates/github-pandoc.css	/^input[type="checkbox"],$/;"	kind:s	line:346
+input[type="checkbox"]	pandoc/templates/mvp.css	/^input[type="checkbox"],$/;"	kind:s	line:365
+input[type="checkbox"] +label	pandoc/defaults/mvp.css	/^input[type="checkbox"]+label,$/;"	kind:s	line:370
+input[type="checkbox"] +label	pandoc/mvp.css	/^input[type="checkbox"]+label,$/;"	kind:s	line:370
+input[type="checkbox"] +label	pandoc/templates/mvp.css	/^input[type="checkbox"]+label,$/;"	kind:s	line:370
+input[type="radio"]	pandoc/defaults/mvp.css	/^input[type="radio"] {$/;"	kind:s	line:366
+input[type="radio"]	pandoc/mvp.css	/^input[type="radio"] {$/;"	kind:s	line:366
+input[type="radio"]	pandoc/templates/github-pandoc.css	/^input[type="radio"] {$/;"	kind:s	line:347
+input[type="radio"]	pandoc/templates/mvp.css	/^input[type="radio"] {$/;"	kind:s	line:366
+input[type="radio"] +label	pandoc/defaults/mvp.css	/^input[type="radio"]+label {$/;"	kind:s	line:371
+input[type="radio"] +label	pandoc/mvp.css	/^input[type="radio"]+label {$/;"	kind:s	line:371
+input[type="radio"] +label	pandoc/templates/mvp.css	/^input[type="radio"]+label {$/;"	kind:s	line:371
+input[type="reset"]	pandoc/templates/github-pandoc.css	/^input[type="reset"],$/;"	kind:s	line:326
+input[type="search"]	pandoc/templates/github-pandoc.css	/^input[type="search"] {$/;"	kind:s	line:358
+input[type="search"] ::-webkit-search-cancel-button	pandoc/templates/github-pandoc.css	/^input[type="search"]::-webkit-search-cancel-button,$/;"	kind:s	line:370
+input[type="search"] ::-webkit-search-decoration	pandoc/templates/github-pandoc.css	/^input[type="search"]::-webkit-search-decoration {$/;"	kind:s	line:371
+input[type="submit"]	pandoc/templates/github-pandoc.css	/^input[type="submit"] {$/;"	kind:s	line:327
+insert	Study/silent-cron.pl6	/^    method insert(ExecutionResult $r) {$/;"	kind:m	line:53
+insta-add	bin/instapaper	/^insta-add() {$/;"	kind:f	line:26
+insta-api	bin/instapaper	/^local insta-api() {$/;"	kind:f	line:34
+insta-qute-add	bin/instapaper	/^insta-qute-add() {$/;"	kind:f	line:20
+is-success	Study/silent-cron.pl6	/^    method is-success {$/;"	kind:m	line:11
+is_key_value	bin/fzfimg	/^function is_key_value [[ "${@}" == *=* ]]$/;"	kind:f	line:26
+is_option_key	bin/fzfimg	/^function is_option_key [[ "${@}" =~ ^(\\-.*|\\+.*) ]]$/;"	kind:f	line:25
+is_space_before_author_in_text	pandoc/filters/rsbc.lua	/^local function is_space_before_author_in_text(str, spc, cite)$/;"	kind:f	line:1
+items	bin/rofi-copyq	/^    items = []$/;"	kind:v	line:27	access:public
+json_arr	bin/rofi-copyq	/^    json_arr = json.loads(p.stdout)$/;"	kind:v	line:25	access:public
+kableReg	Rscript/kableReg.R	/^kableReg <- function($/;"	kind:f	line:70	function:fStringMatch	signature:(reg.list, style = "text", caption = NULL, label = NULL, align = NULL, escape = TRUE, note = NULL, LANG = NULL, column.name = NULL, var.drop = NULL, var.drop.method = "exact", var.keep = NULL, var.keep.method = "exact", var.order = NULL, var.order.method = "exact", var.label = NULL, single.row = FALSE, coef.alter = NULL, coef.se = TRUE, coef.t = FALSE, coef.p = FALSE, coef.star = c ("***.01", "**.05", "*.1"), digits.coef = 3L, digits.se = 3L, digits.p = 3L, digits.t = 2L, bracket.se = "()", bracket.t = "()", bracket.p = "[]", stat.obs = TRUE, stat.r2 = TRUE, stat.ar2 = FALSE, stat.other = NULL, stat.label = NULL, add.lines = list (), header.add.args = list (), multicolumn = TRUE, header.model = TRUE, header.model.args = list (), header.dependent = FALSE, header.dependent.args = list (), header.number = FALSE, header.number.args = list (), kable.args = list (), kable.style.args = list (), ...)
+kbd	pandoc/templates/github-pandoc.css	/^kbd,$/;"	kind:s	line:172
+kill	Study/silent-cron.pl6	/^        method kill($?) {}$/;"	kind:m	line:152
+label	pandoc/defaults/mvp.css	/^label {$/;"	kind:s	line:392
+label	pandoc/defaults/mvp.css	/^label,$/;"	kind:s	line:357
+label	pandoc/mvp.css	/^label {$/;"	kind:s	line:392
+label	pandoc/mvp.css	/^label,$/;"	kind:s	line:357
+label	pandoc/templates/mvp.css	/^label {$/;"	kind:s	line:392
+label	pandoc/templates/mvp.css	/^label,$/;"	kind:s	line:357
+legend	pandoc/templates/github-pandoc.css	/^legend {$/;"	kind:s	line:274
+li > ol	pandoc/templates/default.css	/^li > ol,$/;"	kind:s	line:423
+li > ul	pandoc/templates/default.css	/^li > ul {$/;"	kind:s	line:424
+li code	pandoc/templates/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+li code	pandoc/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+li code	vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+li p	pandoc/templates/vue.css	/^li p { margin: 0.5em 0; }$/;"	kind:s	line:178
+li p	pandoc/vue.css	/^li p { margin: 0.5em 0; }$/;"	kind:s	line:178
+li p	vue.css	/^li p { margin: 0.5em 0; }$/;"	kind:s	line:178
+li p.first	pandoc/templates/default.css	/^li p.first {$/;"	kind:c	line:480
+li p.first	pandoc/templates/vue.css	/^li p.first {$/;"	kind:c	line:180
+li p.first	pandoc/vue.css	/^li p.first {$/;"	kind:c	line:180
+li p.first	vue.css	/^li p.first {$/;"	kind:c	line:180
+li::selection	pandoc/templates/github-pandoc.css	/^    li::selection,$/;"	kind:s	line:783
+loext	pandoc/odt/META-INF/manifest.xml	/^<manifest:manifest xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0" manifest:/;"	kind:n	line:2	uri:urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0
+loext	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0
+loext	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0
+main	colorpicker.c	/^gint main(gint argc, gchar * argv[]){$/;"	kind:f	line:24	typeref:typename:gint	signature:(gint argc,gchar * argv[])
+main	index.html	/^		<main id="main" class="site-main" role="main">$/;"	kind:I	line:100
+main	pandoc/defaults/mvp.css	/^main {$/;"	kind:s	line:61
+main	pandoc/mvp.css	/^main {$/;"	kind:s	line:61
+main	pandoc/templates/github-pandoc.css	/^main,$/;"	kind:s	line:19
+main	pandoc/templates/mvp.css	/^main {$/;"	kind:s	line:61
+main	qutebrowser/qute-zotero	/^def main():$/;"	kind:f	line:89	access:public	signature:()
+main header	pandoc/defaults/mvp.css	/^main header {$/;"	kind:s	line:104
+main header	pandoc/mvp.css	/^main header {$/;"	kind:s	line:104
+main header	pandoc/templates/mvp.css	/^main header {$/;"	kind:s	line:104
+manifest	pandoc/odt/META-INF/manifest.xml	/^<manifest:manifest xmlns:manifest="urn:oasis:names:tc:opendocument:xmlns:manifest:1.0" manifest:/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:manifest:1.0
+map_options	bin/fzfimg	/^function map_options {$/;"	kind:f	line:29
+mark	pandoc/defaults/mvp.css	/^mark {$/;"	kind:s	line:215
+mark	pandoc/mvp.css	/^mark {$/;"	kind:s	line:215
+mark	pandoc/templates/github-pandoc.css	/^mark {$/;"	kind:s	line:162
+mark	pandoc/templates/mvp.css	/^mark {$/;"	kind:s	line:215
+mark	pandoc/templates/vue.css	/^mark {$/;"	kind:s	line:302
+mark	pandoc/vue.css	/^mark {$/;"	kind:s	line:302
+mark	vue.css	/^mark {$/;"	kind:s	line:302
+masthead	index.html	/^	<header id="masthead" class="site-header">$/;"	kind:I	line:64
+math	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://www.w3.org/1998/Math/MathML
+math	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://www.w3.org/1998/Math/MathML
+maximized	borderless.py	/^maximized='_NET_WM_STATE_MAXIMIZED_HORZ' in state and '_NET_WM_STATE_MAXIMIZED_VERT' in state$/;"	kind:v	line:6	access:public
+menu-box	index.html	/^	<div id="menu-box">$/;"	kind:I	line:73
+meta	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:meta:1.0
+meta	pandoc/odt/meta.xml	/^<office:document-meta xmlns:grddl="http:\/\/www.w3.org\/2003\/g\/data-view#" xmlns:meta="urn:oas/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:meta:1.0
+meta	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:meta:1.0
+middle-header	index.html	/^<div id="middle-header">$/;"	kind:I	line:70
+mute	bin/lmc	/^mute() { pactl set-sink-mute   $sink 1 ;}$/;"	kind:f	line:12
+nav	pandoc/defaults/mvp.css	/^nav {$/;"	kind:s	line:130
+nav	pandoc/mvp.css	/^nav {$/;"	kind:s	line:130
+nav	pandoc/templates/github-pandoc.css	/^nav,$/;"	kind:s	line:20
+nav	pandoc/templates/mvp.css	/^nav {$/;"	kind:s	line:130
+nav ul	pandoc/defaults/mvp.css	/^nav ul {$/;"	kind:s	line:138
+nav ul	pandoc/mvp.css	/^nav ul {$/;"	kind:s	line:138
+nav ul	pandoc/templates/mvp.css	/^nav ul {$/;"	kind:s	line:138
+nav ul li	pandoc/defaults/mvp.css	/^nav ul li {$/;"	kind:s	line:143
+nav ul li	pandoc/mvp.css	/^nav ul li {$/;"	kind:s	line:143
+nav ul li	pandoc/templates/mvp.css	/^nav ul li {$/;"	kind:s	line:143
+nav ul li ul	pandoc/defaults/mvp.css	/^nav ul li ul {$/;"	kind:s	line:155
+nav ul li ul	pandoc/mvp.css	/^nav ul li ul {$/;"	kind:s	line:155
+nav ul li ul	pandoc/templates/mvp.css	/^nav ul li ul {$/;"	kind:s	line:155
+nav ul li ul li	pandoc/defaults/mvp.css	/^nav ul li ul li,$/;"	kind:s	line:181
+nav ul li ul li	pandoc/mvp.css	/^nav ul li ul li,$/;"	kind:s	line:181
+nav ul li ul li	pandoc/templates/mvp.css	/^nav ul li ul li,$/;"	kind:s	line:181
+nav ul li ul li a	pandoc/defaults/mvp.css	/^nav ul li ul li a {$/;"	kind:s	line:182
+nav ul li ul li a	pandoc/mvp.css	/^nav ul li ul li a {$/;"	kind:s	line:182
+nav ul li ul li a	pandoc/templates/mvp.css	/^nav ul li ul li a {$/;"	kind:s	line:182
+nav ul li ul::before	pandoc/defaults/mvp.css	/^nav ul li ul::before {$/;"	kind:s	line:171
+nav ul li ul::before	pandoc/mvp.css	/^nav ul li ul::before {$/;"	kind:s	line:171
+nav ul li ul::before	pandoc/templates/mvp.css	/^nav ul li ul::before {$/;"	kind:s	line:171
+nav ul li:hover ul	pandoc/defaults/mvp.css	/^nav ul li:hover ul {$/;"	kind:s	line:151
+nav ul li:hover ul	pandoc/mvp.css	/^nav ul li:hover ul {$/;"	kind:s	line:151
+nav ul li:hover ul	pandoc/templates/mvp.css	/^nav ul li:hover ul {$/;"	kind:s	line:151
+navigation-toggle	index.html	/^				<a href="#sidr-main" id="navigation-toggle" class="bars">导航<\/a>	$/;"	kind:I	line:87
+newfile	testCollection.sh	/^newfile () {$/;"	kind:f	line:5
+nfgc-main-style-css	index.html	/^<link rel="stylesheet" id="nfgc-main-style-css" href="\/\/www.codenong.com\/wp-content\/themes\//;"	kind:I	line:27
+nobs.felm	Rscript/kableReg.R	/^nobs.felm <- function(objects) {$/;"	kind:f	line:36	function:fStringMatch	signature:(objects)
+notify	qutebrowser/qute-zotero	/^def notify(message):$/;"	kind:f	line:81	access:public	signature:(message)
+notify_error	qutebrowser/qute-zotero	/^def notify_error(message):$/;"	kind:f	line:85	access:public	signature:(message)
+num	bin/rofi-copyq	/^        num = p.stdout.strip()$/;"	kind:v	line:39	access:public
+number	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0
+number	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0
+of	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:of:1.2
+of	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:of:1.2
+office	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:office:1.0
+office	pandoc/odt/meta.xml	/^<office:document-meta xmlns:grddl="http:\/\/www.w3.org\/2003\/g\/data-view#" xmlns:meta="urn:oas/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:office:1.0
+office	pandoc/odt/settings.xml	/^<office:document-settings xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:office:1.0
+office	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:office:1.0
+officeooo	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://openoffice.org/2009/office
+officeooo	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://openoffice.org/2009/office
+ol	pandoc/templates/default.css	/^ol {$/;"	kind:s	line:485
+ol	pandoc/templates/default.css	/^ol,$/;"	kind:s	line:417
+ol	pandoc/templates/github-pandoc.css	/^ol {$/;"	kind:s	line:514
+ol	pandoc/templates/vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+ol	pandoc/templates/vue.css	/^ul, ol {$/;"	kind:s	line:172
+ol	pandoc/vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+ol	pandoc/vue.css	/^ul, ol {$/;"	kind:s	line:172
+ol	vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+ol	vue.css	/^ul, ol {$/;"	kind:s	line:172
+ol li	pandoc/defaults/mvp.css	/^ol li,$/;"	kind:s	line:219
+ol li	pandoc/mvp.css	/^ol li,$/;"	kind:s	line:219
+ol li	pandoc/templates/mvp.css	/^ol li,$/;"	kind:s	line:219
+ol li	pandoc/templates/vue.css	/^ul li, ol li { margin: 0 0; }$/;"	kind:s	line:176
+ol li	pandoc/vue.css	/^ul li, ol li { margin: 0 0; }$/;"	kind:s	line:176
+ol li	vue.css	/^ul li, ol li { margin: 0 0; }$/;"	kind:s	line:176
+ol li > :first-child	pandoc/templates/github-pandoc.css	/^ol li > :first-child {$/;"	kind:s	line:564
+ol li ul:first-of-type	pandoc/templates/github-pandoc.css	/^ol li ul:first-of-type {$/;"	kind:s	line:517
+ol::selection	pandoc/templates/github-pandoc.css	/^    ol::selection {$/;"	kind:s	line:784
+ol:first-child	pandoc/templates/default.css	/^ol:first-child {$/;"	kind:s	line:490
+ol:last-child	pandoc/templates/default.css	/^ol:last-child {$/;"	kind:s	line:495
+ooo	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://openoffice.org/2004/office
+ooo	pandoc/odt/meta.xml	/^<office:document-meta xmlns:grddl="http:\/\/www.w3.org\/2003\/g\/data-view#" xmlns:meta="urn:oas/;"	kind:n	line:2	uri:http://openoffice.org/2004/office
+ooo	pandoc/odt/settings.xml	/^<office:document-settings xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:/;"	kind:n	line:2	uri:http://openoffice.org/2004/office
+ooo	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://openoffice.org/2004/office
+oooc	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://openoffice.org/2004/calc
+oooc	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://openoffice.org/2004/calc
+ooow	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://openoffice.org/2004/writer
+ooow	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://openoffice.org/2004/writer
+p	bin/rofi-copyq	/^    p = sp.run('copyq -'.split(), input=copyq_script_getAll,$/;"	kind:v	line:23	access:public
+p	bin/rofi-copyq	/^    p = sp.run(rofi, input=rofi_input, encoding='utf-8', stdout=sp.PIPE, stderr=sp.PIPE)$/;"	kind:v	line:37	access:public
+p	pandoc/defaults/mvp.css	/^p {$/;"	kind:s	line:224
+p	pandoc/mvp.css	/^p {$/;"	kind:s	line:224
+p	pandoc/templates/default.css	/^p,$/;"	kind:s	line:414
+p	pandoc/templates/github-pandoc.css	/^p {$/;"	kind:s	line:443
+p	pandoc/templates/github-pandoc.css	/^p,$/;"	kind:s	line:505
+p	pandoc/templates/mvp.css	/^p {$/;"	kind:s	line:224
+p	pandoc/templates/vue.css	/^p {$/;"	kind:s	line:93
+p	pandoc/vue.css	/^p {$/;"	kind:s	line:93
+p	vue.css	/^p {$/;"	kind:s	line:93
+p code	pandoc/templates/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+p code	pandoc/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+p code	vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+page	index.html	/^<div id="page" class="hfeed site">$/;"	kind:I	line:63
+parse_options	bin/fzfimg	/^function parse_options {$/;"	kind:f	line:49
+pipe_combine	bin/externalpipe_buffer.sh	/^pipe_combine() {$/;"	kind:f	line:42
+post-1365	index.html	/^							<article id="post-1365" class="post-1365 post type-post status-publish format-standard he/;"	kind:I	line:101
+postExpectedOrFail	qutebrowser/qute-zotero	/^def postExpectedOrFail(endpoint, expect, data=None, headers=None, **kwargs):$/;"	kind:f	line:40	access:public	signature:(endpoint, expect, data=None, headers=None, **kwargs)
+pre	pandoc/defaults/mvp.css	/^pre {$/;"	kind:s	line:229
+pre	pandoc/mvp.css	/^pre {$/;"	kind:s	line:229
+pre	pandoc/templates/default.css	/^    pre {$/;"	kind:s	line:636
+pre	pandoc/templates/default.css	/^    pre {$/;"	kind:s	line:640
+pre	pandoc/templates/github-pandoc.css	/^    pre {$/;"	kind:s	line:725
+pre	pandoc/templates/github-pandoc.css	/^    pre,$/;"	kind:s	line:709
+pre	pandoc/templates/github-pandoc.css	/^pre {$/;"	kind:s	line:183
+pre	pandoc/templates/github-pandoc.css	/^pre {$/;"	kind:s	line:508
+pre	pandoc/templates/github-pandoc.css	/^pre {$/;"	kind:s	line:660
+pre	pandoc/templates/github-pandoc.css	/^pre,$/;"	kind:s	line:173
+pre	pandoc/templates/mvp.css	/^pre {$/;"	kind:s	line:229
+pre	pandoc/templates/vue.css	/^    pre {$/;"	kind:s	line:341
+pre	pandoc/templates/vue.css	/^    pre {$/;"	kind:s	line:345
+pre	pandoc/templates/vue.css	/^pre {$/;"	kind:s	line:256
+pre	pandoc/vue.css	/^    pre {$/;"	kind:s	line:341
+pre	pandoc/vue.css	/^    pre {$/;"	kind:s	line:345
+pre	pandoc/vue.css	/^pre {$/;"	kind:s	line:256
+pre	vue.css	/^    pre {$/;"	kind:s	line:341
+pre	vue.css	/^    pre {$/;"	kind:s	line:345
+pre	vue.css	/^pre {$/;"	kind:s	line:256
+pre > code	pandoc/templates/github-pandoc.css	/^pre > code {$/;"	kind:s	line:644
+pre code	pandoc/defaults/mvp.css	/^pre code,$/;"	kind:s	line:235
+pre code	pandoc/mvp.css	/^pre code,$/;"	kind:s	line:235
+pre code	pandoc/templates/github-pandoc.css	/^    pre code {$/;"	kind:s	line:728
+pre code	pandoc/templates/github-pandoc.css	/^pre code,$/;"	kind:s	line:669
+pre code	pandoc/templates/mvp.css	/^pre code,$/;"	kind:s	line:235
+pre code	pandoc/templates/vue.css	/^pre code {$/;"	kind:s	line:288
+pre code	pandoc/vue.css	/^pre code {$/;"	kind:s	line:288
+pre code	vue.css	/^pre code {$/;"	kind:s	line:288
+pre samp	pandoc/defaults/mvp.css	/^pre samp {$/;"	kind:s	line:236
+pre samp	pandoc/mvp.css	/^pre samp {$/;"	kind:s	line:236
+pre samp	pandoc/templates/mvp.css	/^pre samp {$/;"	kind:s	line:236
+pre tt	pandoc/templates/github-pandoc.css	/^pre tt {$/;"	kind:s	line:670
+primary	index.html	/^	<div id="primary" class="content-area">$/;"	kind:I	line:99
+print_on_winch	bin/fzfimg	/^function print_on_winch {$/;"	kind:f	line:116
+q	pandoc/templates/github-pandoc.css	/^q {$/;"	kind:s	line:191
+readabilityBody	qutebrowser/readability.html	/^<div id="readabilityBody"><div>$/;"	kind:I	line:43
+reader	html-simplify	/^    from breadability.readable import Article as reader$/;"	kind:x	line:71	access:public	nameref:unknown:Article
+reader	qutebrowser/readability	/^        from breadability.readable import Article as reader$/;"	kind:x	line:74	access:public	nameref:unknown:Article
+replace_etal	bin/md2	/^replace_etal () {$/;"	kind:f	line:4
+rofi	bin/rofi-copyq	/^    rofi = f'rofi -dmenu -i -p {title} -format i'.split()$/;"	kind:v	line:34	access:public
+rofi_input	bin/rofi-copyq	/^    rofi_input = '\\n'.join(x for x in items)$/;"	kind:v	line:35	access:public
+rpt	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://openoffice.org/2005/report
+rpt	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://openoffice.org/2005/report
+run-with-timeout	Study/silent-cron.pl6	/^sub run-with-timeout(@cmd, :$timeout, :$executer = Proc::Async) {$/;"	kind:s	line:81
+s_xprop	surf/surf.sh	/^s_xprop() {$/;"	kind:f	line:24
+samp	pandoc/defaults/mvp.css	/^samp {$/;"	kind:s	line:188
+samp	pandoc/mvp.css	/^samp {$/;"	kind:s	line:188
+samp	pandoc/templates/github-pandoc.css	/^samp {$/;"	kind:s	line:174
+samp	pandoc/templates/mvp.css	/^samp {$/;"	kind:s	line:188
+savePage	qutebrowser/qute-zotero	/^def savePage(uri, html, translatorID=None):$/;"	kind:f	line:61	access:public	signature:(uri, html, translatorID=None)
+savePdf	qutebrowser/qute-zotero	/^def savePdf(url):$/;"	kind:f	line:69	access:public	signature:(url)
+saveSnapshot	qutebrowser/qute-zotero	/^def saveSnapshot(url, html):$/;"	kind:f	line:65	access:public	signature:(url, html)
+script	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:script:1.0
+script	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:script:1.0
+section	pandoc/defaults/mvp.css	/^section {$/;"	kind:s	line:74
+section	pandoc/mvp.css	/^section {$/;"	kind:s	line:74
+section	pandoc/templates/github-pandoc.css	/^section,$/;"	kind:s	line:21
+section	pandoc/templates/mvp.css	/^section {$/;"	kind:s	line:74
+section aside	pandoc/defaults/mvp.css	/^section aside {$/;"	kind:s	line:80
+section aside	pandoc/mvp.css	/^section aside {$/;"	kind:s	line:80
+section aside	pandoc/templates/mvp.css	/^section aside {$/;"	kind:s	line:80
+section aside img	pandoc/defaults/mvp.css	/^section aside img {$/;"	kind:s	line:93
+section aside img	pandoc/mvp.css	/^section aside img {$/;"	kind:s	line:93
+section aside img	pandoc/templates/mvp.css	/^section aside img {$/;"	kind:s	line:93
+section aside:hover	pandoc/defaults/mvp.css	/^section aside:hover {$/;"	kind:s	line:89
+section aside:hover	pandoc/mvp.css	/^section aside:hover {$/;"	kind:s	line:89
+section aside:hover	pandoc/templates/mvp.css	/^section aside:hover {$/;"	kind:s	line:89
+section header	pandoc/defaults/mvp.css	/^section header {$/;"	kind:s	line:124
+section header	pandoc/mvp.css	/^section header {$/;"	kind:s	line:124
+section header	pandoc/templates/mvp.css	/^section header {$/;"	kind:s	line:124
+select	pandoc/defaults/mvp.css	/^select,$/;"	kind:s	line:358
+select	pandoc/defaults/mvp.css	/^select,$/;"	kind:s	line:379
+select	pandoc/mvp.css	/^select,$/;"	kind:s	line:358
+select	pandoc/mvp.css	/^select,$/;"	kind:s	line:379
+select	pandoc/templates/github-pandoc.css	/^select {$/;"	kind:s	line:312
+select	pandoc/templates/github-pandoc.css	/^select,$/;"	kind:s	line:287
+select	pandoc/templates/mvp.css	/^select,$/;"	kind:s	line:358
+select	pandoc/templates/mvp.css	/^select,$/;"	kind:s	line:379
+self	colorpicker.c	/^char* self = NULL;$/;"	kind:v	line:12	typeref:typename:char *
+sidebar	index.html	/^	<div id="sidebar" class="widget-area">			$/;"	kind:I	line:591
+sidr-close	index.html	/^				<div id="sidr-close"><a href="https:\/\/www.codenong.com\/#sidr-close" class="toggle-sidr-cl/;"	kind:I	line:83
+sink	Study/silent-cron.pl6	/^                    method sink() {$/;"	kind:m	line:163
+site-nav	index.html	/^			<nav id="site-nav" class="main-nav">$/;"	kind:I	line:86
+site-nav-wrap	index.html	/^			<\/hgroup><!-- .logo-site -->			<div id="site-nav-wrap">$/;"	kind:I	line:82
+small	pandoc/defaults/mvp.css	/^small {$/;"	kind:s	line:243
+small	pandoc/mvp.css	/^small {$/;"	kind:s	line:243
+small	pandoc/templates/github-pandoc.css	/^small {$/;"	kind:s	line:199
+small	pandoc/templates/mvp.css	/^small {$/;"	kind:s	line:243
+sp	bin/rofi-copyq	/^import subprocess as sp$/;"	kind:I	line:6	access:public	nameref:module:subprocess
+st_strings_read	bin/externalpipe_buffer.sh	/^st_strings_read() {$/;"	kind:f	line:6
+start	Study/silent-cron.pl6	/^        method start {$/;"	kind:m	line:159
+start_ueberzug	bin/fzfimg	/^function start_ueberzug {$/;"	kind:f	line:57
+state	borderless.py	/^state = w.property_get("_NET_WM_STATE")[2]$/;"	kind:v	line:5	access:public
+stderr	Study/silent-cron.pl6	/^        method stderr {$/;"	kind:m	line:156
+stdout	Study/silent-cron.pl6	/^        method stdout {$/;"	kind:m	line:153
+strong	pandoc/templates/github-pandoc.css	/^strong {$/;"	kind:s	line:136
+strong	pandoc/templates/vue.css	/^b, strong {$/;"	kind:s	line:235
+strong	pandoc/vue.css	/^b, strong {$/;"	kind:s	line:235
+strong	vue.css	/^b, strong {$/;"	kind:s	line:235
+style	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:style:1.0
+style	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:style:1.0
+sub	pandoc/templates/github-pandoc.css	/^sub {$/;"	kind:s	line:219
+sub	pandoc/templates/github-pandoc.css	/^sub {$/;"	kind:s	line:700
+sub	pandoc/templates/github-pandoc.css	/^sub,$/;"	kind:s	line:207
+sub	pandoc/templates/github-pandoc.css	/^sub,$/;"	kind:s	line:692
+summary	pandoc/templates/github-pandoc.css	/^summary {$/;"	kind:s	line:22
+sup	pandoc/defaults/mvp.css	/^sup {$/;"	kind:s	line:247
+sup	pandoc/mvp.css	/^sup {$/;"	kind:s	line:247
+sup	pandoc/templates/github-pandoc.css	/^sup {$/;"	kind:s	line:208
+sup	pandoc/templates/github-pandoc.css	/^sup {$/;"	kind:s	line:215
+sup	pandoc/templates/github-pandoc.css	/^sup,$/;"	kind:s	line:691
+sup	pandoc/templates/mvp.css	/^sup {$/;"	kind:s	line:247
+surf_strings_read	bin/externalpipe_buffer.sh	/^surf_strings_read() {$/;"	kind:f	line:15
+svg	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0
+svg	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0
+svg:not(:root)	pandoc/templates/github-pandoc.css	/^svg:not(:root) {$/;"	kind:s	line:239
+syntaxhighlighteranchor	index.html	/^<style type="text\/css" id="syntaxhighlighteranchor"><\/style>$/;"	kind:I	line:53
+table	pandoc/defaults/mvp.css	/^table {$/;"	kind:s	line:398
+table	pandoc/mvp.css	/^table {$/;"	kind:s	line:398
+table	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:table:1.0
+table	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:table:1.0
+table	pandoc/templates/default.css	/^    table,$/;"	kind:s	line:635
+table	pandoc/templates/default.css	/^table {$/;"	kind:s	line:419
+table	pandoc/templates/default.css	/^table {$/;"	kind:s	line:506
+table	pandoc/templates/github-pandoc.css	/^    table,$/;"	kind:s	line:711
+table	pandoc/templates/github-pandoc.css	/^table {$/;"	kind:s	line:403
+table	pandoc/templates/github-pandoc.css	/^table {$/;"	kind:s	line:607
+table	pandoc/templates/github-pandoc.css	/^table,$/;"	kind:s	line:507
+table	pandoc/templates/mvp.css	/^table {$/;"	kind:s	line:398
+table	pandoc/templates/vue.css	/^    table,$/;"	kind:s	line:340
+table	pandoc/templates/vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+table	pandoc/templates/vue.css	/^table {$/;"	kind:s	line:193
+table	pandoc/vue.css	/^    table,$/;"	kind:s	line:340
+table	pandoc/vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+table	pandoc/vue.css	/^table {$/;"	kind:s	line:193
+table	vue.css	/^    table,$/;"	kind:s	line:340
+table	vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+table	vue.css	/^table {$/;"	kind:s	line:193
+table td	pandoc/defaults/mvp.css	/^table td,$/;"	kind:s	line:409
+table td	pandoc/mvp.css	/^table td,$/;"	kind:s	line:409
+table td	pandoc/templates/github-pandoc.css	/^table td {$/;"	kind:s	line:618
+table td	pandoc/templates/mvp.css	/^table td,$/;"	kind:s	line:409
+table th	pandoc/defaults/mvp.css	/^table th,$/;"	kind:s	line:410
+table th	pandoc/mvp.css	/^table th,$/;"	kind:s	line:410
+table th	pandoc/templates/github-pandoc.css	/^table th {$/;"	kind:s	line:613
+table th	pandoc/templates/mvp.css	/^table th,$/;"	kind:s	line:410
+table thead	pandoc/defaults/mvp.css	/^table thead {$/;"	kind:s	line:416
+table thead	pandoc/mvp.css	/^table thead {$/;"	kind:s	line:416
+table thead	pandoc/templates/mvp.css	/^table thead {$/;"	kind:s	line:416
+table thead th:first-child	pandoc/defaults/mvp.css	/^table thead th:first-child {$/;"	kind:s	line:425
+table thead th:first-child	pandoc/defaults/mvp.css	/^table thead th:first-child,$/;"	kind:s	line:433
+table thead th:first-child	pandoc/mvp.css	/^table thead th:first-child {$/;"	kind:s	line:425
+table thead th:first-child	pandoc/mvp.css	/^table thead th:first-child,$/;"	kind:s	line:433
+table thead th:first-child	pandoc/templates/mvp.css	/^table thead th:first-child {$/;"	kind:s	line:425
+table thead th:first-child	pandoc/templates/mvp.css	/^table thead th:first-child,$/;"	kind:s	line:433
+table thead th:last-child	pandoc/defaults/mvp.css	/^table thead th:last-child {$/;"	kind:s	line:429
+table thead th:last-child	pandoc/mvp.css	/^table thead th:last-child {$/;"	kind:s	line:429
+table thead th:last-child	pandoc/templates/mvp.css	/^table thead th:last-child {$/;"	kind:s	line:429
+table tr	pandoc/defaults/mvp.css	/^table tr {$/;"	kind:s	line:411
+table tr	pandoc/mvp.css	/^table tr {$/;"	kind:s	line:411
+table tr	pandoc/templates/default.css	/^table tr {$/;"	kind:s	line:511
+table tr	pandoc/templates/github-pandoc.css	/^table tr {$/;"	kind:s	line:622
+table tr	pandoc/templates/mvp.css	/^table tr {$/;"	kind:s	line:411
+table tr	pandoc/templates/vue.css	/^table tr {$/;"	kind:s	line:198
+table tr	pandoc/vue.css	/^table tr {$/;"	kind:s	line:198
+table tr	vue.css	/^table tr {$/;"	kind:s	line:198
+table tr td	pandoc/templates/default.css	/^table tr td {$/;"	kind:s	line:531
+table tr td	pandoc/templates/vue.css	/^table tr td {$/;"	kind:s	line:218
+table tr td	pandoc/vue.css	/^table tr td {$/;"	kind:s	line:218
+table tr td	vue.css	/^table tr td {$/;"	kind:s	line:218
+table tr td:first-child	pandoc/defaults/mvp.css	/^table tr td:first-child {$/;"	kind:s	line:434
+table tr td:first-child	pandoc/mvp.css	/^table tr td:first-child {$/;"	kind:s	line:434
+table tr td:first-child	pandoc/templates/default.css	/^table tr td:first-child {$/;"	kind:s	line:539
+table tr td:first-child	pandoc/templates/mvp.css	/^table tr td:first-child {$/;"	kind:s	line:434
+table tr td:first-child	pandoc/templates/vue.css	/^table tr td:first-child {$/;"	kind:s	line:226
+table tr td:first-child	pandoc/vue.css	/^table tr td:first-child {$/;"	kind:s	line:226
+table tr td:first-child	vue.css	/^table tr td:first-child {$/;"	kind:s	line:226
+table tr td:last-child	pandoc/templates/default.css	/^table tr td:last-child {$/;"	kind:s	line:544
+table tr td:last-child	pandoc/templates/vue.css	/^table tr td:last-child {$/;"	kind:s	line:231
+table tr td:last-child	pandoc/vue.css	/^table tr td:last-child {$/;"	kind:s	line:231
+table tr td:last-child	vue.css	/^table tr td:last-child {$/;"	kind:s	line:231
+table tr th	pandoc/templates/default.css	/^table tr th {$/;"	kind:s	line:522
+table tr th	pandoc/templates/vue.css	/^table tr th {$/;"	kind:s	line:209
+table tr th	pandoc/vue.css	/^table tr th {$/;"	kind:s	line:209
+table tr th	vue.css	/^table tr th {$/;"	kind:s	line:209
+table tr th:first-child	pandoc/templates/default.css	/^table tr th:first-child,$/;"	kind:s	line:538
+table tr th:first-child	pandoc/templates/vue.css	/^table tr th:first-child,$/;"	kind:s	line:225
+table tr th:first-child	pandoc/vue.css	/^table tr th:first-child,$/;"	kind:s	line:225
+table tr th:first-child	vue.css	/^table tr th:first-child,$/;"	kind:s	line:225
+table tr th:last-child	pandoc/templates/default.css	/^table tr th:last-child,$/;"	kind:s	line:543
+table tr th:last-child	pandoc/templates/vue.css	/^table tr th:last-child,$/;"	kind:s	line:230
+table tr th:last-child	pandoc/vue.css	/^table tr th:last-child,$/;"	kind:s	line:230
+table tr th:last-child	vue.css	/^table tr th:last-child,$/;"	kind:s	line:230
+table tr:nth-child(2n)	pandoc/templates/default.css	/^table tr:nth-child(2n),$/;"	kind:s	line:517
+table tr:nth-child(2n)	pandoc/templates/github-pandoc.css	/^table tr:nth-child(2n) {$/;"	kind:s	line:626
+table tr:nth-child(2n)	pandoc/templates/vue.css	/^table tr:nth-child(2n),$/;"	kind:s	line:204
+table tr:nth-child(2n)	pandoc/vue.css	/^table tr:nth-child(2n),$/;"	kind:s	line:204
+table tr:nth-child(2n)	vue.css	/^table tr:nth-child(2n),$/;"	kind:s	line:204
+table tr:nth-child(even)	pandoc/defaults/mvp.css	/^table tr:nth-child(even) {$/;"	kind:s	line:438
+table tr:nth-child(even)	pandoc/mvp.css	/^table tr:nth-child(even) {$/;"	kind:s	line:438
+table tr:nth-child(even)	pandoc/templates/mvp.css	/^table tr:nth-child(even) {$/;"	kind:s	line:438
+tableooo	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://openoffice.org/2009/table
+tableooo	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://openoffice.org/2009/table
+tail	Study/silent-cron.pl6	/^    method tail(Int $count) {$/;"	kind:m	line:61
+td::selection	pandoc/templates/github-pandoc.css	/^    td::selection,$/;"	kind:s	line:801
+template	pandoc/templates/github-pandoc.css	/^template {$/;"	kind:s	line:52
+test-add	bin/instapaper	/^test-add() {$/;"	kind:f	line:75
+text	bin/rofi-copyq	/^        text = " ".join(filter(None, text.replace("\\n", " ").split(" ")))$/;"	kind:v	line:30	access:public
+text	bin/rofi-copyq	/^        text = json_obj['text']$/;"	kind:v	line:29	access:public
+text	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:text:1.0
+text	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:oasis:names:tc:opendocument:xmlns:text:1.0
+text-2	index.html	/^				<aside id="text-2" class="widget widget_text">			<div class="textwidget"><p><script src="\/a/;"	kind:I	line:596
+text-3	index.html	/^						<aside id="text-3" class="widget widget_text">			<div class="textwidget"><p><script src="\//;"	kind:I	line:593
+textarea	pandoc/defaults/mvp.css	/^textarea {$/;"	kind:s	line:359
+textarea	pandoc/defaults/mvp.css	/^textarea {$/;"	kind:s	line:380
+textarea	pandoc/mvp.css	/^textarea {$/;"	kind:s	line:359
+textarea	pandoc/mvp.css	/^textarea {$/;"	kind:s	line:380
+textarea	pandoc/templates/github-pandoc.css	/^textarea {$/;"	kind:s	line:288
+textarea	pandoc/templates/github-pandoc.css	/^textarea {$/;"	kind:s	line:390
+textarea	pandoc/templates/mvp.css	/^textarea {$/;"	kind:s	line:359
+textarea	pandoc/templates/mvp.css	/^textarea {$/;"	kind:s	line:380
+textarea[readonly]	pandoc/defaults/mvp.css	/^textarea[readonly] {$/;"	kind:s	line:388
+textarea[readonly]	pandoc/mvp.css	/^textarea[readonly] {$/;"	kind:s	line:388
+textarea[readonly]	pandoc/templates/mvp.css	/^textarea[readonly] {$/;"	kind:s	line:388
+th::selection	pandoc/templates/github-pandoc.css	/^    th::selection,$/;"	kind:s	line:802
+thead	pandoc/templates/default.css	/^thead {$/;"	kind:s	line:518
+thead	pandoc/templates/vue.css	/^thead {$/;"	kind:s	line:205
+thead	pandoc/vue.css	/^thead {$/;"	kind:s	line:205
+thead	vue.css	/^thead {$/;"	kind:s	line:205
+title	bin/rofi-copyq	/^    title = 'rofi-copyq'$/;"	kind:v	line:33	access:public
+title	html-simplify	/^    title = doc._original_document.title$/;"	kind:v	line:73	access:public
+title	html-simplify	/^    title = doc.title()$/;"	kind:v	line:68	access:public
+title	qutebrowser/readability	/^        title = doc._original_document.title$/;"	kind:v	line:76	access:public
+title	qutebrowser/readability	/^        title = doc.title()$/;"	kind:v	line:81	access:public
+title-block-header	pandoc/templates/normal.html	/^<header id="title-block-header">$/;"	kind:I	line:39
+title-block-header	pandoc/templates/template.html	/^<header id="title-block-header">$/;"	kind:I	line:38
+title-block-header	pandoc/templates/vue.html	/^<header id="title-block-header">$/;"	kind:I	line:39
+tmpfile	qutebrowser/readability	/^tmpfile = os.path.join($/;"	kind:v	line:16	access:public
+toggle	bin/lmc	/^toggle() { pactl set-sink-mute $sink toggle ;}$/;"	kind:f	line:11
+top-header	index.html	/^	<nav id="top-header">$/;"	kind:I	line:65
+top-menu	index.html	/^		<div id="top-menu">$/;"	kind:I	line:74
+trigger_sigusr1	bin/externalpipe_buffer.sh	/^trigger_sigusr1() {$/;"	kind:f	line:26
+tt	pandoc/templates/default.css	/^#write code, tt {$/;"	kind:s	line:581
+tt	pandoc/templates/github-pandoc.css	/^tt {$/;"	kind:s	line:633
+ul	pandoc/templates/default.css	/^ul,$/;"	kind:s	line:416
+ul	pandoc/templates/default.css	/^ul,$/;"	kind:s	line:484
+ul	pandoc/templates/github-pandoc.css	/^ul {$/;"	kind:s	line:511
+ul	pandoc/templates/vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+ul	pandoc/templates/vue.css	/^ul, ol {$/;"	kind:s	line:172
+ul	pandoc/vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+ul	pandoc/vue.css	/^ul, ol {$/;"	kind:s	line:172
+ul	vue.css	/^blockquote, ul, ol, table {$/;"	kind:s	line:133
+ul	vue.css	/^ul, ol {$/;"	kind:s	line:172
+ul code	pandoc/templates/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+ul code	pandoc/vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+ul code	vue.css	/^p code, ul code, li code, dd code, dl code, dt code {$/;"	kind:s	line:280
+ul li	pandoc/defaults/mvp.css	/^ul li {$/;"	kind:s	line:220
+ul li	pandoc/mvp.css	/^ul li {$/;"	kind:s	line:220
+ul li	pandoc/templates/mvp.css	/^ul li {$/;"	kind:s	line:220
+ul li	pandoc/templates/vue.css	/^ul li, ol li { margin: 0 0; }$/;"	kind:s	line:176
+ul li	pandoc/vue.css	/^ul li, ol li { margin: 0 0; }$/;"	kind:s	line:176
+ul li	vue.css	/^ul li, ol li { margin: 0 0; }$/;"	kind:s	line:176
+ul li > :first-child	pandoc/templates/github-pandoc.css	/^ul li > :first-child,$/;"	kind:s	line:563
+ul:first-child	pandoc/templates/default.css	/^ul:first-child,$/;"	kind:s	line:489
+ul:last-child	pandoc/templates/default.css	/^ul:last-child,$/;"	kind:s	line:494
+up	bin/lmc	/^up() { pactl set-sink-volume   $sink +"$NUM"% ;}$/;"	kind:f	line:13
+usage	bin/backup_inc	/^usage() {$/;"	kind:f	line:8
+usage	colorpicker.c	/^void usage(){$/;"	kind:f	line:14	typeref:typename:void	signature:()
+useScript	README.md	/^# useScript$/;"	kind:c	line:1
+video	pandoc/templates/github-pandoc.css	/^video {$/;"	kind:s	line:32
+w	borderless.py	/^w=window_foreign_new((get_default_root_window().property_get("_NET_ACTIVE_WINDOW")[2][0]))$/;"	kind:v	line:4	access:public
+xforms	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://www.w3.org/2002/xforms
+xhtml	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://www.w3.org/1999/xhtml
+xhtml	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://www.w3.org/1999/xhtml
+xlink	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://www.w3.org/1999/xlink
+xlink	pandoc/odt/meta.xml	/^<office:document-meta xmlns:grddl="http:\/\/www.w3.org\/2003\/g\/data-view#" xmlns:meta="urn:oas/;"	kind:n	line:2	uri:http://www.w3.org/1999/xlink
+xlink	pandoc/odt/settings.xml	/^<office:document-settings xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:/;"	kind:n	line:2	uri:http://www.w3.org/1999/xlink
+xlink	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:http://www.w3.org/1999/xlink
+xsd	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://www.w3.org/2001/XMLSchema
+xsi	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://www.w3.org/2001/XMLSchema-instance
+zoteroapi	qutebrowser/qute-zotero	/^zoteroapi = "http:\/\/127.0.0.1:23119\/connector\/"$/;"	kind:v	line:26	access:public
+zshz	z.sh	/^zshz () {$/;"	kind:f	line:3
+关于python：如何从stdin中读取？	index.html	/^						<h1 class="entry-title">关于python：如何从stdin中读取？<\/h1>$/;"	kind:h	line:103
+码农家园	index.html	/^				<\/h1>$/;"	kind:h	line:81
+系统命令	LinuxCommand.md	/^## 系统命令$/;"	kind:s	line:3	chapter:Linux Commad

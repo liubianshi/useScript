@@ -107,11 +107,6 @@ e () {
     fi
     return 0
 }
-emd () {
-    local font="Sarasa Term Slab SC Regular"
-    local nvim_option="-c 'set background=light' -c 'colorscheme PaperColor'"
-    xfce4-terminal --font="$font" -e "nvim $nvim_option" >/dev/null 2>&1
-}
 
 # 在日记文件夹快速新建并打开文件 {{{1
 N() {

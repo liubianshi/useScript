@@ -96,14 +96,17 @@ temp () {
 }
 
 e () {
+    local font="Sarasa Term Slab SC Regular"
+    local nvim_option="-c 'set background=light' -c 'colorscheme PaperColor'"
     if [ $# -eq 0 ]; then
-        nvim "temp.md"
+        nvim
+    elif [ $# -eq 1 ] && [[ "$1" =~ \.[Rr](md|markdown) ]]; then
+        xfce4-terminal --font="$font" -e "nvim $nvim_option $1" >/dev/null 2>&1
     else
         nvim "$@"
     fi
     return 0
 }
-
 
 # 在日记文件夹快速新建并打开文件 {{{1
 N() {

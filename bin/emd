@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+font="Sarasa Term Slab SC Regular"
+nvim_option="-c 'set background=light' -c 'colorscheme PaperColor'"
+
+xfce4-terminal --font="$font" -e "nvim $nvim_option $@" >/dev/null 2>&1
+
+exit 0

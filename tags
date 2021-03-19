@@ -8,7 +8,7 @@
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	5.9.0	/f82c53556/
+!_TAG_PROGRAM_VERSION	5.9.0	/0e4c307b3/
 #md-notification:before	pandoc/templates/default.css	/^#md-notification:before {$/;"	kind:i	line:718
 #md-notification:before	pandoc/templates/vue.css	/^#md-notification:before {$/;"	kind:i	line:423
 #md-notification:before	pandoc/vue.css	/^#md-notification:before {$/;"	kind:i	line:423
@@ -340,8 +340,8 @@ a:hover	pandoc/templates/github-pandoc.css	/^a:hover {$/;"	kind:s	line:105
 a:hover	pandoc/templates/mvp.css	/^a:hover {$/;"	kind:s	line:267
 abbr[title]	pandoc/templates/github-pandoc.css	/^abbr[title] {$/;"	kind:s	line:127
 ad_sg	index.html	/^					<div id="ad_sg" class="ad-pc">$/;"	kind:I	line:118
-adjust_docx	bin/md2	/^adjust_docx () {$/;"	kind:f	line:16
-adjust_html	bin/md2	/^adjust_html () {$/;"	kind:f	line:9
+adjust_docx	bin/md2	/^adjust_docx () {$/;"	kind:f	line:31
+adjust_html	bin/md2	/^adjust_html () {$/;"	kind:f	line:24
 anonFunc69274ad80600	Rscript/kableReg.R	/^                    map_dfc(function(x) {$/;"	kind:f	line:205	function:fStringMatch.kableReg	signature:(x)
 article	pandoc/templates/github-pandoc.css	/^article,$/;"	kind:s	line:11
 article aside	pandoc/defaults/mvp.css	/^article aside {$/;"	kind:s	line:43
@@ -1045,7 +1045,8 @@ q	pandoc/templates/github-pandoc.css	/^q {$/;"	kind:s	line:191
 readabilityBody	qutebrowser/readability.html	/^<div id="readabilityBody"><div>$/;"	kind:I	line:43
 reader	html-simplify	/^    from breadability.readable import Article as reader$/;"	kind:x	line:71	access:public	nameref:unknown:Article
 reader	qutebrowser/readability	/^        from breadability.readable import Article as reader$/;"	kind:x	line:74	access:public	nameref:unknown:Article
-replace_etal	bin/md2	/^replace_etal () {$/;"	kind:f	line:4
+replace_etal	bin/md2	/^replace_etal () {$/;"	kind:f	line:19
+rmd_extra_filter	bin/md2	/^rmd_extra_filter () {$/;"	kind:f	line:4
 rofi	bin/rofi-copyq	/^    rofi = f'rofi -dmenu -i -p {title} -format i'.split()$/;"	kind:v	line:34	access:public
 rofi_input	bin/rofi-copyq	/^    rofi_input = '\\n'.join(x for x in items)$/;"	kind:v	line:35	access:public
 rpt	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:http://openoffice.org/2005/report

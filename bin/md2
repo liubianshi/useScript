@@ -1,6 +1,21 @@
 #!/usr/bin/env bash
 set -e
 
+rmd_extra_filter () {
+    local Rlib=$(Rscript --vanilla -e 'cat(.libPaths()[1])')
+    local bookdown_lua_filter=( \
+        bookdown/rmarkdown/lua/custom-environment.lua \
+        rmarkdown/rmarkdown/lua/pagebreak.lua \
+        rmarkdown/rmarkdown/lua/latex-div.lua \
+    )
+    local extra=""
+    for l in $bookdown_lua_filter; do
+        extra="$extra --lua-filter \"$Rlib/$l\""
+    done
+    echo "$extra"
+    return 0
+}
+
 replace_etal () {
     perl -CSD -Mutf8 -i -pe \
         's/([a-zA-Z])(,\s|\s)(等)/\1\2et al./g; s/\s(等(\s\(|,\s|<\/a>|<\/w:t>))/\1/g' "$1"
@@ -33,11 +48,13 @@ adjust_docx () {
     cd -
 }
 
-while getopts ':ov' opt; do
+while getopts ':ovr' opt; do
     case "$opt" in
         o)  openfile=1
             ;;
         v) set -v
+            ;;
+        r) rmd=1
             ;;
         *)  echo "md2 [-o] <output-file> <input-file>"
             exit 1
@@ -53,7 +70,7 @@ outfile=$(basename "$infile")
 outfile="${outfile%.md}.$outtype"
 [ "$outtype" = "html" ] || {
     outdir="$HOME/Documents/genfile/$(date +%F)"
-    mkdir -p "$outdir" && cd "$outdir" || exit 2
+    mkdir -p "$outdir" && cd "$outdir" || exit 
 }
 
 pandoc +RTS -M512M -RTS "$infile" -d2"$outtype" --lua-filter rsbc.lua -o "$outfile" || \

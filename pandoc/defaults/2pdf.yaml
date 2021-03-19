@@ -5,6 +5,7 @@ template: "eisvogel"
 listings: true
 pdf-engine: xelatex
 bibliography: "/home/liubianshi/Documents/paper_ref.bib"
+citeproc: true
 csl: "/home/liubianshi/.pandoc/china-national-standard-gb-t-7714-2015-author-date.csl"
 include-in-header:
     - "/home/liubianshi/useScript/header.tex"

@@ -1,20 +1,5 @@
 #!/usr/bin/env bash
-set -e
-
-rmd_extra_filter () {
-    local Rlib=$(Rscript --vanilla -e 'cat(.libPaths()[1])')
-    local bookdown_lua_filter=( \
-        bookdown/rmarkdown/lua/custom-environment.lua \
-        rmarkdown/rmarkdown/lua/pagebreak.lua \
-        rmarkdown/rmarkdown/lua/latex-div.lua \
-    )
-    local extra=""
-    for l in $bookdown_lua_filter; do
-        extra="$extra --lua-filter \"$Rlib/$l\""
-    done
-    echo "$extra"
-    return 0
-}
+set -evx
 
 replace_etal () {
     perl -CSD -Mutf8 -i -pe \
@@ -48,15 +33,18 @@ adjust_docx () {
     cd -
 }
 
+openfile=
+bookdown_lua_filter=
+
 while getopts ':ovr' opt; do
     case "$opt" in
         o)  openfile=1
             ;;
-        v) set -v
+        v)  set -v
             ;;
-        r) rmd=1
+        r)  rmd=1
             ;;
-        *)  echo "md2 [-o] <output-file> <input-file>"
+        *)  echo "md2 [-ovr] <output-file> <input-file>"
             exit 1
             ;;
     esac
@@ -73,8 +61,18 @@ outfile="${outfile%.md}.$outtype"
     mkdir -p "$outdir" && cd "$outdir" || exit 
 }
 
-pandoc +RTS -M512M -RTS "$infile" -d2"$outtype" --lua-filter rsbc.lua -o "$outfile" || \
-    { echo "file transform failure"; exit 3; }
+if [ -z $rmd ]; then
+    pandoc +RTS -M512M -RTS "$infile" -d2"$outtype" $bookdown_lua_filter --lua-filter rsbc.lua -o "$outfile" || \
+        { echo "file transform failure"; exit 3; }
+else
+    Rlib=$(Rscript --vanilla -e 'cat(.libPaths()[1])')
+    pandoc +RTS -M512M -RTS "$infile" -o "$outfile" \
+        --lua-filter "$Rlib/bookdown/rmarkdown/lua/custom-environment.lua" \
+        --lua-filter "$Rlib/rmarkdown/rmarkdown/lua/pagebreak.lua" \
+        --lua-filter "$Rlib/rmarkdown/rmarkdown/lua/latex-div.lua" \
+        --lua-filter rsbc.lua -d2"$outtype" --variable graphics  || \
+        { echo "file transform failure"; exit 3; }
+fi
 case "$outtype" in
     html) adjust_html "$outfile" ;;
     docx) adjust_docx "$outfile" ;;

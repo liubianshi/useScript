@@ -6,8 +6,7 @@ from: markdown+emoji+east_asian_line_breaks+autolink_bare_uris
 highlight-style: "pygments"
 template: "eisvogel"
 listings: true
-pdf-engine: xelatex
-citeproc: true
+cite-method: biblatex
 include-in-header:
     - "/home/liubianshi/useScript/header.tex"
     - "/home/liubianshi/useScript/code.tex"
@@ -15,8 +14,13 @@ variables:
     CJKmainfont: Noto Serif CJK SC
     CJKsansfont: Noto Sans CJK SC
     CJKmonofont: Sarasa Mono SC
+    indent: true
     mainfont: P052 Roman
     sansfont: Noto Sans
     monofont: Fira Code
-    biblio-style: gb7714-2015ay
+    biblio-style: "gb7714-2015ay"
     bibliography: "/home/liubianshi/Documents/paper_ref.bib"
+    biblio-title: "参考文献"
+    biblatexoptions:
+        - "backend=biber"
+        - "gbnamefmt=familyahead" 

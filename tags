@@ -8,7 +8,7 @@
 !_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
 !_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
 !_TAG_PROGRAM_URL	https://ctags.io/	/official site/
-!_TAG_PROGRAM_VERSION	5.9.0	/p5.9.20210110.0/
+!_TAG_PROGRAM_VERSION	5.9.0	/0e4c307b3/
 #md-notification:before	pandoc/templates/default.css	/^#md-notification:before {$/;"	kind:i	line:718
 #md-notification:before	pandoc/templates/vue.css	/^#md-notification:before {$/;"	kind:i	line:423
 #md-notification:before	pandoc/vue.css	/^#md-notification:before {$/;"	kind:i	line:423
@@ -256,9 +256,11 @@ $toc-title$	pandoc/templates/vue.html	/^<h2 id="$idprefix$toc-title">$toc-title$
 EOF	bin/plan	/^        *) cat <<-EOF$/;"	kind:h	line:43
 EOF	gfwlist2privoxy	/^cat << EOF$/;"	kind:h	line:41
 EOF	testCollection.sh	/^    content=$(cat <<-EOF$/;"	kind:h	line:79
+ElkinsEtAl2006_4_811	test.bib	/^@article{ElkinsEtAl2006_4_811,$/;"	kind:a	line:2
 ExecutionResult	Study/silent-cron.pl6	/^my class ExecutionResult {$/;"	kind:c	line:6
 ExecutionResultRepository	Study/silent-cron.pl6	/^class ExecutionResultRepository {$/;"	kind:c	line:17
 Frpc 或内网穿透	LinuxCommand.md	/^## Frpc 或内网穿透$/;"	kind:s	line:20	chapter:Linux Commad
+GeShunQiEtAl2016_01_82	test.bib	/^@article{GeShunQiEtAl2016_01_82,$/;"	kind:a	line:21
 HEADER	html-simplify	/^HEADER = """$/;"	kind:v	line:12	access:public
 HEADER	qutebrowser/readability	/^HEADER = """$/;"	kind:v	line:25	access:public
 How do you read from stdin?	index.html	/^							<h2>How do you read from stdin?<\/h2>$/;"	kind:i	line:121
@@ -340,8 +342,10 @@ a:hover	pandoc/templates/github-pandoc.css	/^a:hover {$/;"	kind:s	line:105
 a:hover	pandoc/templates/mvp.css	/^a:hover {$/;"	kind:s	line:267
 abbr[title]	pandoc/templates/github-pandoc.css	/^abbr[title] {$/;"	kind:s	line:127
 ad_sg	index.html	/^					<div id="ad_sg" class="ad-pc">$/;"	kind:I	line:118
-adjust_docx	bin/md2	/^adjust_docx () {$/;"	kind:f	line:16
+adjust_docx	bin/md2	/^adjust_docx () {$/;"	kind:f	line:21
 adjust_html	bin/md2	/^adjust_html () {$/;"	kind:f	line:9
+adjust_tex	bin/md2	/^adjust_tex () {$/;"	kind:f	line:16
+anonFunc69274ad80600	Rscript/kableReg.R	/^                    map_dfc(function(x) {$/;"	kind:f	line:205	function:fStringMatch.kableReg	signature:(x)
 article	pandoc/templates/github-pandoc.css	/^article,$/;"	kind:s	line:11
 article aside	pandoc/defaults/mvp.css	/^article aside {$/;"	kind:s	line:43
 article aside	pandoc/mvp.css	/^article aside {$/;"	kind:s	line:43
@@ -585,18 +589,22 @@ e	qutebrowser/qute-zotero	/^from os import environ as e$/;"	kind:x	line:21	acces
 em	pandoc/templates/vue.css	/^em {$/;"	kind:s	line:239
 em	pandoc/vue.css	/^em {$/;"	kind:s	line:239
 em	vue.css	/^em {$/;"	kind:s	line:239
-fDes	Rscript/stata-like-functions.R	/^fDes <- function(object, ...) {$/;"	kind:f	line:110	signature:(object, ...)
+f.temp	Rscript/stata-like-functions.R	/^    f.temp <- function(x) {$/;"	kind:f	line:96	function:fDes.data.frame	signature:(x)
+fDes	Rscript/stata-like-functions.R	/^fDes <- function(object, ...) {$/;"	kind:f	line:110	function:fDes.data.frame	signature:(object, ...)
 fDes.data.frame	Rscript/stata-like-functions.R	/^fDes.data.frame <- function(df, variable, label = NULL, na.rm = TRUE, $/;"	kind:f	line:73	signature:(df, variable, label = NULL, na.rm = TRUE, format = TRUE, digits = getOption ("digits"), nsmall = 3, width = 7, big.mark = ",")
 fDes.default	Rscript/stata-like-functions.R	/^fDes.default <- function(x, na.rm = TRUE, format = TRUE,$/;"	kind:f	line:52	signature:(x, na.rm = TRUE, format = TRUE, digits = getOption ("digits"), nsmall = 3L, width = 7L, big.mark = ",")
-fDrop	Rscript/stata-like-functions.R	/^fDrop <- function(pattern, regex = FALSE) {$/;"	kind:f	line:155	signature:(pattern, regex = FALSE)
-fFormula	Rscript/stata-like-functions.R	/^fFormula <- function(dep, indep_ex, fe = NULL, cluster = NULL,$/;"	kind:f	line:115	signature:(dep, indep_ex, fe = NULL, cluster = NULL, indep_in = NULL, iv = NULL, method = "felm")
+fDrop	Rscript/stata-like-functions.R	/^fDrop <- function(pattern, regex = FALSE) {$/;"	kind:f	line:155	function:fDes.data.frame	signature:(pattern, regex = FALSE)
+fFormula	Rscript/stata-like-functions.R	/^fFormula <- function(dep, indep_ex, fe = NULL, cluster = NULL,$/;"	kind:f	line:115	function:fDes.data.frame	signature:(dep, indep_ex, fe = NULL, cluster = NULL, indep_in = NULL, iv = NULL, method = "felm")
+fGetDep	Rscript/kableReg.R	/^fGetDep <- function(objects) {$/;"	kind:f	line:40	function:fStringMatch	signature:(objects)
 fLabel	Rscript/stata-like-functions.R	/^fLabel <- function(df, variables, attri.list, attri = "label") {$/;"	kind:f	line:3	signature:(df, variables, attri.list, attri = "label")
 fLag	Rscript/panelFunction.R	/^fLag <- function(x, time, n = 1L) {$/;"	kind:f	line:30	signature:(x, time, n = 1L)
+fPrint	Rscript/kableReg.R	/^fPrint <- function(z, digits = getOption("digits"), nsmall = 3,$/;"	kind:f	line:45	function:fStringMatch	signature:(z, digits = getOption ("digits"), nsmall = 3, width = 7, big.mark = ",")
 fPrint	Rscript/stata-like-functions.R	/^fPrint <- function(z, digits = getOption("digits"), nsmall = 3,$/;"	kind:f	line:28	signature:(z, digits = getOption ("digits"), nsmall = 3, width = 7, big.mark = ",", na.replace = "n.a.")
 fStringMatch	Rscript/kableReg.R	/^fStringMatch <- function(x, sub_x, method = "exact") {$/;"	kind:f	line:2	signature:(x, sub_x, method = "exact")
 fTrans.dtaRds	Rscript/dta-rds.R	/^fTrans.dtaRds <- function(path, name = NULL) {$/;"	kind:f	line:2	signature:(path, name = NULL)
 fXTLag	Rscript/panelFunction.R	/^fXTLag <- function(panel.dt, varlist, n = 1L, new.dt = FALSE) {$/;"	kind:f	line:43	signature:(panel.dt, varlist, n = 1L, new.dt = FALSE)
 fXTSet	Rscript/panelFunction.R	/^fXTSet <- function(data, id, time) {$/;"	kind:f	line:5	signature:(data, id, time)
+fZipChar	Rscript/kableReg.R	/^fZipChar <- function(x) {$/;"	kind:f	line:18	function:fStringMatch	signature:(x)
 fc	index.html	/^<div id="fc"><P>我正在尝试进行一些代码高尔夫挑战，但它们都需要从<wyn>std/;"	kind:I	line:122
 field	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="ht/;"	kind:n	line:2	uri:urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0
 field	pandoc/odt/styles.xml	/^<office:document-styles xmlns:officeooo="http:\/\/openoffice.org\/2009\/office" xmlns:css3t="htt/;"	kind:n	line:2	uri:urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0
@@ -857,6 +865,7 @@ is_option_key	bin/fzfimg	/^function is_option_key [[ "${@}" =~ ^(\\-.*|\\+.*) ]]
 is_space_before_author_in_text	pandoc/filters/rsbc.lua	/^local function is_space_before_author_in_text(str, spc, cite)$/;"	kind:f	line:1
 items	bin/rofi-copyq	/^    items = []$/;"	kind:v	line:27	access:public
 json_arr	bin/rofi-copyq	/^    json_arr = json.loads(p.stdout)$/;"	kind:v	line:25	access:public
+kableReg	Rscript/kableReg.R	/^kableReg <- function($/;"	kind:f	line:70	function:fStringMatch	signature:(reg.list, style = "text", caption = NULL, label = NULL, align = NULL, escape = TRUE, note = NULL, LANG = NULL, column.name = NULL, var.drop = NULL, var.drop.method = "exact", var.keep = NULL, var.keep.method = "exact", var.order = NULL, var.order.method = "exact", var.label = NULL, single.row = FALSE, coef.alter = NULL, coef.se = TRUE, coef.t = FALSE, coef.p = FALSE, coef.star = c ("***.01", "**.05", "*.1"), digits.coef = 3L, digits.se = 3L, digits.p = 3L, digits.t = 2L, bracket.se = "()", bracket.t = "()", bracket.p = "[]", stat.obs = TRUE, stat.r2 = TRUE, stat.ar2 = FALSE, stat.other = NULL, stat.label = NULL, add.lines = list (), header.add.args = list (), multicolumn = TRUE, header.model = TRUE, header.model.args = list (), header.dependent = FALSE, header.dependent.args = list (), header.number = FALSE, header.number.args = list (), kable.args = list (), kable.style.args = list (), ...)
 kbd	pandoc/templates/github-pandoc.css	/^kbd,$/;"	kind:s	line:172
 kill	Study/silent-cron.pl6	/^        method kill($?) {}$/;"	kind:m	line:152
 label	pandoc/defaults/mvp.css	/^label {$/;"	kind:s	line:392
@@ -939,6 +948,7 @@ nav ul li:hover ul	pandoc/templates/mvp.css	/^nav ul li:hover ul {$/;"	kind:s	li
 navigation-toggle	index.html	/^				<a href="#sidr-main" id="navigation-toggle" class="bars">导航<\/a>	$/;"	kind:I	line:87
 newfile	testCollection.sh	/^newfile () {$/;"	kind:f	line:5
 nfgc-main-style-css	index.html	/^<link rel="stylesheet" id="nfgc-main-style-css" href="\/\/www.codenong.com\/wp-content\/themes\//;"	kind:I	line:27
+nobs.felm	Rscript/kableReg.R	/^nobs.felm <- function(objects) {$/;"	kind:f	line:36	function:fStringMatch	signature:(objects)
 notify	qutebrowser/qute-zotero	/^def notify(message):$/;"	kind:f	line:81	access:public	signature:(message)
 notify_error	qutebrowser/qute-zotero	/^def notify_error(message):$/;"	kind:f	line:85	access:public	signature:(message)
 num	bin/rofi-copyq	/^        num = p.stdout.strip()$/;"	kind:v	line:39	access:public
@@ -1283,5 +1293,6 @@ xsi	pandoc/odt/content.xml	/^<office:document-content xmlns:officeooo="http:\/\/
 zoteroapi	qutebrowser/qute-zotero	/^zoteroapi = "http:\/\/127.0.0.1:23119\/connector\/"$/;"	kind:v	line:26	access:public
 zshz	z.sh	/^zshz () {$/;"	kind:f	line:3
 关于python：如何从stdin中读取？	index.html	/^						<h1 class="entry-title">关于python：如何从stdin中读取？<\/h1>$/;"	kind:h	line:103
+测试	input.tex	/^\\section{测试}$/;"	kind:s	line:2
 码农家园	index.html	/^				<\/h1>$/;"	kind:h	line:81
 系统命令	LinuxCommand.md	/^## 系统命令$/;"	kind:s	line:3	chapter:Linux Commad

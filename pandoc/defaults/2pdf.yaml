@@ -7,6 +7,7 @@ highlight-style: "pygments"
 template: "eisvogel"
 listings: true
 pdf-engine: xelatex
+bibliography: "/home/liubianshi/Documents/paper_ref.bib"
 citeproc: true
 include-in-header:
     - "/home/liubianshi/useScript/header.tex"

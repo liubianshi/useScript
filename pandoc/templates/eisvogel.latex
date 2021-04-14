@@ -965,12 +965,12 @@ $if(has-frontmatter)$
 $endif$
 $if(title)$
 $if(beamer)$
-\frame{\titlepage}
+    \frame{\titlepage}
 $endif$
 $if(abstract)$
-\begin{abstract}
-$abstract$
-\end{abstract}
+    \begin{abstract}
+    $abstract$
+    \end{abstract}
 $endif$
 $endif$
 

@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -evx
 
 replace_etal () {
     perl -CSD -Mutf8 -i -pe \
@@ -11,6 +11,11 @@ adjust_html () {
     perl -CSD -Mutf8 -i -pe \
         's/([^A-Za-z,."'';])\s(<span class="citation" data\-cites="[^\w])/\1\2/g; \
         s/([^A-Za-z,."'';。 ； ， ： “ ”（ ） 、 ？ 《 》])(<span class="citation"[^>]+>(<a href=[^>]+>)?[A-Za-z])/\1 \2/g' "$1"
+}
+
+adjust_tex () {
+    perl -CSD -Mutf8 -i -pe 's/(``)([\w\p{P}\s]*\p{Han}+[\w\p{P}\s]*)('\'\'')/“\2”/g; \
+    s/(`)([\w\p{P}\s]*\p{Han}+[\w\p{P}\s]*)('\'')/‘\2’/g' "$1"
 }
 
 adjust_docx () {
@@ -33,13 +38,21 @@ adjust_docx () {
     cd -
 }
 
-while getopts ':ov' opt; do
+openfile=0
+current_dir=0
+rmd=0
+
+while getopts ':ovrc' opt; do
     case "$opt" in
         o)  openfile=1
             ;;
-        v) set -v
+        v)  set -v
             ;;
-        *)  echo "md2 [-o] <output-file> <input-file>"
+        r)  rmd=1
+            ;;
+        c)  current_dir=1
+            ;;
+        *)  echo "md2 [-ovr] <output-file> <input-file>"
             exit 1
             ;;
     esac
@@ -51,19 +64,40 @@ outtype="$1"
 infile=$(readlink -f "$2")
 outfile=$(basename "$infile")
 outfile="${outfile%.md}.$outtype"
-[ "$outtype" = "html" ] || {
+if [ $current_dir -eq 1 ]; then
+    outdir="$(pwd)"
+else
     outdir="$HOME/Documents/genfile/$(date +%F)"
-    mkdir -p "$outdir" && cd "$outdir" || exit 2
-}
+    mkdir -p "$outdir" || exit 2
+fi
 
-pandoc +RTS -M512M -RTS "$infile" -d2"$outtype" --lua-filter rsbc.lua -o "$outfile" || \
-    { echo "file transform failure"; exit 3; }
+if [ $rmd -eq 1 ]; then
+    Rlib=$(Rscript --vanilla -e 'cat(.libPaths()[1])')
+    pandoc +RTS -M512M -RTS "$infile" -o "$outdir/$outfile" \
+        --lua-filter "$Rlib/bookdown/rmarkdown/lua/custom-environment.lua" \
+        --lua-filter "$Rlib/rmarkdown/rmarkdown/lua/pagebreak.lua" \
+        --lua-filter "$Rlib/rmarkdown/rmarkdown/lua/latex-div.lua" \
+        --lua-filter rsbc.lua -d2"$outtype" --variable graphics  || \
+        { echo "file transform failure"; exit 3; }
+else
+    pandoc +RTS -M512M -RTS "$infile" -o "$outdir/$outfile" \
+        -d2"$outtype" $bookdown_lua_filter --lua-filter rsbc.lua || \
+        { echo "file transform failure"; exit 3; }
+fi
+
 case "$outtype" in
-    html) adjust_html "$outfile" ;;
-    docx) adjust_docx "$outfile" ;;
+    tex)
+        adjust_tex  "$outdir/$outfile"
+        latexmk -xelatex -quiet -outdir="$outdir" "$outdir/$outfile" 
+        outfile="${outfile%.tex}.pdf"
+        latexmk -c
+        rm "$outdir"/*.{bbl,xml,xdv}
+        ;;
+    html) adjust_html "$outdir/$outfile" ;;
+    docx) adjust_docx "$outdir/$outfile" ;;
 esac
 
-[ -z $openfile ] || nohup xdg-open "$outfile" >/dev/null 2>&1 &
+[ -z $openfile ] || nohup xdg-open "$outdir/$outfile" >/dev/null 2>&1 &
 
 exit 0
 

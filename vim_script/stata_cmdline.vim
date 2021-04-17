@@ -14,7 +14,7 @@ function! StataSourceLines(lines)
 endfunction
 
 let b:cmdline_nl = "\n"
-let b:cmdline_app = "stata-mp"
+let b:cmdline_app = "stata-se"
 let b:cmdline_quit_cmd = "exit"
 let b:cmdline_source_fun = function("StataSourceLines")
 let b:cmdline_send_empty = 0

@@ -1,0 +1,77 @@
+#!/usr/bin/env bash
+set -evx
+
+openfile=0
+current_dir=0
+rmd=0
+while getopts ':ovrc' opt; do
+    case "$opt" in
+        o)  openfile=1
+            ;;
+        v)  set -v
+            ;;
+        r)  rmd=1
+            ;;
+        c)  current_dir=1
+            ;;
+        *)  echo "md2 [-ovr] <output-file> <input-file>"
+            exit 1
+            ;;
+    esac
+done
+shift $((OPTIND - 1))
+
+[[ $# -eq 1 ]] || exit 1
+tempfile="/tmp/input.tex"
+bibfile="$HOME/Desktop/test.bib"
+template="$HOME/useScript/main.tex"
+#trap "unlink $tempfile" 0 15
+infile=$(readlink -f "$1")
+outfile=$(basename "$infile")
+outfile="${outfile%.md}.pdf"
+if [ $current_dir -eq 1 ]; then
+    outdir="$(pwd)"
+else
+    outdir="$HOME/Documents/genfile/$(date +%F)"
+    mkdir -p "$outdir" || exit 2
+fi
+
+# 通过 Pandoc 将 `input.md` 转换为使用 BibLaTeX 引用格式的 LaTeX 文件 `input.tex`
+if [ $rmd -eq 1 ]; then
+    Rlib=$(Rscript --vanilla -e 'cat(.libPaths()[1])')
+    pandoc +RTS -M512M -RTS "$infile" -o "$tempfile" --biblatex --wrap=none \
+        --lua-filter "$Rlib/bookdown/rmarkdown/lua/custom-environment.lua" \
+        --lua-filter "$Rlib/rmarkdown/rmarkdown/lua/pagebreak.lua" \
+        --lua-filter "$Rlib/rmarkdown/rmarkdown/lua/latex-div.lua" \
+        --variable graphics  || \
+        { echo "file transform failure"; exit 3; }
+else
+    pandoc +RTS -M512M -RTS --biblatex --wrap=none "$infile" -o "$tempfile" || \
+        { echo "file transform failure"; exit 3; }
+fi
+
+# 调整 `input.tex` 中包裹中文的双引号和单引号
+perl -CSD -Mutf8 -i -pe 's/(``)([\w\p{P}\s]*\p{Han}+[\w\p{P}\s]*)('\'\'')/“\2”/g; \
+s/(`)([\w\p{P}\s]*\p{Han}+[\w\p{P}\s]*)('\'')/‘\2’/g' "$tempfile"
+
+# 调整 `ref.bib` 中包裹西文的双引号
+#perl -CSD -Mutf8 -i -pe 's/([“"])([a-zA-Z0-9\{])/``\2/g; \
+#s/([a-zA-Z0-9\}])(["”])/\1'\'\''/g' ref.bib
+# 调整 `ref.bib` 中包裹西文的单引号
+#perl -CSD -Mutf8 -i -pe 's/([‘'\''])([a-zA-Z0-9\{])/`\2/g; \
+#s/([a-zA-Z0-9\}])(’)/\1'\''/g' ref.bib
+
+# 调整 `ref.bib` 中，英语名词所有格中的撇号
+#sed -i '' -E 's/([a-zA-Z0-9\}])([`‘’])s/\1'\''s/g' ref.bib
+
+# 调用 latexmk，通过 xelatex 编译 `main.tex`
+latexmk -xelatex -quiet -outdir="$outdir" "$template" 
+mv "$outdir/$(basename "$template" | sed -E 's/\.tex$/.pdf/')" "$outdir/$outfile"
+
+# 删除辅助文件
+latexmk -c
+rm "$outdir"/*.{bbl,xml,xdv}
+
+[ -z $openfile ] || nohup xdg-open "$outdir/$outfile" >/dev/null 2>&1 &
+
+exit 0

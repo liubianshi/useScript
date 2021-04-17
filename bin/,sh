@@ -1,6 +1,51 @@
 #!/usr/bin/env bash
+set -e
 
-cmd="help $@"
-Rscript -e "RStata::stata(\"$cmd\", stata.out = TRUE)" | less
+stata_path="$(readlink -f $(which stata-se) | xargs dirname)"
+ado_path="$stata_path/ado"
+ado_path_persional="$HOME/ado"
+pdf_path="$stata_path/docs"
+
+getfilename() {
+    local filelist
+
+    if which fd >/dev/null 2>&1; then
+        filelist=$(fd -L -e sthlp "$1" "$ado_path" "$ado_path_persional")
+    else
+        filelist=find "$ado_path" -name "*${1}*.sthlp"
+    fi
+
+    if [ $(wc -l <<<"$filelist") -gt 1 ]; then
+        echo "$filelist" | fzfmenu
+    elif [ $(wc -l <<<"$filelist") -eq 1 ]; then
+        echo "$filelist"
+    else
+        return 1
+    fi
+    return 0
+}
+
+getpdfinfo() {
+    grep -Pm 1 'mansection.*View complete PDF manual entry' "$1" | \
+        sed -E 's/.*mansection ([^:\}]*)[:\}].*$/\1/'
+}
+
+ado_file=$(getfilename $(IFS='_'; echo "$*"))
+[ -z $ado_file ] && exit 1
+
+pdf_info=($(getpdfinfo "$ado_file"))
+if [ ${#pdf_info[@]} -eq 2 ]; then
+    filename="$(tr A-Z a-z <<<${pdf_info[0]})"
+    sectionname="$filename${pdf_info[1]}"
+    filename="$(grep -Eo '^\w+' <<<$filename)"
+    $stata_path/stata_pdf -section "$sectionname" "$pdf_path/$filename.pdf"
+else
+    keyword=$(basename "$ado_file")
+    keyword=${keyword%.sthlp}
+    [ -f "/tmp/Stata_help_$keyword.pdf" ] || \
+        echo "translate \"$ado_file\" \"/tmp/Stata_help_$keyword.pdf\", translator(smcl2pdf)" | \
+            stata-se -q > /dev/null
+    zathura "/tmp/Stata_help_$keyword.pdf"
+fi
 
 exit 0

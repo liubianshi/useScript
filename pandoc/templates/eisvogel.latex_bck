@@ -424,36 +424,6 @@ $endif$
 $for(header-includes)$
 $header-includes$
 $endfor$
-
-%
-% language specification
-%
-% If no language is specified, use English as the default main document language.
-%
-$if(lang)$$else$
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
-  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=english]{babel}
-$if(babel-newcommands)$
-  $babel-newcommands$
-$endif$
-\else
-  $if(mainfont)$
-  $else$
-  % Workaround for bug in Polyglossia that breaks `\familydefault` when `\setmainlanguage` is used.
-  % See https://github.com/Wandmalfarbe/pandoc-latex-template/issues/8
-  % See https://github.com/reutenauer/polyglossia/issues/186
-  % See https://github.com/reutenauer/polyglossia/issues/127
-  \renewcommand*\familydefault{\sfdefault}
-  $endif$
-  % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
-  \usepackage{polyglossia}
-  \setmainlanguage[]{english}
-$for(polyglossia-otherlangs)$
-  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
-$endfor$
-\fi
-$endif$
-
 $if(lang)$
 \ifxetex
   $if(mainfont)$
@@ -560,6 +530,35 @@ $endif$
 %%
 %% added
 %%
+
+%
+% language specification
+%
+% If no language is specified, use English as the default main document language.
+%
+$if(lang)$$else$
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,$for(babel-otherlangs)$$babel-otherlangs$,$endfor$main=english]{babel}
+$if(babel-newcommands)$
+  $babel-newcommands$
+$endif$
+\else
+  $if(mainfont)$
+  $else$
+  % Workaround for bug in Polyglossia that breaks `\familydefault` when `\setmainlanguage` is used.
+  % See https://github.com/Wandmalfarbe/pandoc-latex-template/issues/8
+  % See https://github.com/reutenauer/polyglossia/issues/186
+  % See https://github.com/reutenauer/polyglossia/issues/127
+  \renewcommand*\familydefault{\sfdefault}
+  $endif$
+  % load polyglossia as late as possible as it *could* call bidi if RTL lang (e.g. Hebrew or Arabic)
+  \usepackage{polyglossia}
+  \setmainlanguage[]{english}
+$for(polyglossia-otherlangs)$
+  \setotherlanguage[$polyglossia-otherlangs.options$]{$polyglossia-otherlangs.name$}
+$endfor$
+\fi
+$endif$
 
 $if(page-background)$
 \usepackage[pages=all]{background}
@@ -965,12 +964,12 @@ $if(has-frontmatter)$
 $endif$
 $if(title)$
 $if(beamer)$
-    \frame{\titlepage}
+\frame{\titlepage}
 $endif$
 $if(abstract)$
-    \begin{abstract}
-    $abstract$
-    \end{abstract}
+\begin{abstract}
+$abstract$
+\end{abstract}
 $endif$
 $endif$
 

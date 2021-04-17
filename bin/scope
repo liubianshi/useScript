@@ -77,16 +77,11 @@ handle_extension() {
             exit 1;;
 
         md|Rmd|rmd)
-            if which glow >/dev/null 2>&1; then
-                glow -sdark "${FILE_PATH}" | less -R
-                exit 1
-            fi ;;
+            glow -sdark "${FILE_PATH}" | less -R
+            exit 1 ;;
         dta)
-            if Rscript -e 'library(RStata)' >/dev/null 2>&1; then
-                Rscript -e "RStata::stata('des using \"${FILE_PATH}\"')" | sed '1,3d'
-                exit 1
-            fi ;;
-
+            echo "des using \"${FILE_PATH}\"" | stata-se -q | sed '1,5d'
+            exit 1 ;;
         # HTML
         htm|html|xhtml)
             # Preview as text conversion
@@ -106,6 +101,10 @@ handle_extension() {
             ;;
         epub)
             epub2txt "${FILE_PATH}" | head -n 100 
+            exit 1
+            ;;
+        sthlp)
+            cat "${FILE_PATH}" | head -n 30
             exit 1
             ;;
     esac

@@ -4,8 +4,8 @@ program testreg, nclass
     *! use reghdfe for test regression analysis
     * parse syntax {{{1
     gettoken field 0 : 0, parse(", ")
-    syntax varlist(min=1 fv) [using] [if] [in], Test(varlist min=2 fv) ///
-        [fe(varlist) Accumulate replace noconstant vce(passthru) Other(string)]
+    syntax varlist(min=1 fv) [using/] [if] [in], Test(varlist min=1 fv ts) ///
+        [fe(varlist) Accumulate noCONstant vce(passthru) b(integer 3) noAR2 GAP noDEPvars * ]
     if !inlist("`field'", "dep", "core", "control", "fe", "sample") {
         display as error "subcommand must be dep, core, control, fe or sample"
         error 197
@@ -13,10 +13,10 @@ program testreg, nclass
     if `"`using'"' == "" {
         local file_ext "txt"
         if `"$TEMPDIR"' == "" {
-            local using = "using " + "/tmp/Stata_temp_output.`file_ext'"
+            local using = "/tmp/Stata_temp_output.`file_ext'"
         }
         else {
-            local using = "using " + `"$TEMPDIR"' + "/Stata_temp_output.`file_ext'"
+            local using = `"$TEMPDIR"' + "/Stata_temp_output.`file_ext'"
         }
     }
     preserve // handle regression {{{1
@@ -36,15 +36,29 @@ program testreg, nclass
                 local fixedeffects = "`fixedeffects' FE_`=ustrregexra("`femacro'", "[^\w]", "_")'"
             }
         }
-        if inlist("`field'", "dep", "fe") {
+        if inlist("`field'", "dep", "fe", "sample") {
             local varlist_order = "`varlist'"
         }
         else {
-            local varlist_order = "`test' `varlist'"
+            local varlist_order = "`varlist' `test'"
+        }
+        if "`field'" == "sample" {
+            fvexpand `test' if `basesample'
+            local test = r(varlist)
+            local test: subinstr local test "b." ".", all
+            local addnotes_sample = ""
+            local i = 1
+            foreach sample_index of local test {
+                local addnotes_sample = `"`addnotes_sample'"Model `i' limited the sample by `sample_index'." "'
+                local ++i
+            }
         }
         if "`fe'" != "" {
-            local add_notes: subinstr local fe " " ", ", all
-            local add_notes `"addnotes("All model absorbed `add_notes'.")"'
+            local addnotes_fe: subinstr local fe " " ", ", all
+            local addnotes_fe "All model absorbed `addnotes_fe'."
+        }
+        if `"`addnotes_sample'`addnotes_fe'"' != "" {
+            local add_notes = `"addnotes(`addnotes_sample' "`addnotes_fe'")"'
         }
         * loop test variables {{{2
         foreach t of local test {
@@ -77,25 +91,26 @@ program testreg, nclass
                 local absorb_option = "absorb(`absorb')"
             }
             * construct sample index {{{3
-            if "`filed'" == "sample" {
+            if "`field'" == "sample" {
                 tempvar sample
-                gen `sample' == `basesample' & `t'
+                gen `sample' = `basesample' & `t'
             }
             * run regress {{{3
             eststo, prefix("`R'") noesample: ///
-                reghdfe `dep' `indep' if `sample', ///
-                    `absorb_option' `noconstant' `vce' `other'
+                reghdfe `dep' `indep' if `sample', `absorb_option' `noconstant' `vce'
             * add extra macro {{{3
-            if "`field'" == "fe" {
-                local absvars = e(extended_absvars)
-                foreach femacro of local test {
-                    local femacro_value = "N"
-                    foreach absvar of local absvars {
-                        if `"`=ustrregexra("`femacro'", "i\.", "")'"' == "`absvar'" {
-                            local femacro_value = "Y"
+            quietly {
+                if "`field'" == "fe" {
+                    local absvars = e(extended_absvars)
+                    foreach femacro of local test {
+                        local femacro_value = "N"
+                        foreach absvar of local absvars {
+                            if `"`=ustrregexra("`femacro'", "i\.", "")'"' == "`absvar'" {
+                                local femacro_value = "Y"
+                            }
                         }
+                        estadd local FE_`=ustrregexra("`femacro'", "[^\w]", "_")' = "`femacro_value'"
                     }
-                    estadd local FE_`=ustrregexra("`femacro'", "[^\w]", "_")' = "`femacro_value'"
                 }
             }
         }
@@ -103,8 +118,11 @@ program testreg, nclass
         if "`fixedeffects'" != "" {
             local scalars = "scalars(`fixedeffects')"
         }
-        esttab `R'* `using', `replace' `scalars' `add_notes' ///
-            b(3) ar2 depvars nogap order(`varlist_order')
+        if "`ar2'" != "noar2"         local ar2 = "ar2"
+        if "`depvars'" != "nodepvars" local depvars = "depvars"
+        if "`gap'" == "gap"           local gap = "nogap"
+        esttab `R'* using `"`using'"', `replace' `scalars' `add_notes' ///
+            b(`b') `ar2' `depvars' `gap' order(`varlist_order') `options'
         * open result {{{2
         if "`c(os)'" == "Unix" {
             local shellout "xdg-open"
@@ -115,42 +133,34 @@ program testreg, nclass
         else if "`c(os)'" == "MacOSX" {
             local shellout "start"
         }
-        local tempfile `=ustrregexrf(`"`using'"', "^using ", "")'
-        winexec `shellout' `tempfile'
+         shell `shellout' "`using'" >& /dev/null &
     restore // }}}1
 end
 
 /* test
-
-
- */
+ 
 webuse nlswork, clear
 
-winexec st -e nvim +RainbowAlign /tmp/stata_preview.csv
+cap gen sample_index = inrange(_n, 1, 10000)
+
 
 set trace on
 set tracedepth 1
+testreg sample ln_w grade age ttl_exp tenure not_smsa south ///
+    using "/tmp/test sample.txt", ///
+    t(i.sample_index) fe(idcode year) append drop(grade) b(4)
+
+* fe
 testreg fe ln_w grade age ttl_exp tenure not_smsa south ///
-    using /tmp/test.html, ///
+    using /tmp/temp.rtf, ///
     t(idcode year occ idcode#occ) replace
 
+* control
+testreg control ln_w age ///
+    using "/tmp/test control.txt", ///
+    t(ttl_exp tenure not_smsa south) fe(idcode year) replace
 
-reghdfe ln_w grade age ttl_exp tenure not_smsa south , absorb(idcode year)
-reghdfe ln_w grade age ttl_exp tenure not_smsa south , absorb(idcode year occ)
-reghdfe ln_w grade age ttl_exp tenure not_smsa south , absorb(FE1=idcode FE2=year)
-reghdfe ln_w grade age ttl_exp tenure not_smsa , absorb(idcode occ) groupv(mobility_occ)
-reghdfe ln_w i.grade#i.age ttl_exp tenure not_smsa , absorb(idcode occ)
+*/
 
-reghdfe ln_w grade age ttl_exp tenure not_smsa , absorb(idcode#occ)
-ereturn list
-
-help reghdfe
-in 1/10
-
-
-local t "FE_i.idcode#i.occ_code"
-di "`=ustrregexra("`t'", "[^\w]", "_")'"
-
-help regexinstr
 
 

@@ -4,7 +4,7 @@
 runtime syntax/cmdlineoutput.vim
 
 " Input
-syn match cmdlineInput "^\. .*"
+syn match cmdlineInput "^\s*[>.] .*"
 
 " Errors and warnings
 syn match cmdlineError "^r\(.*\);"

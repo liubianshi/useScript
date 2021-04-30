@@ -2,6 +2,7 @@ cap program drop testreg
 program testreg, nclass
     version 14
     *! use reghdfe for test regression analysis
+
     * parse syntax {{{1
     gettoken field 0 : 0, parse(", ")
     syntax varlist(min=1 fv) [using/] [if] [in], Test(varlist min=1 fv ts) ///

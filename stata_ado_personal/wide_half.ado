@@ -8,14 +8,14 @@ program wide_half
     if "`newvar'" == "" & "`replace'" == "" {
         gen `varname'_half = `varname'
         local newvar = "`varname'_half"
-    }    
+    }
     else if "`newvar'" == "" & "`replace'" != "" local newvar = "`varname'"
     else {
         cap confirm variable `newvar'
         error !_rc
         gen `newvar' = `varname'
-    }    
-    
+    }
+
     replace `newvar' = subinstr(`newvar', "ａ", "a", .)
     replace `newvar' = subinstr(`newvar', "ｂ", "b", .)
     replace `newvar' = subinstr(`newvar', "ｃ", "c", .)

@@ -46,6 +46,9 @@ alias bdy='baidupcs'
 alias ,dl='aria2c'
 #}}}
 # 快捷命令{{{
+alias doom="$HOME/.emacs.d/bin/doom"
+alias ec='emacsclient -c -a "" &'
+alias sec='sudo emacsclient -c -a ""'
 alias vi='nvim -u NONE'
 alias O='rifle $(fzf-tmux --preview "scope {} 2>/dev/null")'
 alias P='fzf-tmux --preview "scope {} 2>/dev/null"'

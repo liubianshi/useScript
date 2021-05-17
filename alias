@@ -47,8 +47,8 @@ alias ,dl='aria2c'
 #}}}
 # 快捷命令{{{
 alias doom="$HOME/.emacs.d/bin/doom"
-alias ec='emacsclient -c -a "" &'
-alias sec='sudo emacsclient -c -a ""'
+alias ec='emacsclient -nc -a "" &'
+alias sec='sudo emacsclient -nc -a ""'
 alias vi='nvim -u NONE'
 alias O='rifle $(fzf-tmux --preview "scope {} 2>/dev/null")'
 alias P='fzf-tmux --preview "scope {} 2>/dev/null"'
@@ -73,6 +73,9 @@ alias help='tldr --theme ocean'
 alias fdn='rifle $(fd --changed-within=1w | P)'
 alias rmarkdown='~/useScript/rmarkdown.sh'
 alias pdfm='/home/liubianshi/.cxoffice/XP-32/desktopdata/cxmenu/StartMenu.C^5E3A_ProgramData_Microsoft_Windows_Start^2BMenu/Programs/PDF-XChange+PDF+Viewer/PDF-Viewer.lnk'
+word () {
+    nohup "/home/liubianshi/.cxoffice/XP-32/desktopdata/cxmenu/StartMenu.C^5E3A_users_crossover_Start^2BMenu/Programs/Microsoft+Office/Microsoft+Word+2010.lnk" "$@" >/dev/null 2>&1 &
+}
 alias tre='trans :en'
 alias trc='trans :cn'
 # }}}

@@ -47,7 +47,7 @@ alias ,dl='aria2c'
 #}}}
 # 快捷命令{{{
 alias doom="$HOME/.emacs.d/bin/doom"
-alias ec='emacsclient -nc -a "" &'
+alias ec='emacsclient -nc'
 alias sec='sudo emacsclient -nc -a ""'
 alias vi='nvim -u NONE'
 alias O='rifle $(fzf-tmux --preview "scope {} 2>/dev/null")'

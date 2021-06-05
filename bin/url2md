@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -eux
 
+digestDir="$HOME/Documents/Writing/Digest"
+
 Usage() {
     echo "$(basename "$0")" "<url>"
     exit 1
@@ -38,8 +40,8 @@ title="$(grep -E '^\s*<title>' "$tmpmd" | sed -En 's/\s*<title>(.*)<\/title>\s*$
 title="${title% --*}"
 
 # 根据标题是否存在分别处理
-mkdir -p "$HOME/Documents/Digest/"
-cd "$HOME/Documents/Digest/"
+mkdir -p "$digestDir"
+cd "$digestDir"
 if [[ -n $title ]]; then
     filename="$title.md"
     echo -e "# $title\n\n\n\n" > "$tmphtml"
@@ -56,5 +58,5 @@ else
     echo -e "[notitle]($url)\n==========\n\n" > "$tmphtml"
     pandoc -f html -t "${markdown:-markdown_strict}" -o "$tmpmd" >> "$tmphtml"
     prettier --parser 'markdown' --print-width 79 --prose-wrap 'always' "$tmphtml" | \
-        nvim +"set ft=pandoc; cd $HOME/Documents/Digest"
+        nvim +"set ft=pandoc; cd $digestDir"
 fi

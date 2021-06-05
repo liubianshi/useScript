@@ -46,6 +46,7 @@ alias bdy='baidupcs'
 alias ,dl='aria2c'
 #}}}
 # 快捷命令{{{
+alias phone='scrcpy -Sw --shortcut-mod=lalt'
 alias doom="$HOME/.emacs.d/bin/doom"
 alias ec='emacsclient -nc'
 alias sec='sudo emacsclient -nc -a ""'
@@ -61,7 +62,7 @@ alias mutt='proxychains -q neomutt'
 alias xstata='nohup /usr/local/bin/xstata-mp -q &'
 alias tmuxa='tmux a || tmux'
 alias cat='bat'
-alias ll='nnn -dxe'
+alias ll='exa -alh'
 alias cp='cp -i'
 alias mv='mv -i'
 alias wt='curl -sf wttr.in/Tianjin'

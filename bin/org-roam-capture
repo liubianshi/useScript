@@ -1,0 +1,52 @@
+#!/usr/bin/env bash
+
+set -evx
+__ScriptVersion="1.0"
+
+#===  FUNCTION  ================================================================
+#         NAME:  usage
+#  DESCRIPTION:  Display usage information.
+#===============================================================================
+function usage ()
+{
+    echo "Usage :  $0 [options] [--]
+
+    Options:
+    -h|help       Display this message
+    -v|version    Display script version"
+
+}    # ----------  end of function usage  ----------
+
+#-----------------------------------------------------------------------
+#  Handle command line arguments
+#-----------------------------------------------------------------------
+
+while getopts ":u:t:b:hv" opt; do
+  case $opt in
+    u          )  url=$OPTARG     ;;
+    t          )  title=$(echo $OPTARG | text2url) ;;
+    h|help     )  usage; exit 0   ;;
+    v|version  )  echo "$0 -- Version $__ScriptVersion"; exit 0   ;;
+    * )  echo -e "\n  Option does not exist : $OPTARG\n"
+          usage; exit 1   ;;
+  esac    # --- end of case ---
+done
+shift $(($OPTIND-1))
+
+
+([ -z "$url" ] || [ -z "$title" ]) && exit 0
+
+mkdir -p /tmp/org/
+if [ -z "$1" ]; then
+    xclip -o -sel clip -t text/html | pandoc -o /tmp/org/roam-capture.org -f html -t org
+else
+    inputfile=$1
+    cat $inputfile | pandoc -o /tmp/org/roam-capture.org -f html -t org
+fi
+
+orgProtocol="org-protocol://roam-ref?template=c&ref=$url&title=$title"
+
+emacsclient "${orgProtocol}"
+
+exit 0
+

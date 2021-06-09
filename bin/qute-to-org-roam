@@ -1,5 +1,0 @@
-#!/usr/bin/env bash
-
-xclip -o -sel clip -t text/html | org-roam-capture -t "$1" -u "$2"
-
-exit 0

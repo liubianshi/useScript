@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+[ $# -ne 1 ] && {
+    echo "$0 filename"
+    exit 1
+}
+fname="$1"
+mkdir -p /tmp/flameshot
+tmpf=$(mktemp -p /tmp/flameshot -t flshot-XXXX)
+trap "unlink $tmpf" 0 9 15
+
+flameshot gui --raw > "$tmpf"
+cp "$tmpf" "$fname"
+
+exit 0

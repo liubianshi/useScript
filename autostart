@@ -28,6 +28,7 @@ kdeconnect-indicator &
 nm-applet &
 xfce4-power-manager & 
 xbindkeys &
+dunst &
 
 # 开启输入法
 fcitx5 &

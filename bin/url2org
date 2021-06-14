@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+set -e
+
+digestDir="$HOME/Documents/Writing/Digest"
+update=0
+
+Usage() {
+    echo "$(basename "$0")" "<url>"
+    exit 1
+}
+
+while getopts ':t:uh' OPT; do
+    case $OPT in
+        t) title="$OPTARG" ;;
+        u) update=1 ;;
+        h) Usage;;
+        *) Usage;;
+    esac
+done
+shift $(( OPTIND - 1 ))
+
+[ $# -ne 1 ] && Usage
+url="$1"
+title=${title:-$(get_url_title "$url")}
+[ -z "$url" ] || [ -z "$title" ] && { echo "Cannot get title of $url"; exit 1; }
+
+
+mkdir -p "$digestDir"
+cd "$digestDir"
+filename=$(echo "$title" | sed -E 's![ :?'\''/|]!_!g').org
+
+if [ ! -f "$filename" ] || [ "$update" -eq 1 ]; then
+    tmphtml=$(mktemp /tmp/html2md.XXXXXX.html)
+    tmphtml2=$(mktemp /tmp/html2md.XXXXXX.html)
+    trap 'rm "$tmphtml" "$tmphtml2"' 0 1 15
+
+    # 根据 url 下载网页代码，如果代码非 utf-8 则进行转码
+    wget -qO "$tmphtml" "$url"
+    code="$(enca -L chinese "$tmphtml" | awk -F'; ' 'NR == 1 {print $2}')"
+    if [[ "$code" =~ ^(GB|BIG|HZ) ]]; then
+        cp "$tmphtml" "${tmphtml2}"
+        iconv -f gb18030 -t "UTF-8" "${tmphtml2}" > "$tmphtml"
+    fi
+
+    # 简化网页代码，获取网页标题
+    #"$HOME/useScript/html-simplify" "$tmphtml" > "$tmphtml2"
+    "$HOME/useScript/bin/readability" "$url" "$tmphtml" "$tmphtml2"
+
+    echo -e "#+title: $title\n#+date:$(date +%Y-%m-%d)\n#+roam_alias: \n#+roam_key=: $url\n#+roam_tags: \n\n" > "$filename"
+    pandoc -f html -t org "$tmphtml2" | \
+        sed -E '{
+                    s/^<<[^>]*>>//g
+                    s/\[{3}[^]]+\.gif\]{3}//g
+                    s/^\-+$//
+                }' | sed -E '/^$/{N;/\n$/D}' >> "$filename"
+fi
+
+nohup emacsclient "$filename" >/dev/null 2>&1 &
+
+exit 0

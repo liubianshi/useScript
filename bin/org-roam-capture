@@ -21,8 +21,9 @@ function usage ()
 #  Handle command line arguments
 #-----------------------------------------------------------------------
 
-while getopts ":u:t:b:hv" opt; do
+while getopts ":u:t:b:f:hv" opt; do
   case $opt in
+    f          )  format=$OPTARG  ;;
     u          )  url=$OPTARG     ;;
     t          )  title=$(echo $OPTARG | text2url) ;;
     h|help     )  usage; exit 0   ;;
@@ -33,15 +34,22 @@ while getopts ":u:t:b:hv" opt; do
 done
 shift $(($OPTIND-1))
 
-
-([ -z "$url" ] || [ -z "$title" ]) && exit 0
+[ -z "$title" ] && title=$(get_url_title "$url")
 
 mkdir -p /tmp/org/
 if [ -z "$1" ]; then
-    xclip -o -sel clip -t text/html | pandoc -o /tmp/org/roam-capture.org -f html -t org
+    if [ "$format" = "html" ]; then
+        xclip -o -sel clip -t text/html | pandoc -o /tmp/org/roam-capture.org -f $format -t org
+    else
+        xclip -o -sel clip -t text/plain | pandoc -o /tmp/org/roam-capture.org -f markdown -t org
+    fi
 else
     inputfile=$1
-    cat $inputfile | pandoc -o /tmp/org/roam-capture.org -f html -t org
+    if [ "$format" = "html" -o "$format" = "text/html" ]; then
+        cat $inputfile | pandoc -o /tmp/org/roam-capture.org -f html -t org
+    else
+        cat $inputfile | pandoc -o /tmp/org/roam-capture.org -t org
+    fi
 fi
 
 orgProtocol="org-protocol://roam-ref?template=c&ref=$url&title=$title"

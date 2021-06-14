@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
 set -eux
+usage() {
+    echo "Usage: $(basename "$0") [-p [<proxy>]] url filename"
+    exit 0
+}
 
 # proxy seting
 proxy=''
@@ -10,7 +14,7 @@ while getopts ':pP:k' OPT; do
         p) proxy="-p http://127.0.0.1:8118";;
         P) proxy="-p $OPTARG";;
         k) kindle="yes";;
-        *) echo "Usage: $(basename "$0") [-p [<proxy>]] url filename";;
+        *) usage ;;
     esac
 done
 shift $(( OPTIND - 1 ))
@@ -22,17 +26,23 @@ css_file="html-to-pdf.css"
 [[ "$1" =~ raku\.org/ ]] && css_file='raku.org.css'
 [[ "$1" =~ raku\.guide/ ]] && css_file='raku.org.css'
 
+if [ $# -lt 1 -o $# -gt 2 ]; then
+    usage
+else
+    url="$1"
+    [ $# -eq 2 ] && title="$2" || title="$(get_url_title $url)"
+fi
 
 if [[ $kindle = 'yes' ]]; then
-    /usr/bin/wkhtmltopdf "$proxy" \
+    /usr/bin/wkhtmltopdf $proxy \
         -L 0mm -R 0mm -T 0mm -B 0mm --no-background \
         --page-size A5 --user-style-sheet "$css_path/$css_file" \
-        "$1" "$HOME/Downloads/${2}-kindle.pdf"
+        "$url" "$HOME/Downloads/${title}-kindle.pdf"
 else
-    /usr/bin/wkhtmltopdf "$proxy" \
+    /usr/bin/wkhtmltopdf $proxy \
         -L 10mm -R 10mm -T 10mm -B 10mm --no-background \
         --user-style-sheet "$css_path/$css_file" \
-        "$1" "$HOME/Downloads/${2}.pdf"
+        "$url" "$HOME/Downloads/${title}.pdf"
 fi
 
 echo "Succeed!"

@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+set -e
+
+[ $# != 1 ] && { echo "Usage: $0 <url>"; exit 1; }
+
+bookmark="$HOME/Documents/Writing/bookmarks.org"
+url="$1"
+
+get-title-from-bookmark() {
+    grep -F "[$1]" "$bookmark" | sed -E 's!^\[\[[^]]+\]\[([^]]+)\]\]!\1!'
+    return 0
+}
+
+add-bookmark() {
+    printf "[[%s][%s]]\n" "$1" "$2" >> "$bookmark"
+    return 0
+}
+
+get-title-from-internet() {
+    local tmphtml1 code
+    tmphtml1=$(mktemp /tmp/source_XXXXXX.html)
+    trap "rm $tmphtml1" 0 1 15
+
+    proxychains -q wget -q -O "$tmphtml1" "$1"
+    code="$(enca -L chinese "$tmphtml1" | awk -F'; ' 'NR == 1 {print $2}')"
+
+    if [[ "$code" =~ ^(GB|BIG|HZ) ]]; then
+        iconv -f gb18030 -t "UTF-8" "$tmphtml1" | \
+            gawk -v IGNORECASE=1 -v RS='</title' 'RT{gsub(/.*<title[^>]*>/,""); print; exit}'
+    else
+        gawk -v IGNORECASE=1 -v RS='</title' 'RT{gsub(/.*<title[^>]*>/,""); print; exit}' "$tmphtml1"
+    fi
+    return 0
+}
+
+title=$(get-title-from-bookmark "$url")
+if [ -z "$title" ]; then
+    title=$(get-title-from-internet "$url")
+    [ -z "$title" ] && { echo "Cannot get title from $url"; exit 1; }
+    add-bookmark "$url" "$title"
+fi
+echo "$title"
+exit 0
+

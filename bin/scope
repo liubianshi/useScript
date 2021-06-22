@@ -14,7 +14,8 @@ IFS=$'\n'
 # 2    | plain text | Display the plain content of the file
 
 # Script arguments
-FILE_PATH="${1}"         # Full path of the highlighted file
+FILE_PATH="$1"         # Full path of the highlighted file
+shift
 
 FILE_EXTENSION="${FILE_PATH##*.}"
 FILE_EXTENSION_LOWER=$(echo ${FILE_EXTENSION} | tr '[:upper:]' '[:lower:]')
@@ -25,6 +26,24 @@ HIGHLIGHT_TABWIDTH=8
 HIGHLIGHT_STYLE='pablo'
 PYGMENTIZE_STYLE='monokai'
 
+# Preview Image Related
+draw() {
+    ~/.config/lf/draw_img.sh "$@"
+    exit 1
+}
+
+hash() {
+    printf '%s/.cache/lf/%s' "$HOME" \
+        "$(stat --printf '%n\0%i\0%F\0%s\0%W\0%Y' -- "$(readlink -f "$1")" | sha256sum | awk '{print $1}')"
+}
+
+cache() {
+    if [ -f "$1" ]; then
+        draw "$@"
+    fi
+}
+
+# 按照扩展名
 handle_extension() {
     case "${FILE_EXTENSION_LOWER}" in
         # Archive
@@ -104,7 +123,7 @@ handle_extension() {
             exit 1
             ;;
         sthlp)
-            cat "${FILE_PATH}" | head -n 30
+            head -n 30 "${FILE_PATH}" 
             exit 1
             ;;
     esac
@@ -160,9 +179,32 @@ handle_fallback() {
 }
 
 
-MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
 handle_extension
+MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
+
+if [ -n "$FIFO_UEBERZUG" ]; then
+  case "$(file -Lb --mime-type -- "${FILE_PATH}")" in
+    image/*)
+      orientation="$(identify -format '%[EXIF:Orientation]\n' -- "${FILE_PATH}")"
+      if [ -n "$orientation" ] && [ "$orientation" != 1 ]; then
+        cache="$(hash "${FILE_PATH}").jpg"
+        cache "$cache" "$@"
+        convert -- "${FILE_PATH}" -auto-orient "$cache"
+        draw "$cache" "$@"
+      else
+        draw "${FILE_PATH}" "$@"
+      fi
+      ;;
+    video/*)
+      cache="$(hash "${FILE_PATH}").jpg"
+      cache "$cache" "$@"
+      ffmpegthumbnailer -i "${FILE_PATH}" -o "$cache" -s 0
+      draw "$cache" "$@"
+      ;;
+  esac
+fi
+
 handle_mime "${MIMETYPE}"
 handle_fallback
 
-exit 1
+exit 0

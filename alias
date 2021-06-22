@@ -26,6 +26,24 @@ alias gmm='git commit -m'
 alias gpull='git pull'
 alias gpush='git push -u origin master'
 alias gs='git status'
+
+Gup() {
+    if [ $# -eq 1 ]; then
+        git status
+        git add --all
+        git commit -m "$1"
+        git push -u origin master
+    else
+        git status
+    fi
+    return 0
+}
+
+Gdown() {
+    git fetch origin
+    git merge origin master
+}
+
 #}}}
 # ssh 相关{{{
 alias ssh-ali='ssh liubianshi_ali@118.190.162.170'

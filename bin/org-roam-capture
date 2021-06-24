@@ -23,35 +23,36 @@ function usage ()
 
 while getopts ":u:t:b:f:hv" opt; do
   case $opt in
-    f          )  format=$OPTARG  ;;
-    u          )  url=$OPTARG     ;;
-    t          )  title=$(echo $OPTARG | text2url) ;;
-    h|help     )  usage; exit 0   ;;
-    v|version  )  echo "$0 -- Version $__ScriptVersion"; exit 0   ;;
-    * )  echo -e "\n  Option does not exist : $OPTARG\n"
+    f)  format=$OPTARG  ;;
+    u)  url=$OPTARG     ;;
+    t)  title=$(echo "$OPTARG" | text2url) ;;
+    h)  usage; exit 0   ;;
+    v)  echo "$0 -- Version $__ScriptVersion"; exit 0   ;;
+    *)  echo -e "\n  Option does not exist : $OPTARG\n"
           usage; exit 1   ;;
   esac    # --- end of case ---
 done
-shift $(($OPTIND-1))
+shift $((OPTIND-1))
 
 [ -z "$title" ] && title=$(get_url_title "$url")
 
 mkdir -p /tmp/org/
 if [ -z "$1" ]; then
     if [ "$format" = "html" ]; then
-        xclip -o -sel clip -t text/html | pandoc -o /tmp/org/roam-capture.org -f $format -t org
+        xclip -o -sel clip -t text/html | pandoc -o /tmp/org/roam-capture.org -f "$format" -t org
     else
         xclip -o -sel clip -t text/plain | pandoc -o /tmp/org/roam-capture.org -f markdown -t org
     fi
 else
     inputfile=$1
-    if [ "$format" = "html" -o "$format" = "text/html" ]; then
-        cat $inputfile | pandoc -o /tmp/org/roam-capture.org -f html -t org
+    if [ "$format" = "html" ] || [ "$format" = "text/html" ]; then
+        pandoc -o /tmp/org/roam-capture.org -f html -t org "$inputfile "
     else
-        cat $inputfile | pandoc -o /tmp/org/roam-capture.org -t org
+        pandoc -o /tmp/org/roam-capture.org -t org "$inputfile"
     fi
 fi
 
+url=$(echo "$url" | text2url)
 orgProtocol="org-protocol://roam-ref?template=c&ref=$url&title=$title"
 
 emacsclient "${orgProtocol}"

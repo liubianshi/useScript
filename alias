@@ -66,8 +66,8 @@ alias ,dl='aria2c'
 # 快捷命令{{{
 alias phone='scrcpy -Sw --shortcut-mod=lalt'
 alias doom="$HOME/.emacs.d/bin/doom"
-alias ec='emacsclient -nc'
-alias sec='sudo emacsclient -nc -a ""'
+alias ec='emacsclient -t -a ""'
+alias sec='sudo emacsclient -t -a ""'
 alias vi='nvim -u NONE'
 alias O='rifle $(fzf-tmux --preview "scope {} 2>/dev/null")'
 alias P='fzf-tmux --preview "scope {} 2>/dev/null"'

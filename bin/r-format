@@ -1,6 +1,13 @@
 #!/usr/bin/env dash
 
-Rscript --vanilla -e 'con <- file("stdin"); styler::style_text(readLines(con), transformers = styler::tidyverse_style(strict = FALSE, indent_by = 4)); close(con)'
+
+
+Rscript --vanilla -e "\
+    .libPaths(c('~/R/x86_64-pc-linux-gnu-library/lbs-lib', .libPaths()))
+    con <- file('stdin')
+    styler::style_text(readLines(con), transformers = styler::tidyverse_style(strict = FALSE, indent_by = 4))
+    close(con)
+"
 
 exit 0
 

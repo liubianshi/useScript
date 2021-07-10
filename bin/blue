@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -e
+
+device=$(bluetoothctl -- devices | fzf | cut -d' ' -f2)
+
+[ -z "$device" ] && exit 1
+
+error=$(bluetoothctl connect "$device" | grep -Ec '^Failed.*bluez\.Error')
+
+if [ "$error" -ne 0 ]; then
+    bluetoothctl power on
+    bluetoothctl connect "$device" 
+fi
+
+exit 0

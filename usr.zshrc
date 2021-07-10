@@ -231,3 +231,8 @@ fp () {
     return 0
 }
 
+# wrap unzip
+uzip() {
+    unzip -O gb18030 "$@"
+    return 0
+}

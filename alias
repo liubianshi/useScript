@@ -113,11 +113,12 @@ alias n2='dvtm nnn nnn'
 fcd () {
     local pos="down"
     [ $(tput cols) -ge 150 ] && pos="right"
-    local p=$(fd -t d "$@" | fzf-tmux --preview "exa -ahl --color=always {} 2>/dev/null" --preview-window="$pos")
+    local p=$(fasd -ald | fzf-tmux --preview "exa -ahl --color=always {} 2>/dev/null" --preview-window="$pos")
     [ -z $p ] && return 1
     cd "$p" && lf
     return 0
 }
+
 fnew () {
     local pos="down"
     [ $(tput cols) -ge 150 ] && pos="right"

@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+pos="down"
+[ "$(tput cols)" -ge 150 ] && pos="right"
+p=$(fasd -al | fzf-tmux -e --print-query --preview "exa -ahl --color=always {} 2>/dev/null" --preview-window="$pos")
+exit_code="$?"
+input=$(echo "$p" | sed -n '1p')
+p=$(echo "$p" | sed -n '2p')
+
+if [[ "$input" =~ ~$ ]]; then
+    input=${input%~*}
+    setsid "${EDITOR:-nvim}" "$input"
+    exit 0
+fi
+
+if [ "$exit_code" -eq 0 ]; then
+    if [ -d "$p" ]; then
+        lf "$p"
+    else
+        rifle "$p"
+    fi
+elif [ "$exit_code" -eq 130 ]; then
+    exit 130
+else
+    [ -z "$input" ] && exit 2
+    [ -f "$input" ] || {
+        setsid "${EDITOR:-nvim}" "$input"
+        exit 0
+    }
+fi
+exit 0

@@ -212,7 +212,7 @@ n () # cd on quit {{{2
     # stty lwrap undef
     # stty lnext undef
 
-    nnn "$@"
+    nnn -d "$@"
 
     if [ -f "$NNN_TMPFILE" ]; then
             . "$NNN_TMPFILE"

@@ -181,7 +181,7 @@ handle_fallback() {
 
 handle_extension
 MIMETYPE="$( file --dereference --brief --mime-type -- "${FILE_PATH}" )"
-FIFO_UEBERZUG=${FIFO_UEBERZUG:-""}
+
 if [ -n "$FIFO_UEBERZUG" ]; then
   case "$(file -Lb --mime-type -- "${FILE_PATH}")" in
     image/*)

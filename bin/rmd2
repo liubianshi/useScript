@@ -53,7 +53,7 @@ case "$1" in
         ;;
     beamer)
         out="rmarkdown::beamer_presentation"
-        opt='pandoc_args = "-drmd2beamer"'
+        opt='slide_level = 2, latex_engine = "xelatex", pandoc_args = "-drmd2beamer"'
         ext="pdf"
         ;;
     html)
